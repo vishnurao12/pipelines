@@ -6,3 +6,12 @@ resources:
       fileLocation: gs://pipelines_bucker_01
       fileName: test.sh # optional
      # fileDateTime: 01/01/2018 # optional
+
+pipelines:
+  - name: pipelines_auto
+    steps:
+      - name: sample
+        type: Bash
+        execution:
+          onExecute:
+            - printenv

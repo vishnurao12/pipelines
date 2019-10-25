@@ -1,12 +1,3 @@
-resources:
-  - name: r_RemoteFile_googleCloud
-    type: RemoteFile
-    configuration:      
-      source: i_gcpkey
-      fileLocation: gs://pipelines_bucker_01
-      fileName: test.sh # optional
-     # fileDateTime: 01/01/2018 # optional
-
 pipelines:
   - name: pipelines_auto
     steps:

@@ -5,3 +5,12 @@ resources:
       source: i_gcpkey
       fileName: test.sh # optional
       fileDateTime: 01/01/2018
+
+pipelines:
+  - name: pipelines_auto
+    steps:
+      - name: sample
+        type: Bash
+        execution:
+          onExecute:
+            - printenv

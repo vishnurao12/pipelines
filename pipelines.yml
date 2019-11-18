@@ -1,16 +1,30 @@
 resources:
-  - name: r_RemoteFile_googleCloud
-    type: RemoteFile
-    configuration:      
-      source: i_gcpkey
-      fileName: test.sh # optional
-      fileDateTime: 01/01/2018
+
+  - name: S_Bash_0073_Aql
+    type: Aql
+    configuration:
+      sourceArtifactory: s_artifactory
+      query: items.find({"@build.name":{"$eq":"art"}})
+      addedProperties:
+        key1: value1
+        key2: value2
+      mappings:
+        - name: mapping1
+          input: IN
+          output: test1
+        - name: mapping2
+          input: IN
+          output: test2
 
 pipelines:
-  - name: pipelines_auto
+  - name: pipelines_S_Bash_0073
     steps:
-      - name: sample
+      - name: S_Bash_0073
         type: Bash
+        configuration:
+          inputResources:
+            - name: S_Bash_0073_Aql
+              trigger: true
         execution:
           onExecute:
             - printenv

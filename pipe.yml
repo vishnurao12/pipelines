@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: vishnur_git
-      path: ~vishnurao12/pipelines
+      path: vishnurao12/pipelines
       files:  
         include: pipelines.yml
       

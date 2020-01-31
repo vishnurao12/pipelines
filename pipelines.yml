@@ -1,5 +1,5 @@
 pipelines:
-  - name: pipelines_auto12
+  - name: pipelines_auto121
     steps:
       - name: sample
         type: Bash

@@ -17,4 +17,4 @@ pipelines:
             - name: auto_GitRepotest
         execution:
           onExecute:
-            - echo hello
+            - echo hello!

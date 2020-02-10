@@ -3,9 +3,9 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: github_v
-      path: vishnurao12/pipelines/random
+      path: vishnurao12/pipelines
       files:  
-        include: test.sh
+        include: random/test.sh
 
 pipelines:
   - name: pipeline_git

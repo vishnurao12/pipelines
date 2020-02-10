@@ -1,0 +1,21 @@
+resources:
+  - name: auto_GitRepotest
+    type: GitRepo
+    configuration:
+      gitProvider: github_v
+      path: vishnurao12/pipelines/random
+      files:  
+        include: test.sh
+
+pipelines:
+  - name: pipeline_git
+    steps:   
+      - name: stepA
+        type: Bash
+        configuration:
+          inputResources:
+            - name: auto_GitRepotest
+        execution:
+          onExecute:
+            - printenv
+ 

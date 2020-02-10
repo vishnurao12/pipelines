@@ -1,1 +1,1 @@
-echo "new folder"
+echo "new folder!yes"

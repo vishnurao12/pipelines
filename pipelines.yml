@@ -1,30 +1,18 @@
-resources:
-
-  - name: S_Bash_0073_Aql
-    type: Aql
-    configuration:
-      sourceArtifactory: s_artifactory
-      query: items.find({"@build.name":{"$eq":"art"}})
-      addedProperties:
-        key1: value1
-        key2: value2
-      mappings:
-        - name: mapping1
-          input: IN
-          output: test1
-        - name: mapping2
-          input: IN
-          output: test2
-
 pipelines:
-  - name: pipelines_S_Bash_0073
+  - name: pipelines_auto1
     steps:
-      - name: S_Bash_0073
+      - name: myStep13
         type: Bash
-        configuration:
-          inputResources:
-            - name: S_Bash_0073_Aql
-              trigger: true
         execution:
           onExecute:
             - printenv
+
+      - name: myStep24
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: myStep13
+        execution:
+          onExecute:
+            - printenv
+

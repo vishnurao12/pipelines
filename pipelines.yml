@@ -7,11 +7,4 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: myStep2
-        type: Bash
-        configuration:
-          inputSteps: 
-            - name: myStep1
-        execution:
-          onExecute:
-            - printenv
+      

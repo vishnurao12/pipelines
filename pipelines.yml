@@ -14,5 +14,15 @@ pipelines:
         execution:
           onExecute:
             - printenv
+      - name: myStep3
+        type: Bash
+        configuration: 
+          inputSteps: 
+            - name: myStep2
+        execution:
+          onExecute:
+            - printenv
+
+
 
       

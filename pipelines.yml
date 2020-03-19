@@ -8,17 +8,17 @@ pipelines:
             - printenv
       - name: myStep2
         type: Bash
-        configuration: 
-          inputSteps: 
-            - name: myStep1
+        #configuration: 
+          #inputSteps: 
+            #- name: myStep1
         execution:
           onExecute:
             - printenv
       - name: myStep3
         type: Bash
-        configuration: 
-          inputSteps: 
-            - name: myStep2
+        #configuration: 
+         #inputSteps: 
+            #- name: myStep2
         execution:
           onExecute:
             - printenv

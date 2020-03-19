@@ -1,8 +1,17 @@
 pipelines:
-  - name: pipelines_auto121
+  - name: pipelines_auto1
     steps:
       - name: myStep1
         type: Bash
+        execution:
+          onExecute:
+            - printenv
+    steps:
+      - name: myStep2
+        type: Bash
+        configuration: 
+          inputSteps: 
+            - name: myStep1
         execution:
           onExecute:
             - printenv

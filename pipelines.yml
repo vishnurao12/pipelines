@@ -1,14 +1,27 @@
+resources:
+  - name: gitResource
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
 pipelines:
   - name: pipelines_auto1
     steps:
       - name: myStep1
         type: Bash
+        configuration: 
+          inputResources: # optional
+            - name: gitResource
+          #inputSteps: 
+            #- name: myStep1
         execution:
           onExecute:
             - printenv
       - name: myStep2
         type: Bash
-        #configuration: 
+        configuration: 
+          inputResources: # optional
+            - name: gitResource
           #inputSteps: 
             #- name: myStep1
         execution:
@@ -16,8 +29,10 @@ pipelines:
             - printenv
       - name: myStep3
         type: Bash
-        #configuration: 
-         #inputSteps: 
+        configuration: 
+          inputResources: # optional
+            - name: gitResource
+          #inputSteps: 
             #- name: myStep2
         execution:
           onExecute:

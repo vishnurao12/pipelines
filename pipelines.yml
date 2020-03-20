@@ -14,9 +14,9 @@ pipelines:
             - name: gitResource
           #inputSteps: 
             #- name: myStep1
-          Runtime: # optional            
+          runtime:
             type: image
-            image: # should be present if type is image
+            image:
               auto:
                 language: java
                 versions:

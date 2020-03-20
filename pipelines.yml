@@ -3,7 +3,7 @@
  #   type: GitRepo
  #   configuration:
  #     gitProvider: git_v
- 3     path: vishnurao12/pipelines
+ #     path: vishnurao12/pipelines
 pipelines:
   - name: pipelines_auto1
     steps:

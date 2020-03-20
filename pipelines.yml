@@ -14,6 +14,13 @@ pipelines:
             - name: gitResource
           #inputSteps: 
             #- name: myStep1
+          Runtime: # optional            
+            type: image
+            image: # should be present if type is image
+              auto:
+                language: java
+                versions:
+                  - 11
         execution:
           onExecute:
             - printenv

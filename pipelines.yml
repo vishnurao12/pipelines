@@ -24,6 +24,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - cat /var/lib/docker/image/aufs/repositories.json
      # - name: myStep2
       #  type: Bash
        # configuration: 

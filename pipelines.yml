@@ -25,6 +25,7 @@ pipelines:
         execution:
           onExecute:
             - $env
+            - get-variable
         #    - cat /var/lib/docker/image/aufs/repositories.json
      # - name: myStep2
       #  type: Bash

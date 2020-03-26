@@ -8,23 +8,23 @@ pipelines:
   - name: pipelines_auto1
     steps:
       - name: myStep1
-        type: Bash
+        type: PowerShell
         configuration: 
    #       inputResources: # optional
     #        - name: gitResource
           #inputSteps: 
             #- name: myStep1
-          runtime:
-            type: image
-            image:
-              auto:
-                language: java
-                versions:
-                  - 11
+         # runtime:
+           # type: image
+          #  image:
+          #    auto:
+           #     language: java
+           #     versions:
+             #     - 11
         execution:
           onExecute:
             - printenv
-            - cat /var/lib/docker/image/aufs/repositories.json
+        #    - cat /var/lib/docker/image/aufs/repositories.json
      # - name: myStep2
       #  type: Bash
        # configuration: 

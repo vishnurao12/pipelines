@@ -8,4 +8,4 @@ pipelines:
             type: host
         execution:
           onExecute:
-            - docker images
+            - docker images | docker.bintray.io/jfrog/pipelines-u18go

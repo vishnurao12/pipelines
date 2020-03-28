@@ -12,7 +12,10 @@ pipelines:
             - docker images | grep docker.bintray.io/jfrog/pipelines-u18go | grep 1.13.7
             - docker images | grep docker.bintray.io/jfrog/pipelines-u18go | grep 1.12.14
             - docker images | grep docker.bintray.io/jfrog/pipelines-u18go | grep 1.11.13 
-            - a=(vishnu rao)
-            - c=(1 2)
-            - for i in "${a[@]}"; do for j in "${c[@]}"; do echo $i $j; done; done  
+            - images=(docker.bintray.io/jfrog/pipelines-u18go docker.bintray.io/jfrog/pipelines-u18node docker.bintray.io/jfrog/pipelines-u18java docker.bintray.io/jfrog/pipelines-u18cpp)
+            - javatags=(8 11 13)
+            - gotags=(1.13.7 1.12.14 1.11.13)
+            - nodetags=(12.14.0 12.14.0 10.18.0)
+           # - for docker_images in "${images[@]}"; do for j in "${c[@]}"; do echo $i $j; done; done  
+            - for docker_images in "${images[@]}"; do case "$docker_images" in "docker.bintray.io/jfrog/pipelines-u18go") for tags in "${gotags[@]}"; do  docker images | grep $docker_images | grep $tags ; done ;; "docker.bintray.io/jfrog/pipelines-u18node") for tags in "${nodetags[@]}"; do  docker images | grep $docker_images | grep $tags ; done ;; esac; done
 

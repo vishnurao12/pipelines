@@ -13,8 +13,8 @@ pipelines:
             - docker images | grep docker.bintray.io/jfrog/pipelines-u18go | grep 1.12.14
             - docker images | grep docker.bintray.io/jfrog/pipelines-u18go | grep 1.11.13 
             - a=(vishnu rao)
-              c=(1 2)
-              for i in "${a[@]}"
+            - c=(1 2)
+            - for i in "${a[@]}"
                 do
                   for j in "${c[@]}"
                     do

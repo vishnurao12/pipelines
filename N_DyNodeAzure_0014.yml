@@ -8,4 +8,8 @@ pipelines:
             type: host
         execution:
           onExecute:
-            - docker images | grep docker.bintray.io/jfrog/pipelines-vishnu
+            - docker images
+            - docker images | grep docker.bintray.io/jfrog/pipelines-u18go | grep 1.13.7
+            - docker images | grep docker.bintray.io/jfrog/pipelines-u18go | grep 1.12.14
+            - docker images | grep docker.bintray.io/jfrog/pipelines-u18go | grep 1.11.13 
+

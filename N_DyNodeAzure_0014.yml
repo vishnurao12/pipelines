@@ -1,0 +1,11 @@
+pipelines:
+  - name: pipelines_auto1
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration: 
+          runtime:
+            type: host
+        execution:
+          onExecute:
+            - docker images

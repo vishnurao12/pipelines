@@ -5,7 +5,7 @@ pipelines:
       - name: testBash
         type: Bash
         configuration:
-          nodePool: 16dynamic
+          nodePool: u16dynamic
         execution:
           onExecute:
             - echo "hello!"

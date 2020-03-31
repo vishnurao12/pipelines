@@ -5,7 +5,7 @@ pipelines:
       - name: testBash
         type: Bash
         configuration:
-          nodePool: u16dynamic
+          nodePool: gcp_test1
         execution:
           onExecute:
             - echo "hello!"

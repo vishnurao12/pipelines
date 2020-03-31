@@ -1,20 +1,11 @@
-resources:
-  - name: auto_GitRepotest
-    type: GitRepo
-    configuration:
-      gitProvider: vishnur_git
-      path: vishnurao12/pipelines
-      files:  
-        include: pipelines.yml
-      
+
 pipelines:
   - name: sample
     steps:
       - name: testBash
         type: Bash
         configuration:
-          inputResources:
-            - name: auto_GitRepotest
+        nodePool: GCP_dynamic_nodePool
         execution:
           onExecute:
             - echo hello!

@@ -5,7 +5,7 @@
  #     gitProvider: git_v
  #     path: vishnurao12/pipelines
 pipelines:
-  - name: pipelines_auto1
+  - name: pipelines_test
     steps:
       - name: myStep1
         type: Bash

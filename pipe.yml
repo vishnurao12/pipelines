@@ -5,7 +5,7 @@ pipelines:
       - name: testBash
         type: Bash
         configuration:
-        #  nodePool: gcp_test1
+          nodePool: rhel7
           runtime: # optional            
             type: image
             image: # should be present if type is image

@@ -12,7 +12,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - 8
+                  - "8"
         
         execution:
           onExecute:

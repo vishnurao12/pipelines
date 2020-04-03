@@ -4,8 +4,16 @@ pipelines:
     steps:
       - name: testBash
         type: Bash
-      #  configuration:
+        configuration:
         #  nodePool: gcp_test1
+          Runtime: # optional            
+            type: image
+            image: # should be present if type is image
+              auto:
+                language: java
+                versions:
+                  - 8
+        
         execution:
           onExecute:
             - echo "hello!"

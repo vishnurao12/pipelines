@@ -24,7 +24,10 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - cat /var/lib/docker/image/aufs/repositories.json
+            - add_run_variables testvariable="asdffdjksfjk.    1"
+            - add_pipeline_variables test="kumar.      1" 
+            - add_run_variable testing="space "
+            - echo $test $testing $testvariable
      # - name: myStep2
       #  type: Bash
        # configuration: 

@@ -12,7 +12,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/multibranch
+      path: vishnurao12/Org_test_Automation
       branches:
         include: ^{master}$
       files:
@@ -21,7 +21,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/multibranch
+      path: vishnurao12/Org_test_Automation
       branches:
         include: ^{master}$
       files:
@@ -30,7 +30,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/multibranch
+      path: vishnurao12/Org_test_Automation
       branches:
         include: ^{master}$
       files:
@@ -39,7 +39,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/multibranch
+      path: vishnurao12/Org_test_Automation
       branches:
         include: ^{master}$
       files:
@@ -48,7 +48,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/multibranch
+      path: vishnurao12/Org_test_Automation
       branches:
         include: ^{master}$
       files:
@@ -57,7 +57,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/multibranch
+      path: vishnurao12/Org_test_Automation
       branches:
         include: ^{master}$
       files:
@@ -66,7 +66,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/multibranch
+      path: vishnurao12/Org_test_Automation
       branches:
         include: ^{master}$
       files:

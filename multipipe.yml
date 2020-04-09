@@ -6,8 +6,8 @@ resources:
       path: vishnurao12/Org_test_Automation
       branches:
         include: master
-      files:
-        include: tests/core/sampleExecutionFile/calc.py
+#       files:
+#         include: tests/core/sampleExecutionFile/calc.py
       buildOn:  # optional
          commit: true
 

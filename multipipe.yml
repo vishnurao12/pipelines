@@ -5,9 +5,9 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{master}$
+        include: master
       files:
-        include: ^(tests/core/sampleExecutionFile/calc.py)$
+        include: tests/core/sampleExecutionFile/calc.py
       buildOn:  # optional
          commit: true
 

@@ -16,7 +16,7 @@ resources:
       branches:
         include: ^{master}$
       files:
-      include: ^(tests/core/sampleExecutionFile/test_calc.py)$
+        include: ^(tests/core/sampleExecutionFile/test_calc.py)$
   - name: gitResource2
     type: GitRepo
     configuration:

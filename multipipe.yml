@@ -4,73 +4,73 @@ resources:
     configuration:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
-    branches:
-      include: ^{master}$
-    files:
-      include: ^(tests/core/sampleExecutionFile/calc.py)$
+      branches:
+        include: ^{master}$
+      files:
+        include: ^(tests/core/sampleExecutionFile/calc.py)$
   - name: gitResource1
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/multibranch
-    branches:
-      include: ^{master}$
-    files:
+      branches:
+        include: ^{master}$
+      files:
       include: ^(tests/core/sampleExecutionFile/test_calc.py)$
   - name: gitResource2
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/multibranch
-    branches:
-      include: ^{master}$
-    files:
-      include: ^(tests/yaml/A_Hooks.yml)$
+      branches:
+        include: ^{master}$
+      files:
+        include: ^(tests/yaml/A_Hooks.yml)$
   - name: gitResource3
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/multibranch
-    branches:
-      include: ^{master}$
-    files:
-      include: ^(tests/yaml/A_PipelineSteps.yml)$
+      branches:
+        include: ^{master}$
+      files:
+        include: ^(tests/yaml/A_PipelineSteps.yml)$
   - name: gitResource4
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/multibranch
-    branches:
-      include: ^{master}$
-    files:
-      include: ^(tests/yaml/A_RunResourceVersions.yml)$
+      branches:
+        include: ^{master}$
+      files:
+        include: ^(tests/yaml/A_RunResourceVersions.yml)$
   - name: gitResource5
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/multibranch
-    branches:
-      include: ^{master}$
-    files:
-      include: ^(tests/yaml/A_pipeline.yml)$
+      branches:
+        include: ^{master}$
+      files:
+        include: ^(tests/yaml/A_pipeline.yml)$
   - name: gitResource6
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/multibranch
-    branches:
-      include: ^{master}$
-    files:
-      include: ^(tests/yaml/A_pipelineSourceObjectPermissions.yml)$
+      branches:
+        include: ^{master}$
+      files:
+        include: ^(tests/yaml/A_pipelineSourceObjectPermissions.yml)$
   - name: gitResource7
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/multibranch
-    branches:
-      include: ^{master}$
-    files:
-      include: ^(tests/yaml/A_stepTestReports.yml)$
+      branches:
+        include: ^{master}$
+      files:
+        include: ^(tests/yaml/A_stepTestReports.yml)$
 pipelines:
   - name: pipelines_test
     steps:

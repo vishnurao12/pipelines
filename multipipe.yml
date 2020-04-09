@@ -8,6 +8,9 @@ resources:
         include: ^{master}$
       files:
         include: ^(tests/core/sampleExecutionFile/calc.py)$
+      buildOn:  # optional
+         commit: true
+
   - name: gitResource1
     type: GitRepo
     configuration:
@@ -17,6 +20,9 @@ resources:
         include: ^{master}$
       files:
         include: ^(tests/core/sampleExecutionFile/test_calc.py)$
+      buildOn:  # optional
+         pullRequestCreate: true
+
   - name: gitResource2
     type: GitRepo
     configuration:
@@ -26,6 +32,9 @@ resources:
         include: ^{master}$
       files:
         include: ^(tests/yaml/A_Hooks.yml)$
+      buildOn:  # optional
+         pullRequestClose: true
+
   - name: gitResource3
     type: GitRepo
     configuration:

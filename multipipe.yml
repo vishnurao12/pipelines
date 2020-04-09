@@ -1,0 +1,103 @@
+resources:
+  - name: gitResource
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/multibranch
+    branches:
+      include: ^{{gitBranch}}$
+    files:
+      include: ^(sample1.yml)$
+  - name: gitResource1
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/multibranch
+    files:
+      include: ^(sample2.yml)$
+  - name: gitResource2
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/multibranch
+    files:
+      include: ^(sample3.yml)$
+  - name: gitResource3
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/multibranch
+    files:
+      include: ^(sample4.yml)$
+  - name: gitResource4
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/multibranch
+    files:
+      include: ^(sample4.yml)$
+  - name: gitResource5
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/multibranch
+    files:
+      include: ^(sample5.yml)$
+  - name: gitResource6
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/multibranch
+    files:
+      include: ^(sample5.yml)$
+  - name: gitResource7
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/multibranch
+    files:
+      include: ^(sample6.yml)$
+pipelines:
+  - name: pipelines_test
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration: 
+          inputResources: # optional
+            - name: gitResource
+          #inputSteps: 
+            #- name: myStep1
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - 11
+        execution:
+          onExecute:
+            - printenv
+            - add_run_variables testvariable="asdffdjksfjk.    1"
+            - add_pipeline_variables test="kumar.      1" 
+            - add_run_variable testing="space "
+            - echo $test $testing $testvariable
+     # - name: myStep2
+      #  type: Bash
+       # configuration: 
+       #   inputResources: # optional
+       #     - name: gitResource
+          #inputSteps: 
+           # - name: myStep1
+       # execution:
+        #  onExecute:
+        #    - printenv
+     # - name: myStep3
+     #   type: Bash
+     #   configuration: 
+     #     inputResources: # optional
+     #       - name: gitResource
+        #  inputSteps: 
+         #   - name: myStep2
+     #   execution:
+      #   onExecute:
+       #     - printenv

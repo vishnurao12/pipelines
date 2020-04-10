@@ -18,7 +18,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{{gitbranch}}$
+        include: ^{{gitBranch}}$
       files:
         include: tests/core/sampleExecutionFile/test_calc.py
       buildOn:  # optional
@@ -30,7 +30,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{{gitbranch}}$
+        include: ^{{gitBranch}}$
       files:
         include: ^(tests/yaml/A_Hooks.yml)$
       buildOn:  # optional
@@ -42,7 +42,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{{gitbranch}}$
+        include: ^{{gitBranch}}$
       files:
         include: tests/yaml/A_PipelineSteps.yml
   - name: gitResource4
@@ -51,7 +51,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{{gitbranch}}$
+        include: ^{{gitBranch}}$
       files:
         include: tests/yaml/A_RunResourceVersions.yml
   - name: gitResource5
@@ -60,7 +60,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{{gitbranch}}$
+        include: ^{{gitBranch}}$
       files:
         include: tests/yaml/A_pipeline.yml
   - name: gitResource6
@@ -69,7 +69,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{{gitbranch}}$
+        include: ^{{gitBranch}}$
       files:
         include: tests/yaml/A_pipelineSourceObjectPermissions.yml
   - name: gitResource7
@@ -78,7 +78,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{{gitbranch}}$
+        include: ^{{gitBranch}}$
       files:
         include: tests/yaml/A_stepTestReports.yml
 pipelines:

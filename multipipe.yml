@@ -18,9 +18,9 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{master}$
+        include: ^{{gitBranch}}$
       files:
-        include: ^(tests/core/sampleExecutionFile/test_calc.py)$
+        include: tests/core/sampleExecutionFile/test_calc.py
       buildOn:  # optional
          pullRequestCreate: true
 
@@ -30,7 +30,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{master}$
+        include: ^{{gitBranch}}$
       files:
         include: ^(tests/yaml/A_Hooks.yml)$
       buildOn:  # optional
@@ -42,45 +42,45 @@ resources:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{master}$
+        include: ^{{gitBranch}}$
       files:
-        include: ^(tests/yaml/A_PipelineSteps.yml)$
+        include: tests/yaml/A_PipelineSteps.yml
   - name: gitResource4
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{master}$
+        include: ^{{gitBranch}}$
       files:
-        include: ^(tests/yaml/A_RunResourceVersions.yml)$
+        include: tests/yaml/A_RunResourceVersions.yml
   - name: gitResource5
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{master}$
+        include: ^{{gitBranch}}$
       files:
-        include: ^(tests/yaml/A_pipeline.yml)$
+        include: tests/yaml/A_pipeline.yml
   - name: gitResource6
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{master}$
+        include: ^{{gitBranch}}$
       files:
-        include: ^(tests/yaml/A_pipelineSourceObjectPermissions.yml)$
+        include: tests/yaml/A_pipelineSourceObjectPermissions.yml
   - name: gitResource7
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/Org_test_Automation
       branches:
-        include: ^{master}$
+        include: ^{{gitBranch}}$
       files:
-        include: ^(tests/yaml/A_stepTestReports.yml)$
+        include: tests/yaml/A_stepTestReports.yml
 pipelines:
   - name: pipelines_test
     steps:

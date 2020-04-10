@@ -10,6 +10,7 @@ resources:
         include: tests/core/sampleExecutionFile/calc.py
       buildOn:  # optional
          commit: true
+#commit resource
 
   - name: gitResource1
     type: GitRepo

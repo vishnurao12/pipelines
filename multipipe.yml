@@ -1,166 +1,166 @@
-resources:
-  - name: gitResource
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      branches:
-        include: master
-      files:
-        include: tests/core/sampleExecutionFile/calc.py
-      buildOn:  # optional
-         commit: true
-#commit resource
+# resources:
+#   - name: gitResource
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       branches:
+#         include: master
+#       files:
+#         include: tests/core/sampleExecutionFile/calc.py
+#       buildOn:  # optional
+#          commit: true
+# #commit resource
 
-  - name: gitResource1
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      branches:
-        include: ^{{gitBranch}}$
-      files:
-        include: tests/core/sampleExecutionFile/test_calc.py
-      buildOn:  # optional
-         pullRequestCreate: true
+#   - name: gitResource1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       branches:
+#         include: ^{{gitBranch}}$
+#       files:
+#         include: tests/core/sampleExecutionFile/test_calc.py
+#       buildOn:  # optional
+#          pullRequestCreate: true
 
-  - name: gitResource2
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      branches:
-        include: ^{{gitBranch}}$
-      files:
-        include: ^(tests/yaml/A_Hooks.yml)$
-      buildOn:  # optional
-         pullRequestClose: true
+#   - name: gitResource2
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       branches:
+#         include: ^{{gitBranch}}$
+#       files:
+#         include: ^(tests/yaml/A_Hooks.yml)$
+#       buildOn:  # optional
+#          pullRequestClose: true
 
-  - name: gitResource3
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      branches:
-        include: ^{{gitBranch}}$
-      files:
-        include: tests/yaml/A_PipelineSteps.yml
-  - name: gitResource4
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      branches:
-        include: ^{{gitBranch}}$
-      files:
-        include: tests/yaml/A_RunResourceVersions.yml
-  - name: gitResource5
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      branches:
-        include: ^{{gitBranch}}$
-      files:
-        include: tests/yaml/A_pipeline.yml
-  - name: gitResource6
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      branches:
-        include: ^{{gitBranch}}$
-      files:
-        include: tests/yaml/A_pipelineSourceObjectPermissions.yml
-  - name: gitResource7
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      branches:
-        include: ^{{gitBranch}}$
-      files:
-        include: tests/yaml/A_stepTestReports.yml
-pipelines:
-  - name: pipelines_test
-    steps:
-      - name: myStep1
-        type: Bash
-        configuration: 
-          inputResources: # optional
-            - name: gitResource
-          #inputSteps: 
-            #- name: myStep1
-        execution:
-          onExecute:
-            - printenv
-      - name: myStep2
-        type: Bash
-        configuration: 
-          inputResources: # optional
-            - name: gitResource1
-          inputSteps: 
-            - name: myStep1
-        execution:
-          onExecute:
-            - printenv
-      - name: myStep3
-        type: Bash
-        configuration: 
-          inputResources: # optional
-            - name: gitResource2
-          inputSteps: 
-            - name: myStep2
-        execution:
-          onExecute:
-            - printenv
-      - name: myStep4
-        type: Bash
-        configuration: 
-          inputResources: # optional
-            - name: gitResource3
-          inputSteps: 
-            - name: myStep3
-        execution:
-          onExecute:
-            - printenv
-      - name: myStep5
-        type: Bash
-        configuration: 
-          inputResources: # optional
-            - name: gitResource4
-          inputSteps: 
-            - name: myStep4
-        execution:
-          onExecute:
-            - printenv
-      - name: myStep6
-        type: Bash
-        configuration: 
-          inputResources: # optional
-            - name: gitResource5
-          inputSteps: 
-            - name: myStep5
-        execution:
-          onExecute:
-            - printenv
-      - name: myStep7
-        type: Bash
-        configuration: 
-          inputResources: # optional
-            - name: gitResource6
-          inputSteps: 
-            - name: myStep6
-        execution:
-          onExecute:
-            - printenv
-      - name: myStep8
-        type: Bash
-        configuration: 
-          inputResources: # optional
-            - name: gitResource7
-          inputSteps: 
-            - name: myStep7
-        execution:
-          onExecute:
-            - printenv
+#   - name: gitResource3
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       branches:
+#         include: ^{{gitBranch}}$
+#       files:
+#         include: tests/yaml/A_PipelineSteps.yml
+#   - name: gitResource4
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       branches:
+#         include: ^{{gitBranch}}$
+#       files:
+#         include: tests/yaml/A_RunResourceVersions.yml
+#   - name: gitResource5
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       branches:
+#         include: ^{{gitBranch}}$
+#       files:
+#         include: tests/yaml/A_pipeline.yml
+#   - name: gitResource6
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       branches:
+#         include: ^{{gitBranch}}$
+#       files:
+#         include: tests/yaml/A_pipelineSourceObjectPermissions.yml
+#   - name: gitResource7
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       branches:
+#         include: ^{{gitBranch}}$
+#       files:
+#         include: tests/yaml/A_stepTestReports.yml
+# pipelines:
+#   - name: pipelines_test
+#     steps:
+#       - name: myStep1
+#         type: Bash
+#         configuration: 
+#           inputResources: # optional
+#             - name: gitResource
+#           #inputSteps: 
+#             #- name: myStep1
+#         execution:
+#           onExecute:
+#             - printenv
+#       - name: myStep2
+#         type: Bash
+#         configuration: 
+#           inputResources: # optional
+#             - name: gitResource1
+#           inputSteps: 
+#             - name: myStep1
+#         execution:
+#           onExecute:
+#             - printenv
+#       - name: myStep3
+#         type: Bash
+#         configuration: 
+#           inputResources: # optional
+#             - name: gitResource2
+#           inputSteps: 
+#             - name: myStep2
+#         execution:
+#           onExecute:
+#             - printenv
+#       - name: myStep4
+#         type: Bash
+#         configuration: 
+#           inputResources: # optional
+#             - name: gitResource3
+#           inputSteps: 
+#             - name: myStep3
+#         execution:
+#           onExecute:
+#             - printenv
+#       - name: myStep5
+#         type: Bash
+#         configuration: 
+#           inputResources: # optional
+#             - name: gitResource4
+#           inputSteps: 
+#             - name: myStep4
+#         execution:
+#           onExecute:
+#             - printenv
+#       - name: myStep6
+#         type: Bash
+#         configuration: 
+#           inputResources: # optional
+#             - name: gitResource5
+#           inputSteps: 
+#             - name: myStep5
+#         execution:
+#           onExecute:
+#             - printenv
+#       - name: myStep7
+#         type: Bash
+#         configuration: 
+#           inputResources: # optional
+#             - name: gitResource6
+#           inputSteps: 
+#             - name: myStep6
+#         execution:
+#           onExecute:
+#             - printenv
+#       - name: myStep8
+#         type: Bash
+#         configuration: 
+#           inputResources: # optional
+#             - name: gitResource7
+#           inputSteps: 
+#             - name: myStep7
+#         execution:
+#           onExecute:
+#             - printenv

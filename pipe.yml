@@ -1,8 +1,8 @@
 
 pipelines:
-  - name: sample/feature/branch
+  - name: sample_feature_branch
     steps:
-      - name: testBash/feature/branch
+      - name: testBash_feature_branch
         type: Bash
 #         configuration:
 #           nodePool: rhel7

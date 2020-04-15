@@ -2,7 +2,7 @@ resources:
   - name: auto_gitRepo123
     type: GitRepo
     configuration:
-      path: vishnurao12/pipelines
+      path: ~vishnur/sample_tests
       gitProvider: vishnur_git
       branches:
         include: ^master$
@@ -13,43 +13,46 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: vishnur_git
+            - name: gcpenvInt
           inputResources:
             - name: auto_gitRepo123
               trigger: False
         execution:
           onStart:
             - echo "hello"
-            - echo $int_vishnur_git
+            - pushd $res_auto_gitRepo123_resourcePath
+            - export pipeenv='gcp'
+            - cd tests
+            - ./test.sh
 
-      - name: step_2_test
-        type: Bash
-        configuration:
-          inputSteps: 
-            - name: step_1_test
-        execution:
-          onStart:
-            - printenv
+#       - name: step_2_test
+#         type: Bash
+#         configuration:
+#           inputSteps: 
+#             - name: step_1_test
+#         execution:
+#           onStart:
+#             - printenv
 
 
-  - name: testing_flow_2
-    steps:
-      - name: step_2_test
-        type: Bash
-        execution:
-          onStart:
-             - echo "hello"
-  - name: testing_flow_3
-    steps:
-      - name: step_3_test
-        type: Bash
-        execution:
-          onStart:
-             - echo "hello"
-  - name: testing_flow_4
-    steps:
-      - name: step_4_test
-        type: Bash
-        execution:
-          onStart:
-             - echo "hello"
+#   - name: testing_flow_2
+#     steps:
+#       - name: step_2_test
+#         type: Bash
+#         execution:
+#           onStart:
+#              - echo "hello"
+#   - name: testing_flow_3
+#     steps:
+#       - name: step_3_test
+#         type: Bash
+#         execution:
+#           onStart:
+#              - echo "hello"
+#   - name: testing_flow_4
+#     steps:
+#       - name: step_4_test
+#         type: Bash
+#         execution:
+#           onStart:
+#              - echo "hello"

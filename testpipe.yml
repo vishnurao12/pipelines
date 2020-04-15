@@ -1,0 +1,38 @@
+resources:
+  - name: auto_gitRepo123
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      gitProvider: vishnur_git
+      branches:
+        include: ^master$
+pipelines:
+  - name: testing_flow_1
+    steps:
+      - name: step_1_test
+        type: Bash
+        configuration:
+          inputResources:
+            - name: auto_gitRepo123
+              trigger: False
+        execution:
+          onStart:
+            - echo "hello"
+
+      - name: step_2_test
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: step_1_test
+        execution:
+          onStart:
+            - printenv
+
+pipelines:
+  - name: testing_flow_2
+    steps:
+      - name: step_2_test
+        type: Bash
+        execution:
+          onStart:
+             - echo "hello"

@@ -23,7 +23,7 @@ pipelines:
             - pushd $res_auto_gitRepo123_resourcePath
             - export pipeenv='gcp'
             - cd tests
-            - chmod +x tests
+            - chmod +x test.sh
             - ./test.sh
 
 #       - name: step_2_test

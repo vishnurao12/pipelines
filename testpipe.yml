@@ -12,12 +12,15 @@ pipelines:
       - name: step_1_test
         type: Bash
         configuration:
+          integrations:
+            - name: vishnur_git
           inputResources:
             - name: auto_gitRepo123
               trigger: False
         execution:
           onStart:
             - echo "hello"
+            - echo $int_vishnur_git
 
       - name: step_2_test
         type: Bash

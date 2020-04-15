@@ -36,3 +36,17 @@ pipelines:
         execution:
           onStart:
              - echo "hello"
+  - name: testing_flow_3
+    steps:
+      - name: step_3_test
+        type: Bash
+        execution:
+          onStart:
+             - echo "hello"
+  - name: testing_flow_4
+    steps:
+      - name: step_4_test
+        type: Bash
+        execution:
+          onStart:
+             - echo "hello"

@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       path: ~vishnur/sample_tests
-      gitProvider: vishnur_git
+      gitProvider: vishnur_bbs
       branches:
         include: ^master$
 pipelines:

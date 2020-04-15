@@ -28,7 +28,7 @@ pipelines:
           onStart:
             - printenv
 
-pipelines:
+
   - name: testing_flow_2
     steps:
       - name: step_2_test

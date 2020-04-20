@@ -1,17 +1,17 @@
-#resources:
- # - name: gitResource
- #   type: GitRepo
- #   configuration:
- #     gitProvider: git_v
- #     path: vishnurao12/pipelines
+resources:
+ - name: gitResource
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
 pipelines:
   - name: pipelines_test
     steps:
       - name: myStep1
         type: Bash
         configuration: 
-   #       inputResources: # optional
-    #        - name: gitResource
+         inputResources: # optional
+           - name: gitResource
           #inputSteps: 
             #- name: myStep1
           runtime:

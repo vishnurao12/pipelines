@@ -2,7 +2,7 @@
 pipelines:
   - name: sample
     steps:
-      - name: testBash
+      - name: testBash1
         type: Bash       
         execution:
           onExecute:

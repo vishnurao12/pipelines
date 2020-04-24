@@ -1,18 +1,18 @@
 
 pipelines:
-  - name: sample
+  - name: sample1
     steps:
-      - name: testBash
+      - name: testBash2
         type: Bash
-        configuration:
-          nodePool: rhel7
-          runtime: # optional            
-            type: image
-            image: # should be present if type is image
-              auto:
-                language: java
-                versions:
-                  - "8"
+#         configuration:
+#           nodePool: rhel7
+#           runtime: # optional            
+#             type: image
+#             image: # should be present if type is image
+#               auto:
+#                 language: java
+#                 versions:
+#                   - "8"
         
         execution:
           onExecute:

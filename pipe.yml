@@ -1,8 +1,8 @@
 
 pipelines:
-  - name: sample3
+  - name: sample3123
     steps:
-      - name: testBash3
+      - name: testBash3123
         type: Bash
 #         configuration:
 #           nodePool: rhel7

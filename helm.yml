@@ -6,10 +6,10 @@ resources:
       path: https://github.com/vishnurao12/tscharts
    
   - name: helm_repo
-     type:  HelmChart
+     type: HelmChart
      configuration:
        sourceArtifactory: art
-       repository:  helm-local
+       repository: helm-local
        chart: test
        version: 0.1
 

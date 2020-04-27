@@ -29,9 +29,13 @@ pipelines:
         execution:
           onStart:
             - echo "Preparing for work..."
+            - printenv
           onSuccess:
             - echo "Job well done!"
+            - printenv
           onFailure:
             - echo "uh oh, something went wrong"
+            - printenv
           onComplete: #always
             - echo "Cleaning up some stuff"
+            - printenv

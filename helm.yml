@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: https://github.com/vishnurao12/tscharts
+      path: https://github.com/vishnurao12/charts-repo-actions-demo
    
   - name: helm_repo
     type: HelmChart
@@ -19,7 +19,7 @@ pipelines:
       - name: helm_pub
         type: HelmPublish
         configuration:
-          chartPath: https://github.com/vishnurao12/tscharts/tree/master/alpine
+          chartPath: https://github.com/vishnurao12/charts-repo-actions-demo/tree/master/charts/dependencies-v1
  
           inputResources:
             - name: git_vishnu                    

@@ -1,0 +1,37 @@
+resources:
+  - name:       git_vishnu
+    type:       GitRepo
+    configuration:
+      gitProvider:  git_v
+      path:         https://github.com/vishnurao12/tscharts
+   
+  - name:       helm_repo
+     type:      HelmChart
+     configuration:
+       sourceArtifactory:    art
+       repository:           helm-local
+       chart:                test
+       version:              0.1
+
+pipelines:
+  - name:   test_helm
+    steps:
+      - name: helm_pub
+        type: HelmPublish
+        configuration:
+          chartPath: https://github.com/vishnurao12/tscharts/tree/master/alpine
+ 
+          inputResources:
+            - name: git_vishnu                    
+          outputResources:
+            - name: helm_repo                  # required
+ 
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+          onSuccess:
+            - echo "Job well done!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete: #always
+            - echo "Cleaning up some stuff"

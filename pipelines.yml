@@ -9,7 +9,7 @@ pipelines:
     steps:
       - name: myStep112
         type: Bash
-        configuration: 
+#         configuration: 
 #          inputResources: # optional
 #            - name: gitResource
           #inputSteps: 

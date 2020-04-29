@@ -6,7 +6,7 @@ resources:
      path: vishnurao12/pipelines
      files: 
        include: ^README.md$
-     branch:
+     branches:
        include: ^master$
 pipelines:
   - name: testing_123

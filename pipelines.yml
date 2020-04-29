@@ -1,26 +1,26 @@
-# resources:
-#  - name: gitResource
-#    type: GitRepo
-#    configuration:
-#      gitProvider: git_v
-#      path: vishnurao12/pipelines
+resources:
+ - name: gitResource
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
 pipelines:
   - name: testing_123
     steps:
       - name: myStep112
         type: Bash
         configuration: 
-#          inputResources: # optional
-#            - name: gitResource
+         inputResources: # optional
+           - name: gitResource
           #inputSteps: 
             #- name: myStep1
-          runtime:
-            type: image
-            image:
-              auto:
-                language: java
-                versions:
-                  - 11
+#           runtime:
+#             type: image
+#             image:
+#               auto:
+#                 language: java
+#                 versions:
+#                   - 11
         execution:
           onExecute:
             - printenv

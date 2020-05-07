@@ -33,8 +33,8 @@ pipelines:
         configuration: 
          inputResources: # optional
            - name: gitResource1
-          inputSteps: 
-            - name: myStep112
+         inputSteps: 
+           - name: myStep112
         execution:
           onExecute:
             - printenv

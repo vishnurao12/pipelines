@@ -14,6 +14,7 @@ resources:
    configuration:  
      fakegithubtoken: "secretkey"
      fakebbstoken: "secretkey"
+     sshtest: sshcheck
 
 pipelines:
   - name: testing_123

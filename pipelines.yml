@@ -8,7 +8,7 @@ resources:
        include: ^README.md$
      branches:
        include: ^master$
- - name: <string>
+ - name: Newresource
    type: PropertyBag 
    configuration:  
      key1: "value1"

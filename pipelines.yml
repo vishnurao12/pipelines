@@ -30,6 +30,7 @@ pipelines:
         configuration: 
          inputResources: # optional
            - name: gitResource
+           - name: Newresource
         execution:
           onExecute:
             - printenv

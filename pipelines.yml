@@ -8,40 +8,26 @@ resources:
        include: ^README.md$
      branches:
        include: ^master$
+
  - name: Newresource
    type: PropertyBag 
    configuration:  
      fakegithubtoken: "secretkey"
      fakebbstoken: "secretkey"
- - name: gitResource1
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^master$
+
 pipelines:
   - name: testing_123
     steps:
       - name: myStep112
         type: Bash
         configuration: 
+         integrations: # optional
+           - name: generic
          inputResources: # optional
            - name: gitResource
            - name: Newresource
         execution:
           onExecute:
             - printenv
-      - name: myStep1123
-        type: Bash
-        configuration: 
-         inputResources: # optional
-           - name: gitResource1
-         inputSteps: 
-           - name: myStep112
-        execution:
-          onExecute:
-            - printenv
+
 

@@ -11,8 +11,8 @@ resources:
  - name: Newresource
    type: PropertyBag 
    configuration:  
-     key1: "value1"
-     key2: "value2"
+     fakegithubtoken: "secretkey"
+     fakebbstoken: "secretkey"
  - name: gitResource1
    type: GitRepo
    configuration:

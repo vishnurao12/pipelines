@@ -1,5 +1,5 @@
 resources:
- - name: gitResource
+ - name: gitResource12
    type: GitRepo
    configuration:
      gitProvider: git_v
@@ -24,7 +24,7 @@ pipelines:
          integrations: # optional
            - name: generic
          inputResources: # optional
-           - name: gitResource
+           - name: gitResource12
            - name: Newresource
         execution:
           onExecute:

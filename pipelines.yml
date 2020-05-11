@@ -13,7 +13,7 @@ resources:
    type: PropertyBag 
    configuration:  
      "something": "secretkey1"
-     "fakebbstoken": "secretkey1" 
+     "": "secretkey1" 
 
 pipelines:
   - name: testing_123

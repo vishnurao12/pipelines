@@ -25,7 +25,7 @@ pipelines:
 #          integrations: # optional
 #            - name: generic
          inputResources: # optional
-           - name:gitResource123
+           - name: gitResource123
            - name: Newresource
         execution:
           onExecute:

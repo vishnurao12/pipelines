@@ -12,7 +12,7 @@ resources:
  - name: Newresource
    type: PropertyBag 
    configuration:  
-     : "secretkey"
+     "" : "secretkey"
      "fakebbstoken": "secretkey"
      "sshkey/INt": sshcheck 
 

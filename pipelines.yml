@@ -13,8 +13,7 @@ resources:
    type: PropertyBag 
    configuration:  
      "" : "secretkey"
-     "fakebbstoken": "secretkey"
-     "sshkey/INt": sshcheck 
+     "fakebbstoken": "secretkey" 
 
 pipelines:
   - name: testing_123

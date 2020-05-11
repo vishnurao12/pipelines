@@ -12,8 +12,8 @@ resources:
  - name: Newresource
    type: PropertyBag 
    configuration:  
-     "" : "secretkey"
-     "fakebbstoken": "secretkey" 
+     "": "secretkey1"
+     "fakebbstoken": "secretkey1" 
 
 pipelines:
   - name: testing_123

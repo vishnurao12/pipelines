@@ -1,54 +1,32 @@
-#resources:
- # - name: gitResource
- #   type: GitRepo
- #   configuration:
- #     gitProvider: git_v
- #     path: vishnurao12/pipelines
+resources:
+ - name: gitResource
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
+     files: 
+       include: ^README.md$
+     branches:
+       include: ^master$
+
+ - name: Newresource
+   type: PropertyBag 
+   configuration:  
+     "": "secretkey"
+     "fakebbstoken": "secretkey"
+     "sshkey/INt": sshcheck 
+
 pipelines:
-  - name: pipelines_test
+  - name: testing_123
     steps:
-      - name: myStep1
-        type: Bash
+      - name: myStep112
+        type: PowerShell
         configuration: 
-   #       inputResources: # optional
-    #        - name: gitResource
-          #inputSteps: 
-            #- name: myStep1
-          runtime:
-            type: image
-            image:
-              auto:
-                language: java
-                versions:
-                  - 11
+         integrations: # optional
+           - name: generic
+         inputResources: # optional
+           - name: gitResource
+           - name: Newresource
         execution:
           onExecute:
             - printenv
-            - add_run_variables testvariable="asdffdjksfjk.    1"
-            - add_pipeline_variables test="kumar.      1" 
-            - add_run_variable testing="space "
-            - echo $test $testing $testvariable
-     # - name: myStep2
-      #  type: Bash
-       # configuration: 
-       #   inputResources: # optional
-       #     - name: gitResource
-          #inputSteps: 
-           # - name: myStep1
-       # execution:
-        #  onExecute:
-        #    - printenv
-     # - name: myStep3
-     #   type: Bash
-     #   configuration: 
-     #     inputResources: # optional
-     #       - name: gitResource
-        #  inputSteps: 
-         #   - name: myStep2
-     #   execution:
-      #   onExecute:
-       #     - printenv
-
-
-
-      

@@ -12,7 +12,7 @@ resources:
  - name: Newresource
    type: PropertyBag 
    configuration:  
-     "": "secretkey1"
+     "something": "secretkey1"
      "fakebbstoken": "secretkey1" 
 
 pipelines:

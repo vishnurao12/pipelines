@@ -1,5 +1,5 @@
 resources:
- - name: gitResource
+ - name: gitResource123
    type: GitRepo
    configuration:
      gitProvider: git_v

@@ -13,7 +13,7 @@ resources:
    type: PropertyBag 
    configuration:  
      "something": "secretkey1"
-     "": "secretkey1" 
+     "": "secretkey2" 
 
 pipelines:
   - name: testing_123

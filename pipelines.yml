@@ -22,8 +22,7 @@ pipelines:
       - name: myStep112
         type: PowerShell
         configuration: 
-#          integrations: # optional
-#            - name: generic
+         nodePool: win_2019
          inputResources: # optional
            - name: gitResource123
            - name: Newresource

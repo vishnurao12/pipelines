@@ -12,9 +12,7 @@ resources:
  - name: Newresource
    type: PropertyBag 
    configuration:  
-     "": "secretkey"
      "fakebbstoken": "secretkey"
-     "sshkey/INt": sshcheck 
 
 pipelines:
   - name: testing_123

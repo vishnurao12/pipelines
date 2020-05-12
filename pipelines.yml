@@ -9,10 +9,10 @@ resources:
      branches:
        include: ^master$
 
- - name: Newresource
-   type: PropertyBag 
-   configuration:  
-     "fakebbstoken": "secretkey"
+#  - name: Newresource
+#    type: PropertyBag 
+#    configuration:  
+#      "fakebbstoken": "secretkey"
 
 pipelines:
   - name: testing_123

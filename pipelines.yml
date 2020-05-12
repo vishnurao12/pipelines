@@ -20,10 +20,9 @@ pipelines:
       - name: myStep112
         type: PowerShell
         configuration: 
-         nodePool: aws-u16-dyamic-nodes
+         nodePool: win-dyna-test
          inputResources: # optional
            - name: gitResource123
-           - name: Newresource
         execution:
           onExecute:
             - printenv

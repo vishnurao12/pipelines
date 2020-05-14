@@ -14,6 +14,7 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration: 
+         nodePool: u18-eu-west
          inputResources: # optional
            - name: gitResource
           #inputSteps: 

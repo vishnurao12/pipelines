@@ -1,28 +1,11 @@
-resources:
- - name: gitResource123
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^master$
-
-#  - name: Newresource
-#    type: PropertyBag 
-#    configuration:  
-#      "fakebbstoken": "secretkey"
 
 pipelines:
-  - name: testing_123
+  - name: pipeline_win_test
     steps:
-      - name: myStep112
+      - name: Southeast1_test
         type: PowerShell
-        configuration: 
-         nodePool: win-dyna-test
-         inputResources: # optional
-           - name: gitResource123
+        configuration:
+          nodePool: AWS_southeast
         execution:
           onExecute:
-            - printenv
+            - write-output  "executing step..."

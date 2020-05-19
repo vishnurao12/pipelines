@@ -1,0 +1,18 @@
+pipelines:
+  - name: sample3123
+    steps:
+      - name: testBash3123
+        type: Bash
+        configuration:
+          nodePool: c7dynamic
+#           runtime: # optional            
+#             type: image
+#             image: # should be present if type is image
+#               auto:
+#                 language: java
+#                 versions:
+#                   - "8"
+        
+        execution:
+          onExecute:
+            - echo "hello!"

@@ -5,7 +5,7 @@ pipelines:
       - name: testBash3123
         type: Bash
         configuration:
-          nodePool: rhel7
+          nodePool: AWS_southeast
 #           runtime: # optional            
 #             type: image
 #             image: # should be present if type is image

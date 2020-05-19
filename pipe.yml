@@ -4,8 +4,8 @@ pipelines:
     steps:
       - name: testBash3123
         type: Bash
-#         configuration:
-#           nodePool: rhel7
+        configuration:
+          nodePool: rhel7
 #           runtime: # optional            
 #             type: image
 #             image: # should be present if type is image

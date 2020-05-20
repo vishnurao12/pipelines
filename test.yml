@@ -5,7 +5,7 @@ pipelines:
       - name: testBash3123
         type: Bash
         configuration:
-          nodePool: u18dynamic
+          nodePool: c7dynamic
 #           runtime: # optional            
 #             type: image
 #             image: # should be present if type is image

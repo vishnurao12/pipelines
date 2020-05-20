@@ -5,7 +5,7 @@ pipelines:
       - name: Southeast1_test
         type: PowerShell
         configuration:
-          nodePool: win-dyna-default
+          nodePool: win_2019
         execution:
           onExecute:
             - write-output  "executing step..."

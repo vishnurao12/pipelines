@@ -9,7 +9,7 @@ resources:
     type: HelmChart
     configuration: 
       sourceArtifactory: varsha_art
-      repository: helm-local/
+      repository: helm-local
       chart: test
       version: 1.0.0
 

@@ -1,18 +1,18 @@
 
 pipelines:
-  - name: sample3123
+  - name: sample312
     steps:
-      - name: testBash3123
+      - name: testBash312
         type: Bash
-        configuration:
-          nodePool: u18dynamic
-#           runtime: # optional            
-#             type: image
-#             image: # should be present if type is image
-#               auto:
-#                 language: java
-#                 versions:
-#                   - "8"
+#         configuration:
+#           nodePool: u18dynamic
+# #           runtime: # optional            
+# #             type: image
+# #             image: # should be present if type is image
+# #               auto:
+# #                 language: java
+# #                 versions:
+# #                   - "8"
         
         execution:
           onExecute:

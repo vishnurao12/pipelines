@@ -5,7 +5,7 @@ pipelines:
       - name: win_2019
         type: PowerShell
         configuration:
-          nodePool: u18static
+          nodePool: win_2019
         execution:
           onExecute:
             - write-output  "executing step..."

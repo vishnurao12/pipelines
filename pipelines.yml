@@ -2,7 +2,7 @@
 pipelines:
   - name: pipeline_win_test
     steps:
-      - name: Southeast1_test
+      - name: win_2019
         type: PowerShell
         configuration:
           nodePool: u18static

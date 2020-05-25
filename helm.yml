@@ -15,6 +15,8 @@ resources:
 
 pipelines:
   - name: test_helm
+    configuration:
+      nodePool: win_2019
     steps:
       - name: helm_pub
         type: HelmPublish

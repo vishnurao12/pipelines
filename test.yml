@@ -3,8 +3,8 @@ pipelines:
     steps:
       - name: testBash3123
         type: Bash
-        configuration:
-          timeoutSeconds: 60
+#         configuration:
+#           timeoutSeconds: 60
 #           nodePool: aws
 #           runtime: # optional            
 #             type: image
@@ -17,4 +17,4 @@ pipelines:
         execution:
           onExecute:
             - echo "hello!"
-            - sleep 3m
+            - sleep 65m

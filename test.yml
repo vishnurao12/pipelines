@@ -3,7 +3,8 @@ pipelines:
     steps:
       - name: testBash3123
         type: Bash
-#         configuration:
+        configuration:
+          timeoutSeconds: 60
 #           nodePool: aws
 #           runtime: # optional            
 #             type: image

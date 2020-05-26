@@ -16,3 +16,4 @@ pipelines:
         execution:
           onExecute:
             - echo "hello!"
+            - sleep 3m

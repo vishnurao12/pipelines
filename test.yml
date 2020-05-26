@@ -3,8 +3,8 @@ pipelines:
     steps:
       - name: testBash3123
         type: Bash
-        configuration:
-          nodePool: aws
+#         configuration:
+#           nodePool: aws
 #           runtime: # optional            
 #             type: image
 #             image: # should be present if type is image

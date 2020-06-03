@@ -2,7 +2,7 @@ resources:
  - name: gitResource
    type: GitRepo
    configuration:
-     gitProvider: test_vishnu
+     gitProvider: git_v
      path: vishnurao12/pipelines
      files: 
        include: ^README.md$

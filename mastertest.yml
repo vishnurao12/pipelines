@@ -160,6 +160,20 @@ resources:
       buildName: npm+promote
       buildNumber: 1
 
+  - name: git_vishnu
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/charts
+   
+  - name: helm_repo
+    type: HelmChart
+    configuration: 
+      sourceArtifactory: art_v
+      repository: helm-local
+      chart: test
+      version: 1.0.0
+
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
@@ -439,3 +453,28 @@ pipelines:
             - name: connecting_resource
           outputResources:
             - name: npm_build_info_promoted
+
+      - name: helm_pub
+        type: HelmPublish
+        configuration:
+          chartPath: stable/tomcat
+ 
+          inputResources:
+            - name: git_vishnu 
+            - name: connecting_resource
+          outputResources:
+            - name: helm_repo                  # required
+ 
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+            - printenv
+          onSuccess:
+            - echo "Job well done!"
+            - printenv
+          onFailure:
+            - echo "uh oh, something went wrong"
+            - printenv
+          onComplete: #always
+            - echo "Cleaning up some stuff"
+            - printenv

@@ -140,6 +140,26 @@ resources:
       gitProvider: git_v
       path: vishnurao12/project-examples
 
+ - name: npmHelloWorld_repo
+    type: GitRepo
+    configuration:
+      path: vishnurao12/npmHelloWorld
+      gitProvider: git_v
+
+  - name: npm_build_info_publish1
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: npm_publish
+      buildNumber: 1
+  
+  - name: npm_build_info_promoted
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: npm+promote
+      buildNumber: 1
+
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
 pipelines:

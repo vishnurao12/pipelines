@@ -1,0 +1,22 @@
+resources:
+  - name: connecting_resource
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
+
+# need to add git_v,art_v integration. 
+pipelines:
+  - name: Master_test_pipe
+    steps:
+      - name: Upload_to_artifactory
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - jfrog rt u test.sh example-repo-local/setup/test.sh --insecure-tls

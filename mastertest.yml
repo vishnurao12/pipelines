@@ -140,7 +140,7 @@ resources:
       gitProvider: git_v
       path: vishnurao12/project-examples
 
- - name: npmHelloWorld_repo
+  - name: npmHelloWorld_repo
     type: GitRepo
     configuration:
       path: vishnurao12/npmHelloWorld

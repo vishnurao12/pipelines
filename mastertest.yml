@@ -103,7 +103,7 @@ resources:
   - name: gradle_repo
     type: GitRepo
     configuration:
-      gitProvider: art_v
+      gitProvider: git_v
       path: vishnurao12/project-examples
 
   - name: build_info_gradle

@@ -170,27 +170,27 @@ resources:
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
-    configuration:
-      nodePool: win_2019
+#     configuration:
+#       nodePool: win_2019
     steps:
-#       - name: Upload_to_artifactory
-#         type: Bash
-#         configuration:
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: connecting_resource
-#         execution:
-#           onExecute:
-# #             - echo automation > test.sh
-#             - jfrog rt u test.sh example-repo-local/setup/test.sh --insecure-tls
+      - name: Upload_to_artifactory
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - jfrog rt u test.sh example-repo-local/setup/test.sh --insecure-tls
 
       - name: To_build_Docker_Image
         type: DockerBuild
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
+          dockerImageName: 192.168.11.3:8082/docker-local/node 
           dockerImageTag: latest
           integrations:
             - name: art_v

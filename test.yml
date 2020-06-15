@@ -7,6 +7,7 @@ pipelines:
         configuration:
           integrations:
             - name: kubecon
+            - name: generic_kube
 #           nodePool: u16dynamic
 #           runtime: # optional            
 #             type: image
@@ -22,4 +23,6 @@ pipelines:
             - echo $int_kubecon_kubeconfig
             - echo ${int_kubecon_kubeconfig}
             - echo "${int_kubecon_kubeconfig}"
+            - echo ${int_generic_kube_kube}
+            - echo "${int_generic_kube_kube}"
             - printenv

@@ -18,14 +18,6 @@ resources:
         - name: "b"
           input: "regex"
           output: "$2/$1"
-          
-  - name: nsdocker_image
-    type: Image
-    configuration:
-      imageName: shippabledocker/jfreq
-      registry: docker_v
-      autoPull: true
-      imageTag: latest
       
   - name: ns_dockerbuild_gitRepo
     type: GitRepo
@@ -198,7 +190,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: ec2-18-232-118-117.compute-1.amazonaws.com:8082/docker-local/node 
+          dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
           dockerImageTag: latest
           integrations:
             - name: art_v

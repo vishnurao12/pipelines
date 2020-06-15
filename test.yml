@@ -22,3 +22,4 @@ pipelines:
             - echo $int_kubecon
             - echo ${int_kubecon}
             - echo "${int_kubecon}"
+            - printenv

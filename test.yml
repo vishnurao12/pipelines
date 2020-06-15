@@ -19,7 +19,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello!"
-            - echo $int_kubecon
-            - echo ${int_kubecon}
-            - echo "${int_kubecon}"
+            - echo $int_kubecon_kubeconfig
+            - echo ${int_kubecon_kubeconfig}
+            - echo "${int_kubecon_kubeconfig}"
             - printenv

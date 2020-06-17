@@ -1,5 +1,5 @@
 resources:
- - name: gitResource
+ - name: resource_pipelines123
    type: GitRepo
    configuration:
      gitProvider: git_v
@@ -14,44 +14,11 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration:
-         inputResources: # optional
-           - name: gitResource
-          #inputSteps: 
-            #- name: myStep1
-#           runtime:
-#             type: image
-#             image:
-#               auto:
-#                 language: java
-#                 versions:
-#                   - 11
+         inputResources: 
+           - name: resource_pipelines123
         execution:
           onExecute:
             - printenv
-#             - add_run_variables testvariable="asdffdjksfjk.    1"
-#             - add_pipeline_variables test="kumar.      1" 
-#             - add_run_variable testing="space "
-#             - echo $test $testing $testvariable
-     # - name: myStep2
-      #  type: Bash
-       # configuration: 
-       #   inputResources: # optional
-       #     - name: gitResource
-          #inputSteps: 
-           # - name: myStep1
-       # execution:
-        #  onExecute:
-        #    - printenv
-     # - name: myStep3
-     #   type: Bash
-     #   configuration: 
-     #     inputResources: # optional
-     #       - name: gitResource
-        #  inputSteps: 
-         #   - name: myStep2
-     #   execution:
-      #   onExecute:
-       #     - printenv
 
 
 

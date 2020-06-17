@@ -1,5 +1,5 @@
 resources:
- - name: gitResource12
+ - name: resource_pipelines123
    type: GitRepo
    configuration:
      gitProvider: git_v
@@ -8,27 +8,14 @@ resources:
        include: ^README.md$
      branches:
        include: ^master$
-
- - name: Newresource
-   type: PropertyBag 
-   configuration:  
-     "something": ""
-     "secretkey1": "secretkey2" 
-
 pipelines:
   - name: testing_123
     steps:
       - name: myStep112
         type: Bash
-        configuration: 
-         nodePool: u18-eu-west
-         integrations: # optional
-           - name: generic
-         inputResources: # optional
-           - name: gitResource12
-           - name: Newresource
+        configuration:
+         inputResources: 
+           - name: resource_pipelines123
         execution:
           onExecute:
             - printenv
-
-

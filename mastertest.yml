@@ -446,27 +446,27 @@ pipelines:
           outputResources:
             - name: npm_build_info_promoted
 
-      - name: helm_pub
-        type: HelmPublish
-        configuration:
-          chartPath: stable/tomcat
+#       - name: helm_pub
+#         type: HelmPublish
+#         configuration:
+#           chartPath: stable/tomcat
  
-          inputResources:
-            - name: git_vishnu 
-            - name: connecting_resource
-          outputResources:
-            - name: helm_repo                  # required
+#           inputResources:
+#             - name: git_vishnu 
+#             - name: connecting_resource
+#           outputResources:
+#             - name: helm_repo                  # required
  
-        execution:
-          onStart:
-            - echo "Preparing for work..."
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
 
-          onSuccess:
-            - echo "Job well done!"
+#           onSuccess:
+#             - echo "Job well done!"
 
-          onFailure:
-            - echo "uh oh, something went wrong"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
 
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"
 

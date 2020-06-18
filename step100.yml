@@ -1,0 +1,12 @@
+pipelines:
+  - name: extensionstest
+    steps:
+      - name: step100
+        type: sample
+        syntaxVersion: 0.0.1
+        configuration:              
+          foo: bar
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+            - printenv

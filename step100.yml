@@ -14,6 +14,8 @@ pipelines:
         syntaxVersion: 1.0.0
         configuration:              
           foo: bar
+          inputResources:
+            - name: step001
         execution:
           onStart:
             - echo "Preparing for work..."

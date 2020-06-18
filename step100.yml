@@ -1,3 +1,11 @@
+resources:
+  - name: step001
+    type: test
+    syntaxVersion: 0.0.1
+    configuration:      
+      test: foo
+      slack: slack_integration
+
 pipelines:
   - name: extensionstest
     steps:

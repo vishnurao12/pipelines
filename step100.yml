@@ -3,7 +3,7 @@ pipelines:
     steps:
       - name: step100
         type: sample
-        syntaxVersion: 0.0.1
+        syntaxVersion: 1.0.0
         configuration:              
           foo: bar
         execution:

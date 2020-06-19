@@ -32,7 +32,7 @@ pipelines:
         syntaxVersion: 1.1.1
         configuration:              
           # foo: bar
-          foo1 : "vishnu"
+          foo1 : "vishnulol"
           foo2 : 2
           foo3 : true
           foo4 : http://www.jfrog.com

@@ -5,6 +5,11 @@ resources:
     configuration:      
       test: foo
       slack: slack_integration
+  - name: connecting_resource
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
 
 pipelines:
   - name: extensionstest
@@ -16,6 +21,72 @@ pipelines:
           foo: bar
           inputResources:
             - name: step001
+            - name: connecting_resource
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+            - printenv
+
+  - name: extensionstest
+    steps:
+      - name: step100
+        type: sample
+        syntaxVersion: 1.1.1
+        configuration:              
+          foo: bar
+          foo1 : "vishnu"
+          foo2 : 2
+          foo3 : true
+          foo4 : http://www.jfrog.com
+          foo5 : temp@jfrog.com 
+          foo6 : 192.168.50.50
+          foo7 : 255.255.255.0
+          foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+          foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
+          foo10 : "a"
+          foo11 : "a7"
+          # foo12 :
+          # foo13 :
+          # foo14 :
+          # foo15 :
+          # foo16 :
+          # foo17 :
+          # foo18 :
+          # foo19 :
+          # foo20 :
+          # foo21 :
+          # foo22 :
+          # foo23 :
+          # foo24 :
+          # foo25 :
+          # foo26 :
+          # foo27 :
+          # foo28 :
+          # foo29 :
+          # foo30 :
+          # foo31 :
+          # foo32 :
+          # foo33 :
+          # foo34 :
+          # foo35 :
+          # foo36 :
+          # foo37 :
+          # foo38 :
+          # foo39 :
+          # foo40 :
+          # foo41 :
+          # foo42 :
+          # foo43 :
+          # foo44 :
+          # foo45 :
+          # foo46 :
+          # foo47 :
+          # foo48 :
+          # foo49 :
+          # foo50 :
+          inputResources:
+            # - name: step001
+            - name: connecting_resource
         execution:
           onStart:
             - echo "Preparing for work..."

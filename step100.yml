@@ -43,11 +43,27 @@ pipelines:
           foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
           foo10 : "a"
           foo11 : "a7"
-          # foo12 :
-          # foo13 :
-          # foo14 :
-          # foo15 :
-          # foo16 :
+          foo12 : 734
+          foo13 : 74.5
+          foo14 : 123e4567-e89b-12d3-a456-426614174000
+          foo15 : 
+            - "lolvishnu"
+            - "lol2"
+          foo30 : "vishnulol"
+          foo31 : "lol"
+          foo32 : "vishnu"
+          foo33 : "VISHNU"
+          foo34 : "sfafg"
+          foo35 : "vishnu"
+          foo36 : "asf"
+          foo37 : "mac"
+          foo38 : "mac"
+          foo39 : "Wed Nov 03 2011 00:00:00 GMT+1000"
+          foo40 : 6
+          foo41 : 4
+          foo16 : 
+            - 6
+            - 7
           # foo17 :
           # foo18 :
           # foo19 :
@@ -61,18 +77,7 @@ pipelines:
           # foo27 :
           # foo28 :
           # foo29 :
-          # foo30 :
-          # foo31 :
-          # foo32 :
-          # foo33 :
-          # foo34 :
-          # foo35 :
-          # foo36 :
-          # foo37 :
-          # foo38 :
-          # foo39 :
-          # foo40 :
-          # foo41 :
+
           # foo42 :
           # foo43 :
           # foo44 :
@@ -83,7 +88,7 @@ pipelines:
           # foo49 :
           # foo50 :
           inputResources:
-            # - name: step001
+            - name: step001
             - name: connecting_resource
         execution:
           onStart:

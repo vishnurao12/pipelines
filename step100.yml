@@ -27,8 +27,6 @@ pipelines:
             - echo "Preparing for work..."
             - printenv
 
-  - name: extensionstest
-    steps:
       - name: step100
         type: sample
         syntaxVersion: 1.1.1

@@ -114,8 +114,8 @@ pipelines:
             - "AA"
             - "BB"
           foo46 :
-            - "sfafff"
-            - "sfafff"
+            - "sfaf"
+            - "sfaf"
           foo47 :
             - "jfr"
             - "jjg"
@@ -208,8 +208,8 @@ pipelines:
               - "AA"
               - "BB"
             foo46 :
-              - "sfafff"
-              - "sfafff"
+              - "sfaf"
+              - "sfaf"
             foo47 :
               - "jfr"
               - "jjg"

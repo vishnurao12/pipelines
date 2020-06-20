@@ -1,12 +1,12 @@
 resources:
-  - name: connecting_resource
+  - name: connecting_resource_lang
     type: PropertyBag
     configuration:
       key1: value1
       key2: value2
 
 pipelines:
-  - name: node_test
+  - name: lang_test
     steps:
       - name: u18java8
         type: Bash
@@ -20,7 +20,7 @@ pipelines:
                 versions:
                   - "8"
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_lang
         execution:
           onExecute:
             - printenv
@@ -181,7 +181,7 @@ pipelines:
                 versions:
                   - "8"
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_lang
         execution:
           onExecute:
             - printenv
@@ -342,7 +342,7 @@ pipelines:
                 versions:
                   - "8"
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_lang
         execution:
           onExecute:
             - write-output "Hi"
@@ -535,7 +535,7 @@ pipelines:
                 versions:
                   - "8"
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_lang
         execution:
           onExecute:
             - printenv
@@ -664,7 +664,7 @@ pipelines:
                 versions:
                   - "8"
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_lang
         execution:
           onExecute:
             - printenv

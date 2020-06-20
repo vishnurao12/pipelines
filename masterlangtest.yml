@@ -470,7 +470,7 @@ pipelines:
                 versions:
                   - "8.0.0"
           inputSteps: 
-            - name: win_20191214
+            - name: win_2019817
         execution:
           onExecute:
             - write-output "Hi"

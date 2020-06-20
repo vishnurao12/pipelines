@@ -34,7 +34,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "8"
+                  - "11"
           inputSteps: 
             - name: u18java8
         execution:
@@ -56,7 +56,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-      - name: u18go1.13.7
+      - name: u18go1137
         type: Bash
         configuration:
           nodePool: u18
@@ -72,7 +72,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-      - name: u18go1.12.14
+      - name: u18go11214
         type: Bash
         configuration:
           nodePool: u18
@@ -84,11 +84,11 @@ pipelines:
                 versions:
                   - "1.12.14"
           inputSteps: 
-            - name: u18go1.13.7
+            - name: u18go1137
         execution:
           onExecute:
             - printenv
-      - name: u18go1.11.13
+      - name: u18go11113
         type: Bash
         configuration:
           nodePool: u18
@@ -100,11 +100,11 @@ pipelines:
                 versions:
                   - "1.11.13"
           inputSteps: 
-            - name: u18go1.12.14
+            - name: u18go11214
         execution:
           onExecute:
             - printenv
-      - name: u18node10.18.0
+      - name: u18node10180
         type: Bash
         configuration:
           nodePool: u18
@@ -116,11 +116,11 @@ pipelines:
                 versions:
                   - "10.18.0"
           inputSteps: 
-            - name: u18go1.11.13
+            - name: u18go11113
         execution:
           onExecute:
             - printenv
-      - name: u18node12.14.0
+      - name: u18node12140
         type: Bash
         configuration:
           nodePool: u18
@@ -132,11 +132,11 @@ pipelines:
                 versions:
                   - "12.14.0"
           inputSteps: 
-            - name: u18node10.18.0
+            - name: u18node10180
         execution:
           onExecute:
             - printenv
-      - name: u18cpp8.0.0
+      - name: u18cpp800
         type: Bash
         configuration:
           nodePool: u18
@@ -148,11 +148,11 @@ pipelines:
                 versions:
                   - "8.0.0"
           inputSteps: 
-            - name: u18node12.14.0
+            - name: u18node12140
         execution:
           onExecute:
             - printenv
-      - name: u18cpp9.0.0
+      - name: u18cpp900
         type: Bash
         configuration:
           nodePool: u18
@@ -164,7 +164,7 @@ pipelines:
                 versions:
                   - "9.0.0"
           inputSteps: 
-            - name: u18cpp8.0.0
+            - name: u18cpp800
         execution:
           onExecute:
             - printenv
@@ -195,7 +195,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "8"
+                  - "11"
           inputSteps: 
             - name: u16java8
         execution:
@@ -217,7 +217,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-      - name: u16go1.13.7
+      - name: u16go1137
         type: Bash
         configuration:
           nodePool: u16
@@ -233,7 +233,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-      - name: u16go1.12.14
+      - name: u16go11214
         type: Bash
         configuration:
           nodePool: u16
@@ -245,11 +245,11 @@ pipelines:
                 versions:
                   - "1.12.14"
           inputSteps: 
-            - name: u16go1.13.7
+            - name: u16go1137
         execution:
           onExecute:
             - printenv
-      - name: u16go1.11.13
+      - name: u16go11113
         type: Bash
         configuration:
           nodePool: u16
@@ -261,11 +261,11 @@ pipelines:
                 versions:
                   - "1.11.13"
           inputSteps: 
-            - name: u16go1.12.14
+            - name: u16go11214
         execution:
           onExecute:
             - printenv
-      - name: u16node10.18.0
+      - name: u16node10180
         type: Bash
         configuration:
           nodePool: u16
@@ -277,11 +277,11 @@ pipelines:
                 versions:
                   - "10.18.0"
           inputSteps: 
-            - name: u16go1.11.13
+            - name: u16go11113
         execution:
           onExecute:
             - printenv
-      - name: u16node12.14.0
+      - name: u16node12140
         type: Bash
         configuration:
           nodePool: u16
@@ -293,11 +293,11 @@ pipelines:
                 versions:
                   - "12.14.0"
           inputSteps: 
-            - name: u16node10.18.0
+            - name: u16node10180
         execution:
           onExecute:
             - printenv
-      - name: u16cpp8.0.0
+      - name: u16cpp800
         type: Bash
         configuration:
           nodePool: u16
@@ -309,11 +309,11 @@ pipelines:
                 versions:
                   - "8.0.0"
           inputSteps: 
-            - name: u16node12.14.0
+            - name: u16node12140
         execution:
           onExecute:
             - printenv
-      - name: u16cpp9.0.0
+      - name: u16cpp900
         type: Bash
         configuration:
           nodePool: u16
@@ -325,7 +325,7 @@ pipelines:
                 versions:
                   - "9.0.0"
           inputSteps: 
-            - name: u16cpp8.0.0
+            - name: u16cpp800
         execution:
           onExecute:
             - printenv
@@ -356,13 +356,13 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "8"
+                  - "11"
           inputSteps: 
             - name: win_2019java8
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_2019go1.13
+      - name: win_2019go113
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -372,13 +372,13 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13"
+                  - "11.3"
           inputSteps: 
             - name: win_2019java11
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_2019go1.12
+      - name: win_2019go112
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -390,11 +390,11 @@ pipelines:
                 versions:
                   - "1.12"
           inputSteps: 
-            - name: win_2019go1.13
+            - name: win_2019go113
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_2019go1.11
+      - name: win_2019go111
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -404,13 +404,13 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.11"
+                  - "11.1"
           inputSteps: 
-            - name: win_2019go1.12
+            - name: win_2019go112
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_201910.18
+      - name: win_20191018
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -422,11 +422,11 @@ pipelines:
                 versions:
                   - "10.18"
           inputSteps: 
-            - name: win_2019go1.11
+            - name: win_2019go111
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_201912.14
+      - name: win_20191214
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -438,11 +438,11 @@ pipelines:
                 versions:
                   - "12.14"
           inputSteps: 
-            - name: win_201910.18
+            - name: win_20191018
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_20198.17
+      - name: win_2019817
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -454,11 +454,11 @@ pipelines:
                 versions:
                   - "8.17"
           inputSteps: 
-            - name: win_201912.14
+            - name: win_20191214
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_2019cpp8.0.0
+      - name: win_2019cpp800
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -470,11 +470,11 @@ pipelines:
                 versions:
                   - "8.0.0"
           inputSteps: 
-            - name: win_201912.14
+            - name: win_20191214
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_2019cpp9.0.0
+      - name: win_2019cpp900
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -486,11 +486,11 @@ pipelines:
                 versions:
                   - "9.0.0"
           inputSteps: 
-            - name: win_2019cpp8.0.0
+            - name: win_2019cpp800
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_2019dotnet2.1
+      - name: win_2019dotnet21
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -502,11 +502,11 @@ pipelines:
                 versions:
                   - "2.1"
           inputSteps: 
-            - name: win_2019cpp9.0.0
+            - name: win_2019cpp900
         execution:
           onExecute:
             - write-output "Hi"
-      - name: win_2019dotnet3.1
+      - name: win_2019dotnet31
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -518,7 +518,7 @@ pipelines:
                 versions:
                   - "3.1"
           inputSteps: 
-            - name: win_2019dotnet2.1
+            - name: win_2019dotnet21
         execution:
           onExecute:
             - write-output "Hi"
@@ -549,13 +549,13 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "8"
+                  - "11"
           inputSteps: 
             - name: c7nodejava8
         execution:
           onExecute:
             - printenv
-      - name: c7nodego1.13.7
+      - name: c7nodego1137
         type: Bash
         configuration:
           nodePool: c7node
@@ -571,7 +571,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-      - name: c7nodego1.12.14
+      - name: c7nodego11214
         type: Bash
         configuration:
           nodePool: c7node
@@ -583,11 +583,11 @@ pipelines:
                 versions:
                   - "1.12.14"
           inputSteps: 
-            - name: c7nodego1.13.7
+            - name: c7nodego1137
         execution:
           onExecute:
             - printenv
-      - name: c7nodego1.11.13
+      - name: c7nodego11113
         type: Bash
         configuration:
           nodePool: c7node
@@ -599,11 +599,11 @@ pipelines:
                 versions:
                   - "1.11.13"
           inputSteps: 
-            - name: c7nodego1.12.14
+            - name: c7nodego11214
         execution:
           onExecute:
             - printenv
-      - name: c7node10.18.0
+      - name: c7node10180
         type: Bash
         configuration:
           nodePool: c7node
@@ -615,11 +615,11 @@ pipelines:
                 versions:
                   - "10.18.0"
           inputSteps: 
-            - name: c7nodego1.11.13
+            - name: c7nodego11113
         execution:
           onExecute:
             - printenv
-      - name: c7node12.14.0
+      - name: c7node12140
         type: Bash
         configuration:
           nodePool: c7node
@@ -631,11 +631,11 @@ pipelines:
                 versions:
                   - "12.14.0"
           inputSteps: 
-            - name: c7node10.18.0
+            - name: c7node10180
         execution:
           onExecute:
             - printenv
-      - name: c7nodecpp3.4.2
+      - name: c7nodecpp342
         type: Bash
         configuration:
           nodePool: c7node
@@ -647,7 +647,7 @@ pipelines:
                 versions:
                   - "3.4.2"
           inputSteps: 
-            - name: c7node12.14.0
+            - name: c7node12140
         execution:
           onExecute:
             - printenv
@@ -678,13 +678,13 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "8"
+                  - "11"
           inputSteps: 
             - name: rheljava8
         execution:
           onExecute:
             - printenv
-      - name: rhelgo1.13.7
+      - name: rhelgo1137
         type: Bash
         configuration:
           nodePool: rhel
@@ -700,7 +700,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-      - name: rhelgo1.12.14
+      - name: rhelgo11214
         type: Bash
         configuration:
           nodePool: rhel
@@ -712,11 +712,11 @@ pipelines:
                 versions:
                   - "1.12.14"
           inputSteps: 
-            - name: rhelgo1.13.7
+            - name: rhelgo1137
         execution:
           onExecute:
             - printenv
-      - name: rhelgo1.11.13
+      - name: rhelgo11113
         type: Bash
         configuration:
           nodePool: rhel
@@ -728,11 +728,11 @@ pipelines:
                 versions:
                   - "1.11.13"
           inputSteps: 
-            - name: rhelgo1.12.14
+            - name: rhelgo11214
         execution:
           onExecute:
             - printenv
-      - name: rhel10.18.0
+      - name: rhel10180
         type: Bash
         configuration:
           nodePool: rhel
@@ -744,11 +744,11 @@ pipelines:
                 versions:
                   - "10.18.0"
           inputSteps: 
-            - name: rhelgo1.11.13
+            - name: rhelgo11113
         execution:
           onExecute:
             - printenv
-      - name: rhel12.14.0
+      - name: rhel12140
         type: Bash
         configuration:
           nodePool: rhel
@@ -760,11 +760,11 @@ pipelines:
                 versions:
                   - "12.14.0"
           inputSteps: 
-            - name: rhel10.18.0
+            - name: rhel10180
         execution:
           onExecute:
             - printenv
-      - name: rhelcpp3.4.2
+      - name: rhelcpp342
         type: Bash
         configuration:
           nodePool: rhel
@@ -776,7 +776,7 @@ pipelines:
                 versions:
                   - "3.4.2"
           inputSteps: 
-            - name: rhel12.14.0
+            - name: rhel12140
         execution:
           onExecute:
             - printenv

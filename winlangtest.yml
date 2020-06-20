@@ -13,4 +13,6 @@ pipelines:
                 language: dotnetcore
                 versions:
                   - "2.1"
-
+        execution:
+          onExecute:
+            - write-output "Hi"

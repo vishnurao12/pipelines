@@ -1,11 +1,11 @@
 resources:
   - name: step001
     type: test
-    syntaxVersion: 0.0.1
+    syntaxVersion: 0.0.3
     configuration:      
       test: foo
       slack: slack_integration
-      artifactory: entArt
+      Artifactory: entArt
   - name: connecting_resource
     type: PropertyBag
     configuration:

@@ -5,6 +5,7 @@ resources:
     configuration:      
       test: foo
       slack: slack_integration
+    Artifactory: entArt
   - name: connecting_resource
     type: PropertyBag
     configuration:

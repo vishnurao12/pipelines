@@ -435,4 +435,30 @@ pipelines:
         execution:
           onStart:
             - echo "Preparing for work..."
+            - get_integration_name --type Airbrake
+            - get_integration_name --type slack
+            - get_integration_name --type AWS
+            - get_integration_name --type Artifactory
+            - get_integration_name --type Azure Keys
+            - get_integration_name --type Bitbucket
+            - get_integration_name --type Bitbucket Server
+            - get_integration_name --type Distribution
+            - get_integration_name --type Digital Ocean
+            - get_integration_name --type Docker Registry
+            - get_integration_name --type File Server
+            - get_integration_name --type Google Cloud
+            - get_integration_name --type Generic Integration
+            - get_integration_name --type GitHub
+            - get_integration_name --type Github Enterprise
+            - get_integration_name --type GitLab
+            - get_integration_name --type Incoming Webhook
+            - get_integration_name --type Jenkins Server
+            - get_integration_name --type Jira
+            - get_integration_name --type Kubernetes
+            - get_integration_name --type NewRelic
+            - get_integration_name --type Outgoing Webhook
+            - get_integration_name --type PEM Key
+            - get_integration_name --type SMTP Credentials
+            - get_integration_name --type SSH Key
+            - get_integration_name --type Airbrake
             - printenv

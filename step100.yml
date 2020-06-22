@@ -235,10 +235,10 @@ resources:
       buildName: myBuild
       buildNumber: 123
   
-  - name: cronTriggerResource
-    type: CronTrigger
-    configuration:
-      interval: "0011*"
+  # - name: cronTriggerResource
+  #   type: CronTrigger
+  #   configuration:
+  #     interval: "0011*"
 
   - name: myDistributionRule
     type: DistributionRule
@@ -327,7 +327,7 @@ pipelines:
             - name: connecting_resource
             - name: r_Aql
             - name: myBuildInfo
-            - name: cronTriggerResource
+            # - name: cronTriggerResource
             - name: myDistributionRule
             - name: r_FileSpec_pattern
             - name: r_GitRepo
@@ -570,7 +570,7 @@ pipelines:
             - name: connecting_resource
             - name: r_Aql
             - name: myBuildInfo
-            - name: cronTriggerResource
+            # - name: cronTriggerResource
             - name: myDistributionRule
             - name: r_FileSpec_pattern
             - name: r_GitRepo

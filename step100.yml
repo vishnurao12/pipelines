@@ -245,6 +245,8 @@ resources:
     configuration:
       sourceDistribution: ds
       serviceName: svce
+      siteName: "bangalore"
+      cityName: "bangalore"
       countryCodes:
         - IN
         - US

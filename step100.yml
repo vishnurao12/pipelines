@@ -222,11 +222,11 @@ resources:
       key1: value1
       key2: value2
   
-  - name: r_Aql
-    type: Aql
-    configuration:
-      sourceArtifactory: entArt
-      query: items.find({"@build.name":{"$eq":"artifactory"}})
+  # - name: r_Aql
+  #   type: Aql
+  #   configuration:
+  #     sourceArtifactory: entArt
+  #     query: items.find({"@build.name":{"$eq":"artifactory"}})
 
   - name: myBuildInfo
     type: BuildInfo
@@ -240,17 +240,17 @@ resources:
   #   configuration:
   #     interval: "0011*"
 
-  - name: myDistributionRule
-    type: DistributionRule
-    configuration:
-      sourceDistribution: ds
-      serviceName: svce
-      siteName: "bangalore"
-      cityName: "bangalore"
-      countryCodes:
-        - IN
-        - US
-        - UK 
+  # - name: myDistributionRule
+  #   type: DistributionRule
+  #   configuration:
+  #     sourceDistribution: ds
+  #     serviceName: svce
+  #     siteName: "bangalore"
+  #     cityName: "bangalore"
+  #     countryCodes:
+  #       - IN
+  #       - US
+  #       - UK 
   
   # - name: r_GitRepo
   #   type: GitRepo
@@ -294,13 +294,13 @@ resources:
       key1: value1
       key2: value2
   
-  - name: my_releaseBundle
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: ds
-      name: myRel
-      version: v1.0
-      isSigned: false  
+  # - name: my_releaseBundle
+  #   type: ReleaseBundle
+  #   configuration:
+  #     sourceDistribution: ds
+  #     name: myRel
+  #     version: v1.0
+  #     isSigned: false  
 
   # - name: r_FileSpec_pattern
   #   type: FileSpec
@@ -308,12 +308,12 @@ resources:
   #     sourceArtifactory: entArt
   #     pattern: "artifactory-build*"    
   
-  - name: VmCluster_resource
-    type: VmCluster
-    configuration:
-      sshKey: SSH
-      targets:
-        - 1.2.3.6
+  # - name: VmCluster_resource
+  #   type: VmCluster
+  #   configuration:
+  #     sshKey: SSH
+  #     targets:
+  #       - 1.2.3.6
 pipelines:
   - name: extensionstest
     steps:

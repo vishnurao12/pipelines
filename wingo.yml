@@ -13,8 +13,7 @@ pipelines:
                 language: go
                 versions:
                   - "1.11"
-          inputSteps: 
-            - name: win_2019go112
+ 
         execution:
           onExecute:
             - write-output "Hi"

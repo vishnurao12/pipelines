@@ -302,11 +302,11 @@ resources:
       version: v1.0
       isSigned: false  
 
-  - name: r_FileSpec_pattern
-    type: FileSpec
-    configuration:
-      sourceArtifactory: entArt
-      pattern: "artifactory-build*"    
+  # - name: r_FileSpec_pattern
+  #   type: FileSpec
+  #   configuration:
+  #     sourceArtifactory: entArt
+  #     pattern: "artifactory-build*"    
   
   - name: VmCluster_resource
     type: VmCluster
@@ -329,7 +329,7 @@ pipelines:
             - name: myBuildInfo
             # - name: cronTriggerResource
             - name: myDistributionRule
-            - name: r_FileSpec_pattern
+            # - name: r_FileSpec_pattern
             - name: r_GitRepo
             - name: helm_repo
             # - name: image_google
@@ -337,7 +337,7 @@ pipelines:
             - name: outgoingWebhook
             - name: mypropertyBag
             - name: my_releaseBundle
-            - name: r_FileSpec_pattern
+            # - name: r_FileSpec_pattern
             - name: VmCluster_resource
         execution:
           onStart:
@@ -572,7 +572,7 @@ pipelines:
             - name: myBuildInfo
             # - name: cronTriggerResource
             - name: myDistributionRule
-            - name: r_FileSpec_pattern
+            # - name: r_FileSpec_pattern
             - name: r_GitRepo
             - name: helm_repo
             # - name: image_google
@@ -580,7 +580,7 @@ pipelines:
             - name: outgoingWebhook
             - name: mypropertyBag
             - name: my_releaseBundle
-            - name: r_FileSpec_pattern
+            # - name: r_FileSpec_pattern
             - name: VmCluster_resource
         execution:
           onStart:

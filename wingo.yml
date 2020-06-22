@@ -1,0 +1,20 @@
+
+pipelines:
+  - name: lang_test
+    steps:
+      - name: win_2019go111
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.11"
+          inputSteps: 
+            - name: win_2019go112
+        execution:
+          onExecute:
+            - write-output "Hi"

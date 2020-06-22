@@ -328,7 +328,7 @@ pipelines:
             # - name: r_Aql
             - name: myBuildInfo
             # - name: cronTriggerResource
-            - name: myDistributionRule
+            # - name: myDistributionRule
             # - name: r_FileSpec_pattern
             # - name: r_GitRepo
             - name: helm_repo
@@ -336,7 +336,7 @@ pipelines:
             - name: r_IncomingWebhook
             - name: outgoingWebhook
             - name: mypropertyBag
-            - name: my_releaseBundle
+            # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource
         execution:
@@ -569,7 +569,7 @@ pipelines:
             # - name: r_Aql
             - name: myBuildInfo
             # - name: cronTriggerResource
-            - name: myDistributionRule
+            # - name: myDistributionRule
             # - name: r_FileSpec_pattern
             # - name: r_GitRepo
             - name: helm_repo
@@ -577,7 +577,7 @@ pipelines:
             - name: r_IncomingWebhook
             - name: outgoingWebhook
             - name: mypropertyBag
-            - name: my_releaseBundle
+            # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource
         execution:

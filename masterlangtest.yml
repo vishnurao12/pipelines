@@ -372,7 +372,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13"
+                  - "1.13.7"
           inputSteps: 
             - name: win_2019java11
         execution:
@@ -388,7 +388,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.12"
+                  - "1.12.14"
           inputSteps: 
             - name: win_2019go113
         execution:
@@ -404,7 +404,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.11"
+                  - "1.11.13"
           inputSteps: 
             - name: win_2019go112
         execution:

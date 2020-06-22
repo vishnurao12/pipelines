@@ -243,7 +243,7 @@ resources:
   - name: myDistributionRule
     type: DistributionRule
     configuration:
-      sourceDistribution: disttest
+      sourceDistribution: ds
       serviceName: svce
       siteName: "*"
       cityName: "*"
@@ -251,12 +251,6 @@ resources:
         - IN
         - US
         - UK 
-
-  - name: r_FileSpec_pattern
-    type: FileSpec
-    configuration:
-      sourceArtifactory: entArt
-      pattern: "artifactory-build*"
   
   - name: r_GitRepo
     type: GitRepo
@@ -278,6 +272,7 @@ resources:
     type: Image
     configuration:
        registry: entArt
+       sourceRepository: example-repo-local
        imageName: gcr.io/ship-rc/ubuntu
        imageTag: latest
        autoPull: true

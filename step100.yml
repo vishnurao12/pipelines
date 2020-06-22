@@ -325,7 +325,7 @@ pipelines:
           inputResources:
             - name: step001
             - name: connecting_resource
-            - name: r_Aql
+            # - name: r_Aql
             - name: myBuildInfo
             # - name: cronTriggerResource
             - name: myDistributionRule
@@ -338,7 +338,7 @@ pipelines:
             - name: mypropertyBag
             - name: my_releaseBundle
             # - name: r_FileSpec_pattern
-            - name: VmCluster_resource
+            # - name: VmCluster_resource
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -568,7 +568,7 @@ pipelines:
             - name: connecting_resource
             - name: step001
             - name: connecting_resource
-            - name: r_Aql
+            # - name: r_Aql
             - name: myBuildInfo
             # - name: cronTriggerResource
             - name: myDistributionRule

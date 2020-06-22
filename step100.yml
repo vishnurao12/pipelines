@@ -245,8 +245,6 @@ resources:
     configuration:
       sourceDistribution: ds
       serviceName: svce
-      siteName: "*"
-      cityName: "*"
       countryCodes:
         - IN
         - US
@@ -536,9 +534,52 @@ pipelines:
             foo49 :
               - "jfr"
               - "jfr1"    
+          integrations:
+            - name: entArt
+            - name: air
+            - name: azure
+            - name: bb
+            - name: bbs
+            - name: DO
+            - name: DR
+            - name: ds
+            - name: entArt
+            - name: FS
+            - name: GC
+            - name: generic
+            - name: gh
+            - name: ghe
+            - name: git_v
+            - name: gL
+            - name: IW
+            - name: JI
+            - name: JS
+            - name: Kuber
+            - name: NR
+            - name: OW
+            - name: PK
+            - name: slack_integration
+            - name: SMTP
+            - name: SSH
           inputResources:
             - name: step001
             - name: connecting_resource
+            - name: step001
+            - name: connecting_resource
+            - name: r_Aql
+            - name: myBuildInfo
+            - name: cronTriggerResource
+            - name: myDistributionRule
+            - name: r_FileSpec_pattern
+            - name: r_GitRepo
+            - name: helm_repo
+            - name: image_google
+            - name: r_IncomingWebhook
+            - name: outgoingWebhook
+            - name: mypropertyBag
+            - name: my_releaseBundle
+            - name: r_FileSpec_pattern
+            - name: VmCluster_resource
         execution:
           onStart:
             - echo "Preparing for work..."

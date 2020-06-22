@@ -238,7 +238,7 @@ resources:
   - name: cronTriggerResource
     type: CronTrigger
     configuration:
-      interval: "*****?*""
+      interval: "*****?*"
 
   - name: myDistributionRule
     type: DistributionRule

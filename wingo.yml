@@ -12,7 +12,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.11"
+                  - "1.13.7"
  
         execution:
           onExecute:

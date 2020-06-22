@@ -252,13 +252,13 @@ resources:
         - US
         - UK 
   
-  - name: r_GitRepo
-    type: GitRepo
-    configuration:
-      path: vishnurao12/pipelines
-      branches:
-        include: master
-      gitProvider: git_v
+  # - name: r_GitRepo
+  #   type: GitRepo
+  #   configuration:
+  #     path: vishnurao12/pipelines
+  #     branches:
+  #       include: master
+  #     gitProvider: git_v
 
   - name: helm_repo
     type: HelmChart
@@ -330,7 +330,7 @@ pipelines:
             # - name: cronTriggerResource
             - name: myDistributionRule
             # - name: r_FileSpec_pattern
-            - name: r_GitRepo
+            # - name: r_GitRepo
             - name: helm_repo
             # - name: image_google
             - name: r_IncomingWebhook
@@ -573,7 +573,7 @@ pipelines:
             # - name: cronTriggerResource
             - name: myDistributionRule
             # - name: r_FileSpec_pattern
-            - name: r_GitRepo
+            # - name: r_GitRepo
             - name: helm_repo
             # - name: image_google
             - name: r_IncomingWebhook

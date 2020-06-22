@@ -268,14 +268,14 @@ resources:
       chart: test
       version: 1.0.0
 
-  - name: image_google
-    type: Image
-    configuration:
-       registry: entArt
-       sourceRepository: example-repo-local
-       imageName: gcr.io/ship-rc/ubuntu
-       imageTag: latest
-       autoPull: true
+  # - name: image_google
+  #   type: Image
+  #   configuration:
+  #      registry: entArt
+  #      sourceRepository: example-repo-local
+  #      imageName: gcr.io/ship-rc/ubuntu
+  #      imageTag: latest
+  #      autoPull: true
   
   - name: r_IncomingWebhook
     type: IncomingWebhook
@@ -332,7 +332,7 @@ pipelines:
             - name: r_FileSpec_pattern
             - name: r_GitRepo
             - name: helm_repo
-            - name: image_google
+            # - name: image_google
             - name: r_IncomingWebhook
             - name: outgoingWebhook
             - name: mypropertyBag
@@ -575,7 +575,7 @@ pipelines:
             - name: r_FileSpec_pattern
             - name: r_GitRepo
             - name: helm_repo
-            - name: image_google
+            # - name: image_google
             - name: r_IncomingWebhook
             - name: outgoingWebhook
             - name: mypropertyBag

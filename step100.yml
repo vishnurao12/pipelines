@@ -624,6 +624,18 @@ pipelines:
             - get_resource_name --type HelmChart --operation IN
             - get_resource_name --type PropertyBag --operation IN
             - printenv
+          onSuccess:
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN  
+            - get_integration_name --type GitHub           
+          onFailure:
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN          
+            - get_integration_name --type GitHub   
+          onComplete: #always
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN    
+            - get_integration_name --type GitHub   
 
       - name: step_1_test
         type: Bash

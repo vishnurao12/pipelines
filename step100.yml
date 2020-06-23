@@ -595,7 +595,7 @@ pipelines:
             # - get_integration_name --type Docker Registry
             # - get_integration_name --type File Server
             # - get_integration_name --type Google Cloud
-            - get_integration_name --type Generic #Integration
+            - get_integration_name --type Generic Integration
             - get_integration_name --type GitHub
             # - get_integration_name --type Github Enterprise
             # - get_integration_name --type GitLab
@@ -611,8 +611,8 @@ pipelines:
             # - get_integration_name --type Airbrake
             - get_resource_name --type GitRepo --operation IN
             - get_resource_name --type Image --operation IN
-            - get_resource_name BuildInfo --type --operation IN
-            - get_resource_name RemoteFile --type --operation IN
+            - get_resource_name --type BuildInfo --operation IN
+            - get_resource_name --type RemoteFile  --operation IN
             - get_resource_name --type ReleaseBundle --operation IN
             - get_resource_name --type Aql --operation IN
             - get_resource_name --type DistributionRule --operation IN

@@ -636,3 +636,13 @@ pipelines:
           onStart:
             - get_resource_name --type PropertyBag --operation IN
             - get_resource_name --type GitRepo --operation IN           
+          onSuccess:
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN          
+          onFailure:
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN          
+
+          onComplete: #always
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN          

@@ -628,10 +628,8 @@ pipelines:
       - name: step_1_test
         type: Bash
         configuration:
-          integrations:
-            - name: gcpenvInt
           inputResources:
-            - name: auto_gitRepo123
+            - name: r_GitRepo
               trigger: False
             - name: connecting_resource
         execution:

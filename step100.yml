@@ -595,7 +595,7 @@ pipelines:
             # - get_integration_name --type Docker Registry
             # - get_integration_name --type File Server
             # - get_integration_name --type Google Cloud
-            - get_integration_name --type Generic Integration
+            # - get_integration_name --type Generic Integration
             - get_integration_name --type GitHub
             # - get_integration_name --type Github Enterprise
             # - get_integration_name --type GitLab

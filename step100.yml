@@ -625,7 +625,7 @@ pipelines:
             - get_resource_name --type PropertyBag --operation IN
             - printenv
 
-     - name: step_1_test
+      - name: step_1_test
         type: Bash
         configuration:
           integrations:

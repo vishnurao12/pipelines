@@ -628,6 +628,8 @@ pipelines:
       - name: step_1_test
         type: Bash
         configuration:
+          integrations:
+            - name: git_v
           inputResources:
             - name: r_GitRepo
               trigger: False

@@ -6,28 +6,28 @@ resources:
       test: foo
       slack: slack_integration
       Artifactory: entArt
-      Azure Keys: azure
-      Bitbucket: bb
-      Bitbucket Server : bbs
-      Distribution : ds
-      Digital Ocean : DO
-      Docker Registry : DR
-      File Server : FS
-      Google Cloud : GC
+      # Azure Keys: azure
+      # Bitbucket: bb
+      # Bitbucket Server : bbs
+      # Distribution : ds
+      # Digital Ocean : DO
+      # Docker Registry : DR
+      # File Server : FS
+      # Google Cloud : GC
       Generic Integration : generic
-      GitHub : gh
-      Github Enterprise : ghe
-      GitLab : gL
-      Incoming Webhook : IW
-      Jenkins Server : JS
-      Jira : JI
-      Kubernetes : Kuber
-      NewRelic : NR
-      Outgoing Webhook : OW
-      PEM Key : PK
-      SMTP Credentials : SMTP
-      SSH Key: SSH
-      Airbrake : air
+      GitHub : git_v
+      # Github Enterprise : ghe
+      # GitLab : gL
+      # Incoming Webhook : IW
+      # Jenkins Server : JS
+      # Jira : JI
+      # Kubernetes : Kuber
+      # NewRelic : NR
+      # Outgoing Webhook : OW
+      # PEM Key : PK
+      # SMTP Credentials : SMTP
+      # SSH Key: SSH
+      # Airbrake : air
       foo1 : "vishnulol"
       foo2 : 2
       foo3 : true
@@ -538,31 +538,31 @@ pipelines:
               - "jfr1"    
           integrations:
             - name: entArt
-            - name: air
-            - name: azure
-            - name: bb
-            - name: bbs
-            - name: DO
-            - name: DR
-            - name: ds
+            # - name: air
+            # - name: azure
+            # - name: bb
+            # - name: bbs
+            # - name: DO
+            # - name: DR
+            # - name: ds
             - name: entArt
-            - name: FS
-            - name: GC
+            # - name: FS
+            # - name: GC
             - name: generic
-            - name: gh
-            - name: ghe
+            # - name: gh
+            # - name: ghe
             - name: git_v
-            - name: gL
-            - name: IW
-            - name: JI
-            - name: JS
-            - name: Kuber
-            - name: NR
-            - name: OW
-            - name: PK
-            - name: slack_integration
-            - name: SMTP
-            - name: SSH
+            # - name: gL
+            # - name: IW
+            # - name: JI
+            # - name: JS
+            # - name: Kuber
+            # - name: NR
+            # - name: OW
+            # - name: PK
+            # - name: slack_integration
+            # - name: SMTP
+            # - name: SSH
           inputResources:
             - name: step001
             - name: connecting_resource
@@ -583,32 +583,32 @@ pipelines:
         execution:
           onStart:
             - echo "Preparing for work..."
-            - get_integration_name --type Airbrake
-            - get_integration_name --type slack
-            - get_integration_name --type AWS
+            # - get_integration_name --type Airbrake
+            # - get_integration_name --type slack
+            # - get_integration_name --type AWS
             - get_integration_name --type Artifactory
-            - get_integration_name --type Azure Keys
-            - get_integration_name --type Bitbucket
-            - get_integration_name --type Bitbucket Server
-            - get_integration_name --type Distribution
-            - get_integration_name --type Digital Ocean
-            - get_integration_name --type Docker Registry
-            - get_integration_name --type File Server
-            - get_integration_name --type Google Cloud
+            # - get_integration_name --type Azure Keys
+            # - get_integration_name --type Bitbucket
+            # - get_integration_name --type Bitbucket Server
+            # - get_integration_name --type Distribution
+            # - get_integration_name --type Digital Ocean
+            # - get_integration_name --type Docker Registry
+            # - get_integration_name --type File Server
+            # - get_integration_name --type Google Cloud
             - get_integration_name --type Generic Integration
             - get_integration_name --type GitHub
-            - get_integration_name --type Github Enterprise
-            - get_integration_name --type GitLab
-            - get_integration_name --type Incoming Webhook
-            - get_integration_name --type Jenkins Server
-            - get_integration_name --type Jira
-            - get_integration_name --type Kubernetes
-            - get_integration_name --type NewRelic
-            - get_integration_name --type Outgoing Webhook
-            - get_integration_name --type PEM Key
-            - get_integration_name --type SMTP Credentials
-            - get_integration_name --type SSH Key
-            - get_integration_name --type Airbrake
+            # - get_integration_name --type Github Enterprise
+            # - get_integration_name --type GitLab
+            # - get_integration_name --type Incoming Webhook
+            # - get_integration_name --type Jenkins Server
+            # - get_integration_name --type Jira
+            # - get_integration_name --type Kubernetes
+            # - get_integration_name --type NewRelic
+            # - get_integration_name --type Outgoing Webhook
+            # - get_integration_name --type PEM Key
+            # - get_integration_name --type SMTP Credentials
+            # - get_integration_name --type SSH Key
+            # - get_integration_name --type Airbrake
             - get_resource_name --type GitRepo --operation IN
             - get_resource_name --type Image --operation IN
             - get_resource_name BuildInfo --type --operation IN

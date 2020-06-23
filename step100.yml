@@ -338,9 +338,9 @@ pipelines:
             - name: mypropertyBag
             # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
-            # - name: VmCluster_resource
-          outputResources:
-            - name: connecting_resource
+          #   # - name: VmCluster_resource
+          # outputResources:
+          #   - name: connecting_resource
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -567,7 +567,7 @@ pipelines:
             # - name: SSH
           inputResources:
             - name: step001
-            - name: connecting_resource
+            # - name: connecting_resource
             # - name: r_Aql
             - name: myBuildInfo
             # - name: cronTriggerResource
@@ -578,7 +578,7 @@ pipelines:
             # - name: image_google
             - name: r_IncomingWebhook
             - name: outgoingWebhook
-            - name: mypropertyBag
+            # - name: mypropertyBag
             # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource

@@ -629,21 +629,21 @@ pipelines:
             - get_resource_name --type PropertyBag --operation IN
             - get_resource_name --type PropertyBag --operation OUT
             - printenv
-          onSuccess:
-            - get_resource_name --type PropertyBag --operation IN
-            - get_resource_name --type GitRepo --operation IN  
-            - get_integration_name --type GitHub  
-            - get_resource_name --type PropertyBag --operation OUT         
-          onFailure:
-            - get_resource_name --type PropertyBag --operation IN
-            - get_resource_name --type GitRepo --operation IN          
-            - get_integration_name --type GitHub   
-            - get_resource_name --type PropertyBag --operation OUT
-          onComplete: #always
-            - get_resource_name --type PropertyBag --operation IN
-            - get_resource_name --type GitRepo --operation IN    
-            - get_integration_name --type GitHub   
-            - get_resource_name --type PropertyBag --operation OUT
+          # onSuccess:
+          #   - get_resource_name --type PropertyBag --operation IN
+          #   - get_resource_name --type GitRepo --operation IN  
+          #   - get_integration_name --type GitHub  
+          #   - get_resource_name --type PropertyBag --operation OUT         
+          # onFailure:
+          #   - get_resource_name --type PropertyBag --operation IN
+          #   - get_resource_name --type GitRepo --operation IN          
+          #   - get_integration_name --type GitHub   
+          #   - get_resource_name --type PropertyBag --operation OUT
+          # onComplete: #always
+          #   - get_resource_name --type PropertyBag --operation IN
+          #   - get_resource_name --type GitRepo --operation IN    
+          #   - get_integration_name --type GitHub   
+          #   - get_resource_name --type PropertyBag --operation OUT
       
       # - name: step_1_test
       #   type: Bash

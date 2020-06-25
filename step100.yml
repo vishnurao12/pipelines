@@ -671,3 +671,17 @@ pipelines:
       #       - get_resource_name --type PropertyBag --operation IN
       #       - get_resource_name --type GitRepo --operation IN    
       #       - get_integration_name --type GitHub         
+
+      - name: immuteable check
+        type: sample
+        syntaxVersion: 1.0.0
+        configuration:              
+          foo: bar
+          inputResources:
+            - name: step001
+            - name: connecting_resource
+        execution:
+          onStart:
+            - printenv
+            - foo=3
+            - printenv

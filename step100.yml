@@ -28,7 +28,7 @@ resources:
       # SMTP Credentials : SMTP
       # SSH Key: SSH
       # Airbrake : air
-      foo1 : "vishnulol"
+      foo1 : "vishnulollol"
       foo2 : 4
       foo3 : true
       foo4 : http://www.jfrog.com

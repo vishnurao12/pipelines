@@ -683,5 +683,5 @@ pipelines:
         execution:
           onStart:
             - printenv
-            - $res_step001_foo2=3
+            - ${res_step001_foo2}=3
             - printenv

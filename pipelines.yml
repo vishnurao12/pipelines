@@ -28,6 +28,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - sleep 5m
 #             - add_run_variables testvariable="asdffdjksfjk.    1"
 #             - add_pipeline_variables test="kumar.      1" 
 #             - add_run_variable testing="space "

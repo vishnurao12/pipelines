@@ -29,7 +29,7 @@ resources:
       # SSH Key: SSH
       # Airbrake : air
       foo1 : "vishnulol"
-      foo2 : 2
+      foo2 : 4
       foo3 : true
       foo4 : http://www.jfrog.com
       foo5 : temp@jfrog.com 

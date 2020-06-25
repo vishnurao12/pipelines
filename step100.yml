@@ -4,8 +4,8 @@ resources:
     syntaxVersion: 0.0.3
     configuration:      
       test: foo
-      slack: slack_integration
-      Artifactory: entArt
+      # slack: slack_integration
+      # Artifactory: entArt
       # Azure Keys: azure
       # Bitbucket: bb
       # Bitbucket Server : bbs
@@ -14,8 +14,8 @@ resources:
       # Docker Registry : DR
       # File Server : FS
       # Google Cloud : GC
-      Generic Integration : generic
-      GitHub : git_v
+      # Generic Integration : generic
+      # GitHub : git_v
       # Github Enterprise : ghe
       # GitLab : gL
       # Incoming Webhook : IW
@@ -228,71 +228,71 @@ resources:
   #     sourceArtifactory: entArt
   #     query: items.find({"@build.name":{"$eq":"artifactory"}})
 
-  - name: myBuildInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: entArt
-      buildName: myBuild
-      buildNumber: 123
-  
-  # - name: cronTriggerResource
-  #   type: CronTrigger
+  # - name: myBuildInfo
+  #   type: BuildInfo
   #   configuration:
-  #     interval: "0011*"
-
-  # - name: myDistributionRule
-  #   type: DistributionRule
-  #   configuration:
-  #     sourceDistribution: ds
-  #     serviceName: svce
-  #     siteName: "bangalore"
-  #     cityName: "bangalore"
-  #     countryCodes:
-  #       - IN
-  #       - US
-  #       - UK 
+  #     sourceArtifactory: entArt
+  #     buildName: myBuild
+  #     buildNumber: 123
   
-  - name: r_GitRepo
-    type: GitRepo
-    configuration:
-      path: vishnurao12/pipelines
-      branches:
-        include: master
-      gitProvider: git_v
+  # # - name: cronTriggerResource
+  # #   type: CronTrigger
+  # #   configuration:
+  # #     interval: "0011*"
 
-  - name: helm_repo
-    type: HelmChart
-    configuration: 
-      sourceArtifactory: entArt
-      repository: helm-local
-      chart: test
-      version: 1.0.0
-
-  # - name: image_google
-  #   type: Image
-  #   configuration:
-  #      registry: entArt
-  #      sourceRepository: example-repo-local
-  #      imageName: gcr.io/ship-rc/ubuntu
-  #      imageTag: latest
-  #      autoPull: true
+  # # - name: myDistributionRule
+  # #   type: DistributionRule
+  # #   configuration:
+  # #     sourceDistribution: ds
+  # #     serviceName: svce
+  # #     siteName: "bangalore"
+  # #     cityName: "bangalore"
+  # #     countryCodes:
+  # #       - IN
+  # #       - US
+  # #       - UK 
   
-  - name: r_IncomingWebhook
-    type: IncomingWebhook
-    configuration:
-      webhookName: IW
+  # - name: r_GitRepo
+  #   type: GitRepo
+  #   configuration:
+  #     path: vishnurao12/pipelines
+  #     branches:
+  #       include: master
+  #     gitProvider: git_v
 
-  - name: outgoingWebhook
-    type: OutgoingWebhook
-    configuration:
-      webhookName: OW
-      method: GET #default POST   
+  # - name: helm_repo
+  #   type: HelmChart
+  #   configuration: 
+  #     sourceArtifactory: entArt
+  #     repository: helm-local
+  #     chart: test
+  #     version: 1.0.0
 
-  - name: mypropertyBag
-    type: PropertyBag
-    configuration:
-      key1: value1
-      key2: value2
+  # # - name: image_google
+  # #   type: Image
+  # #   configuration:
+  # #      registry: entArt
+  # #      sourceRepository: example-repo-local
+  # #      imageName: gcr.io/ship-rc/ubuntu
+  # #      imageTag: latest
+  # #      autoPull: true
+  
+  # - name: r_IncomingWebhook
+  #   type: IncomingWebhook
+  #   configuration:
+  #     webhookName: IW
+
+  # - name: outgoingWebhook
+  #   type: OutgoingWebhook
+  #   configuration:
+  #     webhookName: OW
+  #     method: GET #default POST   
+
+  # - name: mypropertyBag
+  #   type: PropertyBag
+  #   configuration:
+  #     key1: value1
+  #     key2: value2
   
   # - name: my_releaseBundle
   #   type: ReleaseBundle
@@ -326,19 +326,19 @@ pipelines:
             - name: step001
             - name: connecting_resource
             # - name: r_Aql
-            - name: myBuildInfo
-            # - name: cronTriggerResource
-            # - name: myDistributionRule
-            # - name: r_FileSpec_pattern
-            # - name: r_GitRepo
-            - name: helm_repo
-            # - name: image_google
-            - name: r_IncomingWebhook
-            - name: outgoingWebhook
-            - name: mypropertyBag
-            # - name: my_releaseBundle
-            # - name: r_FileSpec_pattern
-          #   # - name: VmCluster_resource
+          #   - name: myBuildInfo
+          #   # - name: cronTriggerResource
+          #   # - name: myDistributionRule
+          #   # - name: r_FileSpec_pattern
+          #   # - name: r_GitRepo
+          #   - name: helm_repo
+          #   # - name: image_google
+          #   - name: r_IncomingWebhook
+          #   - name: outgoingWebhook
+          #   - name: mypropertyBag
+          #   # - name: my_releaseBundle
+          #   # - name: r_FileSpec_pattern
+          # #   # - name: VmCluster_resource
           # outputResources:
           #   - name: connecting_resource
         execution:
@@ -539,19 +539,19 @@ pipelines:
               - "jfr"
               - "jfr1"    
           integrations:
-            - name: entArt
-            # - name: air
-            # - name: azure
-            # - name: bb
-            # - name: bbs
-            # - name: DO
-            # - name: DR
-            # - name: ds
-            - name: entArt
-            # - name: FS
-            # - name: GC
-            - name: generic
-            # - name: gh
+            # - name: entArt
+            # # - name: air
+            # # - name: azure
+            # # - name: bb
+            # # - name: bbs
+            # # - name: DO
+            # # - name: DR
+            # # - name: ds
+            # - name: entArt
+            # # - name: FS
+            # # - name: GC
+            # - name: generic
+            # # - name: gh
             # - name: ghe
             - name: git_v
             # - name: gL
@@ -569,17 +569,17 @@ pipelines:
             - name: step001
             # - name: connecting_resource
             # - name: r_Aql
-            - name: myBuildInfo
-            # - name: cronTriggerResource
-            # - name: myDistributionRule
-            # - name: r_FileSpec_pattern
-            - name: r_GitRepo
-            - name: helm_repo
-            # - name: image_google
-            - name: r_IncomingWebhook
-            - name: outgoingWebhook
-            # - name: mypropertyBag
-            # - name: my_releaseBundle
+            # - name: myBuildInfo
+            # # - name: cronTriggerResource
+            # # - name: myDistributionRule
+            # # - name: r_FileSpec_pattern
+            # - name: r_GitRepo
+            # - name: helm_repo
+            # # - name: image_google
+            # - name: r_IncomingWebhook
+            # - name: outgoingWebhook
+            # # - name: mypropertyBag
+            # # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource
           outputResources:
@@ -590,44 +590,44 @@ pipelines:
             # - get_integration_name --type Airbrake
             # - get_integration_name --type slack
             # - get_integration_name --type AWS
-            - get_integration_name --type Artifactory
-            # - get_integration_name --type Azure Keys
-            # - get_integration_name --type Bitbucket
-            # - get_integration_name --type Bitbucket Server
-            # - get_integration_name --type Distribution
-            # - get_integration_name --type Digital Ocean
-            # - get_integration_name --type Docker Registry
-            # - get_integration_name --type File Server
-            # - get_integration_name --type Google Cloud
-            - get_integration_name --type "Generic Integration"
-            - get_integration_name --type GitHub
-            # - get_integration_name --type Github Enterprise
-            # - get_integration_name --type GitLab
-            # - get_integration_name --type Incoming Webhook
-            # - get_integration_name --type Jenkins Server
-            # - get_integration_name --type Jira
-            # - get_integration_name --type Kubernetes
-            # - get_integration_name --type NewRelic
-            # - get_integration_name --type Outgoing Webhook
-            # - get_integration_name --type PEM Key
-            # - get_integration_name --type SMTP Credentials
-            # - get_integration_name --type SSH Key
-            # - get_integration_name --type Airbrake
-            - get_resource_name --type GitRepo --operation IN
-            - get_resource_name --type Image --operation IN
-            - get_resource_name --type BuildInfo --operation IN
-            - get_resource_name --type RemoteFile  --operation IN
-            - get_resource_name --type ReleaseBundle --operation IN
-            - get_resource_name --type Aql --operation IN
-            - get_resource_name --type DistributionRule --operation IN
-            - get_resource_name --type VmCluster --operation IN
-            - get_resource_name --type FileSpec --operation IN
-            - get_resource_name --type CronTrigger --operation IN
-            - get_resource_name --type IncomingWebhook --operation IN
-            - get_resource_name --type OutgoingWebhook --operation IN
-            - get_resource_name --type HelmChart --operation IN
-            - get_resource_name --type PropertyBag --operation IN
-            - get_resource_name --type PropertyBag --operation OUT
+            # - get_integration_name --type Artifactory
+            # # - get_integration_name --type Azure Keys
+            # # - get_integration_name --type Bitbucket
+            # # - get_integration_name --type Bitbucket Server
+            # # - get_integration_name --type Distribution
+            # # - get_integration_name --type Digital Ocean
+            # # - get_integration_name --type Docker Registry
+            # # - get_integration_name --type File Server
+            # # - get_integration_name --type Google Cloud
+            # - get_integration_name --type "Generic Integration"
+            # - get_integration_name --type GitHub
+            # # - get_integration_name --type Github Enterprise
+            # # - get_integration_name --type GitLab
+            # # - get_integration_name --type Incoming Webhook
+            # # - get_integration_name --type Jenkins Server
+            # # - get_integration_name --type Jira
+            # # - get_integration_name --type Kubernetes
+            # # - get_integration_name --type NewRelic
+            # # - get_integration_name --type Outgoing Webhook
+            # # - get_integration_name --type PEM Key
+            # # - get_integration_name --type SMTP Credentials
+            # # - get_integration_name --type SSH Key
+            # # - get_integration_name --type Airbrake
+            # - get_resource_name --type GitRepo --operation IN
+            # - get_resource_name --type Image --operation IN
+            # - get_resource_name --type BuildInfo --operation IN
+            # - get_resource_name --type RemoteFile  --operation IN
+            # - get_resource_name --type ReleaseBundle --operation IN
+            # - get_resource_name --type Aql --operation IN
+            # - get_resource_name --type DistributionRule --operation IN
+            # - get_resource_name --type VmCluster --operation IN
+            # - get_resource_name --type FileSpec --operation IN
+            # - get_resource_name --type CronTrigger --operation IN
+            # - get_resource_name --type IncomingWebhook --operation IN
+            # - get_resource_name --type OutgoingWebhook --operation IN
+            # - get_resource_name --type HelmChart --operation IN
+            # - get_resource_name --type PropertyBag --operation IN
+            # - get_resource_name --type PropertyBag --operation OUT
             - printenv
           # onSuccess:
           #   - get_resource_name --type PropertyBag --operation IN

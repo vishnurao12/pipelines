@@ -672,7 +672,7 @@ pipelines:
       #       - get_resource_name --type GitRepo --operation IN    
       #       - get_integration_name --type GitHub         
 
-      - name: immuteable check
+      - name: immuteablecheck
         type: sample
         syntaxVersion: 1.0.0
         configuration:              

@@ -222,6 +222,224 @@ resources:
     configuration:
       key1: value1
       key2: value2
+
+  - name: step004
+    type: test
+    syntaxVersion: 0.0.4
+    configuration:      
+      test: foo
+      # slack: slack_integration
+      # Artifactory: entArt
+      # Azure Keys: azure
+      # Bitbucket: bb
+      # Bitbucket Server : bbs
+      # Distribution : ds
+      # Digital Ocean : DO
+      # Docker Registry : DR
+      # File Server : FS
+      # Google Cloud : GC
+      # Generic Integration : generic
+      # GitHub : git_v
+      # Github Enterprise : ghe
+      # GitLab : gL
+      # Incoming Webhook : IW
+      # Jenkins Server : JS
+      # Jira : JI
+      # Kubernetes : Kuber
+      # NewRelic : NR
+      # Outgoing Webhook : OW
+      # PEM Key : PK
+      # SMTP Credentials : SMTP
+      # SSH Key: SSH
+      # Airbrake : air
+      foo1 : "namelol"
+      foo1a : "lolwithoutImu"
+      foo2 : 3
+      foo3 : false
+      foo4 : http://www.jfrognew.com
+      foo5 : temp@jfrognew.com
+      foo6 : 192.168.50.51
+      foo7 : 255.255.255.01
+      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7331
+      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1001"
+      foo10 : "b"
+      foo11 : "a1"
+      foo12 : 731
+      foo13 : 74.51
+      foo14 : 123e4567-e89b-12d3-a456-426614174001
+      foo15 : 
+        - "lolvishnu1"
+        - "lol21"
+      foo30 : "vishnulol1"
+      foo31 : "lol"
+      foo32 : "vishnu1"
+      foo33 : "VISHNU1"
+      foo34 : "sfa"
+      foo35 : "vishnu"
+      foo36 : "asf1"
+      foo37 : "ma1"
+      foo38 : "ma1"
+      foo39 : "Wed Nov 01 2011 00:00:00 GMT+1001"
+      foo40 : 2
+      foo41 : 7
+      foo16 : 
+        - 4
+        - 1
+      foo17 : 
+        - 8
+        - 9
+      foo18 : 
+        - false
+        - true
+      foo19 : 
+        - http://www.jfrog.com
+      foo20 :
+        - temp1@jfrog.com
+        - temp2@jfrog.com
+      foo21 :
+        - 192.168.50.50
+        - 192.168.50.51
+      foo22 :
+        - 255.255.255.0
+        - 255.255.255.0
+      foo23 :
+        - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+        - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+      foo24 :
+        - "Wed Nov 03 2011 00:00:00 GMT+1000"
+        - "Wed Nov 05 2011 00:00:00 GMT+1000"
+      foo25 :
+        - "a"
+        
+      foo26 :
+        - "a5"
+        - "a6"
+      foo27 :
+        - 12
+        - 13
+      foo28 :
+        - 56.7
+        - 56.8
+      foo29 :
+        - 123e4567-e89b-12d3-a456-426614174000
+      foo42 :
+        - "lol1"
+        - "lol2"
+      foo43 :
+        - "lol"
+        - "lol"
+      foo44 :
+        - "sas"
+        - "saas"
+      foo45 :
+        - "AA"
+        - "BB"
+      foo46 :
+        - "sfaf"
+        - "sfaf"
+      foo47 :
+        - "jfr"
+        - "jjg"
+      foo48 :
+        - "sfaf"
+        - "fsf"
+      foo49 :
+        - "jfr"
+        - "jfr1"
+      foo50 :
+        foo1 : "vishnulol"
+        foo2 : 2
+        foo3 : true
+        foo4 : http://www.jfrog.com
+        foo5 : temp@jfrog.com 
+        foo6 : 192.168.50.50
+        foo7 : 255.255.255.0
+        foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+        foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
+        foo10 : "a"
+        foo11 : "a7"
+        foo12 : 734
+        foo13 : 74.5
+        foo14 : 123e4567-e89b-12d3-a456-426614174000
+        foo15 : 
+          - "lolvishnu"
+          - "lol2"
+        foo30 : "vishnulol"
+        foo31 : "lol"
+        foo32 : "vishnu"
+        foo33 : "VISHNU"
+        foo34 : "sfaf"
+        foo35 : "vishnu"
+        foo36 : "asf"
+        foo37 : "mac"
+        foo38 : "mac"
+        foo39 : "Wed Nov 01 2011 00:00:00 GMT+1000"
+        foo40 : 4
+        foo41 : 6
+        foo16 : 
+          - 4
+          - 3
+        foo17 : 
+          - 6
+          - 7
+        foo18 : 
+          - true
+          - false
+        foo19 : 
+          - http://www.jfrog.com
+        foo20 :
+          - temp1@jfrog.com
+          - temp2@jfrog.com
+        foo21 :
+          - 192.168.50.50
+          - 192.168.50.51
+        foo22 :
+          - 255.255.255.0
+          - 255.255.255.0
+        foo23 :
+          - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+          - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+        foo24 :
+          - "Wed Nov 03 2011 00:00:00 GMT+1000"
+          - "Wed Nov 05 2011 00:00:00 GMT+1000"
+        foo25 :
+          - "a"
+          
+        foo26 :
+          - "a5"
+          - "a6"
+        foo27 :
+          - 12
+          - 13
+        foo28 :
+          - 56.7
+          - 56.8
+        foo29 :
+          - 123e4567-e89b-12d3-a456-426614174000
+        foo42 :
+          - "lol1"
+          - "lol2"
+        foo43 :
+          - "lol"
+          - "lol"
+        foo44 :
+          - "sas"
+          - "saas"
+        foo45 :
+          - "AA"
+          - "BB"
+        foo46 :
+          - "sfaf"
+          - "sfaf"
+        foo47 :
+          - "jfr"
+          - "jjg"
+        foo48 :
+          - "sfaf"
+          - "fsf"
+        foo49 :
+          - "jfr"
+          - "jfr1" 
   
   # - name: r_Aql
   #   type: Aql

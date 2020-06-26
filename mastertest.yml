@@ -183,7 +183,7 @@ pipelines:
         execution:
           onExecute:
             - echo automation > test.sh
-            - jfrog rt u test.sh example-repo-local/setup/test.sh #--insecure-tls
+            - jfrog rt u test.sh example-repo-local/setup/test.sh --insecure-tls
 
       - name: To_build_Docker_Image
         type: DockerBuild

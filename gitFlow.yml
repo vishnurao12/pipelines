@@ -1,0 +1,43 @@
+resources:
+  - name: repo_for_a
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      gitProvider: git_v
+      files:  # optional
+        include: ^a\/.*$
+
+  - name: repo_for_b
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      gitProvider: git_v
+      files:  # optional
+        include: ^b\/.*$
+
+pipelines:
+  - name: sample_gitFlow
+    steps:
+      - name: step_for_repo_a
+        type: Bash   
+        configuration:
+          inputResources:
+            - name: repo_for_a  
+        execution:
+          onExecute:
+            - echo "hello!"
+            - printenv
+            - cd $res_repo_for_a_resourcePath
+            - cat a/test.txt
+
+      - name: step_for_repo_b
+        type: Bash   
+        configuration:
+          inputResources:
+            - name: repo_for_b 
+        execution:
+          onExecute:
+            - echo "hello!"
+            - printenv
+            - cd $res_repo_for_b_resourcePath
+            - cat b/test.txt

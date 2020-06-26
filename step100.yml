@@ -29,15 +29,15 @@ resources:
       # SSH Key: SSH
       # Airbrake : air
       foo1 : "namelol"
-      foo2 : 41
-      foo3 : true1
-      foo4 : http://www.jfrog.com1
+      foo2 : 3
+      foo3 : false
+      foo4 : http://www.jfrognew.com
       foo5 : temp@jfrog.com1 
-      foo6 : 192.168.50.501
+      foo6 : 192.168.501.50
       foo7 : 255.255.255.01
       foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7331
       foo9 : "Wed Nov 03 2011 00:00:00 GMT+1001"
-      foo10 : "a1"
+      foo10 : "b"
       foo11 : "a1"
       foo12 : 731
       foo13 : 74.51
@@ -46,10 +46,10 @@ resources:
         - "lolvishnu1"
         - "lol21"
       foo30 : "vishnulol1"
-      foo31 : "lol1"
+      foo31 : "lol"
       foo32 : "vishnu1"
       foo33 : "VISHNU1"
-      foo34 : "sfaf1"
+      foo34 : "sfa"
       foo35 : "vishnu"
       foo36 : "asf1"
       foo37 : "ma1"

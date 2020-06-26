@@ -28,44 +28,44 @@ resources:
       # SMTP Credentials : SMTP
       # SSH Key: SSH
       # Airbrake : air
-      foo1 : "vishnulollol"
-      foo2 : 4
-      foo3 : true
-      foo4 : http://www.jfrog.com
-      foo5 : temp@jfrog.com 
-      foo6 : 192.168.50.50
-      foo7 : 255.255.255.0
-      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
-      foo10 : "a"
-      foo11 : "a7"
-      foo12 : 734
-      foo13 : 74.5
-      foo14 : 123e4567-e89b-12d3-a456-426614174000
+      foo1 : "vishnu"
+      foo2 : 41
+      foo3 : true1
+      foo4 : http://www.jfrog.com1
+      foo5 : temp@jfrog.com1 
+      foo6 : 192.168.50.501
+      foo7 : 255.255.255.01
+      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7331
+      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1001"
+      foo10 : "a1"
+      foo11 : "a1"
+      foo12 : 731
+      foo13 : 74.51
+      foo14 : 123e4567-e89b-12d3-a456-426614174001
       foo15 : 
-        - "lolvishnu"
-        - "lol2"
-      foo30 : "vishnulol"
-      foo31 : "lol"
-      foo32 : "vishnu"
-      foo33 : "VISHNU"
-      foo34 : "sfaf"
+        - "lolvishnu1"
+        - "lol21"
+      foo30 : "vishnulol1"
+      foo31 : "lol1"
+      foo32 : "vishnu1"
+      foo33 : "VISHNU1"
+      foo34 : "sfaf1"
       foo35 : "vishnu"
-      foo36 : "asf"
-      foo37 : "mac"
-      foo38 : "mac"
-      foo39 : "Wed Nov 01 2011 00:00:00 GMT+1000"
-      foo40 : 4
-      foo41 : 6
+      foo36 : "asf1"
+      foo37 : "ma1"
+      foo38 : "ma1"
+      foo39 : "Wed Nov 01 2011 00:00:00 GMT+1001"
+      foo40 : 2
+      foo41 : 7
       foo16 : 
         - 4
-        - 3
+        - 1
       foo17 : 
-        - 6
-        - 7
+        - 8
+        - 9
       foo18 : 
-        - true
         - false
+        - true
       foo19 : 
         - http://www.jfrog.com
       foo20 :

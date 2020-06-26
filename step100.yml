@@ -292,9 +292,9 @@ resources:
         - true
         - false
       foo19 : 
-        - http://www.jfrognew
-        - temp1@jfrognew.com
-        - temp2@jfrognew.com
+        - http://www.jfrognew.com
+        - http://www.jfrognew.com
+        - http://www.jfrognew.com
       foo21 :
         - 192.168.50.51
         - 192.168.50.50

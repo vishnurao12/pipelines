@@ -254,102 +254,101 @@ resources:
       # Airbrake : air
       foo1 : "namelol"
       foo1a : "lolwithoutImu"
-      foo2 : 3
+      foo2 : 4
       foo3 : false
-      foo4 : http://www.jfrognew.com
-      foo5 : temp@jfrognew.com
-      foo6 : 192.168.50.51
-      foo7 : 255.255.255.01
-      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7331
-      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1001"
-      foo10 : "b"
-      foo11 : "a1"
-      foo12 : 731
-      foo13 : 74.51
-      foo14 : 123e4567-e89b-12d3-a456-426614174001
+      foo4 : http://www.jfrog.com
+      foo5 : temp@jfrog.com
+      foo6 : 192.168.51.51
+      foo7 : 255.255.251.01
+      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7311
+      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1011"
+      foo10 : "a"
+      foo11 : "a"
+      foo12 : 732
+      foo13 : 74.52
+      foo14 : 123e4567-e89b-12d3-a456-426614174011
       foo15 : 
-        - "lolvishnu1"
-        - "lol21"
-      foo30 : "vishnulol1"
+        - "lolvishnu"
+        - "lol"
+      foo30 : "vishnulol"
       foo31 : "lol"
-      foo32 : "vishnu1"
-      foo33 : "VISHNU1"
-      foo34 : "sfa"
+      foo32 : "vishnu"
+      foo33 : "VISHNU"
+      foo34 : "sfaf"
       foo35 : "vishnu"
-      foo36 : "asf1"
-      foo37 : "ma1"
-      foo38 : "ma1"
-      foo39 : "Wed Nov 01 2011 00:00:00 GMT+1001"
-      foo40 : 2
-      foo41 : 7
+      foo36 : "asf"
+      foo37 : "ma"
+      foo38 : "ma"
+      foo39 : "Wed Nov 01 2011 00:00:00 GMT+100"
+      foo40 : 3
+      foo41 : 6
       foo16 : 
-        - 4
-        - 1
+        - 3
+        - 2
       foo17 : 
-        - 8
-        - 9
+        - 7
+        - 6
       foo18 : 
-        - false
         - true
+        - false
       foo19 : 
-        - http://www.jfrog.com
-      foo20 :
-        - temp1@jfrog.com
-        - temp2@jfrog.com
+        - http://www.jfrognew
+        - temp1@jfrognew.com
+        - temp2@jfrognew.com
       foo21 :
-        - 192.168.50.50
         - 192.168.50.51
+        - 192.168.50.50
       foo22 :
-        - 255.255.255.0
-        - 255.255.255.0
+        - 255.255.251.0
+        - 255.255.251.0
       foo23 :
-        - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-        - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+        - 2001:0db8:85a3:0000:0000:8a2e:0370:7331
+        - 2001:0db8:85a3:0000:0000:8a2e:0370:7331
       foo24 :
-        - "Wed Nov 03 2011 00:00:00 GMT+1000"
-        - "Wed Nov 05 2011 00:00:00 GMT+1000"
+        - "Wed Nov 03 2011 00:00:00 GMT+1001"
+        - "Wed Nov 05 2011 00:00:00 GMT+1001"
       foo25 :
-        - "a"
+        - "b"
         
       foo26 :
         - "a5"
         - "a6"
       foo27 :
-        - 12
-        - 13
+        - 11
+        - 11
       foo28 :
-        - 56.7
-        - 56.8
+        - 56.1
+        - 56.1
       foo29 :
-        - 123e4567-e89b-12d3-a456-426614174000
+        - 123e4567-e89b-12d3-a456-426614174001
       foo42 :
-        - "lol1"
-        - "lol2"
+        - "lol"
+        - "lol"
       foo43 :
         - "lol"
         - "lol"
       foo44 :
-        - "sas"
+        - "saas"
         - "saas"
       foo45 :
-        - "AA"
-        - "BB"
+        - "A"
+        - "B"
       foo46 :
-        - "sfaf"
-        - "sfaf"
+        - "sfa"
+        - "sfa"
       foo47 :
-        - "jfr"
-        - "jjg"
+        - "jf"
+        - "jj"
       foo48 :
-        - "sfaf"
-        - "fsf"
+        - "sfa"
+        - "fs"
       foo49 :
         - "jfr"
-        - "jfr1"
+        - "jfr"
       foo50 :
         foo1 : "vishnulol"
         foo2 : 2
-        foo3 : true
+        foo3 : false
         foo4 : http://www.jfrog.com
         foo5 : temp@jfrog.com 
         foo6 : 192.168.50.50
@@ -383,7 +382,7 @@ resources:
           - 6
           - 7
         foo18 : 
-          - true
+          - false
           - false
         foo19 : 
           - http://www.jfrog.com
@@ -439,7 +438,7 @@ resources:
           - "fsf"
         foo49 :
           - "jfr"
-          - "jfr1"
+          - "jfr1" 
   
   # - name: r_Aql
   #   type: Aql
@@ -495,6 +494,99 @@ resources:
   # #      imageName: gcr.io/ship-rc/ubuntu
   # #      imageTag: latest
   # #      autoPull: false
+  
+  # - name: r_IncomingWebhook
+  #   type: IncomingWebhook
+  #   configuration:
+  #     webhookName: IW
+
+  # - name: outgoingWebhook
+  #   type: OutgoingWebhook
+  #   configuration:
+  #     webhookName: OW
+  #     method: GET #default POST   
+
+  # - name: mypropertyBag
+  #   type: PropertyBag
+  #   configuration:
+  #     key1: value1
+  #     key2: value2
+  
+  # - name: my_releaseBundle
+  #   type: ReleaseBundle
+  #   configuration:
+  #     sourceDistribution: ds
+  #     name: myRel
+  #     version: v1.0
+  #     isSigned: false  
+
+  # - name: r_FileSpec_pattern
+  #   type: FileSpec
+  #   configuration:
+  #     sourceArtifactory: entArt
+  #     pattern: "artifactory-build*"    
+  
+  # - name: VmCluster_resource
+  #   type: VmCluster
+  #   configuration:
+  #     sshKey: SSH
+  #     targets:
+  #       - 1.2.3.6
+  
+  # - name: r_Aql
+  #   type: Aql
+  #   configuration:
+  #     sourceArtifactory: entArt
+  #     query: items.find({"@build.name":{"$eq":"artifactory"}})
+
+  # - name: myBuildInfo
+  #   type: BuildInfo
+  #   configuration:
+  #     sourceArtifactory: entArt
+  #     buildName: myBuild
+  #     buildNumber: 123
+  
+  # # - name: cronTriggerResource
+  # #   type: CronTrigger
+  # #   configuration:
+  # #     interval: "0011*"
+
+  # # - name: myDistributionRule
+  # #   type: DistributionRule
+  # #   configuration:
+  # #     sourceDistribution: ds
+  # #     serviceName: svce
+  # #     siteName: "bangalore"
+  # #     cityName: "bangalore"
+  # #     countryCodes:
+  # #       - IN
+  # #       - US
+  # #       - UK 
+  
+  # - name: r_GitRepo
+  #   type: GitRepo
+  #   configuration:
+  #     path: vishnurao12/pipelines
+  #     branches:
+  #       include: master
+  #     gitProvider: git_v
+
+  # - name: helm_repo
+  #   type: HelmChart
+  #   configuration: 
+  #     sourceArtifactory: entArt
+  #     repository: helm-local
+  #     chart: test
+  #     version: 1.0.0
+
+  # # - name: image_google
+  # #   type: Image
+  # #   configuration:
+  # #      registry: entArt
+  # #      sourceRepository: example-repo-local
+  # #      imageName: gcr.io/ship-rc/ubuntu
+  # #      imageTag: latest
+  # #      autoPull: true
   
   # - name: r_IncomingWebhook
   #   type: IncomingWebhook

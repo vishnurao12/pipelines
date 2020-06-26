@@ -35,6 +35,8 @@ pipelines:
         configuration:
           inputResources:
             - name: repo_for_b 
+          inputSteps: 
+            - name: step_for_repo_a
         execution:
           onExecute:
             - echo "hello!"

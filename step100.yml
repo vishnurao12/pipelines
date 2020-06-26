@@ -254,101 +254,102 @@ resources:
       # Airbrake : air
       foo1 : "namelol"
       foo1a : "lolwithoutImu"
-      foo2 : 4
+      foo2 : 3
       foo3 : false
-      foo4 : http://www.jfrog.com
-      foo5 : temp@jfrog.com
-      foo6 : 192.168.51.51
-      foo7 : 255.255.251.01
-      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7311
-      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1011"
-      foo10 : "a"
-      foo11 : "a"
-      foo12 : 732
-      foo13 : 74.52
-      foo14 : 123e4567-e89b-12d3-a456-426614174011
+      foo4 : http://www.jfrognew.com
+      foo5 : temp@jfrognew.com
+      foo6 : 192.168.50.51
+      foo7 : 255.255.255.01
+      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7331
+      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1001"
+      foo10 : "b"
+      foo11 : "a1"
+      foo12 : 731
+      foo13 : 74.51
+      foo14 : 123e4567-e89b-12d3-a456-426614174001
       foo15 : 
-        - "lolvishnu"
-        - "lol"
-      foo30 : "vishnulol"
+        - "lolvishnu1"
+        - "lol21"
+      foo30 : "vishnulol1"
       foo31 : "lol"
-      foo32 : "vishnu"
-      foo33 : "VISHNU"
-      foo34 : "sfaf"
+      foo32 : "vishnu1"
+      foo33 : "VISHNU1"
+      foo34 : "sfa"
       foo35 : "vishnu"
-      foo36 : "asf"
-      foo37 : "ma"
-      foo38 : "ma"
-      foo39 : "Wed Nov 01 2011 00:00:00 GMT+100"
-      foo40 : 3
-      foo41 : 6
+      foo36 : "asf1"
+      foo37 : "ma1"
+      foo38 : "ma1"
+      foo39 : "Wed Nov 01 2011 00:00:00 GMT+1001"
+      foo40 : 2
+      foo41 : 7
       foo16 : 
-        - 3
-        - 2
+        - 4
+        - 1
       foo17 : 
-        - 7
-        - 6
+        - 8
+        - 9
       foo18 : 
-        - true
         - false
+        - true
       foo19 : 
-        - http://www.jfrognew.com
-        - http://www.jfrognew.com
-        - http://www.jfrognew.com
+        - http://www.jfrog.com
+      foo20 :
+        - temp1@jfrog.com
+        - temp2@jfrog.com
       foo21 :
-        - 192.168.50.51
         - 192.168.50.50
+        - 192.168.50.51
       foo22 :
-        - 255.255.251.0
-        - 255.255.251.0
+        - 255.255.255.0
+        - 255.255.255.0
       foo23 :
-        - 2001:0db8:85a3:0000:0000:8a2e:0370:7331
-        - 2001:0db8:85a3:0000:0000:8a2e:0370:7331
+        - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+        - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
       foo24 :
-        - "Wed Nov 03 2011 00:00:00 GMT+1001"
-        - "Wed Nov 05 2011 00:00:00 GMT+1001"
+        - "Wed Nov 03 2011 00:00:00 GMT+1000"
+        - "Wed Nov 05 2011 00:00:00 GMT+1000"
       foo25 :
-        - "b"
+        - "a"
         
       foo26 :
         - "a5"
         - "a6"
       foo27 :
-        - 11
-        - 11
+        - 12
+        - 13
       foo28 :
-        - 56.1
-        - 56.1
+        - 56.7
+        - 56.8
       foo29 :
-        - 123e4567-e89b-12d3-a456-426614174001
+        - 123e4567-e89b-12d3-a456-426614174000
       foo42 :
-        - "lol"
-        - "lol"
+        - "lol1"
+        - "lol2"
       foo43 :
         - "lol"
         - "lol"
       foo44 :
-        - "saas"
+        - "sas"
         - "saas"
       foo45 :
-        - "A"
-        - "B"
+        - "AA"
+        - "BB"
       foo46 :
-        - "sfa"
-        - "sfa"
+        - "sfaf"
+        - "sfaf"
       foo47 :
-        - "jf"
-        - "jj"
+        - "jfr"
+        - "jjg"
       foo48 :
-        - "sfa"
-        - "fs"
+        - "sfaf"
+        - "fsf"
       foo49 :
         - "jfr"
-        - "jfr"
+        - "jfr1"
       foo50 :
         foo1 : "vishnulol"
         foo2 : 2
-        foo3 : false
+        foo3 : true
         foo4 : http://www.jfrog.com
         foo5 : temp@jfrog.com 
         foo6 : 192.168.50.50
@@ -382,7 +383,7 @@ resources:
           - 6
           - 7
         foo18 : 
-          - false
+          - true
           - false
         foo19 : 
           - http://www.jfrog.com
@@ -438,7 +439,7 @@ resources:
           - "fsf"
         foo49 :
           - "jfr"
-          - "jfr1" 
+          - "jfr1"
   
   # - name: r_Aql
   #   type: Aql

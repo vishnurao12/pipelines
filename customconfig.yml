@@ -3,8 +3,8 @@ resources:
   - name: test_gitRepo
     type: GitRepo
     configuration:
-      path: ~vishnur/sample_tests
-      gitProvider: bbs
+      path: vishnurao12/pipelines
+      gitProvider: git_v
 
   - name: test_buildInfo
     type: BuildInfo

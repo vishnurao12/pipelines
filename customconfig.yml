@@ -1,4 +1,4 @@
-#test123
+#test
 resources:
   - name: test_gitRepo
     type: GitRepo

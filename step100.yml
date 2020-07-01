@@ -253,7 +253,7 @@ resources:
       # SSH Key: SSH
       # Airbrake : air
       foo1 : "namelol"
-      foo1a : "lolwithoutImu"
+#       foo1a : "lolwithoutImu"
       foo2 : 4
       foo3 : false
       foo4 : http://www.jfrog.com

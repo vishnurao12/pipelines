@@ -1,5 +1,5 @@
 resources:
-  - name: script_repo1
+  - name: script
     type: GitRepo
     configuration:
       gitProvider: git_v
@@ -12,7 +12,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: script_repo1
+            - name: script
         execution:
           onExecute:
             - cd $res_script_repo1_resourcePath

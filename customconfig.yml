@@ -1,0 +1,85 @@
+#test
+resources:
+  - name: test_gitRepo
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      gitProvider: git_v
+
+  - name: test_buildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: master_test_buildInfo
+      buildNumber: 123
+
+  - name: test_propertyBag
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
+
+  - name: r_Aql
+    type: Aql
+    configuration:
+      sourceArtifactory: art_v
+      query: items.find({"@build.name":{"$eq":"artifactory"}})
+      addedProperties:
+        key1: value1
+        key2: value2
+      mappings:
+        - name: mapping1
+          input: IN
+          output: test1
+        - name: mapping2
+          input: IN
+          output: test2
+
+  - name: r_FileSpec_pattern
+    type: FileSpec
+    configuration:
+      sourceArtifactory: art_v
+      pattern: "example-repo-local/" 
+
+  - name: image_aws
+    type: Image
+    configuration:
+       registry: AWS
+       region: us-east-1	 # required if registry is AWS
+       imageName: 754160106182.dkr.ecr.us-east-1.amazonaws.com/jfbeta
+       imageTag: latest
+       autoPull: true
+ 
+pipelines:
+  - name: pipeline_custom_config
+    configuration:
+      environmentVariables:
+        readOnly:
+          checkPIPE: "pipelines"
+    steps:   
+      - name: stepA
+        type: Bash
+        configuration:
+          environmentVariables:
+              checkstepA: "stepA"
+          inputResources:
+            - name: test_gitRepo
+            - name: test_buildInfo
+            - name: test_propertyBag
+            - name: r_Aql
+            - name: r_FileSpec_pattern
+            - name: image_aws
+        execution:
+          onExecute:
+            - printenv
+
+      - name: stepB
+        type: Bash
+        configuration:
+          environmentVariables:
+              checkstepB: "stepB"
+          inputSteps:
+            - name: stepA
+        execution:
+          onExecute:
+            - printenv

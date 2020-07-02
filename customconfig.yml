@@ -54,6 +54,7 @@ pipelines:
   - name: pipeline_custom_config
     configuration:
       environmentVariables:
+        readOnly:
           checkPIPE: "pipelines"
     steps:   
       - name: stepA

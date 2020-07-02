@@ -1,5 +1,5 @@
 resources:
-  - name: gitResource
+  - name: NgitResource
     type: GitRepo
     configuration:
       gitProvider: git_v
@@ -88,7 +88,7 @@ pipelines:
         type: Bash
         configuration: 
           inputResources: # optional
-            - name: gitResource
+            - name: NgitResource
           #inputSteps: 
             #- name: myStep1
         execution:

@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/sample-scripts
+      path: vishnurao12/sample-script
       
 pipelines:
   - name: test_stepTestReports

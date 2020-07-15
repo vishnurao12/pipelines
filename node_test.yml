@@ -9,35 +9,35 @@ resources:
 pipelines:
   - name: node_test
     steps:
-#       - name: u16dynamic
-#         type: Bash
-#         configuration:
-#           nodePool: u16dynamic
-#           inputResources:
-#             - name: connecting_resource
-#         execution:
-#           onExecute:
-#             - printenv
+      - name: u16dynamic
+        type: Bash
+        configuration:
+          nodePool: u16dynamic
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - printenv
 
-#       - name: u18dynamic
-#         type: Bash
-#         configuration:
-#           nodePool: u18dynamic
-#           inputResources:
-#             - name: connecting_resource
-#         execution:
-#           onExecute:
-#             - printenv
+      - name: u18dynamic
+        type: Bash
+        configuration:
+          nodePool: u18dynamic
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - printenv
 
-#       - name: c7dynamic
-#         type: Bash
-#         configuration:
-#           nodePool: c7dynamic
-#           inputResources:
-#             - name: connecting_resource
-#         execution:
-#           onExecute:
-#             - printenv
+      - name: c7dynamic
+        type: Bash
+        configuration:
+          nodePool: c7dynamic
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - printenv
 
       - name: win_2019
         type: PowerShell
@@ -49,42 +49,42 @@ pipelines:
           onExecute:
             - write-output "Hi"
 
-      - name: u16
-        type: Bash
-        configuration:
-          nodePool: u16
-          inputResources:
-            - name: connecting_resource
-        execution:
-          onExecute:
-            - printenv
+#       - name: u16
+#         type: Bash
+#         configuration:
+#           nodePool: u16
+#           inputResources:
+#             - name: connecting_resource
+#         execution:
+#           onExecute:
+#             - printenv
 
-      - name: c7node
-        type: Bash
-        configuration:
-          nodePool: c7node
-          inputResources:
-            - name: connecting_resource
-        execution:
-          onExecute:
-            - printenv
+#       - name: c7node
+#         type: Bash
+#         configuration:
+#           nodePool: c7node
+#           inputResources:
+#             - name: connecting_resource
+#         execution:
+#           onExecute:
+#             - printenv
 
-      - name: u18
-        type: Bash
-        configuration:
-          nodePool: u18
-          inputResources:
-            - name: connecting_resource
-        execution:
-          onExecute:
-            - printenv
+#       - name: u18
+#         type: Bash
+#         configuration:
+#           nodePool: u18
+#           inputResources:
+#             - name: connecting_resource
+#         execution:
+#           onExecute:
+#             - printenv
 
-      - name: rhel
-        type: Bash
-        configuration:
-          nodePool: rhel
-          inputResources:
-            - name: connecting_resource
-        execution:
-          onExecute:
-            - printenv
+#       - name: rhel
+#         type: Bash
+#         configuration:
+#           nodePool: rhel
+#           inputResources:
+#             - name: connecting_resource
+#         execution:
+#           onExecute:
+#             - printenv

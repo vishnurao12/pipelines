@@ -689,6 +689,28 @@ pipelines:
         execution:
           onExecute:
             - write-output "Hi"
+#-------------------------------------endofjava-------------------------------------#
+      - name: win_2019go114
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.14.4"
+          inputSteps: 
+            - name: win_2019java14
+          integrations:
+            - name: gcp_automation
+            - name: aws_automation
+            - name: azure_automation
+            - name: art_v
+        execution:
+          onExecute:
+            - write-output "Hi"
 
       - name: win_2019go113
         type: PowerShell
@@ -700,9 +722,9 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.7"
+                  - "1.13.12"
           inputSteps: 
-            - name: win_2019java14
+            - name: win_2019go114
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -722,7 +744,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.12.14"
+                  - "1.12.17"
           inputSteps: 
             - name: win_2019go113
           integrations:
@@ -755,8 +777,8 @@ pipelines:
         execution:
           onExecute:
             - write-output "Hi"
-
-      - name: win_20191018
+#------------------------------------endofgo----------------------------------#
+      - name: win_2019145
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -766,7 +788,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "10.18.0"
+                  - "14.5.0"
           inputSteps: 
             - name: win_2019go111
           integrations:
@@ -776,9 +798,9 @@ pipelines:
             - name: art_v
         execution:
           onExecute:
-            - write-output "Hi"
+            - write-output "Hi" 
 
-      - name: win_20191214
+     - name: win_20191021
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -788,9 +810,31 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.14.0"
+                  - "10.21.0"
           inputSteps: 
-            - name: win_20191018
+            - name: win_2019145
+          integrations:
+            - name: gcp_automation
+            - name: aws_automation
+            - name: azure_automation
+            - name: art_v
+        execution:
+          onExecute:
+            - write-output "Hi"
+
+      - name: win_20191218
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "12.18.2"
+          inputSteps: 
+            - name: win_20191021
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -812,7 +856,7 @@ pipelines:
                 versions:
                   - "8.17.0"
           inputSteps: 
-            - name: win_20191214
+            - name: win_20191218
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -821,7 +865,7 @@ pipelines:
         execution:
           onExecute:
             - write-output "Hi"
-
+#------------------------------------endofnode----------------------------#
       - name: win_2019cpp800
         type: PowerShell
         configuration:
@@ -832,7 +876,7 @@ pipelines:
               auto:
                 language: cpp
                 versions:
-                  - "8.0.0"
+                  - "8.0.1"
           inputSteps: 
             - name: win_2019817
           integrations:
@@ -854,7 +898,7 @@ pipelines:
               auto:
                 language: cpp
                 versions:
-                  - "9.0.0"
+                  - "9.0.1"
           inputSteps: 
             - name: win_2019cpp800
           integrations:
@@ -866,6 +910,28 @@ pipelines:
           onExecute:
             - write-output "Hi"
 
+      - name: win_2019cpp1000
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: cpp
+                versions:
+                  - "10.0.0"
+          inputSteps: 
+            - name: win_2019cpp900
+          integrations:
+            - name: gcp_automation
+            - name: aws_automation
+            - name: azure_automation
+            - name: art_v
+        execution:
+          onExecute:
+            - write-output "Hi"
+#-----------------------------------endofcpp------------------------------------#
       - name: win_2019dotnetcore21
         type: PowerShell
         configuration:
@@ -878,7 +944,7 @@ pipelines:
                 versions:
                   - "2.1"
           inputSteps: 
-            - name: win_2019cpp900
+            - name: win_2019cpp1000
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -909,7 +975,7 @@ pipelines:
         execution:
           onExecute:
             - write-output "Hi"
-
+#################################################end of win#############################################################
       - name: c7nodejava8
         type: Bash
         configuration:
@@ -954,7 +1020,7 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7nodego1137
+      - name: c7nodejava14
         type: Bash
         configuration:
           nodePool: c7node
@@ -962,9 +1028,9 @@ pipelines:
             type: image
             image: 
               auto:
-                language: go
+                language: java
                 versions:
-                  - "1.13.7"
+                  - "14"
           inputSteps: 
             - name: c7nodejava11
           integrations:
@@ -975,8 +1041,8 @@ pipelines:
         execution:
           onExecute:
             - printenv
-
-      - name: c7nodego11214
+#---------------------------------------endofjava-------------------------------#
+      - name: c7nodego1144
         type: Bash
         configuration:
           nodePool: c7node
@@ -986,9 +1052,9 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.12.14"
+                  - "1.14.4"
           inputSteps: 
-            - name: c7nodego1137
+            - name: c7nodejava14
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -998,7 +1064,51 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7nodego11113
+      - name: c7nodego113
+        type: Bash
+        configuration:
+          nodePool: c7node
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.13.12"
+          inputSteps: 
+            - name: c7nodego1144
+          integrations:
+            - name: gcp_automation
+            - name: aws_automation
+            - name: azure_automation
+            - name: art_v
+        execution:
+          onExecute:
+            - printenv
+
+      - name: c7nodego112
+        type: Bash
+        configuration:
+          nodePool: c7node
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.12.17"
+          inputSteps: 
+            - name: c7nodego113
+          integrations:
+            - name: gcp_automation
+            - name: aws_automation
+            - name: azure_automation
+            - name: art_v
+        execution:
+          onExecute:
+            - printenv
+
+      - name: c7nodego111
         type: Bash
         configuration:
           nodePool: c7node
@@ -1010,7 +1120,7 @@ pipelines:
                 versions:
                   - "1.11.13"
           inputSteps: 
-            - name: c7nodego11214
+            - name: c7nodego112
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1019,8 +1129,8 @@ pipelines:
         execution:
           onExecute:
             - printenv
-
-      - name: c7node10180
+#------------------------------------endofc7------------------------------#
+      - name: c7node1021
         type: Bash
         configuration:
           nodePool: c7node
@@ -1030,7 +1140,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "10.18.0"
+                  - "10.21.0"
           inputSteps: 
             - name: c7nodego11113
           integrations:
@@ -1042,7 +1152,7 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7node12140
+      - name: c7node1218
         type: Bash
         configuration:
           nodePool: c7node
@@ -1052,9 +1162,9 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.14.0"
+                  - "12.18.0"
           inputSteps: 
-            - name: c7node10180
+            - name: c7node1021
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1064,6 +1174,28 @@ pipelines:
           onExecute:
             - printenv
 
+      - name: c7node145
+        type: Bash
+        configuration:
+          nodePool: c7node
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "14.5.0"
+          inputSteps: 
+            - name: c7node1218
+          integrations:
+            - name: gcp_automation
+            - name: aws_automation
+            - name: azure_automation
+            - name: art_v
+        execution:
+          onExecute:
+            - printenv
+#------------------------------------endofnode-------------------------------#
       - name: c7nodecpp342
         type: Bash
         configuration:
@@ -1076,7 +1208,7 @@ pipelines:
                 versions:
                   - "3.4.2"
           inputSteps: 
-            - name: c7node12140
+            - name: c7node145
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1085,7 +1217,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-
+######################################################endofc7############################################################
 #       - name: rheljava8
 #         type: Bash
 #         configuration:

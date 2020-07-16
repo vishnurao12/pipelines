@@ -29,7 +29,7 @@
                   registry: docker_v
                 
             - type: image
-             image:
+              image:
                 custom:
                   name: shippabledocker/sample-node
                   tag: latest

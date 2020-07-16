@@ -24,7 +24,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -46,7 +46,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -68,7 +68,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -90,7 +90,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -112,7 +112,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -134,7 +134,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -156,7 +156,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -178,7 +178,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -200,7 +200,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -222,7 +222,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -244,7 +244,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -266,7 +266,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -288,7 +288,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -310,7 +310,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -332,7 +332,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -354,7 +354,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -376,7 +376,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -398,7 +398,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -420,7 +420,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -442,7 +442,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -464,7 +464,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -486,7 +486,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -508,7 +508,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -530,7 +530,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -552,7 +552,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -574,7 +574,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -596,7 +596,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -618,7 +618,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -640,7 +640,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -662,7 +662,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -684,7 +684,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -706,7 +706,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -728,7 +728,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -750,7 +750,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -772,7 +772,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -794,7 +794,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -816,7 +816,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -838,7 +838,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -860,7 +860,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -882,7 +882,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -904,7 +904,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -926,7 +926,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -948,7 +948,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -970,7 +970,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -992,7 +992,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1014,7 +1014,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1036,7 +1036,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1058,7 +1058,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1080,7 +1080,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1102,7 +1102,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1124,7 +1124,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1146,7 +1146,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1168,7 +1168,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1190,7 +1190,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1212,7 +1212,7 @@ pipelines:
           integrations:
             - name: gcp_automation
             - name: aws_automation
-            - name: azure_automation
+            #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
@@ -1234,7 +1234,7 @@ pipelines:
 #           integrations:
 #             - name: gcp_automation
 #             - name: aws_automation
-#             - name: azure_automation
+#             #- name: azure_automation
 #             - name: art_v
 #         execution:
 #           onExecute:
@@ -1256,7 +1256,7 @@ pipelines:
 #           integrations:
 #             - name: gcp_automation
 #             - name: aws_automation
-#             - name: azure_automation
+#             #- name: azure_automation
 #             - name: art_v
 #         execution:
 #           onExecute:
@@ -1278,7 +1278,7 @@ pipelines:
 #           integrations:
 #             - name: gcp_automation
 #             - name: aws_automation
-#             - name: azure_automation
+#             #- name: azure_automation
 #             - name: art_v
 #         execution:
 #           onExecute:
@@ -1300,7 +1300,7 @@ pipelines:
 #           integrations:
 #             - name: gcp_automation
 #             - name: aws_automation
-#             - name: azure_automation
+#             #- name: azure_automation
 #             - name: art_v
 #         execution:
 #           onExecute:
@@ -1322,7 +1322,7 @@ pipelines:
 #           integrations:
 #             - name: gcp_automation
 #             - name: aws_automation
-#             - name: azure_automation
+#             #- name: azure_automation
 #             - name: art_v
 #         execution:
 #           onExecute:
@@ -1344,7 +1344,7 @@ pipelines:
 #           integrations:
 #             - name: gcp_automation
 #             - name: aws_automation
-#             - name: azure_automation
+#             #- name: azure_automation
 #             - name: art_v
 #         execution:
 #           onExecute:
@@ -1366,7 +1366,7 @@ pipelines:
 #           integrations:
 #             - name: gcp_automation
 #             - name: aws_automation
-#             - name: azure_automation
+#             #- name: azure_automation
 #             - name: art_v
 #         execution:
 #           onExecute:
@@ -1388,7 +1388,7 @@ pipelines:
 #           integrations:
 #             - name: gcp_automation
 #             - name: aws_automation
-#             - name: azure_automation
+#             #- name: azure_automation
 #             - name: art_v
 #         execution:
 #           onExecute:

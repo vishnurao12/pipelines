@@ -11,7 +11,7 @@ pipelines:
       - name: u18java8
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -33,7 +33,7 @@ pipelines:
       - name: u18java11
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -55,7 +55,7 @@ pipelines:
       - name: u18java13
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -77,7 +77,7 @@ pipelines:
       - name: u18java14
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -99,7 +99,7 @@ pipelines:
       - name: u18go1144
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -121,7 +121,7 @@ pipelines:
       - name: u18go11312
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -143,7 +143,7 @@ pipelines:
       - name: u18go11217
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -165,7 +165,7 @@ pipelines:
       - name: u18go11113
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -187,7 +187,7 @@ pipelines:
       - name: u18node10210
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -209,7 +209,7 @@ pipelines:
       - name: u18node12182
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -231,7 +231,7 @@ pipelines:
       - name: u18node1450
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -253,7 +253,7 @@ pipelines:
       - name: u18cpp800
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -275,7 +275,7 @@ pipelines:
       - name: u18cpp900
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -297,7 +297,7 @@ pipelines:
       - name: u18cpp1000
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: u18dynamic
           runtime: 
             type: image
             image: 
@@ -315,11 +315,11 @@ pipelines:
         execution:
           onExecute:
             - printenv
-############################################################END OF u18####################################################
+############################################################END OF u18dynamic####################################################
       - name: u16java8
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -341,7 +341,7 @@ pipelines:
       - name: u16java11
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -363,7 +363,7 @@ pipelines:
       - name: u16java13
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -385,7 +385,7 @@ pipelines:
       - name: u16java14
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -407,7 +407,7 @@ pipelines:
       - name: u16go1144
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -429,7 +429,7 @@ pipelines:
       - name: u16go11312
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -451,7 +451,7 @@ pipelines:
       - name: u16go11217
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -473,7 +473,7 @@ pipelines:
       - name: u16go11113
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -495,7 +495,7 @@ pipelines:
       - name: u16node10210
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -517,7 +517,7 @@ pipelines:
       - name: u16node12182
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -539,7 +539,7 @@ pipelines:
       - name: u16node14.5.0
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -561,7 +561,7 @@ pipelines:
       - name: u16cpp800
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -583,7 +583,7 @@ pipelines:
       - name: u16cpp900
         type: Bash
         configuration:
-          nodePool: u16
+          nodePool: u16dynamic
           runtime: 
             type: image
             image: 
@@ -979,7 +979,7 @@ pipelines:
       - name: c7nodejava8
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1001,7 +1001,7 @@ pipelines:
       - name: c7nodejava11
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1023,7 +1023,7 @@ pipelines:
       - name: c7nodejava14
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1045,7 +1045,7 @@ pipelines:
       - name: c7nodego1144
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1067,7 +1067,7 @@ pipelines:
       - name: c7nodego113
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1089,7 +1089,7 @@ pipelines:
       - name: c7nodego112
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1111,7 +1111,7 @@ pipelines:
       - name: c7nodego111
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1133,7 +1133,7 @@ pipelines:
       - name: c7node1021
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1155,7 +1155,7 @@ pipelines:
       - name: c7node1218
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1177,7 +1177,7 @@ pipelines:
       - name: c7node145
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 
@@ -1199,7 +1199,7 @@ pipelines:
       - name: c7nodecpp342
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: c7dynamic
           runtime: 
             type: image
             image: 

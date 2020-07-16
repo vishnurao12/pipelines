@@ -1,0 +1,55 @@
+  - name: Pipelines_matrixtest
+    steps:
+      - name: Matrix_test
+        type: Matrix
+        stepMode: Bash
+        configuration:
+          nodePool: u18dynamic
+        stepletMultipliers:
+          environmentVariables:
+            - delay: 1
+              fail: 'true'
+            - delay: 10
+              fail: 'true'
+            - delay: 15
+              fail: 'false'
+            - delay: 20
+              fail: 'false'
+          fastFail: true
+          allowFailures:
+            - environmentVariables:
+                delay: 1
+                fail: 'true'
+          runtimes:
+            - type: image
+              image:
+                custom:
+                  name: shippabledocker/jfreq
+                  tag: latest12
+                  registry: docker_v
+                
+            - type: image
+             image:
+                custom:
+                  name: shippabledocker/sample-node
+                  tag: latest
+                  registry: docker_v        
+                
+                
+#           exclude:
+#             - environmentVariables:
+#                 delay: 10
+#                 fail: 'true'
+#                 - delay: 15
+#                   fail: 'false'
+#                 - delay: 20
+#                   fail: 'false'
+#                 - delay: 1
+#                   fail: 'true'
+        execution:
+#           onStart:
+#             - sleep "$delay"
+          onExecute:
+            - echo "I am on matrix step"
+#             - |
+#               [ $fail == 'false' ] 

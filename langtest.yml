@@ -1208,7 +1208,7 @@ pipelines:
                 versions:
                   - "3.4.2"
           inputSteps: 
-            - name: c7145
+            - name: c7node145
           integrations:
             - name: gcp_automation
             - name: aws_automation

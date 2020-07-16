@@ -1,0 +1,14 @@
+pipelines:
+  - name: lang_test
+    steps:
+      - name: u18java8
+        type: Bash
+        configuration:
+          nodePool: u18
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "14"

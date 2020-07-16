@@ -2,7 +2,7 @@ resources:
  - name: resource_pipelines123
    type: GitRepo
    configuration:
-     gitProvider: git_v
+     gitProvider: git_v1
      path: vishnurao12/pipelines
      files: 
        include: ^README.md$

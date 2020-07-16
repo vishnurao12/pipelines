@@ -536,7 +536,7 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: u16node14.5.0
+      - name: u16node1450
         type: Bash
         configuration:
           nodePool: u16dynamic
@@ -570,7 +570,7 @@ pipelines:
                 versions:
                   - "8.0.0"
           inputSteps: 
-            - name: u16node14.5.0
+            - name: u16node1450
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -976,7 +976,7 @@ pipelines:
           onExecute:
             - write-output "Hi"
 #################################################end of win#############################################################
-      - name: c7nodejava8
+      - name: c7java8
         type: Bash
         configuration:
           nodePool: c7dynamic
@@ -998,7 +998,7 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7nodejava11
+      - name: c7java11
         type: Bash
         configuration:
           nodePool: c7dynamic
@@ -1010,7 +1010,7 @@ pipelines:
                 versions:
                   - "11"
           inputSteps: 
-            - name: c7nodejava8
+            - name: c7java8
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1020,7 +1020,7 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7nodejava14
+      - name: c7java14
         type: Bash
         configuration:
           nodePool: c7dynamic
@@ -1032,7 +1032,7 @@ pipelines:
                 versions:
                   - "14"
           inputSteps: 
-            - name: c7nodejava11
+            - name: c7java11
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1042,7 +1042,7 @@ pipelines:
           onExecute:
             - printenv
 #---------------------------------------endofjava-------------------------------#
-      - name: c7nodego1144
+      - name: c7go1144
         type: Bash
         configuration:
           nodePool: c7dynamic
@@ -1054,7 +1054,7 @@ pipelines:
                 versions:
                   - "1.14.4"
           inputSteps: 
-            - name: c7nodejava14
+            - name: c7java14
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1064,7 +1064,7 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7nodego113
+      - name: c7go113
         type: Bash
         configuration:
           nodePool: c7dynamic
@@ -1076,7 +1076,7 @@ pipelines:
                 versions:
                   - "1.13.12"
           inputSteps: 
-            - name: c7nodego1144
+            - name: c7go1144
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1086,7 +1086,7 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7nodego112
+      - name: c7go112
         type: Bash
         configuration:
           nodePool: c7dynamic
@@ -1098,7 +1098,7 @@ pipelines:
                 versions:
                   - "1.12.17"
           inputSteps: 
-            - name: c7nodego113
+            - name: c7go113
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1108,7 +1108,7 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7nodego111
+      - name: c7go111
         type: Bash
         configuration:
           nodePool: c7dynamic
@@ -1120,7 +1120,7 @@ pipelines:
                 versions:
                   - "1.11.13"
           inputSteps: 
-            - name: c7nodego112
+            - name: c7go112
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1142,7 +1142,7 @@ pipelines:
                 versions:
                   - "10.21.0"
           inputSteps: 
-            - name: c7nodego11113
+            - name: c7go111
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1196,7 +1196,7 @@ pipelines:
           onExecute:
             - printenv
 #------------------------------------endofnode-------------------------------#
-      - name: c7nodecpp342
+      - name: c7cpp342
         type: Bash
         configuration:
           nodePool: c7dynamic
@@ -1208,7 +1208,7 @@ pipelines:
                 versions:
                   - "3.4.2"
           inputSteps: 
-            - name: c7node145
+            - name: c7145
           integrations:
             - name: gcp_automation
             - name: aws_automation

@@ -12,3 +12,6 @@ pipelines:
                 language: java
                 versions:
                   - "14"
+        execution:
+          onExecute:
+            - printenv

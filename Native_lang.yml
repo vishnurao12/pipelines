@@ -169,11 +169,12 @@ resources:
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
+##############################u18node###################################
   - name: Master_test_pipe
-#     configuration:
-#       nodePool: win_2019
+    configuration:
+      nodePool: u18dynamic
     steps:
-      - name: Upload_to_artifactory
+      - name: Upload_to_artifactory_18
         type: Bash
         configuration:
           integrations:
@@ -185,7 +186,7 @@ pipelines:
             - echo automation > test.sh
             - jfrog rt u test.sh example-repo-local/setup/test.sh --insecure-tls
 
-      - name: To_build_Docker_Image
+      - name: To_build_Docker_Image_18
         type: DockerBuild
         configuration:
           dockerFileLocation: .
@@ -199,7 +200,7 @@ pipelines:
             - name: connecting_resource_native
 
 
-      - name: To_Push_Docker_Image
+      - name: To_Push_Docker_Image_18
         type: DockerPush
         configuration:
           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
@@ -207,17 +208,17 @@ pipelines:
           integrations:
             - name: art_v 
           inputSteps:
-            - name: To_build_Docker_Image
+            - name: To_build_Docker_Image_18
 
-      - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
+      - name: To_publish_buildInfo_18 #IMPORTANGT******************* : required if autoPublishBuildInfo is false
         type: PublishBuildInfo
         configuration:
           inputSteps:
-            - name: To_Push_Docker_Image
+            - name: TTo_Push_Docker_Image_18
           outputResources:
             - name: ns_buildInfo
 
-      - name: To_promote_build
+      - name: To_promote_build_18
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
@@ -226,11 +227,11 @@ pipelines:
           inputResources:
             - name: ns_buildInfo
           inputSteps:
-            - name: To_publish_buildInfo
+            - name: To_publish_buildInfo_18
           outputResources:
             - name: ns_promotedInfo
 
-      - name: build_go
+      - name: build_go_18
         type: GoBuild
         configuration:
           sourceLocation: golang-example/hello
@@ -253,11 +254,11 @@ pipelines:
           onStart:
             - go version
 
-      - name: publish_go_binarytest
+      - name: publish_go_binarytest_18
         type: GoPublishBinary
         configuration:
           inputSteps:
-            - name: build_go
+            - name: build_go_18
           targetRepository: test-go-local
           integrations:
             - name: art_v
@@ -269,15 +270,15 @@ pipelines:
                 versions:
                   - "1.14.4"
      
-      - name: publish_buildtest
+      - name: publish_buildtest_18
         type: PublishBuildInfo
         configuration:
           inputSteps:
-            - name: publish_go_binarytest
+            - name: publish_go_binarytest_18
           outputResources:
             - name: go_build_info_publishtest
         
-      - name: publish_go_moduletest
+      - name: publish_go_moduletest_18
         type: GoPublishModule
         execution:
           onStart:
@@ -301,7 +302,7 @@ pipelines:
                 versions:
                   - "1.14.4"
             
-      - name: promote_build_gotest_binary
+      - name: promote_build_gotest_binary_18
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
@@ -312,7 +313,7 @@ pipelines:
           outputResources:
             - name: promoted_go_build_info_go_publishtest
     
-      - name: promote_build_gotest_module
+      - name: promote_build_gotest_module_18
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
@@ -323,7 +324,7 @@ pipelines:
           outputResources:
             - name: promoted_go_build_info_go_publishtest
 
-      - name: gradle_build_step
+      - name: gradle_build_step_18
         type: GradleBuild
         configuration:
           gradleCommand: clean artifactoryPublish -b build.gradle
@@ -346,18 +347,19 @@ pipelines:
           onStart:
             - javac -version
             - gradle --version
-      - name: publish_build_info_gradle
+
+      - name: publish_build_info_gradle_18
         type: PublishBuildInfo
         execution:
           onStart:
             - echo "hello"
         configuration:
           inputSteps:
-            - name: gradle_build_step
+            - name: gradle_build_step_18
           outputResources:
             - name: build_info_gradle
 
-      - name: promote_build_info_gradle
+      - name: promote_build_info_gradle_18
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
@@ -369,7 +371,7 @@ pipelines:
           outputResources:
             - name: promoted_build_info_gradle
 
-      - name: mvnBuild_sample
+      - name: mvnBuild_sample_18
         type: MvnBuild
         configuration:
           sourceLocation: ./artifactory-maven-plugin-example
@@ -394,11 +396,11 @@ pipelines:
             - javac -version
             - mvn --version
             
-      - name: mvnBuild_publish
+      - name: mvnBuild_publish_18
         type: PublishBuildInfo
         configuration:
           inputSteps:
-            - name: mvnBuild_sample
+            - name: mvnBuild_sample_18
           outputResources:
             - name: mvnBuild_info
           runtime: 
@@ -409,7 +411,7 @@ pipelines:
                 versions:
                   - "14"
                 
-      - name: mvn_build_promote
+      - name: mvn_build_promote_18
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local # required 
@@ -422,7 +424,7 @@ pipelines:
           outputResources:
             - name: mvnBuild_infopromoted #required
 
-      - name: build_npm
+      - name: build_npm_18
         type: NpmBuild
         configuration:
           repositoryName: npm-virtual
@@ -433,26 +435,26 @@ pipelines:
           integrations:
             - name: art_v
 
-      - name: publish_npm
+      - name: publish_npm_18
         type: NpmPublish
         configuration:
           repositoryName: npm-virtual
           inputSteps:
-            - name: build_npm
+            - name: build_npm_18
           integrations:
             - name: art_v
 
-      - name: publish_build_info
+      - name: publish_build_info_18
         type: PublishBuildInfo
         configuration:
           inputSteps:
-            - name: publish_npm  
+            - name: publish_npm_18
           outputResources:
             - name: npm_build_info_publish1
             
  ##################### - name: npm_auto_publish ###############################
 
-      - name: build_npm_remote
+      - name: build_npm_remote_18
         type: NpmBuild
         configuration:
           repositoryName: npm-virtual
@@ -463,20 +465,20 @@ pipelines:
           integrations:
             - name: art_v
 
-      - name: publish_npm_auto_true
+      - name: publish_npm_auto_true_18
         type: NpmPublish
         configuration:
           repositoryName: npm-virtual
           autoPublishBuildInfo: true
           inputSteps:
-            - name: build_npm_remote
+            - name: build_npm_remote_18
           outputResources:
             - name: npm_build_info_publish1     # required if autoPublishBuildInfo is true.
           integrations:
             - name: art_v
 
 ##################### end of npm_auto_publish ###############################
-      - name: promote_build_npm
+      - name: promote_build_npm_18
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
@@ -488,7 +490,7 @@ pipelines:
           outputResources:
             - name: npm_build_info_promoted
 
-      - name: helm_pub
+      - name: helm_pub_18
         type: HelmPublish
         configuration:
           chartPath: stable/tomcat

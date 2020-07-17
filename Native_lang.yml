@@ -214,7 +214,7 @@ pipelines:
         type: PublishBuildInfo
         configuration:
           inputSteps:
-            - name: TTo_Push_Docker_Image_18
+            - name: To_Push_Docker_Image_18
           outputResources:
             - name: ns_buildInfo
 

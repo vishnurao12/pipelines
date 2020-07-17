@@ -1162,7 +1162,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.18.0"
+                  - "12.18.2"
           inputSteps: 
             - name: c7node1021
           integrations:

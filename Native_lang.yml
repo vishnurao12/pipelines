@@ -1099,7 +1099,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "8"
+                  - "14"
         execution:
           onStart:
             - javac -version

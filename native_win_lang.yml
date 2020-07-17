@@ -1,3 +1,4 @@
+pipelines:  
   - name: Master_test_pipe_win19
     configuration:
       nodePool: win_2019

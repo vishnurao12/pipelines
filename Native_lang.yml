@@ -246,7 +246,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
         execution:
           onStart:
             - go version
@@ -265,7 +265,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
      
       - name: publish_buildtest_16
         type: PublishBuildInfo
@@ -297,7 +297,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
             
       - name: promote_build_gotest_binary_16
         type: PromoteBuild
@@ -339,7 +339,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
         execution:
           onStart:
             - javac -version
@@ -386,7 +386,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
 
         execution:
           onStart:
@@ -406,7 +406,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
                 
       - name: mvn_build_promote_16
         type: PromoteBuild
@@ -437,7 +437,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_npm_16
         type: NpmPublish
@@ -453,7 +453,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_build_info_16
         type: PublishBuildInfo
@@ -481,7 +481,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_npm_auto_true_16
         type: NpmPublish
@@ -500,7 +500,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
 ##################### end of npm_auto_publish ###############################
       - name: promote_build_npm_16
@@ -531,7 +531,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
  
         execution:
           onStart:
@@ -626,7 +626,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
         execution:
           onStart:
             - go version
@@ -645,7 +645,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
      
       - name: publish_buildtest_18
         type: PublishBuildInfo
@@ -677,7 +677,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
             
       - name: promote_build_gotest_binary_18
         type: PromoteBuild
@@ -719,7 +719,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
         execution:
           onStart:
             - javac -version
@@ -766,7 +766,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
 
         execution:
           onStart:
@@ -786,7 +786,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
                 
       - name: mvn_build_promote_18
         type: PromoteBuild
@@ -817,7 +817,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_npm_18
         type: NpmPublish
@@ -833,7 +833,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_build_info_18
         type: PublishBuildInfo
@@ -861,7 +861,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_npm_auto_true_18
         type: NpmPublish
@@ -880,7 +880,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
 ##################### end of npm_auto_publish ###############################
       - name: promote_build_npm_18
@@ -911,7 +911,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
  
         execution:
           onStart:
@@ -1006,7 +1006,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
         execution:
           onStart:
             - go version
@@ -1025,7 +1025,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
      
       - name: publish_buildtest_c7
         type: PublishBuildInfo
@@ -1057,7 +1057,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.13.12"
+                  - "1.14.4"
             
       - name: promote_build_gotest_binary_c7
         type: PromoteBuild
@@ -1099,7 +1099,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
         execution:
           onStart:
             - javac -version
@@ -1146,7 +1146,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
 
         execution:
           onStart:
@@ -1166,7 +1166,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
                 
       - name: mvn_build_promote_c7
         type: PromoteBuild
@@ -1197,7 +1197,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_npm_c7
         type: NpmPublish
@@ -1213,7 +1213,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_build_info_c7
         type: PublishBuildInfo
@@ -1241,7 +1241,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
       - name: publish_npm_auto_true_c7
         type: NpmPublish
@@ -1260,7 +1260,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
 
 ##################### end of npm_auto_publish ###############################
       - name: promote_build_npm_c7
@@ -1291,7 +1291,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "14.5.0"
+                  - "12.18.2"
  
         execution:
           onStart:

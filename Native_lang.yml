@@ -242,13 +242,13 @@ pipelines:
             - name: connecting_resource_native
           integrations:
             - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: go
-                versions:
-                  - "1.14.4"
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.14.4"
         execution:
           onStart:
             - go version

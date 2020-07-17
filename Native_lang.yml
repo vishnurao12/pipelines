@@ -335,6 +335,13 @@ pipelines:
             - name: connecting_resource_native
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "14"
         execution:
           onStart:
             - javac -version
@@ -374,6 +381,13 @@ pipelines:
             - name: connecting_resource_native
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "14"
 
         execution:
           onStart:
@@ -387,6 +401,13 @@ pipelines:
             - name: mvnBuild_sample
           outputResources:
             - name: mvnBuild_info
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "14"
                 
       - name: mvn_build_promote
         type: PromoteBuild

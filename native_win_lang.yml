@@ -1,0 +1,395 @@
+  - name: Master_test_pipe_win19
+    configuration:
+      nodePool: win_2019
+    steps:
+      - name: To_build_Docker_Image_win19
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+          dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
+          dockerImageTag: latest
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: ns_dockerbuild_gitRepo 
+            - name: connecting_resource_native
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "14.5.0"
+
+
+      - name: To_Push_Docker_Image_win19
+        type: DockerPush
+        configuration:
+          autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
+          targetRepository: docker-local #required
+          integrations:
+            - name: art_v 
+          inputSteps:
+            - name: To_build_Docker_Image_win19
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "14.5.0"
+            
+
+      - name: To_publish_buildInfo_win19 #IMPORTANGT******************* : required if autoPublishBuildInfo is false
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: To_Push_Docker_Image_win19
+          outputResources:
+            - name: ns_buildInfo
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "14.5.0"
+
+      - name: To_promote_build_win19
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: ns_buildInfo
+          inputSteps:
+            - name: To_publish_buildInfo_win19
+          outputResources:
+            - name: ns_promotedInfo
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "14.5.0"
+
+      - name: build_go_win19
+        type: GoBuild
+        configuration:
+          sourceLocation: golang-example/hello
+          repository: test-go-local
+          outputLocation: /tmp/dist
+          outputFile: hello_sample
+          inputResources:
+            - name: artifactory_go_example
+            - name: connecting_resource_native
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.12.17"
+        execution:
+          onStart:
+            - go version
+
+      - name: publish_go_binarytest_win19
+        type: GoPublishBinary
+        configuration:
+          inputSteps:
+            - name: build_go_win19
+          targetRepository: test-go-local
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.12.17"
+     
+      - name: publish_buildtest_win19
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: publish_go_binarytest_win19
+          outputResources:
+            - name: go_build_info_publishtest
+        
+      - name: publish_go_moduletest_win19
+        type: GoPublishModule
+        execution:
+          onStart:
+            - go version
+        configuration:  
+          sourceLocation: .  # required
+          version: v0.0.0           # required
+          targetRepository: test-go-local
+          autoPublishBuildInfo: true
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: artifactory_go_module_example
+          outputResources:
+            - name: go_build_info_publish_moduletest
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.12.17"
+            
+      - name: promote_build_gotest_binary_win19
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: go_build_info_publishtest #go_build_info_publish
+          outputResources:
+            - name: promoted_go_build_info_go_publishtest
+    
+      - name: promote_build_gotest_module_win19
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: go_build_info_publish_moduletest
+          outputResources:
+            - name: promoted_go_build_info_go_publishtest
+
+      - name: gradle_build_step_win19
+        type: GradleBuild
+        configuration:
+          gradleCommand: clean artifactoryPublish -b build.gradle
+          sourceLocation: gradle-examples/gradle-example-minimal
+          configFileLocation: .
+          configFileName: gradle-art-config
+          inputResources:
+            - name: gradle_repo
+            - name: connecting_resource_native
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "8"
+        execution:
+          onStart:
+            - javac -version
+            - gradle --version
+
+      - name: publish_build_info_gradle_win19
+        type: PublishBuildInfo
+        execution:
+          onStart:
+            - echo "hello"
+        configuration:
+          inputSteps:
+            - name: gradle_build_step_win19
+          outputResources:
+            - name: build_info_gradle
+
+      - name: promote_build_info_gradle_win19
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          copy: true
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: build_info_gradle
+          outputResources:
+            - name: promoted_build_info_gradle
+
+      - name: mvnBuild_sample_win19
+        type: MvnBuild
+        configuration:
+          sourceLocation: ./artifactory-maven-plugin-example
+          mvnCommand: clean install
+          configFileLocation: .
+          configFileName: mvn-art-config
+          inputResources:
+            - name: maven_repo
+            - name: connecting_resource_native
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "8"
+
+        execution:
+          onStart:
+            - javac -version
+            - mvn --version
+            
+      - name: mvnBuild_publish_win19
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: mvnBuild_sample_win19
+          outputResources:
+            - name: mvnBuild_info
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "8"
+                
+      - name: mvn_build_promote_win19
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local # required 
+          includeDependencies: true    # default false
+          status: "promote success" # for mvn_build_promoted" # optional
+          comment: "build needs to be promoted" # for mvn_build_promoted" # optional
+          copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
+          inputResources:
+            - name: mvnBuild_info #required
+          outputResources:
+            - name: mvnBuild_infopromoted #required
+
+      - name: build_npm_win19
+        type: NpmBuild
+        configuration:
+          repositoryName: npm-virtual
+          sourceLocation: .
+          inputResources:
+            - name: npmHelloWorld_repo
+            - name: connecting_resource_native
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "8.17.0"
+
+      - name: publish_npm_win19
+        type: NpmPublish
+        configuration:
+          repositoryName: npm-virtual
+          inputSteps:
+            - name: build_npm_win19
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "8.17.0"
+
+      - name: publish_build_info_win19
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: publish_npm_win19
+          outputResources:
+            - name: npm_build_info_publish1
+            
+ ##################### - name: npm_auto_publish ###############################
+
+      - name: build_npm_remote_win19
+        type: NpmBuild
+        configuration:
+          repositoryName: npm-virtual
+          sourceLocation: .
+          inputResources:
+            - name: npmHelloWorld_repo
+            - name: connecting_resource_native
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "8.17.0"
+
+      - name: publish_npm_auto_true_win19
+        type: NpmPublish
+        configuration:
+          repositoryName: npm-virtual
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: build_npm_remote_win19
+          outputResources:
+            - name: npm_build_info_publish1     # required if autoPublishBuildInfo is true.
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "8.17.0"
+
+##################### end of npm_auto_publish ###############################
+      - name: promote_build_npm_win19
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: npm_build_info_publish1
+            - name: connecting_resource_native
+          outputResources:
+            - name: npm_build_info_promoted
+
+      - name: helm_pub_win19
+        type: HelmPublish
+        configuration:
+          chartPath: stable/tomcat
+ 
+          inputResources:
+            - name: git_vishnu 
+            - name: connecting_resource_native
+          outputResources:
+            - name: helm_repo                  # required
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "8.17.0"
+ 
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+
+          onSuccess:
+            - echo "Job well done!"
+
+          onFailure:
+            - echo "uh oh, something went wrong"
+
+          onComplete: #always
+            - echo "Cleaning up some stuff"

@@ -10,3 +10,7 @@ pipelines:
           onExecute:
             - echo automation > test.sh
             - jfrog rt u test.sh example-repo-local/setup/test.sh --insecure-tls
+            - add_pipeline_files test.sh mytestfile #adding Artifactory to pipeline state test.sh is the file and mytestfile is the filename.
+            - mkdir /testfolder # create test folder at the root
+            - restore_pipeline_files mytestfile /testfolder/test.sh # restoring the Artifactory from the pipeline state.
+            - cat /testfolder/test.sh

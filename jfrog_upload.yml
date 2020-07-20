@@ -5,7 +5,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: artifactory 
+            - name: art_v 
         execution:
           onExecute:
             - echo automation > test.sh

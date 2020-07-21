@@ -15,7 +15,7 @@ pipelines:
           onExecute:
             - docker pull docker.bintray.io/jfrog/pipelines-c7node:10.18.0
             - docker images
-            - docker tag latest pipe-master.jfrog.info:8082/docker-local/node
+            - docker tag docker.bintray.io/jfrog/pipelines-c7node pipe-master.jfrog.info:8082/docker-local/node
             - docker push pipe-master.jfrog.info:8082/docker-local/node
 
 #       - name: c7_node1018_push_temp

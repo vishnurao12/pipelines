@@ -10,7 +10,7 @@ pipelines:
         configuration:
          affinityGroup: "c7node1018temp"
          integrations:
-           - name: entArt
+           - name: bsEntPlus
         execution:
           onExecute:
             - docker pull docker.bintray.io/jfrog/pipelines-c7node:10.18.0

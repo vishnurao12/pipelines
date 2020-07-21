@@ -15,15 +15,15 @@ pipelines:
           onExecute:
             - docker pull docker.bintray.io/jfrog/pipelines-c7node:10.18.0
 
-      - name: c7_node1018_push_temp
-        type: DockerPush
-        configuration:
-          affinityGroup: "c7node1018temp"
-          targetRepository: pipelines-docker
-          integrations:
-            - name: entArt
-          inputSteps:
-            - name:  pull_c7node10180
-        execution:
-          onComplete:
-            - docker system prune -f --volumes
+#       - name: c7_node1018_push_temp
+#         type: DockerPush
+#         configuration:
+#           affinityGroup: "c7node1018temp"
+#           targetRepository: pipelines-docker
+#           integrations:
+#             - name: entArt
+#           inputSteps:
+#             - name:  pull_c7node10180
+#         execution:
+#           onComplete:
+#             - docker system prune -f --volumes

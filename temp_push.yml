@@ -17,7 +17,8 @@ pipelines:
             - docker images
             - docker tag docker.bintray.io/jfrog/pipelines-c7node:10.18.0 pipe-master.jfrog.info:8082/artifactory/docker-local/node
             - docker images
-            - docker push pipe-master.jfrog.info:8082/artifactory/docker-local/node:latest
+            #- docker push pipe-master.jfrog.info:8082/artifactory/docker-local/node:latest
+            - jfrog rt docker-push pipe-master.jfrog.info:8082/docker-local/node:latest docker-local --build-name=test --build-number=1
 
 #             - docker pull docker.bintray.io/jfrog/pipelines-c7node:10.18.0
 #             - docker images

@@ -17,8 +17,8 @@ pipelines:
             - docker images
             - docker tag docker.bintray.io/jfrog/pipelines-c7node:10.18.0 entplus.jfrog.io/artifactory/jfrog/pipelines-docker/jfrog/pipelines-c7node:10.18.0
             - docker images
-            - docker push $int_entArt_url/jfrog/pipelines-docker/jfrog/pipelines-c7node/10.18.0:10.18.0
-            #- jfrog rt docker-push pipe-master.jfrog.info:8082/docker-local/node:latest docker-local --build-name=test --build-number=1
+            #- docker push $int_entArt_url/jfrog/pipelines-docker/jfrog/pipelines-c7node/10.18.0:10.18.0
+            - jfrog rt docker-push entplus.jfrog.io/artifactory/jfrog/pipelines-docker/jfrog/pipelines-c7node/10.18.0:10.18.0 
 
 #             - docker pull docker.bintray.io/jfrog/pipelines-c7node:10.18.0
 #             - docker images

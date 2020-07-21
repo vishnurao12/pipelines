@@ -17,7 +17,7 @@ pipelines:
             - docker images
             - docker tag docker.bintray.io/jfrog/pipelines-c7node:10.18.0 pipe-master.jfrog.info:8082/docker-local/node
             - docker images
-            - docker push pipe-master.jfrog.info:8082/docker-local/node
+            - docker push pipe-master.jfrog.info:8082/docker-local/node:latest
 
 #       - name: c7_node1018_push_temp
 #         type: DockerPush

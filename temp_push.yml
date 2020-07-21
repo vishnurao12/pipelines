@@ -17,8 +17,14 @@ pipelines:
             - docker images
             - docker tag docker.bintray.io/jfrog/pipelines-c7node:10.18.0 pipe-master.jfrog.info:8082/docker-local/node
             - docker images
-            - docker push pipe-master.jfrog.info:8082/docker-local/node:latest --insecure-tls
+            - docker login $int_art_v_url -u admin -p $int_art_v_apikey 
+            - docker push pipe-master.jfrog.info:8082/docker-local/node:latest
 
+#             - docker pull docker.bintray.io/jfrog/pipelines-c7node:10.18.0
+#             - docker images
+#             - docker tag docker.bintray.io/jfrog/pipelines-c7node:10.18.0 pipe-master.jfrog.info:8082/docker-local/node
+#             - docker images
+#             - docker push pipe-master.jfrog.info:8082/docker-local/node:latest --insecure-tls
 #       - name: c7_node1018_push_temp
 #         type: DockerPush
 #         configuration:

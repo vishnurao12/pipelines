@@ -228,27 +228,6 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: u18node1450
-        type: Bash
-        configuration:
-          nodePool: u18dynamic
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "14.5.0"
-          inputSteps: 
-            - name: u18node12182
-          integrations:
-            - name: gcp_automation
-            - name: aws_automation
-            #- name: azure_automation
-            - name: art_v
-        execution:
-          onExecute:
-            - printenv
 #-------------------------------endofnode-----------------------------------#
       - name: u18cpp800
         type: Bash
@@ -262,7 +241,7 @@ pipelines:
                 versions:
                   - "8.0.0"
           inputSteps: 
-            - name: u18node1450
+            - name: u18node12182
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -536,27 +515,6 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: u16node1450
-        type: Bash
-        configuration:
-          nodePool: u16dynamic
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "14.5.0"
-          inputSteps: 
-            - name: u16node12182
-          integrations:
-            - name: gcp_automation
-            - name: aws_automation
-            #- name: azure_automation
-            - name: art_v
-        execution:
-          onExecute:
-            - printenv
 #-------------------------------endofnode----------------------------#
       - name: u16cpp800
         type: Bash
@@ -570,7 +528,7 @@ pipelines:
                 versions:
                   - "8.0.0"
           inputSteps: 
-            - name: u16node1450
+            - name: u16node12182
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -778,27 +736,6 @@ pipelines:
           onExecute:
             - write-output "Hi"
 #------------------------------------endofgo----------------------------------#
-      - name: win_2019145
-        type: PowerShell
-        configuration:
-          nodePool: win_2019
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "14.5.0"
-          inputSteps: 
-            - name: win_2019go111
-          integrations:
-            - name: gcp_automation
-            - name: aws_automation
-            #- name: azure_automation
-            - name: art_v
-        execution:
-          onExecute:
-            - write-output "Hi" 
 
       - name: win_20191021
         type: PowerShell
@@ -812,7 +749,7 @@ pipelines:
                 versions:
                   - "10.21.0"
           inputSteps: 
-            - name: win_2019145
+            - name: win_2019go111
           integrations:
             - name: gcp_automation
             - name: aws_automation
@@ -1174,27 +1111,6 @@ pipelines:
           onExecute:
             - printenv
 
-      - name: c7node145
-        type: Bash
-        configuration:
-          nodePool: c7dynamic
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "14.5.0"
-          inputSteps: 
-            - name: c7node1218
-          integrations:
-            - name: gcp_automation
-            - name: aws_automation
-            #- name: azure_automation
-            - name: art_v
-        execution:
-          onExecute:
-            - printenv
 #------------------------------------endofnode-------------------------------#
       - name: c7cpp342
         type: Bash
@@ -1208,7 +1124,7 @@ pipelines:
                 versions:
                   - "3.4.2"
           inputSteps: 
-            - name: c7node145
+            - name: c7node1218
           integrations:
             - name: gcp_automation
             - name: aws_automation

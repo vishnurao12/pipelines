@@ -1,6 +1,6 @@
 
 pipelines:
-  - name: pipeline_win_test
+  - name: sleep_test_win
     steps:
       - name: win_2019
         type: PowerShell
@@ -9,3 +9,4 @@ pipelines:
         execution:
           onExecute:
             - write-output  "executing step..."
+            - Start-Sleep -s 300

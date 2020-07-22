@@ -242,6 +242,13 @@ pipelines:
             - name: connecting_resource
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.14.4"
         execution:
           onStart:
             - go version
@@ -275,6 +282,13 @@ pipelines:
           autoPublishBuildInfo: true
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.14.4"
           inputResources:
             - name: artifactory_go_module_example
           outputResources:
@@ -314,6 +328,13 @@ pipelines:
             - name: connecting_resource
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "14"
         execution:
           onStart:
             - javac -version
@@ -336,6 +357,13 @@ pipelines:
           copy: true
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "12.18.2"
           inputResources:
             - name: build_info_gradle
           outputResources:
@@ -353,6 +381,13 @@ pipelines:
             - name: connecting_resource
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "14"
 
         execution:
           onStart:
@@ -375,6 +410,13 @@ pipelines:
           status: "promote success" # for mvn_build_promoted" # optional
           comment: "build needs to be promoted" # for mvn_build_promoted" # optional
           copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: java
+                versions:
+                  - "14"
           inputResources:
             - name: mvnBuild_info #required
           outputResources:
@@ -390,6 +432,13 @@ pipelines:
             - name: connecting_resource
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "12.18.2"
 
       - name: publish_npm
         type: NpmPublish
@@ -399,6 +448,13 @@ pipelines:
             - name: build_npm
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "12.18.2"
 
       - name: publish_build_info
         type: PublishBuildInfo
@@ -407,6 +463,13 @@ pipelines:
             - name: publish_npm  
           outputResources:
             - name: npm_build_info_publish1
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "12.18.2"
             
  ##################### - name: npm_auto_publish ###############################
 
@@ -420,6 +483,13 @@ pipelines:
             - name: connecting_resource
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "12.18.2"
 
       - name: publish_npm_auto_true
         type: NpmPublish
@@ -432,6 +502,13 @@ pipelines:
             - name: npm_build_info_publish1     # required if autoPublishBuildInfo is true.
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "12.18.2"
 
 ##################### end of npm_auto_publish ###############################
       - name: promote_build_npm
@@ -445,6 +522,13 @@ pipelines:
             - name: connecting_resource
           outputResources:
             - name: npm_build_info_promoted
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "12.18.2"
 
       - name: helm_pub
         type: HelmPublish

@@ -5,41 +5,41 @@ resources:
       key1: value1
       key2: value2
 
-  - name: ns_aql
-    type: Aql
-    configuration:
-      sourceArtifactory: art_v
-      query: 'items.find({"$and":[{"artifact.module.build.name":{"$eq":"native_pipeline"}},{"artifact.module.build.number":{"$eq":"8"}}]})'     
-      #addedProperties:
-      mappings:
-        - name: "a"
-          input: "regex"
-          output: "$1/$2"
-        - name: "b"
-          input: "regex"
-          output: "$2/$1"
+#   - name: ns_aql
+#     type: Aql
+#     configuration:
+#       sourceArtifactory: art_v
+#       query: 'items.find({"$and":[{"artifact.module.build.name":{"$eq":"native_pipeline"}},{"artifact.module.build.number":{"$eq":"8"}}]})'     
+#       #addedProperties:
+#       mappings:
+#         - name: "a"
+#           input: "regex"
+#           output: "$1/$2"
+#         - name: "b"
+#           input: "regex"
+#           output: "$2/$1"
       
-  - name: ns_dockerbuild_gitRepo
-    type: GitRepo
-    configuration:
-      path: vishnurao12/sample-script
-      gitProvider: git_v
-      branches: 
-        include: master
+#   - name: ns_dockerbuild_gitRepo
+#     type: GitRepo
+#     configuration:
+#       path: vishnurao12/sample-script
+#       gitProvider: git_v
+#       branches: 
+#         include: master
 
-  - name: ns_buildInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_buildInfo
-      buildNumber: 123
+#   - name: ns_buildInfo
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_buildInfo
+#       buildNumber: 123
   
-  - name: ns_promotedInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_promotedInfo
-      buildNumber: 1
+#   - name: ns_promotedInfo
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_promotedInfo
+#       buildNumber: 1
 
   - name: artifactory_go_example
     type: GitRepo
@@ -85,86 +85,86 @@ resources:
       buildName: promote_go_build_info_publish
       buildNumber: 35
 
-  - name: promoted_build_info_gradle
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: promotoed-full-gradle-native
-      buildNumber: 1
+#   - name: promoted_build_info_gradle
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: promotoed-full-gradle-native
+#       buildNumber: 1
 
-  - name: gradle_repo
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/project-examples
+#   - name: gradle_repo
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/project-examples
 
-  - name: build_info_gradle
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: full-gradle-native
-      buildNumber: 1
+#   - name: build_info_gradle
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: full-gradle-native
+#       buildNumber: 1
 
-  - name: mvnBuild_info
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: mvn_sample_build_master_test
-      buildNumber: 9
+#   - name: mvnBuild_info
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: mvn_sample_build_master_test
+#       buildNumber: 9
 
-  - name: mvnBuild_infoScaned
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: mvn_scan_master_test
-      buildNumber: 2
+#   - name: mvnBuild_infoScaned
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: mvn_scan_master_test
+#       buildNumber: 2
       
-  - name: mvnBuild_infopromoted
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: mvn_promote_build_master_test
-      buildNumber: 3
+#   - name: mvnBuild_infopromoted
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: mvn_promote_build_master_test
+#       buildNumber: 3
       
-  - name: maven_repo
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/project-examples
+#   - name: maven_repo
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/project-examples
 
-  - name: npmHelloWorld_repo
-    type: GitRepo
-    configuration:
-      path: vishnurao12/npmHelloWorld
-      gitProvider: git_v
+#   - name: npmHelloWorld_repo
+#     type: GitRepo
+#     configuration:
+#       path: vishnurao12/npmHelloWorld
+#       gitProvider: git_v
 
-  - name: npm_build_info_publish1
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: npm_publish
-      buildNumber: 1
+#   - name: npm_build_info_publish1
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: npm_publish
+#       buildNumber: 1
   
-  - name: npm_build_info_promoted
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: npm+promote
-      buildNumber: 1
+#   - name: npm_build_info_promoted
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: npm+promote
+#       buildNumber: 1
 
-  - name: git_vishnu
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/charts
+#   - name: git_vishnu
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/charts
    
-  - name: helm_repo
-    type: HelmChart
-    configuration: 
-      sourceArtifactory: art_v
-      repository: helm-local
-      chart: test
-      version: 1.0.0
+#   - name: helm_repo
+#     type: HelmChart
+#     configuration: 
+#       sourceArtifactory: art_v
+#       repository: helm-local
+#       chart: test
+#       version: 1.0.0
 
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
@@ -185,50 +185,50 @@ pipelines:
 #             - echo automation > test.sh
 #             - jfrog rt u test.sh example-repo-local/setup/test.sh --insecure-tls
 
-      - name: To_build_Docker_Image
-        type: DockerBuild
-        configuration:
-          dockerFileLocation: .
-          dockerFileName: Dockerfile
-          dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
-          dockerImageTag: latest
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: ns_dockerbuild_gitRepo 
-            - name: connecting_resource
+#       - name: To_build_Docker_Image
+#         type: DockerBuild
+#         configuration:
+#           dockerFileLocation: .
+#           dockerFileName: Dockerfile
+#           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
+#           dockerImageTag: latest
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: ns_dockerbuild_gitRepo 
+#             - name: connecting_resource
 
 
-      - name: To_Push_Docker_Image
-        type: DockerPush
-        configuration:
-          autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
-          targetRepository: docker-local #required
-          integrations:
-            - name: art_v 
-          inputSteps:
-            - name: To_build_Docker_Image
+#       - name: To_Push_Docker_Image
+#         type: DockerPush
+#         configuration:
+#           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
+#           targetRepository: docker-local #required
+#           integrations:
+#             - name: art_v 
+#           inputSteps:
+#             - name: To_build_Docker_Image
 
-      - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: To_Push_Docker_Image
-          outputResources:
-            - name: ns_buildInfo
+#       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: To_Push_Docker_Image
+#           outputResources:
+#             - name: ns_buildInfo
 
-      - name: To_promote_build
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: ns_buildInfo
-          inputSteps:
-            - name: To_publish_buildInfo
-          outputResources:
-            - name: ns_promotedInfo
+#       - name: To_promote_build
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: ns_buildInfo
+#           inputSteps:
+#             - name: To_publish_buildInfo
+#           outputResources:
+#             - name: ns_promotedInfo
 
       - name: build_go
         type: GoBuild
@@ -316,219 +316,219 @@ pipelines:
           outputResources:
             - name: promoted_go_build_info_go_publishtest
 
-      - name: gradle_build_step
-        type: GradleBuild
-        configuration:
-          gradleCommand: clean artifactoryPublish -b build.gradle
-          sourceLocation: gradle-examples/gradle-example-minimal
-          configFileLocation: .
-          configFileName: gradle-art-config
-          inputResources:
-            - name: gradle_repo
-            - name: connecting_resource
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: java
-                versions:
-                  - "8"
-        execution:
-          onStart:
-            - javac -version
-            - gradle --version
-      - name: publish_build_info_gradle
-        type: PublishBuildInfo
-        execution:
-          onStart:
-            - echo "hello"
-        configuration:
-          inputSteps:
-            - name: gradle_build_step
-          outputResources:
-            - name: build_info_gradle
+#       - name: gradle_build_step
+#         type: GradleBuild
+#         configuration:
+#           gradleCommand: clean artifactoryPublish -b build.gradle
+#           sourceLocation: gradle-examples/gradle-example-minimal
+#           configFileLocation: .
+#           configFileName: gradle-art-config
+#           inputResources:
+#             - name: gradle_repo
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: java
+#                 versions:
+#                   - "8"
+#         execution:
+#           onStart:
+#             - javac -version
+#             - gradle --version
+#       - name: publish_build_info_gradle
+#         type: PublishBuildInfo
+#         execution:
+#           onStart:
+#             - echo "hello"
+#         configuration:
+#           inputSteps:
+#             - name: gradle_build_step
+#           outputResources:
+#             - name: build_info_gradle
 
-      - name: promote_build_info_gradle
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          copy: true
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "8.17.0"
-          inputResources:
-            - name: build_info_gradle
-          outputResources:
-            - name: promoted_build_info_gradle
+#       - name: promote_build_info_gradle
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           copy: true
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
+#           inputResources:
+#             - name: build_info_gradle
+#           outputResources:
+#             - name: promoted_build_info_gradle
 
-      - name: mvnBuild_sample
-        type: MvnBuild
-        configuration:
-          sourceLocation: ./artifactory-maven-plugin-example
-          mvnCommand: clean install
-          configFileLocation: .
-          configFileName: mvn-art-config
-          inputResources:
-            - name: maven_repo
-            - name: connecting_resource
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: java
-                versions:
-                  - "8"
+#       - name: mvnBuild_sample
+#         type: MvnBuild
+#         configuration:
+#           sourceLocation: ./artifactory-maven-plugin-example
+#           mvnCommand: clean install
+#           configFileLocation: .
+#           configFileName: mvn-art-config
+#           inputResources:
+#             - name: maven_repo
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: java
+#                 versions:
+#                   - "8"
 
-        execution:
-          onStart:
-            - javac -version
-            - mvn --version
+#         execution:
+#           onStart:
+#             - javac -version
+#             - mvn --version
             
-      - name: mvnBuild_publish
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: mvnBuild_sample
-          outputResources:
-            - name: mvnBuild_info
+#       - name: mvnBuild_publish
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: mvnBuild_sample
+#           outputResources:
+#             - name: mvnBuild_info
                 
-      - name: mvn_build_promote
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local # required 
-          includeDependencies: true    # default false
-          status: "promote success" # for mvn_build_promoted" # optional
-          comment: "build needs to be promoted" # for mvn_build_promoted" # optional
-          copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: java
-                versions:
-                  - "8"
-          inputResources:
-            - name: mvnBuild_info #required
-          outputResources:
-            - name: mvnBuild_infopromoted #required
+#       - name: mvn_build_promote
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local # required 
+#           includeDependencies: true    # default false
+#           status: "promote success" # for mvn_build_promoted" # optional
+#           comment: "build needs to be promoted" # for mvn_build_promoted" # optional
+#           copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: java
+#                 versions:
+#                   - "8"
+#           inputResources:
+#             - name: mvnBuild_info #required
+#           outputResources:
+#             - name: mvnBuild_infopromoted #required
 
-      - name: build_npm
-        type: NpmBuild
-        configuration:
-          repositoryName: npm-virtual
-          sourceLocation: .
-          inputResources:
-            - name: npmHelloWorld_repo
-            - name: connecting_resource
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "8.17.0"
+#       - name: build_npm
+#         type: NpmBuild
+#         configuration:
+#           repositoryName: npm-virtual
+#           sourceLocation: .
+#           inputResources:
+#             - name: npmHelloWorld_repo
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
-      - name: publish_npm
-        type: NpmPublish
-        configuration:
-          repositoryName: npm-virtual
-          inputSteps:
-            - name: build_npm
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "8.17.0"
+#       - name: publish_npm
+#         type: NpmPublish
+#         configuration:
+#           repositoryName: npm-virtual
+#           inputSteps:
+#             - name: build_npm
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
-      - name: publish_build_info
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: publish_npm  
-          outputResources:
-            - name: npm_build_info_publish1
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "8.17.0"
+#       - name: publish_build_info
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: publish_npm  
+#           outputResources:
+#             - name: npm_build_info_publish1
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
             
- ##################### - name: npm_auto_publish ###############################
+#  ##################### - name: npm_auto_publish ###############################
 
-      - name: build_npm_remote
-        type: NpmBuild
-        configuration:
-          repositoryName: npm-virtual
-          sourceLocation: .
-          inputResources:
-            - name: npmHelloWorld_repo
-            - name: connecting_resource
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "8.17.0"
+#       - name: build_npm_remote
+#         type: NpmBuild
+#         configuration:
+#           repositoryName: npm-virtual
+#           sourceLocation: .
+#           inputResources:
+#             - name: npmHelloWorld_repo
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
-      - name: publish_npm_auto_true
-        type: NpmPublish
-        configuration:
-          repositoryName: npm-virtual
-          autoPublishBuildInfo: true
-          inputSteps:
-            - name: build_npm_remote
-          outputResources:
-            - name: npm_build_info_publish1     # required if autoPublishBuildInfo is true.
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "8.17.0"
+#       - name: publish_npm_auto_true
+#         type: NpmPublish
+#         configuration:
+#           repositoryName: npm-virtual
+#           autoPublishBuildInfo: true
+#           inputSteps:
+#             - name: build_npm_remote
+#           outputResources:
+#             - name: npm_build_info_publish1     # required if autoPublishBuildInfo is true.
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
-##################### end of npm_auto_publish ###############################
-      - name: promote_build_npm
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: npm_build_info_publish1
-            - name: connecting_resource
-          outputResources:
-            - name: npm_build_info_promoted
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "8.17.0"
+# ##################### end of npm_auto_publish ###############################
+#       - name: promote_build_npm
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: npm_build_info_publish1
+#             - name: connecting_resource
+#           outputResources:
+#             - name: npm_build_info_promoted
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
 #       - name: helm_pub
 #         type: HelmPublish

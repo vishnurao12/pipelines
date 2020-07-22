@@ -334,7 +334,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "11"
+                  - "8"
         execution:
           onStart:
             - javac -version
@@ -363,7 +363,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "10.21.0"
+                  - "8.17.0"
           inputResources:
             - name: build_info_gradle
           outputResources:
@@ -387,7 +387,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "11"
+                  - "8"
 
         execution:
           onStart:
@@ -416,7 +416,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "11"
+                  - "8"
           inputResources:
             - name: mvnBuild_info #required
           outputResources:

@@ -248,7 +248,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.14.4"
+                  - "1.13.12"
         execution:
           onStart:
             - go version
@@ -288,7 +288,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.14.4"
+                  - "1.13.12"
           inputResources:
             - name: artifactory_go_module_example
           outputResources:
@@ -334,7 +334,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
         execution:
           onStart:
             - javac -version
@@ -387,7 +387,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
 
         execution:
           onStart:
@@ -416,7 +416,7 @@ pipelines:
               auto:
                 language: java
                 versions:
-                  - "14"
+                  - "13"
           inputResources:
             - name: mvnBuild_info #required
           outputResources:
@@ -438,7 +438,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.18.2"
+                  - "10.21.0"
 
       - name: publish_npm
         type: NpmPublish
@@ -454,7 +454,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.18.2"
+                  - "10.21.0"
 
       - name: publish_build_info
         type: PublishBuildInfo
@@ -469,7 +469,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.18.2"
+                  - "10.21.0"
             
  ##################### - name: npm_auto_publish ###############################
 
@@ -489,7 +489,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.18.2"
+                  - "10.21.0"
 
       - name: publish_npm_auto_true
         type: NpmPublish
@@ -508,7 +508,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.18.2"
+                  - "10.21.0"
 
 ##################### end of npm_auto_publish ###############################
       - name: promote_build_npm
@@ -528,7 +528,7 @@ pipelines:
               auto:
                 language: node
                 versions:
-                  - "12.18.2"
+                  - "10.21.0"
 
       - name: helm_pub
         type: HelmPublish
@@ -539,7 +539,14 @@ pipelines:
             - name: git_vishnu 
             - name: connecting_resource
           outputResources:
-            - name: helm_repo                  # required
+            - name: helm_repo
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: dotnetcore
+                versions:
+                  - "2.1"                  # required
  
         execution:
           onStart:

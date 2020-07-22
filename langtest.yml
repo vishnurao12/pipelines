@@ -22,8 +22,8 @@ pipelines:
           inputResources:
             - name: connecting_resource_lang
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -44,8 +44,8 @@ pipelines:
           inputSteps: 
             - name: u18java8
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -66,8 +66,8 @@ pipelines:
           inputSteps: 
             - name: u18java11
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -88,8 +88,8 @@ pipelines:
           inputSteps: 
             - name: u18java13
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -110,8 +110,8 @@ pipelines:
           inputSteps: 
             - name: u18java14
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -132,8 +132,8 @@ pipelines:
           inputSteps: 
             - name: u18go1144
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -154,8 +154,8 @@ pipelines:
           inputSteps: 
             - name: u18go11312
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -176,8 +176,8 @@ pipelines:
           inputSteps: 
             - name: u18go11217
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -198,8 +198,8 @@ pipelines:
           inputSteps: 
             - name: u18go11113
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -220,8 +220,8 @@ pipelines:
           inputSteps: 
             - name: u18node10210
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -243,13 +243,19 @@ pipelines:
           inputSteps: 
             - name: u18node12182
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
             - printenv
+            - |
+              [[ "$step_image_name:$step_image_tag" == "docker.bintray.io/jfrog/pipelines-u18cpp:8.0.0" ]]
+            - clang --version
+            - gcc --version
+            - |
+              [[ "$(clang --version)" == *"$step_iamge_tag"* ]]
 
       - name: u18cpp900
         type: Bash
@@ -265,13 +271,19 @@ pipelines:
           inputSteps: 
             - name: u18cpp800
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
             - printenv
+            - |
+              [[ "$step_image_name:$step_image_tag" == "docker.bintray.io/jfrog/pipelines-u18cpp:9.0.0" ]]
+            - clang --version
+            - gcc --version
+            - |
+              [[ "$(clang --version)" == *"$step_image_tag"* ]]
 
       - name: u18cpp1000
         type: Bash
@@ -287,8 +299,8 @@ pipelines:
           inputSteps: 
             - name: u18cpp900
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -309,8 +321,8 @@ pipelines:
           inputResources:
             - name: connecting_resource_lang
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -331,8 +343,8 @@ pipelines:
           inputSteps: 
             - name: u16java8
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -353,8 +365,8 @@ pipelines:
           inputSteps: 
             - name: u16java11
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -375,8 +387,8 @@ pipelines:
           inputSteps: 
             - name: u16java13
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -397,8 +409,8 @@ pipelines:
           inputSteps: 
             - name: u16java14
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -419,8 +431,8 @@ pipelines:
           inputSteps: 
             - name: u16go1144
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -441,8 +453,8 @@ pipelines:
           inputSteps: 
             - name: u16go11312
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -463,8 +475,8 @@ pipelines:
           inputSteps: 
             - name: u16go11217
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -485,8 +497,8 @@ pipelines:
           inputSteps: 
             - name: u16go11113
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -507,8 +519,8 @@ pipelines:
           inputSteps: 
             - name: u16node10210
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -530,13 +542,19 @@ pipelines:
           inputSteps: 
             - name: u16node12182
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
             - printenv
+            - |
+              [[ "$step_image_name:$step_image_tag" == "docker.bintray.io/jfrog/pipelines-u16cpp:8.0.0" ]]
+            - clang --version
+            - gcc --version
+            - |
+              [[ "$(clang --version)" == *"8.0.0"* ]]
 
       - name: u16cpp900
         type: Bash
@@ -552,13 +570,18 @@ pipelines:
           inputSteps: 
             - name: u16cpp800
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
             - printenv
+            - |
+              [[ "$step_image_name:$step_image_tag" == "docker.bintray.io/jfrog/pipelines-u16cpp:9.0.0" ]]
+            - clang --version
+            - |
+              [[ "$(clang --version)" == *"9.0.0"* ]]
 ###########################################endofu16##########################################
       - name: win_2019java8
         type: PowerShell
@@ -574,8 +597,8 @@ pipelines:
           inputResources:
             - name: connecting_resource_lang
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -596,8 +619,8 @@ pipelines:
           inputSteps: 
             - name: win_2019java8
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -618,8 +641,8 @@ pipelines:
           inputSteps: 
             - name: win_2019java11
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -640,8 +663,8 @@ pipelines:
           inputSteps: 
             - name: win_2019java13
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -662,8 +685,8 @@ pipelines:
           inputSteps: 
             - name: win_2019java14
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -684,8 +707,8 @@ pipelines:
           inputSteps: 
             - name: win_2019go114
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -706,8 +729,8 @@ pipelines:
           inputSteps: 
             - name: win_2019go113
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -728,8 +751,8 @@ pipelines:
           inputSteps: 
             - name: win_2019go112
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -751,8 +774,8 @@ pipelines:
           inputSteps: 
             - name: win_2019go111
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -773,8 +796,8 @@ pipelines:
           inputSteps: 
             - name: win_20191021
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -795,8 +818,8 @@ pipelines:
           inputSteps: 
             - name: win_20191218
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -817,13 +840,16 @@ pipelines:
           inputSteps: 
             - name: win_2019817
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
             - write-output "Hi"
+            - clang --version
+            - if($(clang --version) -Like "clang version 8.0.1 tags/RELEASE_900/final Target x86_64-pc-windows-msvc Thread model posix InstalledDir C\Program Files\LLVM\bin")
+              { Write-Error "Stop" -ErrorAction Stop} 
 
       - name: win_2019cpp900
         type: PowerShell
@@ -839,13 +865,16 @@ pipelines:
           inputSteps: 
             - name: win_2019cpp800
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
             - write-output "Hi"
+            - clang --version
+            - if($(clang --version) -Like "clang version 9.0.1 tags/RELEASE_900/final Target x86_64-pc-windows-msvc Thread model posix InstalledDir C\Program Files\LLVM\bin")
+              { Write-Error "Stop" -ErrorAction Stop} 
 
       - name: win_2019cpp1000
         type: PowerShell
@@ -861,13 +890,16 @@ pipelines:
           inputSteps: 
             - name: win_2019cpp900
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
             - write-output "Hi"
+            - clang --version
+            - if($(clang --version) -Like "clang version 10.0.0 tags/RELEASE_900/final Target x86_64-pc-windows-msvc Thread model posix InstalledDir C\Program Files\LLVM\bin")
+              { Write-Error "Stop" -ErrorAction Stop}
 #-----------------------------------endofcpp------------------------------------#
       - name: win_2019dotnetcore21
         type: PowerShell
@@ -883,8 +915,8 @@ pipelines:
           inputSteps: 
             - name: win_2019cpp1000
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -905,8 +937,8 @@ pipelines:
           inputSteps: 
             - name: win_2019dotnetcore21
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -927,8 +959,8 @@ pipelines:
           inputResources:
             - name: connecting_resource_lang
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -949,8 +981,8 @@ pipelines:
           inputSteps: 
             - name: c7java8
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -971,8 +1003,8 @@ pipelines:
           inputSteps: 
             - name: c7java11
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -993,8 +1025,8 @@ pipelines:
           inputSteps: 
             - name: c7java14
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -1015,8 +1047,8 @@ pipelines:
           inputSteps: 
             - name: c7go1144
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -1037,8 +1069,8 @@ pipelines:
           inputSteps: 
             - name: c7go113
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -1059,8 +1091,8 @@ pipelines:
           inputSteps: 
             - name: c7go112
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -1081,8 +1113,8 @@ pipelines:
           inputSteps: 
             - name: c7go111
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -1103,8 +1135,8 @@ pipelines:
           inputSteps: 
             - name: c7node1021
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
@@ -1126,13 +1158,18 @@ pipelines:
           inputSteps: 
             - name: c7node1218
           integrations:
-            - name: gcp_automation
-            - name: aws_automation
+            #- name: gcp_automation
+            #- name: aws_automation
             #- name: azure_automation
             - name: art_v
         execution:
           onExecute:
-            - printenv
+            - |
+              [[ "$step_image_name:$step_image_tag" == "docker.bintray.io/jfrog/pipelines-c7cpp:3.4.2" ]]
+            - clang --version
+            - gcc --version
+            - |
+              [[ "$(clang --version)" == *"3.4.2"* ]]
 ######################################################endofc7############################################################
 #       - name: rheljava8
 #         type: Bash
@@ -1148,8 +1185,8 @@ pipelines:
 #           inputResources:
 #             - name: connecting_resource_lang
 #           integrations:
-#             - name: gcp_automation
-#             - name: aws_automation
+#             #- name: gcp_automation
+#             #- name: aws_automation
 #             #- name: azure_automation
 #             - name: art_v
 #         execution:
@@ -1170,8 +1207,8 @@ pipelines:
 #           inputSteps: 
 #             - name: rheljava8
 #           integrations:
-#             - name: gcp_automation
-#             - name: aws_automation
+#             #- name: gcp_automation
+#             #- name: aws_automation
 #             #- name: azure_automation
 #             - name: art_v
 #         execution:
@@ -1192,8 +1229,8 @@ pipelines:
 #           inputSteps: 
 #             - name: rheljava11
 #           integrations:
-#             - name: gcp_automation
-#             - name: aws_automation
+#             #- name: gcp_automation
+#             #- name: aws_automation
 #             #- name: azure_automation
 #             - name: art_v
 #         execution:
@@ -1214,8 +1251,8 @@ pipelines:
 #           inputSteps: 
 #             - name: rhelgo1137
 #           integrations:
-#             - name: gcp_automation
-#             - name: aws_automation
+#             #- name: gcp_automation
+#             #- name: aws_automation
 #             #- name: azure_automation
 #             - name: art_v
 #         execution:
@@ -1236,8 +1273,8 @@ pipelines:
 #           inputSteps: 
 #             - name: rhelgo11214
 #           integrations:
-#             - name: gcp_automation
-#             - name: aws_automation
+#             #- name: gcp_automation
+#             #- name: aws_automation
 #             #- name: azure_automation
 #             - name: art_v
 #         execution:
@@ -1258,8 +1295,8 @@ pipelines:
 #           inputSteps: 
 #             - name: rhelgo11113
 #           integrations:
-#             - name: gcp_automation
-#             - name: aws_automation
+#             #- name: gcp_automation
+#             #- name: aws_automation
 #             #- name: azure_automation
 #             - name: art_v
 #         execution:
@@ -1280,8 +1317,8 @@ pipelines:
 #           inputSteps: 
 #             - name: rhel10180
 #           integrations:
-#             - name: gcp_automation
-#             - name: aws_automation
+#             #- name: gcp_automation
+#             #- name: aws_automation
 #             #- name: azure_automation
 #             - name: art_v
 #         execution:
@@ -1302,8 +1339,8 @@ pipelines:
 #           inputSteps: 
 #             - name: rhel12140
 #           integrations:
-#             - name: gcp_automation
-#             - name: aws_automation
+#             #- name: gcp_automation
+#             #- name: aws_automation
 #             #- name: azure_automation
 #             - name: art_v
 #         execution:

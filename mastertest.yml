@@ -570,7 +570,7 @@ pipelines:
           helmVersion: 3
           releaseName:         test1
           integrations:
-            - name:         azure_invalid                # required
+            - name:         kube_invalid                # required
           inputResources:
             - name:         helm_repo 
             - name: connecting_resource # required

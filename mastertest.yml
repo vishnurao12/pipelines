@@ -543,13 +543,13 @@ pipelines:
           outputResources:
             - name: helm_repo
 
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: dotnetcore
-#                 versions:
-#                   - "2.1"                  # required
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "10.21.0"                  # required
  
         execution:
           onStart:

@@ -574,6 +574,14 @@ pipelines:
           inputResources:
             - name:         helm_repo 
             - name: connecting_resource # required
+            
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: node
+                versions:
+                  - "10.21.0"   
  
         execution:
           onStart:

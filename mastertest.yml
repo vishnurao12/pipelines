@@ -535,7 +535,7 @@ pipelines:
         configuration:
           chartPath: stable/tomcat
           lint: true
-          lintFlags: "--strict"
+          lintFlags: --help
           helmVersion: 3
           inputResources:
             - name: git_vishnu 

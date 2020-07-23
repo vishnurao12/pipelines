@@ -152,11 +152,11 @@ resources:
 #       buildName: npm+promote
 #       buildNumber: 1
 
-#   - name: git_vishnu
-#     type: GitRepo
-#     configuration:
-#       gitProvider: git_v
-#       path: vishnurao12/charts
+  - name: git_vishnu
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/charts
    
   - name: helm_repo
     type: HelmChart

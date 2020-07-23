@@ -170,8 +170,8 @@ resources:
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
-#     configuration:
-#       nodePool: win_2019
+    configuration:
+      nodePool: win_2019
     steps:
 #       - name: Upload_to_artifactory
 #         type: Bash
@@ -547,9 +547,9 @@ pipelines:
             type: image
             image: 
               auto:
-                language: node
+                language: dotnetcore
                 versions:
-                  - "10.21.0"                  # required
+                  - "3.1"                  # required
  
         execution:
           onStart:

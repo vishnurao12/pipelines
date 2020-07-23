@@ -170,8 +170,8 @@ resources:
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
-#     configuration:
-#       nodePool: win_2019
+    configuration:
+      nodePool: win_2019
     steps:
 #       - name: Upload_to_artifactory
 #         type: Bash
@@ -530,39 +530,39 @@ pipelines:
 #                 versions:
 #                   - "8.17.0"
 
-      - name: helm_pub
-        type: HelmPublish
-        configuration:
-          chartPath: stable/tomcat
-          lint: true
-#           lintFlags: --help
-          helmVersion: 3
-          inputResources:
-            - name: git_vishnu 
-            - name: connecting_resource
-          outputResources:
-            - name: helm_repo
+#       - name: helm_pub
+#         type: HelmPublish
+#         configuration:
+#           chartPath: stable/tomcat
+#           lint: true
+# #           lintFlags: --help
+#           helmVersion: 3
+#           inputResources:
+#             - name: git_vishnu 
+#             - name: connecting_resource
+#           outputResources:
+#             - name: helm_repo
 
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "10.21.0"                  # required
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "10.21.0"                  # required
  
-        execution:
-          onStart:
-            - echo "Preparing for work..."
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
 
-          onSuccess:
-            - echo "Job well done!"
+#           onSuccess:
+#             - echo "Job well done!"
 
-          onFailure:
-            - echo "uh oh, something went wrong"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
 
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"
 
       - name: HelmDeploy
         type: HelmDeploy
@@ -579,9 +579,9 @@ pipelines:
             type: image
             image: 
               auto:
-                language: node
+                language: dotnetcore
                 versions:
-                  - "10.21.0"   
+                  - "3.1"   
  
         execution:
           onStart:

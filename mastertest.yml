@@ -581,7 +581,7 @@ pipelines:
               auto:
                 language: dotnetcore
                 versions:
-                  - "3.1"   
+                  - "2.1"   
  
         execution:
           onStart:

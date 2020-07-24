@@ -1,6 +1,6 @@
 resources:
   - name: step001
-    type: test
+    type: gittest
     syntaxVersion: 0.0.3
     configuration:      
       test: foo

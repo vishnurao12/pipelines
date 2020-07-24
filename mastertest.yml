@@ -177,7 +177,7 @@ resources:
     type:       ReleaseBundle
     configuration:
       sourceDistribution:  dis_v
-      name:                 test1
+      name:                 test
       version:              1.0.0
 
 # need to add git_v,art_v,docker_v integration. 
@@ -248,7 +248,7 @@ pipelines:
         type: CreateReleaseBundle
         configuration:
           #inherits from bash
-          releaseBundleName:        test
+          releaseBundleName:        test1
           releaseBundleVersion:     1.0.0
  
           inputResources:

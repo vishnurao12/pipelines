@@ -177,8 +177,6 @@ resources:
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
-    configuration:
-      nodePool: win_2019
     steps:
 #       - name: Upload_to_artifactory
 #         type: Bash

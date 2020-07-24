@@ -599,13 +599,13 @@ pipelines:
           onComplete: #always
             - echo "Cleaning up some stuff"
 
-      - name: To_publish_buildInfo_helm 
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: helm_pub
-          outputResources:
-            - name: ns_buildInfo_helm
+#       - name: To_publish_buildInfo_helm 
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: helm_pub
+#           outputResources:
+#             - name: ns_buildInfo_helm
 
 #       - name: To_promote_build
 #         type: PromoteBuild

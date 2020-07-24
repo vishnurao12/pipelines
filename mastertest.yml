@@ -177,7 +177,7 @@ resources:
     type:       ReleaseBundle
     configuration:
       sourceDistribution:  dis_v
-      name:                 test
+      name:                 test1
       version:              1.0.0
 
 # need to add git_v,art_v,docker_v integration. 

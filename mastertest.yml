@@ -185,17 +185,17 @@ resources:
 pipelines:
   - name: Master_test_pipe
     steps:
-#       - name: Upload_to_artifactory
-#         type: Bash
-#         configuration:
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: connecting_resource
-#         execution:
-#           onExecute:
-#             - echo automation > test.sh
-#             - jfrog rt u test.sh example-repo-local/setup/test.sh --insecure-tls
+      - name: Upload_to_artifactory
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
       - name: To_build_Docker_Image
         type: DockerBuild
@@ -206,6 +206,8 @@ pipelines:
           dockerImageTag: latest
           integrations:
             - name: art_v
+          inputSteps:
+            - name: Upload_to_artifactory
           inputResources:
             - name: ns_dockerbuild_gitRepo 
             - name: connecting_resource
@@ -277,6 +279,8 @@ pipelines:
             - name: connecting_resource
           integrations:
             - name: art_v
+          inputSteps:
+            - name: Upload_to_artifactory
           runtime: 
             type: image
             image: 

@@ -170,8 +170,15 @@ resources:
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
-#     configuration:
+     configuration:
 #       nodePool: win_2019
+        runtime: 
+          type: image
+          image: 
+            auto:
+              language: node
+              versions:
+                - "10.21.1" 
     steps:
 #       - name: Upload_to_artifactory
 #         type: Bash
@@ -190,7 +197,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: pipelines.westus.cloudapp.azure.com/docker-local/node 
+          dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/node 
           dockerImageTag: latest
           integrations:
             - name: art_v
@@ -208,6 +215,7 @@ pipelines:
             - name: art_v 
           inputSteps:
             - name: To_build_Docker_Image
+
 
       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
         type: PublishBuildInfo

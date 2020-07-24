@@ -48,56 +48,56 @@ resources:
       buildName: master_test_promotedInfo
       buildNumber: 1
 
-#   - name: artifactory_go_example
-#     type: GitRepo
-#     configuration:
-#       path: vishnurao12/project-examples
-#       branches:
-#         include: master
-#       gitProvider: git_v
-#   - name: artifactory_go_exampletest
-#     type: GitRepo
-#     configuration:
-#       path: vishnurao12/project-examples
-#       branches:
-#         include: master
-#       gitProvider: git_v
+  - name: artifactory_go_example
+    type: GitRepo
+    configuration:
+      path: vishnurao12/project-examples
+      branches:
+        include: master
+      gitProvider: git_v
+  - name: artifactory_go_exampletest
+    type: GitRepo
+    configuration:
+      path: vishnurao12/project-examples
+      branches:
+        include: master
+      gitProvider: git_v
 
-#   - name: artifactory_go_module_example
-#     type: GitRepo
-#     configuration:
-#       path: vishnurao12/artifactory-go-example
-#       branches:
-#         include: master
-#       gitProvider: git_v
+  - name: artifactory_go_module_example
+    type: GitRepo
+    configuration:
+      path: vishnurao12/artifactory-go-example
+      branches:
+        include: master
+      gitProvider: git_v
 
-#   - name: go_build_info_publish_moduletest
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: go_example_module_publish_varsha
-#       buildNumber: 332
+  - name: go_build_info_publish_moduletest
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: go_example_module_publish_varsha
+      buildNumber: 332
       
-#   - name: go_build_info_publishtest
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: go_example_build_publish_varsha
-#       buildNumber: 32
+  - name: go_build_info_publishtest
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: go_example_build_publish_varsha
+      buildNumber: 32
   
-#   - name: promoted_go_build_info_go_publishtest
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: promote_go_build_info_publish
-#       buildNumber: 35
+  - name: promoted_go_build_info_go_publishtest
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: promote_go_build_info_publish
+      buildNumber: 35
 
-#   - name: promoted_build_info_gradle
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: promotoed-full-gradle-native
-#       buildNumber: 1
+  - name: promoted_build_info_gradle
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: promotoed-full-gradle-native
+      buildNumber: 1
 
 #   - name: gradle_repo
 #     type: GitRepo
@@ -251,7 +251,7 @@ pipelines:
  
           inputResources:
             - name:                  ns_promotedInfo
-            - name: ns_buildInfo_helm
+            - name: go_build_info_publishtest
           outputResources:
             - name:                 docker_ReleaseBundle
  
@@ -265,91 +265,91 @@ pipelines:
           onComplete: #always
             - echo "Cleaning up some stuff"
 
-#       - name: build_go
-#         type: GoBuild
-#         configuration:
-#           sourceLocation: golang-example/hello
-#           repository: test-go-local
-#           outputLocation: /tmp/dist
-#           outputFile: hello_sample
-#           inputResources:
-#             - name: artifactory_go_example
-#             - name: connecting_resource
-#           integrations:
-#             - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.12.17"
-#         execution:
-#           onStart:
-#             - go version
+      - name: build_go
+        type: GoBuild
+        configuration:
+          sourceLocation: golang-example/hello
+          repository: test-go-local
+          outputLocation: /tmp/dist
+          outputFile: hello_sample
+          inputResources:
+            - name: artifactory_go_example
+            - name: connecting_resource
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.12.17"
+        execution:
+          onStart:
+            - go version
 
-#       - name: publish_go_binarytest
-#         type: GoPublishBinary
-#         configuration:
-#           inputSteps:
-#             - name: build_go
-#           targetRepository: test-go-local
-#           integrations:
-#             - name: art_v
+      - name: publish_go_binarytest
+        type: GoPublishBinary
+        configuration:
+          inputSteps:
+            - name: build_go
+          targetRepository: test-go-local
+          integrations:
+            - name: art_v
      
-#       - name: publish_buildtest
-#         type: PublishBuildInfo
-#         configuration:
-#           inputSteps:
-#             - name: publish_go_binarytest
-#           outputResources:
-#             - name: go_build_info_publishtest
+      - name: publish_buildtest
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: publish_go_binarytest
+          outputResources:
+            - name: go_build_info_publishtest
         
-#       - name: publish_go_moduletest
-#         type: GoPublishModule
-#         execution:
-#           onStart:
-#             - go version
-#         configuration:  
-#           sourceLocation: .  # required
-#           version: v0.0.0           # required
-#           targetRepository: test-go-local
-#           autoPublishBuildInfo: true
-#           integrations:
-#             - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.12.17"
-#           inputResources:
-#             - name: artifactory_go_module_example
-#           outputResources:
-#             - name: go_build_info_publish_moduletest
+      - name: publish_go_moduletest
+        type: GoPublishModule
+        execution:
+          onStart:
+            - go version
+        configuration:  
+          sourceLocation: .  # required
+          version: v0.0.0           # required
+          targetRepository: test-go-local
+          autoPublishBuildInfo: true
+          integrations:
+            - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.12.17"
+          inputResources:
+            - name: artifactory_go_module_example
+          outputResources:
+            - name: go_build_info_publish_moduletest
             
-#       - name: promote_build_gotest_binary
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-generic-local
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: go_build_info_publishtest #go_build_info_publish
-#           outputResources:
-#             - name: promoted_go_build_info_go_publishtest
+      - name: promote_build_gotest_binary
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: go_build_info_publishtest #go_build_info_publish
+          outputResources:
+            - name: promoted_go_build_info_go_publishtest
     
-#       - name: promote_build_gotest_module
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-generic-local
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: go_build_info_publish_moduletest
-#           outputResources:
-#             - name: promoted_go_build_info_go_publishtest
+      - name: promote_build_gotest_module
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: go_build_info_publish_moduletest
+          outputResources:
+            - name: promoted_go_build_info_go_publishtest
 
 #       - name: gradle_build_step
 #         type: GradleBuild

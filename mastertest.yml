@@ -559,39 +559,39 @@ pipelines:
 #                 versions:
 #                   - "8.17.0"
 
-      - name: helm_pub
-        type: HelmPublish
-        configuration:
-          chartPath: stable/tomcat
-          lint: true
-#           lintFlags: --help
-          helmVersion: 3
-          inputResources:
-            - name: git_vishnu 
-            - name: connecting_resource
-          outputResources:
-            - name: helm_repo
+#       - name: helm_pub
+#         type: HelmPublish
+#         configuration:
+#           chartPath: stable/tomcat
+#           lint: true
+# #           lintFlags: --help
+#           helmVersion: 3
+#           inputResources:
+#             - name: git_vishnu 
+#             - name: connecting_resource
+#           outputResources:
+#             - name: helm_repo
 
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: node
-                versions:
-                  - "10.21.0"                  # required
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "10.21.0"                  # required
  
-        execution:
-          onStart:
-            - echo "Preparing for work..."
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
 
-          onSuccess:
-            - echo "Job well done!"
+#           onSuccess:
+#             - echo "Job well done!"
 
-          onFailure:
-            - echo "uh oh, something went wrong"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
 
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"
 
 #       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
 #         type: PublishBuildInfo
@@ -612,7 +612,7 @@ pipelines:
 #           inputSteps:
 #             - name: To_publish_buildInfo
 #           outputResources:
-            - name: ns_promotedInfo
+#             - name: ns_promotedInfo
 
 #       - name: HelmDeploy
 #         type: HelmDeploy

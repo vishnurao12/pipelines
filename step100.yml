@@ -998,7 +998,7 @@ pipelines:
             - echo ${res_step001_foo2}
             - printenv
 
-      - name: gitcheck
+      - name: gitdoublecheck
         type: gitdoublecheck
         syntaxVersion: 1.0.0
         configuration:              

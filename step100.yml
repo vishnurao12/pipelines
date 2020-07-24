@@ -999,7 +999,7 @@ pipelines:
             - printenv
 
       - name: gitcheck
-        type: gitcheck
+        type: gitdoublecheck
         syntaxVersion: 1.0.0
         configuration:              
           foo: bar

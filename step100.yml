@@ -997,3 +997,17 @@ pipelines:
             - printenv
             - echo ${res_step001_foo2}
             - printenv
+
+      - name: gitcheck
+        type: gitcheck
+        syntaxVersion: 1.0.0
+        configuration:              
+          foo: bar
+          inputResources:
+            - name: step001
+            - name: connecting_resource
+        execution:
+          onStart:
+            - printenv
+            - echo ${res_step001_foo2}
+            - printenv

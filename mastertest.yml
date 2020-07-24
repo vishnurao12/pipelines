@@ -256,7 +256,7 @@ pipelines:
             - name: go_build_info_publishtest
           outputResources:
             - name:                 docker_ReleaseBundle
- 
+          dryRun: false
         execution:
           onStart:
             - echo "Preparing for work..."

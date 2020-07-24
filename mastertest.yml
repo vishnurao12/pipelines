@@ -564,25 +564,25 @@ pipelines:
           onComplete: #always
             - echo "Cleaning up some stuff"
 
-      - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: helm_pub
-          outputResources:
-            - name: ns_buildInfo
+#       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: helm_pub
+#           outputResources:
+#             - name: ns_buildInfo
 
-      - name: To_promote_build
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-helm-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: ns_buildInfo
-          inputSteps:
-            - name: To_publish_buildInfo
-          outputResources:
+#       - name: To_promote_build
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-helm-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: ns_buildInfo
+#           inputSteps:
+#             - name: To_publish_buildInfo
+#           outputResources:
             - name: ns_promotedInfo
 
 #       - name: HelmDeploy

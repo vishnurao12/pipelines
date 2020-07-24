@@ -197,7 +197,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/node 
+          dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
           dockerImageTag: latest
           integrations:
             - name: art_v

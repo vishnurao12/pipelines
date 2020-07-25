@@ -18,6 +18,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - docker images
 
       - name: u18dynamic
         type: Bash
@@ -38,6 +39,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - docker images
 
       - name: win_2019
         type: PowerShell
@@ -48,6 +50,7 @@ pipelines:
         execution:
           onExecute:
             - write-output "Hi"
+            - docker images
 
 #       - name: u16
 #         type: Bash

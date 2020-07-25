@@ -1,5 +1,5 @@
 resources:
-  - name: connecting_resource
+  - name: connecting_resource_node_test
     type: PropertyBag
     configuration:
       key1: value1
@@ -14,7 +14,7 @@ pipelines:
         configuration:
           nodePool: u16dynamic
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
@@ -25,7 +25,7 @@ pipelines:
         configuration:
           nodePool: u18dynamic
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
@@ -35,7 +35,7 @@ pipelines:
         configuration:
           nodePool: c7dynamic
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
@@ -46,7 +46,7 @@ pipelines:
         configuration:
           nodePool: win_2019
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_node_test
         execution:
           onExecute:
             - write-output "Hi"

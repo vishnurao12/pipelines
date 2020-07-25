@@ -29,7 +29,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-
+            - docker images
       - name: c7dynamic
         type: Bash
         configuration:

@@ -963,19 +963,19 @@ pipelines:
       #       - get_resource_name --type GitRepo --operation IN    
       #       - get_integration_name --type GitHub         
 
-      - name: immuteablecheck
-        type: sample
-        syntaxVersion: 1.0.0
-        configuration:              
-          foo: bar
-          inputResources:
-            - name: step004
-            - name: connecting_resource
-        execution:
-          onStart:
-            - printenv
-            - echo ${res_step001_foo2}
-            - printenv
+#       - name: immuteablecheck
+#         type: sample
+#         syntaxVersion: 1.0.0
+#         configuration:              
+#           foo: bar
+#           inputResources:
+#             - name: step004
+#             - name: connecting_resource
+#         execution:
+#           onStart:
+#             - printenv
+#             - echo ${res_step001_foo2}
+#             - printenv
 
 #       - name: gitdoublecheck
 #         type: gitdoublecheck

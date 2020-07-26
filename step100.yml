@@ -4,24 +4,24 @@ resources:
     syntaxVersion: 0.0.3
     configuration:      
       test: foo
-      # slack: slack_integration
-      # Artifactory: entArt
-      # Azure Keys: azure
-      # Bitbucket: bb
-      # Bitbucket Server : bbs
+      slack: slack_integration
+      Artifactory: entArt
+      Azure Keys: azure
+      Bitbucket: bb
+      Bitbucket Server : bbs
       # Distribution : ds
       # Digital Ocean : DO
-      # Docker Registry : DR
+      Docker Registry : DR
       # File Server : FS
-      # Google Cloud : GC
-      # Generic Integration : generic
-      # GitHub : git_v
+      Google Cloud : GC
+      Generic Integration : generic
+      GitHub : git_v
       # Github Enterprise : ghe
-      # GitLab : gL
+      GitLab : gL
       # Incoming Webhook : IW
       # Jenkins Server : JS
       # Jira : JI
-      # Kubernetes : Kuber
+      Kubernetes : Kuber
       # NewRelic : NR
       # Outgoing Webhook : OW
       # PEM Key : PK
@@ -228,24 +228,24 @@ resources:
     syntaxVersion: 0.0.4
     configuration:      
       test: foo
-      # slack: slack_integration
-      # Artifactory: entArt
-      # Azure Keys: azure
-      # Bitbucket: bb
-      # Bitbucket Server : bbs
+      slack: slack_integration
+      Artifactory: entArt
+      Azure Keys: azure
+      Bitbucket: bb
+      Bitbucket Server : bbs
       # Distribution : ds
       # Digital Ocean : DO
-      # Docker Registry : DR
+      Docker Registry : DR
       # File Server : FS
-      # Google Cloud : GC
-      # Generic Integration : generic
-      # GitHub : git_v
+      Google Cloud : GC
+      Generic Integration : generic
+      GitHub : git_v
       # Github Enterprise : ghe
-      # GitLab : gL
+      GitLab : gL
       # Incoming Webhook : IW
       # Jenkins Server : JS
       # Jira : JI
-      # Kubernetes : Kuber
+      Kubernetes : Kuber
       # NewRelic : NR
       # Outgoing Webhook : OW
       # PEM Key : PK
@@ -470,30 +470,30 @@ resources:
   # #       - US
   # #       - UK 
   
-  # - name: r_GitRepo
-  #   type: GitRepo
-  #   configuration:
-  #     path: vishnurao12/pipelines
-  #     branches:
-  #       include: master
-  #     gitProvider: git_v
+  - name: r_GitRepo
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      branches:
+        include: master
+      gitProvider: git_v
 
-  # - name: helm_repo
-  #   type: HelmChart
-  #   configuration: 
-  #     sourceArtifactory: entArt
-  #     repository: helm-local
-  #     chart: test
-  #     version: 1.0.0
+  - name: helm_repo
+    type: HelmChart
+    configuration: 
+      sourceArtifactory: entArt
+      repository: helm-local
+      chart: test
+      version: 1.0.0
 
-  # # - name: image_google
-  # #   type: Image
-  # #   configuration:
-  # #      registry: entArt
-  # #      sourceRepository: example-repo-local
-  # #      imageName: gcr.io/ship-rc/ubuntu
-  # #      imageTag: latest
-  # #      autoPull: false
+  - name: image_google
+    type: Image
+    configuration:
+       registry: entArt
+       sourceRepository: example-repo-local
+       imageName: gcr.io/ship-rc/ubuntu
+       imageTag: latest
+       autoPull: false
   
   # - name: r_IncomingWebhook
   #   type: IncomingWebhook
@@ -506,11 +506,11 @@ resources:
   #     webhookName: OW
   #     method: GET #default POST   
 
-  # - name: mypropertyBag
-  #   type: PropertyBag
-  #   configuration:
-  #     key1: value1
-  #     key2: value2
+  - name: mypropertyBag
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
   
   # - name: my_releaseBundle
   #   type: ReleaseBundle
@@ -571,22 +571,22 @@ resources:
   #       include: master
   #     gitProvider: git_v
 
-  # - name: helm_repo
-  #   type: HelmChart
-  #   configuration: 
-  #     sourceArtifactory: entArt
-  #     repository: helm-local
-  #     chart: test
-  #     version: 1.0.0
+  - name: helm_repo
+    type: HelmChart
+    configuration: 
+      sourceArtifactory: entArt
+      repository: helm-local
+      chart: test
+      version: 1.0.0
 
-  # # - name: image_google
-  # #   type: Image
-  # #   configuration:
-  # #      registry: entArt
-  # #      sourceRepository: example-repo-local
-  # #      imageName: gcr.io/ship-rc/ubuntu
-  # #      imageTag: latest
-  # #      autoPull: true
+  - name: image_google
+    type: Image
+    configuration:
+       registry: entArt
+       sourceRepository: example-repo-local
+       imageName: gcr.io/ship-rc/ubuntu
+       imageTag: latest
+       autoPull: true
   
   # - name: r_IncomingWebhook
   #   type: IncomingWebhook
@@ -599,11 +599,11 @@ resources:
   #     webhookName: OW
   #     method: GET #default POST   
 
-  # - name: mypropertyBag
-  #   type: PropertyBag
-  #   configuration:
-  #     key1: value1
-  #     key2: value2
+  - name: mypropertyBag
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
   
   # - name: my_releaseBundle
   #   type: ReleaseBundle
@@ -850,30 +850,30 @@ pipelines:
               - "jfr"
               - "jfr1"    
           integrations:
-            # - name: entArt
+            - name: entArt
             # # - name: air
-            # # - name: azure
-            # # - name: bb
-            # # - name: bbs
+            - name: azure
+            - name: bb
+            - name: bbs
             # # - name: DO
-            # # - name: DR
+            - name: DR
             # # - name: ds
-            # - name: entArt
+            - name: entArt
             # # - name: FS
-            # # - name: GC
-            # - name: generic
-            # # - name: gh
+            - name: GC
+            - name: generic
+            - name: gh
             # - name: ghe
             - name: git_v
-            # - name: gL
+            - name: gL
             # - name: IW
             # - name: JI
             # - name: JS
-            # - name: Kuber
+            - name: Kuber
             # - name: NR
             # - name: OW
             # - name: PK
-            # - name: slack_integration
+            - name: slack_integration
             # - name: SMTP
             # - name: SSH
           inputResources:
@@ -900,37 +900,37 @@ pipelines:
           onStart:
             - echo "Preparing for work..."
             # - get_integration_name --type Airbrake
-            # - get_integration_name --type slack
-            # - get_integration_name --type AWS
-            # - get_integration_name --type Artifactory
-            # # - get_integration_name --type Azure Keys
-            # # - get_integration_name --type Bitbucket
-            # # - get_integration_name --type Bitbucket Server
+            - get_integration_name --type slack
+            - get_integration_name --type AWS
+            - get_integration_name --type Artifactory
+            - get_integration_name --type Azure Keys
+            - get_integration_name --type Bitbucket
+            - get_integration_name --type Bitbucket Server
             # # - get_integration_name --type Distribution
             # # - get_integration_name --type Digital Ocean
-            # # - get_integration_name --type Docker Registry
+            - get_integration_name --type Docker Registry
             # # - get_integration_name --type File Server
             # # - get_integration_name --type Google Cloud
-            # - get_integration_name --type "Generic Integration"
-            # - get_integration_name --type GitHub
+            - get_integration_name --type "Generic Integration"
+            - get_integration_name --type GitHub
             # # - get_integration_name --type Github Enterprise
-            # # - get_integration_name --type GitLab
+            - get_integration_name --type GitLab
             # # - get_integration_name --type Incoming Webhook
             # # - get_integration_name --type Jenkins Server
             # # - get_integration_name --type Jira
-            # # - get_integration_name --type Kubernetes
+            - get_integration_name --type Kubernetes
             # # - get_integration_name --type NewRelic
             # # - get_integration_name --type Outgoing Webhook
             # # - get_integration_name --type PEM Key
             # # - get_integration_name --type SMTP Credentials
-            # # - get_integration_name --type SSH Key
+#             - get_integration_name --type SSH Key
             # # - get_integration_name --type Airbrake
-            # - get_resource_name --type GitRepo --operation IN
-            # - get_resource_name --type Image --operation IN
-            # - get_resource_name --type BuildInfo --operation IN
-            # - get_resource_name --type RemoteFile  --operation IN
+            - get_resource_name --type GitRepo --operation IN
+            - get_resource_name --type Image --operation IN
+            - get_resource_name --type BuildInfo --operation IN
+            - get_resource_name --type RemoteFile  --operation IN
             # - get_resource_name --type ReleaseBundle --operation IN
-            # - get_resource_name --type Aql --operation IN
+            - get_resource_name --type Aql --operation IN
             # - get_resource_name --type DistributionRule --operation IN
             # - get_resource_name --type VmCluster --operation IN
             # - get_resource_name --type FileSpec --operation IN
@@ -942,20 +942,20 @@ pipelines:
             # - get_resource_name --type PropertyBag --operation OUT
             - printenv
           # onSuccess:
-          #   - get_resource_name --type PropertyBag --operation IN
-          #   - get_resource_name --type GitRepo --operation IN  
-          #   - get_integration_name --type GitHub  
-          #   - get_resource_name --type PropertyBag --operation OUT         
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN  
+            - get_integration_name --type GitHub  
+            - get_resource_name --type PropertyBag --operation OUT         
           # onFailure:
-          #   - get_resource_name --type PropertyBag --operation IN
-          #   - get_resource_name --type GitRepo --operation IN          
-          #   - get_integration_name --type GitHub   
-          #   - get_resource_name --type PropertyBag --operation OUT
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN          
+            - get_integration_name --type GitHub   
+            - get_resource_name --type PropertyBag --operation OUT
           # onComplete: #always
-          #   - get_resource_name --type PropertyBag --operation IN
-          #   - get_resource_name --type GitRepo --operation IN    
-          #   - get_integration_name --type GitHub   
-          #   - get_resource_name --type PropertyBag --operation OUT
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN    
+            - get_integration_name --type GitHub   
+            - get_resource_name --type PropertyBag --operation OUT
       
       # - name: step_1_test
       #   type: Bash

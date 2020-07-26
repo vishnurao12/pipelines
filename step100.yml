@@ -613,7 +613,7 @@ pipelines:
         configuration:              
           foo: bar
           inputResources:
-             - name: step001
+            - name: step001
 #             - name: connecting_resource
             # - name: r_Aql
           #   - name: myBuildInfo

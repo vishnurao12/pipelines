@@ -858,18 +858,18 @@ pipelines:
           inputResources:
             # - name: step001
             # - name: step004
-            - name: connecting_resource
-            - name: r_Aql
-            - name: myBuildInfo
+            # - name: connecting_resource
+            # - name: r_Aql
+            # - name: myBuildInfo
             # # - name: cronTriggerResource
             # # - name: myDistributionRule
             # # - name: r_FileSpec_pattern
-            - name: r_GitRepo
-            - name: helm_repo
-            - name: image_google
+            # - name: r_GitRepo
+            # -  name: helm_repo
+            # - name: image_google
             # - name: r_IncomingWebhook
             # - name: outgoingWebhook
-            - name: mypropertyBag
+            # - name: mypropertyBag
             # # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource

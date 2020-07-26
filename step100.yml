@@ -440,18 +440,18 @@ resources:
           - "jfr"
           - "jfr1" 
   
-  # - name: r_Aql
-  #   type: Aql
-  #   configuration:
-  #     sourceArtifactory: entArt
-  #     query: items.find({"@build.name":{"$eq":"artifactory"}})
+  - name: r_Aql
+    type: Aql
+    configuration:
+      sourceArtifactory: entArt
+      query: items.find({"@build.name":{"$eq":"artifactory"}})
 
-  # - name: myBuildInfo
-  #   type: BuildInfo
-  #   configuration:
-  #     sourceArtifactory: entArt
-  #     buildName: myBuild
-  #     buildNumber: 123
+  - name: myBuildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: entArt
+      buildName: myBuild
+      buildNumber: 123
   
   # # - name: cronTriggerResource
   # #   type: CronTrigger
@@ -478,14 +478,6 @@ resources:
         include: master
       gitProvider: git_v
 
-  - name: helm_repo
-    type: HelmChart
-    configuration: 
-      sourceArtifactory: entArt
-      repository: helm-local
-      chart: test
-      version: 1.0.0
-
   - name: image_google
     type: Image
     configuration:
@@ -506,11 +498,6 @@ resources:
   #     webhookName: OW
   #     method: GET #default POST   
 
-  - name: mypropertyBag
-    type: PropertyBag
-    configuration:
-      key1: value1
-      key2: value2
   
   # - name: my_releaseBundle
   #   type: ReleaseBundle
@@ -579,14 +566,6 @@ resources:
       chart: test
       version: 1.0.0
 
-  - name: image_google
-    type: Image
-    configuration:
-       registry: entArt
-       sourceRepository: example-repo-local
-       imageName: gcr.io/ship-rc/ubuntu
-       imageTag: latest
-       autoPull: true
   
   # - name: r_IncomingWebhook
   #   type: IncomingWebhook
@@ -642,16 +621,16 @@ pipelines:
           #   # - name: myDistributionRule
           #   # - name: r_FileSpec_pattern
           #   # - name: r_GitRepo
-          #   - name: helm_repo
-          #   # - name: image_google
+            - name: helm_repo
+            - name: image_google
           #   - name: r_IncomingWebhook
           #   - name: outgoingWebhook
-          #   - name: mypropertyBag
+            - name: mypropertyBag
           #   # - name: my_releaseBundle
           #   # - name: r_FileSpec_pattern
           # #   # - name: VmCluster_resource
-          # outputResources:
-          #   - name: connecting_resource
+          outputResources:
+            - name: connecting_resource
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -862,7 +841,7 @@ pipelines:
             # # - name: FS
             - name: GC
             - name: generic
-            - name: gh
+            - name:  git_v
             # - name: ghe
             - name: git_v
             - name: gL
@@ -879,18 +858,18 @@ pipelines:
           inputResources:
             - name: step001
             - name: step004
-            # - name: connecting_resource
-            # - name: r_Aql
-            # - name: myBuildInfo
+            - name: connecting_resource
+            - name: r_Aql
+            - name: myBuildInfo
             # # - name: cronTriggerResource
             # # - name: myDistributionRule
             # # - name: r_FileSpec_pattern
-            # - name: r_GitRepo
-            # - name: helm_repo
-            # # - name: image_google
+            - name: r_GitRepo
+            - name: helm_repo
+            - name: image_google
             # - name: r_IncomingWebhook
             # - name: outgoingWebhook
-            # # - name: mypropertyBag
+            - name: mypropertyBag
             # # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource
@@ -937,21 +916,21 @@ pipelines:
             # - get_resource_name --type CronTrigger --operation IN
             # - get_resource_name --type IncomingWebhook --operation IN
             # - get_resource_name --type OutgoingWebhook --operation IN
-            # - get_resource_name --type HelmChart --operation IN
+            - get_resource_name --type HelmChart --operation IN
             # - get_resource_name --type PropertyBag --operation IN
             # - get_resource_name --type PropertyBag --operation OUT
             - printenv
-          # onSuccess:
+          onSuccess:
             - get_resource_name --type PropertyBag --operation IN
             - get_resource_name --type GitRepo --operation IN  
             - get_integration_name --type GitHub  
             - get_resource_name --type PropertyBag --operation OUT         
-          # onFailure:
+          onFailure:
             - get_resource_name --type PropertyBag --operation IN
             - get_resource_name --type GitRepo --operation IN          
             - get_integration_name --type GitHub   
             - get_resource_name --type PropertyBag --operation OUT
-          # onComplete: #always
+          onComplete: #always
             - get_resource_name --type PropertyBag --operation IN
             - get_resource_name --type GitRepo --operation IN    
             - get_integration_name --type GitHub   

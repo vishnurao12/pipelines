@@ -858,7 +858,7 @@ pipelines:
           inputResources:
             # - name: step001
             # - name: step004
-            # - name: connecting_resource
+            - name: connecting_resource
             # - name: r_Aql
             # - name: myBuildInfo
             # # - name: cronTriggerResource

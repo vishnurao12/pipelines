@@ -859,7 +859,7 @@ pipelines:
             - name: step100
           inputResources:
             # - name: step001
-            - name: step004
+#             - name: step004
             - name: connecting_resource
             # - name: r_Aql
             # - name: myBuildInfo

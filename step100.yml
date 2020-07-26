@@ -988,7 +988,7 @@ pipelines:
           foo: bar
           inputResources:
             - name: step004
-            - name: connecting_resource
+#             - name: connecting_resource
           inputSteps:
             - name: step100
         execution:

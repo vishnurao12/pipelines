@@ -1,23 +1,17 @@
 resources:
- - name: resource_pipelines123
+ - name: testp123
    type: GitRepo
    configuration:
      gitProvider: git_v
      path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^master$
+
 pipelines:
-  - name: testing_123
-    configuration:
-      nodePool: c7dynamic
+  - name: testP123
     steps:
-      - name: myStep112
-        type: Bash
+      - name: testP123
+        type: PowerShell
         configuration:
-         inputResources: 
-           - name: resource_pipelines123
+          nodePool: win_2019
         execution:
           onExecute:
-            - printenv
+            - write-output  "executing step..."

@@ -856,8 +856,8 @@ pipelines:
             # - name: SMTP
             # - name: SSH
           inputResources:
-            - name: step001
-            - name: step004
+            # - name: step001
+            # - name: step004
             - name: connecting_resource
             - name: r_Aql
             - name: myBuildInfo
@@ -873,7 +873,7 @@ pipelines:
             # # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource
-          #outputResources:
+          # outputResources:
           #  - name: connecting_resource
         execution:
           onStart:

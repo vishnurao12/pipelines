@@ -873,8 +873,8 @@ pipelines:
             # # - name: my_releaseBundle
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource
-          outputResources:
-            - name: connecting_resource
+          #outputResources:
+          #  - name: connecting_resource
         execution:
           onStart:
             - echo "Preparing for work..."

@@ -25,6 +25,7 @@ pipelines:
         execution:
           onStart: 
             - mkdir restore_onstart_1
+            - echo "#!/bin/bash -e" > get_files.sh
             - echo restore_run_files jfrog restore_onstart_1/test.sh > get_files.sh
             - cat get_files.sh
             - chmod +x get_files.sh && ./get_files.sh

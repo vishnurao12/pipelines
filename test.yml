@@ -20,7 +20,7 @@ pipelines:
         configuration:
           integrations:
             - name: art_v
-          inputStep: 
+          inputSteps: 
             - name: step1_testing 
         execution:
           onStart: 

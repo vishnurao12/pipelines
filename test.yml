@@ -1,0 +1,35 @@
+pipelines:
+  - name: testing_pipeline
+    steps:
+      - name: step1_testing 
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - add_run_files test.sh jfrog
+            - mkdir restore
+            - restore_run_files jfrog restore/test.sh
+            - cd restore && ls
+            - cat test.sh
+
+      - name: step2_testing 
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v
+          inputStep: 
+            - name: step1_testing 
+        execution:
+          onStart: 
+            - mkdir restore_onstart
+            - restore_run_files jfrog restore_onstart/test.sh
+            - cd restore_onstart && ls
+            - cat test.sh
+          onExecute:
+            - mkdir restore_onexecute
+            - restore_run_files jfrog restore_onexecute/test.sh
+            - cd restore_onexecute && ls
+            - cat test.sh

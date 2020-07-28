@@ -173,12 +173,12 @@ resources:
       chart: test
       version: 1.0.0
 
-  - name:       docker_ReleaseBundle
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  dis_v
-      name:                 test
-      version:              1.0.0
+#   - name:       docker_ReleaseBundle
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  dis_v
+#       name:                 test
+#       version:              1.0.0
 
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo

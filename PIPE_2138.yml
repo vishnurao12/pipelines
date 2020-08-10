@@ -13,9 +13,23 @@ pipelines:
       - name: stepA
         type: Bash
         configuration:
+          chronological: true
           inputResources:
             - name: auto_GitRepotest
+              trigger: true 
         execution:
           onExecute:
             - printenv
  
+      - name: stepB
+        type: Bash
+        configuration:
+          chronological: true
+          inputSteps: # optional
+            - name: stepA
+          inputResources:
+            - name: auto_GitRepotest
+              trigger: true 
+        execution:
+          onExecute:
+            - printenv

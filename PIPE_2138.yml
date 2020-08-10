@@ -2,7 +2,7 @@ resources:
   - name: auto_GitRepotest
     type: GitRepo
     configuration:
-      gitProvider: github_v
+      gitProvider: git_v
       path: vishnurao12/pipelines
       files:  
         include: random/test.sh

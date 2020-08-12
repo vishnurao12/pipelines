@@ -12,8 +12,8 @@ pipelines:
         type: bash
         configuration: 
 
-        inputResources:
-          - name: git_repo_vishnur
+          inputResources:
+            - name: git_repo_vishnur
 
          
         execution:

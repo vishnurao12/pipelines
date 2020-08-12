@@ -27,9 +27,9 @@ pipelines:
 #             - docker pull drydock/u16all:master
 #             - docker pull ubuntu
             - df -h
-            - fallocate -l 5G huge_file.dat4
+            - fallocate -l 5G huge_filee.dat4
             - df -h
-            - jfrog rt u huge_file.dat4 example-repo-local/huge_file.dat4
+            - jfrog rt u huge_filee.dat4 example-repo-local/huge_filee.dat4
             - docker images
 #             - retry_command jfrog rt config --url $int_art_v_url --user $int_art_v_user --apikey $int_art_v_apikey --interactive=false
 #             - docker tag drydock/u16all:master vishnur-docker-local.jfrog.info/docker-local:latest

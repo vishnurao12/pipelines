@@ -14,7 +14,8 @@ pipelines:
 
           inputResources:
             - name: git_repo_vishnur
-
+          integrations: # optional
+            - name: art_v
          
         execution:
           onExecute:
@@ -23,6 +24,7 @@ pipelines:
             - docker pull ubuntu
             - df -h
             - docker images
+            - jfrog rt docker-push vishnur.jfrog.info/docker-local/app:$run_number docker-local --build-name=$pipeline_name --build-number=$run_number
           onSuccess:
             - echo "Job well done!"
             #- rm -rf huge_file.dat huge_file.dat1 huge_file.dat2 huge_file.dat3 huge_file.dat4 huge_file.dat5 huge_file.dat6 huge_file.dat7 huge_file.dat8 huge_file.dat9

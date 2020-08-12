@@ -28,9 +28,9 @@ pipelines:
             #- jfrog rt u huge_file.dat4 example-repo-local/huge_file.dat4
             - docker images
             - retry_command jfrog rt config --url $int_art_v_url --user $int_art_v_user --apikey $int_art_v_apikey --interactive=false
-            - docker tag drydock/u16all:master vishnur.jfrog.info/docker-local/test:1
+            - docker tag drydock/u16all:master vishnur-docker-local.jfrog.info/docker-local:latest
             #- jfrog rt docker-push $int_art_v_url/docker-local/drydock/u16all:master docker-local --build-name=$pipeline_name --build-number=$run_number --skip-login=true
-            - jfrog rt docker-push vishnur.jfrog.info/docker-local/test:1 docker-local
+            - jfrog rt docker-push vishnur-docker-local.jfrog.info/docker-local:latest docker-local
           onSuccess:
             - echo "Job well done!"
             #- rm -rf huge_file.dat huge_file.dat1 huge_file.dat2 huge_file.dat3 huge_file.dat4 huge_file.dat5 huge_file.dat6 huge_file.dat7 huge_file.dat8 huge_file.dat9

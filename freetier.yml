@@ -19,11 +19,11 @@ pipelines:
          
         execution:
           onExecute:
-            - docker pull ubuntu:18.04
-            - target=vishnur-docker-local.jfrog.info/ubuntu:18.04-run${run_number}
-            - docker tag ubuntu:18.04 $target
-            - jfrog rt docker-push $target docker-local
-            - echo "executing step..."
+#             - docker pull ubuntu:18.04
+#             - target=vishnur-docker-local.jfrog.info/ubuntu:18.04-run${run_number}
+#             - docker tag ubuntu:18.04 $target
+#             - jfrog rt docker-push $target docker-local
+#             - echo "executing step..."
 #             - docker pull drydock/u16all:master
 #             - docker pull ubuntu
             - df -h

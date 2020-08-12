@@ -24,6 +24,7 @@ pipelines:
             - docker pull ubuntu
             - df -h
             - docker images
+            - retry_command jfrog rt config --url $int_art_v_url --user $int_art_v_user --apikey $int_art_v_apikey --interactive=false
             - jfrog rt docker-push vishnur.jfrog.info/docker-local/app:$run_number docker-local --build-name=$pipeline_name --build-number=$run_number
           onSuccess:
             - echo "Job well done!"

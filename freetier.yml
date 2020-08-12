@@ -1,0 +1,29 @@
+resources:
+  - name: git_repo_vishnur
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+
+pipelines:
+  - name: download_files
+    steps:
+      - name: stepA
+        type: bash
+        configuration: 
+
+        inputResources:
+          - name: git_repo_vishnur
+
+         
+        execution:
+          onExecute:
+            - echo "executing step..."
+            - docker pull drydock/u16all:master
+            - docker pull ubuntu
+          onSuccess:
+            - echo "Job well done!"
+            #- rm -rf huge_file.dat huge_file.dat1 huge_file.dat2 huge_file.dat3 huge_file.dat4 huge_file.dat5 huge_file.dat6 huge_file.dat7 huge_file.dat8 huge_file.dat9
+          onFailure:
+            - echo "uh oh, something went wrong"
+            #- rm -rf huge_file.dat huge_file.dat1 huge_file.dat2 huge_file.dat3 huge_file.dat4 huge_file.dat5 huge_file.dat6 huge_file.dat7 huge_file.dat8 huge_file.dat9

@@ -827,30 +827,30 @@ pipelines:
               - "jfr"
               - "jfr1"    
           integrations:
-            - name: entArt
+            - name: art_v
             # # - name: air
-            - name: azure
-            - name: bb
-            - name: bbs
+#             - name: azure
+#             - name: bb
+#             - name: bbs
             # # - name: DO
-            - name: DR
+#             - name:/ DR
             # # - name: ds
-            - name: entArt
+#             - name: entArt
             # # - name: FS
-            - name: GC
-            - name: generic
+#             - name: GC
+#             - name: generic
             - name:  git_v
             # - name: ghe
-            - name: git_v
-            - name: gL
+#             - name: git_v
+#             - name: gL
             # - name: IW
             # - name: JI
             # - name: JS
-            - name: Kuber
+#             - name: Kuber
             # - name: NR
             # - name: OW
             # - name: PK
-            - name: slack_integration
+#             - name: slack_integration
             # - name: SMTP
             # - name: SSH
           inputSteps:
@@ -884,13 +884,13 @@ pipelines:
             - get_integration_name --type Artifactory
 #             - get_integration_name --type Azure Keys
 #             - get_integration_name --type Bitbucket
-            - get_integration_name --type Bitbucket Server
+#             - get_integration_name --type Bitbucket Server
             # # - get_integration_name --type Distribution
             # # - get_integration_name --type Digital Ocean
 #             - get_integration_name --type Docker Registry
             # # - get_integration_name --type File Server
             # # - get_integration_name --type Google Cloud
-            - get_integration_name --type "Generic Integration"
+#             - get_integration_name --type "Generic Integration"
             - get_integration_name --type GitHub
             # # - get_integration_name --type Github Enterprise
 #             - get_integration_name --type GitLab

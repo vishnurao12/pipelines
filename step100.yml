@@ -225,7 +225,6 @@ resources:
 
   - name: step004
     type: Gitnp2/test
-    syntaxVersion: 1.0.0
     configuration:      
       test: foo
 #       slack: slack_integration

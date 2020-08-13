@@ -637,7 +637,6 @@ pipelines:
 
       - name: step111
         type: newgitS/steptest
-        syntaxVersion: 1.0.0
         configuration:              
           # foo: bar
           foo1 : "vishnulol"
@@ -982,7 +981,6 @@ pipelines:
 
       - name: gitdoublecheck
         type: gitdoublecheck/gitstep2
-        syntaxVersion: 1.0.0
         configuration:              
           foo: bar
           inputResources:

@@ -1,27 +1,27 @@
 resources:
   - name: step001
-    type: gittest
-    syntaxVersion: 0.0.3
+    type: Gitnp/gittest
+    syntaxVersion: latest
     configuration:      
       test: foo
-      slack: slack_integration
-      Artifactory: entArt
-      Azure Keys: azure
-      Bitbucket: bb
-      Bitbucket Server : bbs
+#       slack: slack_integration
+      Artifactory: art_v
+#       Azure Keys: azure
+#       Bitbucket: bb
+#       Bitbucket Server : bbs
       # Distribution : ds
       # Digital Ocean : DO
-      Docker Registry : DR
+#       Docker Registry : DR
       # File Server : FS
-      Google Cloud : GC
-      Generic Integration : generic
+#       Google Cloud : GC
+#       Generic Integration : generic
       GitHub : git_v
       # Github Enterprise : ghe
-      GitLab : gL
+#       GitLab : gL
       # Incoming Webhook : IW
       # Jenkins Server : JS
       # Jira : JI
-      Kubernetes : Kuber
+#       Kubernetes : Kuber
       # NewRelic : NR
       # Outgoing Webhook : OW
       # PEM Key : PK
@@ -224,28 +224,28 @@ resources:
       key2: value2
 
   - name: step004
-    type: test
-    syntaxVersion: 0.0.4
+    type: Gitnp2/test
+    syntaxVersion: 1.0.0
     configuration:      
       test: foo
-      slack: slack_integration
-      Artifactory: entArt
-      Azure Keys: azure
-      Bitbucket: bb
-      Bitbucket Server : bbs
+#       slack: slack_integration
+      Artifactory: art_v
+#       Azure Keys: azure
+#       Bitbucket: bb
+#       Bitbucket Server : bbs
       # Distribution : ds
       # Digital Ocean : DO
-      Docker Registry : DR
+#       Docker Registry : DR
       # File Server : FS
-      Google Cloud : GC
-      Generic Integration : generic
+#       Google Cloud : GC
+#       Generic Integration : generic
       GitHub : git_v
       # Github Enterprise : ghe
-      GitLab : gL
+#       GitLab : gL
       # Incoming Webhook : IW
       # Jenkins Server : JS
       # Jira : JI
-      Kubernetes : Kuber
+#       Kubernetes : Kuber
       # NewRelic : NR
       # Outgoing Webhook : OW
       # PEM Key : PK
@@ -443,13 +443,13 @@ resources:
   - name: r_Aql
     type: Aql
     configuration:
-      sourceArtifactory: entArt
+      sourceArtifactory: art_v
       query: items.find({"@build.name":{"$eq":"artifactory"}})
 
   - name: myBuildInfo
     type: BuildInfo
     configuration:
-      sourceArtifactory: entArt
+      sourceArtifactory: art_v
       buildName: myBuild
       buildNumber: 123
   
@@ -481,7 +481,7 @@ resources:
   - name: image_google
     type: Image
     configuration:
-       registry: entArt
+       registry: art_v
        sourceRepository: example-repo-local
        imageName: gcr.io/ship-rc/ubuntu
        imageTag: latest
@@ -558,13 +558,13 @@ resources:
   #       include: master
   #     gitProvider: git_v
 
-  - name: helm_repo
-    type: HelmChart
-    configuration: 
-      sourceArtifactory: entArt
-      repository: helm-local
-      chart: test
-      version: 1.0.0
+#   - name: helm_repo
+#     type: HelmChart
+#     configuration: 
+#       sourceArtifactory: entArt
+#       repository: helm-local
+#       chart: test
+#       version: 1.0.0
 
   
   # - name: r_IncomingWebhook
@@ -608,7 +608,7 @@ pipelines:
   - name: extensionstest
     steps:
       - name: step100
-        type: sample
+        type: gitcheck/gitstep
         syntaxVersion: 1.0.0
         configuration:              
           foo: bar
@@ -621,7 +621,7 @@ pipelines:
           #   # - name: myDistributionRule
           #   # - name: r_FileSpec_pattern
           #   # - name: r_GitRepo
-            - name: helm_repo
+#             - name: helm_repo
             - name: image_google
           #   - name: r_IncomingWebhook
           #   - name: outgoingWebhook
@@ -637,8 +637,8 @@ pipelines:
             - printenv
 
       - name: step111
-        type: sample
-        syntaxVersion: 1.1.1
+        type: newgitS/steptest
+        syntaxVersion: 1.0.0
         configuration:              
           # foo: bar
           foo1 : "vishnulol"
@@ -881,25 +881,25 @@ pipelines:
           onStart:
             - echo "Preparing for work..."
             # - get_integration_name --type Airbrake
-            - get_integration_name --type slack
-            - get_integration_name --type AWS
+#             - get_integration_name --type slack
+#             - get_integration_name --type AWS
             - get_integration_name --type Artifactory
-            - get_integration_name --type Azure Keys
-            - get_integration_name --type Bitbucket
+#             - get_integration_name --type Azure Keys
+#             - get_integration_name --type Bitbucket
             - get_integration_name --type Bitbucket Server
             # # - get_integration_name --type Distribution
             # # - get_integration_name --type Digital Ocean
-            - get_integration_name --type Docker Registry
+#             - get_integration_name --type Docker Registry
             # # - get_integration_name --type File Server
             # # - get_integration_name --type Google Cloud
             - get_integration_name --type "Generic Integration"
             - get_integration_name --type GitHub
             # # - get_integration_name --type Github Enterprise
-            - get_integration_name --type GitLab
+#             - get_integration_name --type GitLab
             # # - get_integration_name --type Incoming Webhook
             # # - get_integration_name --type Jenkins Server
             # # - get_integration_name --type Jira
-            - get_integration_name --type Kubernetes
+#             - get_integration_name --type Kubernetes
             # # - get_integration_name --type NewRelic
             # # - get_integration_name --type Outgoing Webhook
             # # - get_integration_name --type PEM Key
@@ -909,7 +909,7 @@ pipelines:
             - get_resource_name --type GitRepo --operation IN
             - get_resource_name --type Image --operation IN
             - get_resource_name --type BuildInfo --operation IN
-            - get_resource_name --type RemoteFile  --operation IN
+#             - get_resource_name --type RemoteFile  --operation IN
             # - get_resource_name --type ReleaseBundle --operation IN
             - get_resource_name --type Aql --operation IN
             # - get_resource_name --type DistributionRule --operation IN
@@ -918,7 +918,7 @@ pipelines:
             # - get_resource_name --type CronTrigger --operation IN
             # - get_resource_name --type IncomingWebhook --operation IN
             # - get_resource_name --type OutgoingWebhook --operation IN
-            - get_resource_name --type HelmChart --operation IN
+#             - get_resource_name --type HelmChart --operation IN
             # - get_resource_name --type PropertyBag --operation IN
             # - get_resource_name --type PropertyBag --operation OUT
             - printenv
@@ -966,7 +966,7 @@ pipelines:
 #       #       - get_integration_name --type GitHub         
 
       - name: immuteablecheck
-        type: sample
+        type: gitcheck/gitstep
         syntaxVersion: 1.0.0
         configuration:              
           foo: bar
@@ -982,7 +982,7 @@ pipelines:
             - printenv
 
       - name: gitdoublecheck
-        type: gitdoublecheck
+        type: gitdoublecheck/gitstep2
         syntaxVersion: 1.0.0
         configuration:              
           foo: bar

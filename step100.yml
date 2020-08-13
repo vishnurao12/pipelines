@@ -29,7 +29,7 @@ resources:
       # SSH Key: SSH
       # Airbrake : air
       foo1 : "namelol"
-      foo1a : "lolwithoutImu"
+#       foo1a : "lolwithoutImu"
       foo2 : 3
       foo3 : false
       foo4 : http://www.jfrognew.com

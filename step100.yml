@@ -993,3 +993,14 @@ pipelines:
             - printenv
             - echo ${res_step001_foo2}
             - printenv
+
+      - name: step_1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: connecting_resource1
+        inputSteps:
+            - name: step100
+        execution:
+          onExecute:
+            - printenv

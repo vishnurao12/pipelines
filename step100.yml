@@ -993,15 +993,7 @@ pipelines:
             - printenv
             - echo ${res_step001_foo2}
             - printenv
-          onExecute:
-            - printenv
-          onSuccess:
-            - printenv
-          onFailure:
-            - printenv
-          onComplete:
-            - printenv
-            
+
       - name: step_1
         type: Bash
         configuration:
@@ -1011,4 +1003,19 @@ pipelines:
             - name: step100
         execution:
           onExecute:
+            - printenv
+
+      - name: retiredcheck
+        type: templates1/gitstep
+        configuration:              
+          foo: bar
+          inputResources:
+            - name: step004
+            - name: connecting_resource1
+          inputSteps:
+            - name: step111
+        execution:
+          onStart:
+            - printenv
+            - echo ${res_step001_foo2}
             - printenv

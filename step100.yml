@@ -217,7 +217,7 @@ resources:
           - "jfr"
           - "jfr1" 
 
-  - name: connecting_resource
+  - name: connecting_resource1
     type: PropertyBag
     configuration:
       key1: value1
@@ -613,7 +613,7 @@ pipelines:
           foo: bar
           inputResources:
             - name: step001
-#             - name: connecting_resource
+#             - name: connecting_resource1
             # - name: r_Aql
           #   - name: myBuildInfo
           #   # - name: cronTriggerResource
@@ -629,7 +629,7 @@ pipelines:
           #   # - name: r_FileSpec_pattern
           # #   # - name: VmCluster_resource
           outputResources:
-            - name: connecting_resource
+            - name: connecting_resource1
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -858,7 +858,7 @@ pipelines:
           inputResources:
             - name: step001
             - name: step004
-            - name: connecting_resource
+            - name: connecting_resource1
             # - name: r_Aql
             # - name: myBuildInfo
             # # - name: cronTriggerResource
@@ -874,7 +874,7 @@ pipelines:
             # - name: r_FileSpec_pattern
             # - name: VmCluster_resource
           # outputResources:
-          #  - name: connecting_resource
+          #  - name: connecting_resource1
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -944,7 +944,7 @@ pipelines:
 #       #     inputResources:
 #       #       - name: r_GitRepo
 #       #         trigger: False
-#       #       - name: connecting_resource
+#       #       - name: connecting_resource1
 #       #   execution:
 #       #     onStart:
 #       #       - get_resource_name --type PropertyBag --operation IN
@@ -970,7 +970,7 @@ pipelines:
           foo: bar
           inputResources:
             - name: step004
-            - name: connecting_resource
+            - name: connecting_resource1
           inputSteps:
             - name: step111
         execution:
@@ -985,7 +985,7 @@ pipelines:
           foo: bar
           inputResources:
             - name: step004
-            - name: connecting_resource
+            - name: connecting_resource1
           inputSteps:
             - name: step100
         execution:

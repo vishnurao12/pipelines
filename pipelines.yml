@@ -4,10 +4,10 @@ resources:
    configuration:
      gitProvider: git_v
      path: vishnurao12/pipelines
-#      files: 
-#        include: ^README.md$
-#      branches:
-#        include: ^master$
+     files: 
+       include: ^README.md$
+     branches:
+       include: ^master$
 pipelines:
   - name: testing_123
     steps:

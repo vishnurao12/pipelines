@@ -16,7 +16,7 @@ pipelines:
         configuration:
          inputResources: 
            - name: resource_pipelines123
-             trigger: fasle
+             trigger: false
          integrations:
            - name: git_v
         execution:

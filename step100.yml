@@ -964,7 +964,7 @@ pipelines:
 #       #       - get_integration_name --type GitHub         
 
       - name: immuteablecheck
-        type: gitcheck/gitste
+        type: gitcheck/gitstep
         syntaxVersion: 1.0.0
         configuration:              
           foo: bar

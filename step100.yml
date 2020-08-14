@@ -1,6 +1,6 @@
 resources:
   - name: step001
-    type: Gitnp/gittes
+    type: Gitnp/gittest
     syntaxVersion: latest
     configuration:      
       test: foo
@@ -607,7 +607,7 @@ pipelines:
   - name: extensionstest
     steps:
       - name: step100
-        type: gitcheck/gitstep
+        type: gitchec/gitstep
         syntaxVersion: 1.0.0
         configuration:              
           foo: bar
@@ -964,7 +964,7 @@ pipelines:
 #       #       - get_integration_name --type GitHub         
 
       - name: immuteablecheck
-        type: gitcheck/gitstep
+        type: gitcheck/gitste
         syntaxVersion: 1.0.0
         configuration:              
           foo: bar

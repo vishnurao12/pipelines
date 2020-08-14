@@ -999,7 +999,7 @@ pipelines:
         configuration:
           inputResources:
             - name: connecting_resource1
-        inputSteps:
+          inputSteps:
             - name: step100
         execution:
           onExecute:

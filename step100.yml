@@ -893,9 +893,9 @@ pipelines:
           onStart:
             - echo "Preparing for work..."
             - printenv
-            - get_resource_name --namespace Gitnp2 --type gittest --operation OUT
-            - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 1.0.12
-            - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 9.9.9
+            - get_resource_name --namespace Gitnp2 --type test --operation OUT
+            - get_resource_name --namespace Gitnp2 --type test --operation OUT --syntax-version 1.0.12
+            - get_resource_name --namespace Gitnp2 --type test --operation OUT --syntax-version 9.9.9
 #             - get_resource_name --namespace Gitnp2 --type test --operation IN
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 1.0.12
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 9.9.9

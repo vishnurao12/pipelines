@@ -829,6 +829,7 @@ pipelines:
           foo: bar
           inputResources:
             - name: step001
+            - name: step004
             - name: resource005
 #             - name: connecting_resource1
             # - name: r_Aql
@@ -845,6 +846,45 @@ pipelines:
           #   # - name: my_releaseBundle
           #   # - name: r_FileSpec_pattern
           # #   # - name: VmCluster_resource
+#           outputResources:
+#             - name: connecting_resource1
+#             - name: step001
+#             - name: step004
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+            - printenv
+#             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT
+#             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 1.0.12
+#             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 9.9.9
+            - get_resource_name --namespace Gitnp2 --type test --operation IN
+            - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 1.0.12
+            - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 9.9.9
+
+      - name: step100_1
+        type: gitcheck/gitstep
+        syntaxVersion: 1.0.0
+        configuration:              
+          foo: bar
+#           inputResources:
+#             - name: step001
+#             - name: step004
+#             - name: resource005
+# #             - name: connecting_resource1
+#             # - name: r_Aql
+#           #   - name: myBuildInfo
+#           #   # - name: cronTriggerResource
+#           #   # - name: myDistributionRule
+#           #   # - name: r_FileSpec_pattern
+#           #   # - name: r_GitRepo
+# #             - name: helm_repo
+#             - name: image_google
+#           #   - name: r_IncomingWebhook
+#           #   - name: outgoingWebhook
+#             - name: mypropertyBag
+#           #   # - name: my_releaseBundle
+#           #   # - name: r_FileSpec_pattern
+#           # #   # - name: VmCluster_resource
           outputResources:
             - name: connecting_resource1
             - name: step001
@@ -856,10 +896,9 @@ pipelines:
             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT
             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 1.0.12
             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 9.9.9
-            - get_resource_name --namespace Gitnp2 --type test --operation IN
-            - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 1.0.12
-            - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 9.9.9
-
+#             - get_resource_name --namespace Gitnp2 --type test --operation IN
+#             - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 1.0.12
+#             - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 9.9.9
 #       - name: step111
 #         type: newgitS/steptest
 #         configuration:              

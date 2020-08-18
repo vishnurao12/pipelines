@@ -856,6 +856,7 @@ pipelines:
             - printenv
             - ls
             - cd common
+            - chmod +x common.js
             - ./common.js
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 1.0.12

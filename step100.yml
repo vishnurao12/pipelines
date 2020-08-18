@@ -824,7 +824,7 @@ pipelines:
     steps:
       - name: step100
         type: gitcheck/gitstep
-        syntaxVersion: 1.0.0
+        syntaxVersion: latest
         configuration:              
           foo: bar
           inputResources:
@@ -855,6 +855,8 @@ pipelines:
             - echo "Preparing for work..."
             - printenv
             - ls
+            - cd common
+            - ./common.js
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 1.0.12
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 9.9.9

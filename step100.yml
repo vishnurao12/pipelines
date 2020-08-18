@@ -855,9 +855,10 @@ pipelines:
             - echo "Preparing for work..."
             - printenv
             - ls
-            - cd common
-            - chmod +x common.js
-            - ./common.js
+#             - cd common
+#             - chmod +x common.js
+#             - ./common.js
+            - node common/common.js
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 1.0.12
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 9.9.9

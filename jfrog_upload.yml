@@ -30,5 +30,5 @@ pipelines:
     #adding an artifact to pipeline state using pipelines utility function 
 
 
-            - restore_pipeline_files mytestfile /testfolder/test1.sh # restoring the Artifactory from the pipeline state.
-            - cat /testfolder/test1.sh
+            - restore_pipeline_files mytestfile /testfolder/test.sh # restoring the Artifactory from the pipeline state.
+            - cat /testfolder/test.sh

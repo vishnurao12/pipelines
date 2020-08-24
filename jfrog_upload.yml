@@ -9,7 +9,7 @@ pipelines:
         execution:
           onExecute:
             - echo automation > test1.sh
-            - jfrog rt u test.sh testupload-generic-local/test1.sh
+            - jfrog rt u test1.sh testupload-generic-local/test1.sh
             - ls
             - add_pipeline_files test.sh mytestfile #test.sh is the file and mytestfile is the filename.
             - mkdir /testfolder # create test folder at the root

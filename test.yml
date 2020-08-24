@@ -1,0 +1,44 @@
+resources:
+  - name: Web_git
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      cancelPendingRunsOn:
+        newCommit: true
+
+
+pipelines:
+  - name: pipelines_auto_sample
+    steps:
+      - name: pipelines_auto0
+        type: Bash
+        configuration:
+          inputResources: 
+            - name : Web_git
+        execution:
+            onExecute:
+                - sleep 2m
+                - printenv
+            
+      - name: pipelines_auto1
+        type: Bash
+        configuration:
+          inputResources: 
+            - name : Web_git
+          inputSteps:
+            - name: pipelines_auto0
+        execution:
+          onExecute:
+            - printenv
+
+      - name: pipelines_auto2
+        type: Bash
+        configuration:
+          inputResources: 
+            - name : Web_git
+          inputSteps:
+            - name: pipelines_auto1
+        execution:
+          onExecute:
+            - printenv

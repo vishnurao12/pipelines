@@ -12,8 +12,8 @@ pipelines:
             - jfrog rt u test1.sh testupload-generic-local/test1.sh
             - ls
             - add_pipeline_files test1.sh mytestfile #test.sh is the file and mytestfile is the filename.
-            - mkdir /testfolder # create test folder at the root
-      - name: Download_to_artifactory
+
+      - name: Download_frm_artifactory
         type: Bash
         configuration:
           integrations:
@@ -22,7 +22,8 @@ pipelines:
             - name: Upload_to_artifactory
         execution:
           onExecute:
-            - echo automation > test.sh
+
+            - mkdir /testfolder # create test folder at the root
             - jfrog rt dl testupload-generic-local/test1.sh
             - ls
 

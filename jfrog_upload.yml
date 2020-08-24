@@ -12,7 +12,9 @@ pipelines:
 
     #adding an artifact to artifactory repo using jfrog cli
 
-            - jfrog rt u test.sh testupload-generic-local/test.sh
+#             - jfrog rt u test.sh testupload-generic-local/test.sh
+             - jfrog rt dl testupload-generic-local/test.sh
+             - ls
 
     #adding an artifact to pipeline state using pipelines utility function 
 

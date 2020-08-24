@@ -8,17 +8,25 @@ pipelines:
             - name: art_v 
         execution:
           onExecute:
-            - echo automation > test.sh
-            - jfrog rt dl testupload-generic-local/test.sh
+            - echo automation > test1.sh
+            - jfrog rt u test.sh testupload-generic-local/test1.sh
             - ls
-    #adding an artifact to artifactory repo using jfrog cli
-
-#             - jfrog rt u test.sh testupload-generic-local/test.sh
+            - add_pipeline_files test.sh mytestfile #test.sh is the file and mytestfile is the filename.
+            - mkdir /testfolder # create test folder at the root
+      - name: Download_to_artifactory
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v 
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - jfrog rt dl testupload-generic-local/test1.sh
+            - ls
 
 
     #adding an artifact to pipeline state using pipelines utility function 
 
-#             - add_pipeline_files test.sh mytestfile #test.sh is the file and mytestfile is the filename.
-#             - mkdir /testfolder # create test folder at the root
-#             - restore_pipeline_files mytestfile /testfolder/test.sh # restoring the Artifactory from the pipeline state.
-#             - cat /testfolder/test.sh
+
+            - restore_pipeline_files mytestfile /testfolder/test.sh # restoring the Artifactory from the pipeline state.
+            - cat /testfolder/test.sh

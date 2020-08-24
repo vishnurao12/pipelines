@@ -18,6 +18,8 @@ pipelines:
         configuration:
           integrations:
             - name: art_v 
+          inputSteps:
+            - name: Upload_to_artifactory
         execution:
           onExecute:
             - echo automation > test.sh

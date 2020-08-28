@@ -858,7 +858,7 @@ pipelines:
 #             - cd common
 #             - chmod +x common.js
 #             - ./common.js
-            - node common/common.js
+#             - node common/common.js
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 1.0.12
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation OUT --syntax-version 9.9.9
@@ -866,428 +866,428 @@ pipelines:
             - get_resource_name --namespace Gitnp2 --type test --operation IN --syntax-version latest 
             - get_resource_name --namespace Gitnp2 --type test --operation IN --syntax-version 9.9.9
 
-      - name: step100_1
-        type: gitcheck/gitstep
-        syntaxVersion: latest
-        configuration:              
-          foo: bar
-#           inputResources:
-#             - name: step001
-#             - name: step004
-#             - name: resource005
-# #             - name: connecting_resource1
-#             # - name: r_Aql
-#           #   - name: myBuildInfo
-#           #   # - name: cronTriggerResource
-#           #   # - name: myDistributionRule
-#           #   # - name: r_FileSpec_pattern
-#           #   # - name: r_GitRepo
-# #             - name: helm_repo
-#             - name: image_google
-#           #   - name: r_IncomingWebhook
-#           #   - name: outgoingWebhook
-#             - name: mypropertyBag
-#           #   # - name: my_releaseBundle
-#           #   # - name: r_FileSpec_pattern
-#           # #   # - name: VmCluster_resource
-          outputResources:
-            - name: connecting_resource1
-            - name: step001
-            - name: step004
-        execution:
-          onStart:
-            - echo "Preparing for work..."
-            - printenv
-            - get_resource_name --namespace Gitnp2 --type test --operation OUT
-            - get_resource_name --namespace Gitnp2 --type test --operation OUT --syntax-version latest
-            - get_resource_name --namespace Gitnp2 --type test --operation OUT --syntax-version 9.9.9
-#             - get_resource_name --namespace Gitnp2 --type test --operation IN
-#             - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 1.0.12
-#             - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 9.9.9
-#       - name: step111
-#         type: newgitS/steptest
+#       - name: step100_1
+#         type: gitcheck/gitstep
+#         syntaxVersion: latest
 #         configuration:              
-#           # foo: bar
-#           foo1 : "vishnulol"
-#           foo2 : 2
-#           foo3 : true
-#           foo4 : http://www.jfrog.com
-#           foo5 : temp@jfrog.com 
-#           foo6 : 192.168.50.50
-#           foo7 : 255.255.255.0
-#           foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-#           foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
-#           foo10 : "a"
-#           foo11 : "a7"
-#           foo12 : 734
-#           foo13 : 74.5
-#           foo14 : 123e4567-e89b-12d3-a456-426614174000
-#           foo15 : 
-#             - "lolvishnu"
-#             - "lol2"
-#           foo30 : "vishnulol"
-#           foo31 : "lol"
-#           foo32 : "vishnu"
-#           foo33 : "VISHNU"
-#           foo34 : "sfaf"
-#           foo35 : "vishnu"
-#           foo36 : "asf"
-#           foo37 : "mac"
-#           foo38 : "mac"
-#           foo39 : "Wed Nov 01 2011 00:00:00 GMT+1000"
-#           foo40 : 4
-#           foo41 : 6
-#           foo16 : 
-#             - 4
-#             - 3
-#           foo17 : 
-#             - 6
-#             - 7
-#           foo18 : 
-#             - true
-#             - false
-#           foo19 : 
-#             - http://www.jfrog.com
-#           foo20 :
-#             - temp1@jfrog.com
-#             - temp2@jfrog.com
-#           foo21 :
-#             - 192.168.50.50
-#             - 192.168.50.51
-#           foo22 :
-#             - 255.255.255.0
-#             - 255.255.255.0
-#           foo23 :
-#             - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-#             - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-#           foo24 :
-#             - "Wed Nov 03 2011 00:00:00 GMT+1000"
-#             - "Wed Nov 05 2011 00:00:00 GMT+1000"
-#           foo25 :
-#             - "a"
-            
-#           foo26 :
-#             - "a5"
-#             - "a6"
-#           foo27 :
-#             - 12
-#             - 13
-#           foo28 :
-#             - 56.7
-#             - 56.8
-#           foo29 :
-#             - 123e4567-e89b-12d3-a456-426614174000
-#           foo42 :
-#             - "lol1"
-#             - "lol2"
-#           foo43 :
-#             - "lol"
-#             - "lol"
-#           foo44 :
-#             - "sas"
-#             - "saas"
-#           foo45 :
-#             - "AA"
-#             - "BB"
-#           foo46 :
-#             - "sfaf"
-#             - "sfaf"
-#           foo47 :
-#             - "jfr"
-#             - "jjg"
-#           foo48 :
-#             - "sfaf"
-#             - "fsf"
-#           foo49 :
-#             - "jfr"
-#             - "jfr1"
-#           foo50 :
-#             foo1 : "vishnulol"
-#             foo2 : 2
-#             foo3 : true
-#             foo4 : http://www.jfrog.com
-#             foo5 : temp@jfrog.com 
-#             foo6 : 192.168.50.50
-#             foo7 : 255.255.255.0
-#             foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-#             foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
-#             foo10 : "a"
-#             foo11 : "a7"
-#             foo12 : 734
-#             foo13 : 74.5
-#             foo14 : 123e4567-e89b-12d3-a456-426614174000
-#             foo15 : 
-#               - "lolvishnu"
-#               - "lol2"
-#             foo30 : "vishnulol"
-#             foo31 : "lol"
-#             foo32 : "vishnu"
-#             foo33 : "VISHNU"
-#             foo34 : "sfaf"
-#             foo35 : "vishnu"
-#             foo36 : "asf"
-#             foo37 : "mac"
-#             foo38 : "mac"
-#             foo39 : "Wed Nov 01 2011 00:00:00 GMT+1000"
-#             foo40 : 4
-#             foo41 : 6
-#             foo16 : 
-#               - 4
-#               - 3
-#             foo17 : 
-#               - 6
-#               - 7
-#             foo18 : 
-#               - true
-#               - false
-#             foo19 : 
-#               - http://www.jfrog.com
-#             foo20 :
-#               - temp1@jfrog.com
-#               - temp2@jfrog.com
-#             foo21 :
-#               - 192.168.50.50
-#               - 192.168.50.51
-#             foo22 :
-#               - 255.255.255.0
-#               - 255.255.255.0
-#             foo23 :
-#               - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-#               - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-#             foo24 :
-#               - "Wed Nov 03 2011 00:00:00 GMT+1000"
-#               - "Wed Nov 05 2011 00:00:00 GMT+1000"
-#             foo25 :
-#               - "a"
-              
-#             foo26 :
-#               - "a5"
-#               - "a6"
-#             foo27 :
-#               - 12
-#               - 13
-#             foo28 :
-#               - 56.7
-#               - 56.8
-#             foo29 :
-#               - 123e4567-e89b-12d3-a456-426614174000
-#             foo42 :
-#               - "lol1"
-#               - "lol2"
-#             foo43 :
-#               - "lol"
-#               - "lol"
-#             foo44 :
-#               - "sas"
-#               - "saas"
-#             foo45 :
-#               - "AA"
-#               - "BB"
-#             foo46 :
-#               - "sfaf"
-#               - "sfaf"
-#             foo47 :
-#               - "jfr"
-#               - "jjg"
-#             foo48 :
-#               - "sfaf"
-#               - "fsf"
-#             foo49 :
-#               - "jfr"
-#               - "jfr1"    
-#           integrations:
-#             - name: art_v
-#             # # - name: air
-# #             - name: azure
-# #             - name: bb
-# #             - name: bbs
-#             # # - name: DO
-# #             - name:/ DR
-#             # # - name: ds
-# #             - name: entArt
-#             # # - name: FS
-# #             - name: GC
-# #             - name: generic
-#             - name:  git_v
-#             # - name: ghe
-# #             - name: git_v
-# #             - name: gL
-#             # - name: IW
-#             # - name: JI
-#             # - name: JS
-# #             - name: Kuber
-#             # - name: NR
-#             # - name: OW
-#             # - name: PK
-# #             - name: slack_integration
-#             # - name: SMTP
-#             # - name: SSH
-#           inputSteps:
-#             - name: step100
-#           inputResources:
+#           foo: bar
+# #           inputResources:
+# #             - name: step001
+# #             - name: step004
+# #             - name: resource005
+# # #             - name: connecting_resource1
+# #             # - name: r_Aql
+# #           #   - name: myBuildInfo
+# #           #   # - name: cronTriggerResource
+# #           #   # - name: myDistributionRule
+# #           #   # - name: r_FileSpec_pattern
+# #           #   # - name: r_GitRepo
+# # #             - name: helm_repo
+# #             - name: image_google
+# #           #   - name: r_IncomingWebhook
+# #           #   - name: outgoingWebhook
+# #             - name: mypropertyBag
+# #           #   # - name: my_releaseBundle
+# #           #   # - name: r_FileSpec_pattern
+# #           # #   # - name: VmCluster_resource
+#           outputResources:
+#             - name: connecting_resource1
 #             - name: step001
 #             - name: step004
-#             - name: connecting_resource1
-#             # - name: r_Aql
-#             # - name: myBuildInfo
-#             # # - name: cronTriggerResource
-#             # # - name: myDistributionRule
-#             # # - name: r_FileSpec_pattern
-#             # - name: r_GitRepo
-#             # -  name: helm_repo
-#             # - name: image_google
-#             # - name: r_IncomingWebhook
-#             # - name: outgoingWebhook
-#             # - name: mypropertyBag
-#             # # - name: my_releaseBundle
-#             # - name: r_FileSpec_pattern
-#             # - name: VmCluster_resource
-#           # outputResources:
-#           #  - name: connecting_resource1
 #         execution:
 #           onStart:
 #             - echo "Preparing for work..."
-#             # - get_integration_name --type Airbrake
-# #             - get_integration_name --type slack
-# #             - get_integration_name --type AWS
-#             - get_integration_name --type Artifactory
-# #             - get_integration_name --type Azure Keys
-# #             - get_integration_name --type Bitbucket
-# #             - get_integration_name --type Bitbucket Server
-#             # # - get_integration_name --type Distribution
-#             # # - get_integration_name --type Digital Ocean
-# #             - get_integration_name --type Docker Registry
-#             # # - get_integration_name --type File Server
-#             # # - get_integration_name --type Google Cloud
-# #             - get_integration_name --type "Generic Integration"
-#             - get_integration_name --type GitHub
-#             # # - get_integration_name --type Github Enterprise
-# #             - get_integration_name --type GitLab
-#             # # - get_integration_name --type Incoming Webhook
-#             # # - get_integration_name --type Jenkins Server
-#             # # - get_integration_name --type Jira
-# #             - get_integration_name --type Kubernetes
-#             # # - get_integration_name --type NewRelic
-#             # # - get_integration_name --type Outgoing Webhook
-#             # # - get_integration_name --type PEM Key
-#             # # - get_integration_name --type SMTP Credentials
-# #             - get_integration_name --type SSH Key
-#             # # - get_integration_name --type Airbrake
-#             - get_resource_name --type GitRepo --operation IN
+#             - printenv
+#             - get_resource_name --namespace Gitnp2 --type test --operation OUT
+#             - get_resource_name --namespace Gitnp2 --type test --operation OUT --syntax-version latest
+#             - get_resource_name --namespace Gitnp2 --type test --operation OUT --syntax-version 9.9.9
 #             - get_resource_name --namespace Gitnp2 --type test --operation IN
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 1.0.12
 #             - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 9.9.9
-#             - get_resource_name --type Image --operation IN
-#             - get_resource_name --type BuildInfo --operation IN
-# #             - get_resource_name --type RemoteFile  --operation IN
-#             # - get_resource_name --type ReleaseBundle --operation IN
-#             - get_resource_name --type Aql --operation IN
-#             # - get_resource_name --type DistributionRule --operation IN
-#             # - get_resource_name --type VmCluster --operation IN
-#             # - get_resource_name --type FileSpec --operation IN
-#             # - get_resource_name --type CronTrigger --operation IN
-#             # - get_resource_name --type IncomingWebhook --operation IN
-#             # - get_resource_name --type OutgoingWebhook --operation IN
-# #             - get_resource_name --type HelmChart --operation IN
-#             # - get_resource_name --type PropertyBag --operation IN
-#             # - get_resource_name --type PropertyBag --operation OUT
-#             - printenv
-#           onSuccess:
-#             - get_resource_name --type PropertyBag --operation IN
-#             - get_resource_name --type GitRepo --operation IN  
-#             - get_integration_name --type GitHub  
-#             - get_resource_name --type PropertyBag --operation OUT         
-#           onFailure:
-#             - get_resource_name --type PropertyBag --operation IN
-#             - get_resource_name --type GitRepo --operation IN          
-#             - get_integration_name --type GitHub   
-#             - get_resource_name --type PropertyBag --operation OUT
-#           onComplete: #always
-#             - get_resource_name --type PropertyBag --operation IN
-#             - get_resource_name --type GitRepo --operation IN    
-#             - get_integration_name --type GitHub   
-#             - get_resource_name --type PropertyBag --operation OUT
+      - name: step111
+        type: newgitS/steptest
+        configuration:              
+          # foo: bar
+          foo1 : "vishnulol"
+          foo2 : 2
+          foo3 : true
+          foo4 : http://www.jfrog.com
+          foo5 : temp@jfrog.com 
+          foo6 : 192.168.50.50
+          foo7 : 255.255.255.0
+          foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+          foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
+          foo10 : "a"
+          foo11 : "a7"
+          foo12 : 734
+          foo13 : 74.5
+          foo14 : 123e4567-e89b-12d3-a456-426614174000
+          foo15 : 
+            - "lolvishnu"
+            - "lol2"
+          foo30 : "vishnulol"
+          foo31 : "lol"
+          foo32 : "vishnu"
+          foo33 : "VISHNU"
+          foo34 : "sfaf"
+          foo35 : "vishnu"
+          foo36 : "asf"
+          foo37 : "mac"
+          foo38 : "mac"
+          foo39 : "Wed Nov 01 2011 00:00:00 GMT+1000"
+          foo40 : 4
+          foo41 : 6
+          foo16 : 
+            - 4
+            - 3
+          foo17 : 
+            - 6
+            - 7
+          foo18 : 
+            - true
+            - false
+          foo19 : 
+            - http://www.jfrog.com
+          foo20 :
+            - temp1@jfrog.com
+            - temp2@jfrog.com
+          foo21 :
+            - 192.168.50.50
+            - 192.168.50.51
+          foo22 :
+            - 255.255.255.0
+            - 255.255.255.0
+          foo23 :
+            - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+            - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+          foo24 :
+            - "Wed Nov 03 2011 00:00:00 GMT+1000"
+            - "Wed Nov 05 2011 00:00:00 GMT+1000"
+          foo25 :
+            - "a"
+            
+          foo26 :
+            - "a5"
+            - "a6"
+          foo27 :
+            - 12
+            - 13
+          foo28 :
+            - 56.7
+            - 56.8
+          foo29 :
+            - 123e4567-e89b-12d3-a456-426614174000
+          foo42 :
+            - "lol1"
+            - "lol2"
+          foo43 :
+            - "lol"
+            - "lol"
+          foo44 :
+            - "sas"
+            - "saas"
+          foo45 :
+            - "AA"
+            - "BB"
+          foo46 :
+            - "sfaf"
+            - "sfaf"
+          foo47 :
+            - "jfr"
+            - "jjg"
+          foo48 :
+            - "sfaf"
+            - "fsf"
+          foo49 :
+            - "jfr"
+            - "jfr1"
+          foo50 :
+            foo1 : "vishnulol"
+            foo2 : 2
+            foo3 : true
+            foo4 : http://www.jfrog.com
+            foo5 : temp@jfrog.com 
+            foo6 : 192.168.50.50
+            foo7 : 255.255.255.0
+            foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+            foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
+            foo10 : "a"
+            foo11 : "a7"
+            foo12 : 734
+            foo13 : 74.5
+            foo14 : 123e4567-e89b-12d3-a456-426614174000
+            foo15 : 
+              - "lolvishnu"
+              - "lol2"
+            foo30 : "vishnulol"
+            foo31 : "lol"
+            foo32 : "vishnu"
+            foo33 : "VISHNU"
+            foo34 : "sfaf"
+            foo35 : "vishnu"
+            foo36 : "asf"
+            foo37 : "mac"
+            foo38 : "mac"
+            foo39 : "Wed Nov 01 2011 00:00:00 GMT+1000"
+            foo40 : 4
+            foo41 : 6
+            foo16 : 
+              - 4
+              - 3
+            foo17 : 
+              - 6
+              - 7
+            foo18 : 
+              - true
+              - false
+            foo19 : 
+              - http://www.jfrog.com
+            foo20 :
+              - temp1@jfrog.com
+              - temp2@jfrog.com
+            foo21 :
+              - 192.168.50.50
+              - 192.168.50.51
+            foo22 :
+              - 255.255.255.0
+              - 255.255.255.0
+            foo23 :
+              - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+              - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+            foo24 :
+              - "Wed Nov 03 2011 00:00:00 GMT+1000"
+              - "Wed Nov 05 2011 00:00:00 GMT+1000"
+            foo25 :
+              - "a"
+              
+            foo26 :
+              - "a5"
+              - "a6"
+            foo27 :
+              - 12
+              - 13
+            foo28 :
+              - 56.7
+              - 56.8
+            foo29 :
+              - 123e4567-e89b-12d3-a456-426614174000
+            foo42 :
+              - "lol1"
+              - "lol2"
+            foo43 :
+              - "lol"
+              - "lol"
+            foo44 :
+              - "sas"
+              - "saas"
+            foo45 :
+              - "AA"
+              - "BB"
+            foo46 :
+              - "sfaf"
+              - "sfaf"
+            foo47 :
+              - "jfr"
+              - "jjg"
+            foo48 :
+              - "sfaf"
+              - "fsf"
+            foo49 :
+              - "jfr"
+              - "jfr1"    
+          integrations:
+            - name: art_v
+            # # - name: air
+#             - name: azure
+#             - name: bb
+#             - name: bbs
+            # # - name: DO
+#             - name:/ DR
+            # # - name: ds
+#             - name: entArt
+            # # - name: FS
+#             - name: GC
+#             - name: generic
+            - name:  git_v
+            # - name: ghe
+#             - name: git_v
+#             - name: gL
+            # - name: IW
+            # - name: JI
+            # - name: JS
+#             - name: Kuber
+            # - name: NR
+            # - name: OW
+            # - name: PK
+#             - name: slack_integration
+            # - name: SMTP
+            # - name: SSH
+          inputSteps:
+            - name: step100
+          inputResources:
+            - name: step001
+            - name: step004
+            - name: connecting_resource1
+            # - name: r_Aql
+            # - name: myBuildInfo
+            # # - name: cronTriggerResource
+            # # - name: myDistributionRule
+            # # - name: r_FileSpec_pattern
+            # - name: r_GitRepo
+            # -  name: helm_repo
+            # - name: image_google
+            # - name: r_IncomingWebhook
+            # - name: outgoingWebhook
+            # - name: mypropertyBag
+            # # - name: my_releaseBundle
+            # - name: r_FileSpec_pattern
+            # - name: VmCluster_resource
+          # outputResources:
+          #  - name: connecting_resource1
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+            # - get_integration_name --type Airbrake
+#             - get_integration_name --type slack
+#             - get_integration_name --type AWS
+            - get_integration_name --type Artifactory
+#             - get_integration_name --type Azure Keys
+#             - get_integration_name --type Bitbucket
+#             - get_integration_name --type Bitbucket Server
+            # # - get_integration_name --type Distribution
+            # # - get_integration_name --type Digital Ocean
+#             - get_integration_name --type Docker Registry
+            # # - get_integration_name --type File Server
+            # # - get_integration_name --type Google Cloud
+#             - get_integration_name --type "Generic Integration"
+            - get_integration_name --type GitHub
+            # # - get_integration_name --type Github Enterprise
+#             - get_integration_name --type GitLab
+            # # - get_integration_name --type Incoming Webhook
+            # # - get_integration_name --type Jenkins Server
+            # # - get_integration_name --type Jira
+#             - get_integration_name --type Kubernetes
+            # # - get_integration_name --type NewRelic
+            # # - get_integration_name --type Outgoing Webhook
+            # # - get_integration_name --type PEM Key
+            # # - get_integration_name --type SMTP Credentials
+#             - get_integration_name --type SSH Key
+            # # - get_integration_name --type Airbrake
+            - get_resource_name --type GitRepo --operation IN
+            - get_resource_name --namespace Gitnp2 --type test --operation IN
+            - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 1.0.12
+            - get_resource_name --namespace Gitnp2 --type gittest --operation IN --syntax-version 9.9.9
+            - get_resource_name --type Image --operation IN
+            - get_resource_name --type BuildInfo --operation IN
+#             - get_resource_name --type RemoteFile  --operation IN
+            # - get_resource_name --type ReleaseBundle --operation IN
+            - get_resource_name --type Aql --operation IN
+            # - get_resource_name --type DistributionRule --operation IN
+            # - get_resource_name --type VmCluster --operation IN
+            # - get_resource_name --type FileSpec --operation IN
+            # - get_resource_name --type CronTrigger --operation IN
+            # - get_resource_name --type IncomingWebhook --operation IN
+            # - get_resource_name --type OutgoingWebhook --operation IN
+#             - get_resource_name --type HelmChart --operation IN
+            # - get_resource_name --type PropertyBag --operation IN
+            # - get_resource_name --type PropertyBag --operation OUT
+            - printenv
+          onSuccess:
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN  
+            - get_integration_name --type GitHub  
+            - get_resource_name --type PropertyBag --operation OUT         
+          onFailure:
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN          
+            - get_integration_name --type GitHub   
+            - get_resource_name --type PropertyBag --operation OUT
+          onComplete: #always
+            - get_resource_name --type PropertyBag --operation IN
+            - get_resource_name --type GitRepo --operation IN    
+            - get_integration_name --type GitHub   
+            - get_resource_name --type PropertyBag --operation OUT
       
-# #       # - name: step_1_test
-# #       #   type: Bash
-# #       #   configuration:
-# #       #     integrations:
-# #       #       - name: git_v
-# #       #     inputResources:
-# #       #       - name: r_GitRepo
-# #       #         trigger: False
-# #       #       - name: connecting_resource1
-# #       #   execution:
-# #       #     onStart:
-# #       #       - get_resource_name --type PropertyBag --operation IN
-# #       #       - get_resource_name --type GitRepo --operation IN     
-# #       #       - get_integration_name --type GitHub      
-# #       #     onSuccess:
-# #       #       - get_resource_name --type PropertyBag --operation IN
-# #       #       - get_resource_name --type GitRepo --operation IN  
-# #       #       - get_integration_name --type GitHub           
-# #       #     onFailure:
-# #       #       - get_resource_name --type PropertyBag --operation IN
-# #       #       - get_resource_name --type GitRepo --operation IN          
-# #       #       - get_integration_name --type GitHub   
-# #       #     onComplete: #always
-# #       #       - get_resource_name --type PropertyBag --operation IN
-# #       #       - get_resource_name --type GitRepo --operation IN    
-# #       #       - get_integration_name --type GitHub         
+#       # - name: step_1_test
+#       #   type: Bash
+#       #   configuration:
+#       #     integrations:
+#       #       - name: git_v
+#       #     inputResources:
+#       #       - name: r_GitRepo
+#       #         trigger: False
+#       #       - name: connecting_resource1
+#       #   execution:
+#       #     onStart:
+#       #       - get_resource_name --type PropertyBag --operation IN
+#       #       - get_resource_name --type GitRepo --operation IN     
+#       #       - get_integration_name --type GitHub      
+#       #     onSuccess:
+#       #       - get_resource_name --type PropertyBag --operation IN
+#       #       - get_resource_name --type GitRepo --operation IN  
+#       #       - get_integration_name --type GitHub           
+#       #     onFailure:
+#       #       - get_resource_name --type PropertyBag --operation IN
+#       #       - get_resource_name --type GitRepo --operation IN          
+#       #       - get_integration_name --type GitHub   
+#       #     onComplete: #always
+#       #       - get_resource_name --type PropertyBag --operation IN
+#       #       - get_resource_name --type GitRepo --operation IN    
+#       #       - get_integration_name --type GitHub         
 
-#       - name: immuteablecheck
-#         type: gitcheck/gitstep
-#         syntaxVersion: 1.0.0
-#         configuration:              
-#           foo: bar
-#           inputResources:
-#             - name: step004
-#             - name: connecting_resource1
-#           inputSteps:
-#             - name: step111
-#         execution:
-#           onStart:
-#             - printenv
-#             - echo ${res_step001_foo2}
-#             - printenv
+      - name: immuteablecheck
+        type: gitcheck/gitstep
+        syntaxVersion: 1.0.0
+        configuration:              
+          foo: bar
+          inputResources:
+            - name: step004
+            - name: connecting_resource1
+          inputSteps:
+            - name: step111
+        execution:
+          onStart:
+            - printenv
+            - echo ${res_step001_foo2}
+            - printenv
 
-#       - name: gitdoublecheck
-#         type: gitdoublecheck/gitstep2
-#         configuration:              
-#           foo: bar
-#           inputResources:
-#             - name: step004
-#             - name: connecting_resource1
-#           inputSteps:
-#             - name: step100
-#         execution:
-#           onStart:
-#             - printenv
-#             - echo ${res_step001_foo2}
-#             - printenv
+      - name: gitdoublecheck
+        type: gitdoublecheck/gitstep2
+        configuration:              
+          foo: bar
+          inputResources:
+            - name: step004
+            - name: connecting_resource1
+          inputSteps:
+            - name: step100
+        execution:
+          onStart:
+            - printenv
+            - echo ${res_step001_foo2}
+            - printenv
 
-#       - name: step_1
-#         type: Bash
-#         configuration:
-#           inputResources:
-#             - name: connecting_resource1
-#           inputSteps:
-#             - name: step100
-#         execution:
-#           onExecute:
-#             - printenv
+      - name: step_1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: connecting_resource1
+          inputSteps:
+            - name: step100
+        execution:
+          onExecute:
+            - printenv
 
-#       - name: retiredcheck
-#         type: templates1/gitstep
-#         configuration:              
-#           foo: bar
-#           inputResources:
-#             - name: step004
-#             - name: connecting_resource1
-#           inputSteps:
-#             - name: step111
-#         execution:
-#           onStart:
-#             - printenv
-#             - echo ${res_step001_foo2}
-#             - printenv
+      - name: retiredcheck
+        type: templates1/gitstep
+        configuration:              
+          foo: bar
+          inputResources:
+            - name: step004
+            - name: connecting_resource1
+          inputSteps:
+            - name: step111
+        execution:
+          onStart:
+            - printenv
+            - echo ${res_step001_foo2}
+            - printenv

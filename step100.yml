@@ -1,7 +1,7 @@
 resources:
   - name: step001
     type: Gitnp/gittest1
-    syntaxVersion: latest
+    syntaxVersion: lateste
     configuration:      
       test: foo
       slack: slack_extension
@@ -1230,7 +1230,6 @@ pipelines:
 
       - name: immuteablecheck
         type: gitcheck/gitstep
-        syntaxVersion: 1.0.0
         configuration:              
           foo: bar
           inputResources:

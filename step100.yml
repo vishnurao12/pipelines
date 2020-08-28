@@ -1,7 +1,7 @@
 resources:
   - name: step001
     type: Gitnp/gittest1
-    syntaxVersion: lateste
+    syntaxVersion: latest
     configuration:      
       test: foo
       slack: slack_extension

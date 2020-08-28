@@ -6,7 +6,7 @@ resources:
       test: foo
       slack: slack_extension
       Artifactory: art_v
-      Azure Keys: azure_extension
+#      Azure Keys: azure_extension
       Bitbucket: bb_extension
       Bitbucket Server : bbs_extension
 #      Distribution : ds_extension
@@ -229,7 +229,7 @@ resources:
       test: foo
       slack: slack_extension
       Artifactory: art_v
-      Azure Keys: azure_extension
+#      Azure Keys: azure_extension
       Bitbucket: bb_extension
       Bitbucket Server : bbs_extension
 #      Distribution : ds_extension
@@ -445,7 +445,7 @@ resources:
       test: foo
       slack: slack_extension
       Artifactory: art_v
-      Azure Keys: azure_extension
+#      Azure Keys: azure_extension
       Bitbucket: bb_extension
       Bitbucket Server : bbs_extension
 #      Distribution : ds_extension
@@ -1093,7 +1093,7 @@ pipelines:
           integrations:
             - name: art_v
 #            - name: air_extension
-            - name: azure_extension
+  #          - name: azure_extension
             - name: bb_extension
             - name: bbs_extension
 #            - name: DO_extension

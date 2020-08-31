@@ -4,6 +4,7 @@ resources:
     syntaxVersion: latest
     configuration:      
       test: foo
+      bdood: "present"
       slack: slack_extension
       Artifactory: art_v
 #      Azure Keys: azure_extension

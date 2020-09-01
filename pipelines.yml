@@ -21,6 +21,8 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
 
 
 

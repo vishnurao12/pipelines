@@ -17,6 +17,7 @@ pipelines:
         execution:
           onStart:
             - echo "Preparing for work..."
+            - ls
             - printenv
 
 

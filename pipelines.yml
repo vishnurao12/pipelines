@@ -15,6 +15,6 @@ pipelines:
         execution:
           onExecute:
             - dotnet --version
-            - if($(dotnet --version) -ne "3.1.*"){
+            - if($(dotnet --version) -ne "3.1.[0-10]"){
               Write-Error "Stop" -ErrorAction Stop
               }

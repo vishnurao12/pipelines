@@ -11,7 +11,10 @@ pipelines:
       - name: testP123
         type: PowerShell
         configuration:
-          nodePool: win_2019
+          nodePool: win_2019_1
         execution:
           onExecute:
-            - write-output  "executing step..."
+            - dotnet --version
+            - if($(dotnet --version) -ne "3.1.102"){
+              Write-Error "Stop" -ErrorAction Stop
+              }

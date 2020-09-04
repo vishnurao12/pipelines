@@ -226,6 +226,7 @@ resources:
 
   - name: step004
     type: Gitnp2/test
+    syntaxVersion: 1.2.3
     configuration:      
       test: foo
       slack: slack_extension
@@ -825,7 +826,7 @@ pipelines:
     steps:
       - name: step100
         type: gitcheck/gitstep
-        syntaxVersion: latest
+        syntaxVersion: 1.0.0 
         configuration:              
           foo: bar
           inputResources:

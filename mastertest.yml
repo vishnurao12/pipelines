@@ -184,11 +184,11 @@ resources:
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
-    configuration:
-      environmentVariables:
-        readOnly:
-          JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-          JFROG_CLI_BUILD_NUMBER: 2387
+#     configuration:
+#       environmentVariables:
+#         readOnly:
+#           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#           JFROG_CLI_BUILD_NUMBER: 2387
     steps:
       - name: Upload_to_artifactory
         type: Bash

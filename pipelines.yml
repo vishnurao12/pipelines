@@ -18,6 +18,7 @@ pipelines:
            - name: resource_pipelines123
          integrations:
            - name: git_v
+           - name: generictest
         execution:
           onExecute:
             - printenv

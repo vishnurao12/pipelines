@@ -603,6 +603,9 @@ pipelines:
       - name: helm_pub
         type: HelmPublish
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-helm-publish"
+            JFROG_CLI_BUILD_NUMBER: 2387
           chartPath: stable/tomcat
           lint: true
 #           lintFlags: --help

@@ -184,77 +184,78 @@ resources:
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
-#     configuration:
+    configuration:
+      nodePool: win_2019
 #       environmentVariables:
 #         readOnly:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
 #           JFROG_CLI_BUILD_NUMBER: 2387
     steps:
-      - name: Upload_to_artifactory
-        type: Bash
-        configuration:
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: connecting_resource
-        execution:
-          onExecute:
-            - echo automation > test.sh
-            - jfrog rt u test.sh example-repo-local/setup/test.sh 
+#       - name: Upload_to_artifactory
+#         type: Bash
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: connecting_resource
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
+#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
-      - name: To_build_Docker_Image
-        type: DockerBuild
-        configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-build_Docker"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          dockerFileLocation: .
-          dockerFileName: Dockerfile
-#           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
-          dockerImageName: 192.168.11.4:8082/docker-local/node
-          dockerImageTag: latest
-          integrations:
-            - name: art_v
-          inputSteps:
-            - name: Upload_to_artifactory
-          inputResources:
-            - name: ns_dockerbuild_gitRepo 
-            - name: connecting_resource
+#       - name: To_build_Docker_Image
+#         type: DockerBuild
+#         configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387-build_Docker"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+#           dockerFileLocation: .
+#           dockerFileName: Dockerfile
+# #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
+#           dockerImageName: 192.168.11.4:8082/docker-local/node
+#           dockerImageTag: latest
+#           integrations:
+#             - name: art_v
+#           inputSteps:
+#             - name: Upload_to_artifactory
+#           inputResources:
+#             - name: ns_dockerbuild_gitRepo 
+#             - name: connecting_resource
 
 
-      - name: To_Push_Docker_Image
-        type: DockerPush
-        configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-push_Docker"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
-          targetRepository: docker-local #required
-          integrations:
-            - name: art_v 
-          inputSteps:
-            - name: To_build_Docker_Image
+#       - name: To_Push_Docker_Image
+#         type: DockerPush
+#         configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387-push_Docker"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+#           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
+#           targetRepository: docker-local #required
+#           integrations:
+#             - name: art_v 
+#           inputSteps:
+#             - name: To_build_Docker_Image
 
-      - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: To_Push_Docker_Image
-          outputResources:
-            - name: ns_buildInfo
+#       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: To_Push_Docker_Image
+#           outputResources:
+#             - name: ns_buildInfo
 
-      - name: To_promote_build
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: ns_buildInfo
-          inputSteps:
-            - name: To_publish_buildInfo
-          outputResources:
-            - name: ns_promotedInfo
+#       - name: To_promote_build
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: ns_buildInfo
+#           inputSteps:
+#             - name: To_publish_buildInfo
+#           outputResources:
+#             - name: ns_promotedInfo
 
 #       - name: docker_releaseBundle
 #         type: CreateReleaseBundle
@@ -294,8 +295,8 @@ pipelines:
             - name: connecting_resource
           integrations:
             - name: art_v
-          inputSteps:
-            - name: Upload_to_artifactory
+#           inputSteps:
+#             - name: Upload_to_artifactory
 #           runtime: 
 #             type: image
 #             image: 

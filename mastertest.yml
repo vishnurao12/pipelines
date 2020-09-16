@@ -184,11 +184,11 @@ resources:
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
-    configuration:
-      environmentVariables:
-        readOnly:
-          JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-          JFROG_CLI_BUILD_NUMBER: 2387
+#     configuration:
+#       environmentVariables:
+#         readOnly:
+#           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#           JFROG_CLI_BUILD_NUMBER: 2387
     steps:
       - name: Upload_to_artifactory
         type: Bash
@@ -205,6 +205,9 @@ pipelines:
       - name: To_build_Docker_Image
         type: DockerBuild
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-build_Docker"
+            JFROG_CLI_BUILD_NUMBER: 2387
           dockerFileLocation: .
           dockerFileName: Dockerfile
 #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
@@ -222,6 +225,9 @@ pipelines:
       - name: To_Push_Docker_Image
         type: DockerPush
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-push_Docker"
+            JFROG_CLI_BUILD_NUMBER: 2387
           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
           targetRepository: docker-local #required
           integrations:
@@ -276,6 +282,9 @@ pipelines:
       - name: build_go
         type: GoBuild
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-go-build"
+            JFROG_CLI_BUILD_NUMBER: 2387
           sourceLocation: golang-example/hello
           repository: test-go-local
           outputLocation: /tmp/dist
@@ -321,6 +330,9 @@ pipelines:
           onStart:
             - go version
         configuration:  
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-go-pusblishmodule"
+            JFROG_CLI_BUILD_NUMBER: 2387
           sourceLocation: .  # required
           version: v0.0.0           # required
           targetRepository: test-go-local
@@ -364,6 +376,9 @@ pipelines:
       - name: gradle_build_step
         type: GradleBuild
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-gradle-build"
+            JFROG_CLI_BUILD_NUMBER: 2387
           gradleCommand: clean artifactoryPublish -b build.gradle
           sourceLocation: gradle-examples/gradle-example-minimal
           configFileLocation: .
@@ -417,6 +432,9 @@ pipelines:
       - name: mvnBuild_sample
         type: MvnBuild
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-mvn"
+            JFROG_CLI_BUILD_NUMBER: 2387
           sourceLocation: ./artifactory-maven-plugin-example
           mvnCommand: clean install
           configFileLocation: .
@@ -470,6 +488,9 @@ pipelines:
       - name: build_npm
         type: NpmBuild
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-npm-build"
+            JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           sourceLocation: .
           inputResources:
@@ -488,6 +509,9 @@ pipelines:
       - name: publish_npm
         type: NpmPublish
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-npm-build"
+            JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           inputSteps:
             - name: build_npm

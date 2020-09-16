@@ -23,6 +23,7 @@ pipelines:
             - printenv
             - pushd $res_resource_pipelines123_resourcePath
             - ls
+            - sleep 1m
           onSuccess:
             - pushd $res_resource_pipelines123_resourcePath
             - ls

@@ -307,7 +307,7 @@ pipelines:
         execution:
           onStart:
             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-            - "pushd $buildDir"
+            - "pushd $buildDir/golang-example/hello"
             - "go get -insecure"
             - popd
             - go version

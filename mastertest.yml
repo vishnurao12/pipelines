@@ -305,7 +305,7 @@ pipelines:
 #           onComplete: #always
 #             - echo "Cleaning up some stuff"
 
-  - name: build_Docker_Image
+  - name: build_Docker_Image_1
     type: DockerBuild
     configuration:
       dockerFileLocation: .
@@ -328,7 +328,7 @@ pipelines:
           integrations:
             - name: art_v 
           inputSteps:
-            - name: To_build_Docker_Image
+            - name: build_Docker_Image_1
 
       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
         type: PublishBuildInfo

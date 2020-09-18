@@ -313,10 +313,14 @@ pipelines:
 #                   - "1.12.17"
         execution:
           onStart:
-            - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-            - "pushd $buildDir/golang-example/hello"
-            - "go get -insecure"
-            - popd
+#             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+#             - "pushd $buildDir/golang-example/hello"
+#             - "go get -insecure"
+#             - popd
+            - $buildDir = find_resource_variable "$inputGitRepoResourceName" inputGitRepoResourceName
+            - Push-Location $buildDir/golang-example/hello
+            - go get -insecure
+            - Pop-Location
             - go version
 
       - name: publish_go_binarytest
@@ -561,9 +565,6 @@ pipelines:
       - name: build_npm_remote
         type: NpmBuild
         configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "npm-test12"
-            JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           sourceLocation: .
           inputResources:
@@ -582,7 +583,9 @@ pipelines:
       - name: publish_npm_auto_true
         type: NpmPublish
         configuration:
-
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "npm-test12"
+            JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           autoPublishBuildInfo: true
           inputSteps:

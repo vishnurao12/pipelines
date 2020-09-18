@@ -10,8 +10,8 @@ resources:
     configuration:     
       sourceArtifactory:    art_v
       pattern:              "npm-remote/underscore/*"
-#       buildName:            <string>   # optional
-      buildNumber:          2387
+      buildName:            npm-test12
+#       buildNumber:          2387
 
   - name: ns_aql
     type: Aql

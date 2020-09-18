@@ -305,6 +305,53 @@ pipelines:
 #           onComplete: #always
 #             - echo "Cleaning up some stuff"
 
+  - name: build_Docker_Image
+    type: DockerBuild
+    configuration:
+      dockerFileLocation: .
+      dockerFileName: Dockerfile
+      dockerImageName: 'dev.jfrog-pipelines.com/docker-local/node'
+      dockerImageTag: latest
+      integrations:
+        - name: art_v
+      inputResources:
+        - name: vijay_gitRepo
+
+      - name: To_Push_Docker_Image
+        type: DockerPush
+        configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "docker"
+            JFROG_CLI_BUILD_NUMBER: 2387
+          autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
+          targetRepository: docker-local #required
+          integrations:
+            - name: art_v 
+          inputSteps:
+            - name: To_build_Docker_Image
+
+      - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: To_Push_Docker_Image
+          outputResources:
+            - name: ns_buildInfo
+
+      - name: To_promote_build
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: ns_buildInfo
+          inputSteps:
+            - name: To_publish_buildInfo
+          outputResources:
+            - name: ns_promotedInfo
+
+
       - name: build_go
         type: GoBuild
         configuration:

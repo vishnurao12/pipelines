@@ -5,12 +5,12 @@ resources:
       key1: value1
       key2: value2
 
-  - name:       testfileSpec
-    type:       FileSpec
+  - name: testfileSpec
+    type: FileSpec
     configuration:     
-      sourceArtifactory:    art_v
-      pattern:              "test-generic-local/helloworld/-/helloworld-1.0.0.tgz"
-      buildName:            Master_test_pipe
+      sourceArtifactory: art_v
+      pattern: "*"
+      buildName: Master_test_pipe
 #       buildNumber:          2387
 
   - name: ns_aql

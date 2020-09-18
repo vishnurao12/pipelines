@@ -623,6 +623,7 @@ pipelines:
             - name: connecting_resource
           outputResources:
             - name: helm_repo
+            - name: ns_buildInfo_helm
 
 #           runtime: 
 #             type: image

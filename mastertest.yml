@@ -310,7 +310,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 'dev.jfrog-pipelines.com//docker-local/node'
+          dockerImageName: '193.169.3.119:8082/docker-local/node'
           dockerImageTag: latest
           integrations:
             - name: art_v

@@ -5,6 +5,14 @@ resources:
       key1: value1
       key2: value2
 
+  - name:       testfileSpec
+    type:       FileSpec
+    configuration:     
+      sourceArtifactory:    art_v
+      pattern:              "npm_*"
+#       buildName:            <string>   # optional
+      buildNumber:          2387
+
   - name: ns_aql
     type: Aql
     configuration:
@@ -198,6 +206,15 @@ pipelines:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
 #           JFROG_CLI_BUILD_NUMBER: 2387
     steps:
+      - name: Download
+        type: PowerShell
+        configuration:
+          inputResources:
+            - name: testfileSpec
+              trigger: true
+        execution:
+          onExecute:
+            - write-output "executing step..."
 #       - name: Upload_to_artifactory
 #         type: Bash
 #         configuration:

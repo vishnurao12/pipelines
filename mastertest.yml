@@ -524,17 +524,15 @@ pipelines:
       - name: publish_npm
         type: NpmPublish
         configuration:
-          autoPublishBuildInfo: true
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "npm-test"
-            JFROG_CLI_BUILD_NUMBER: 2387
+#           autoPublishBuildInfo: true
+
           repositoryName: npm-virtual
           inputSteps:
             - name: build_npm
           integrations:
             - name: art_v
-          outputResources:            
-            - name: buildinfo_for_npmPublish 
+#           outputResources:            
+#             - name: buildinfo_for_npmPublish 
 #           runtime: 
 #             type: image
 #             image: 
@@ -581,7 +579,9 @@ pipelines:
       - name: publish_npm_auto_true
         type: NpmPublish
         configuration:
-
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "npm-test"
+            JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           autoPublishBuildInfo: true
           inputSteps:

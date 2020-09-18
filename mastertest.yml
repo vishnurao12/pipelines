@@ -9,7 +9,7 @@ resources:
     type:       FileSpec
     configuration:     
       sourceArtifactory:    art_v
-      pattern:              "."
+      pattern:              "go*"
       buildName:            PIPE-f2387-go-build
 #       buildNumber:          2387
 

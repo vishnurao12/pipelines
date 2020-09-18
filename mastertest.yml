@@ -10,7 +10,7 @@ resources:
     configuration:     
       sourceArtifactory:    art_v
       pattern:              "go*"
-      buildName:            PIPE-f2387-go-build
+      buildName:            Master_test_pipe
 #       buildNumber:          2387
 
   - name: ns_aql

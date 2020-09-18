@@ -316,6 +316,7 @@ pipelines:
             - name: art_v
           inputResources:
             - name: vijay_gitRepo
+            - name: connecting_resource
 
       - name: To_Push_Docker_Image
         type: DockerPush

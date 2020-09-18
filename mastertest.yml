@@ -496,9 +496,9 @@ pipelines:
       - name: build_npm
         type: NpmBuild
         configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "npm-test"
-            JFROG_CLI_BUILD_NUMBER: 2387
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "npm-test"
+#             JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           sourceLocation: .
           inputResources:

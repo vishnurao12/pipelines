@@ -305,17 +305,17 @@ pipelines:
 #           onComplete: #always
 #             - echo "Cleaning up some stuff"
 
-  - name: build_Docker_Image_1
-    type: DockerBuild
-    configuration:
-      dockerFileLocation: .
-      dockerFileName: Dockerfile
-      dockerImageName: 'dev.jfrog-pipelines.com/docker-local/node'
-      dockerImageTag: latest
-      integrations:
-        - name: art_v
-      inputResources:
-        - name: vijay_gitRepo
+      - name: build_Docker_Image_1
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+          dockerImageName: 'dev.jfrog-pipelines.com/docker-local/node'
+          dockerImageTag: latest
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: vijay_gitRepo
 
       - name: To_Push_Docker_Image
         type: DockerPush

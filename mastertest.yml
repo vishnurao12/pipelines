@@ -9,7 +9,7 @@ resources:
     type:       FileSpec
     configuration:     
       sourceArtifactory:    art_v
-      pattern:              "*"
+      pattern:              "."
       buildName:            PIPE-f2387-npm-build
 #       buildNumber:          2387
 

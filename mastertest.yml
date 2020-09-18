@@ -9,7 +9,7 @@ resources:
     type:       FileSpec
     configuration:     
       sourceArtifactory:    art_v
-      pattern:              "*"
+      pattern:              "test-generic-local/helloworld/-/helloworld-1.0.0.tgz"
       buildName:            Master_test_pipe
 #       buildNumber:          2387
 

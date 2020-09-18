@@ -9,8 +9,8 @@ resources:
     type: FileSpec
     configuration:     
       sourceArtifactory: art_v
-      pattern: "*"
-      buildName: Master_test_pipe
+      pattern: "artifactory-build-info/go_test/2387-1600422011544.json"
+      buildName: npm-test12
 #       buildNumber:          2387
 
   - name: ns_aql

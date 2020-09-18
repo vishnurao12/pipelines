@@ -9,7 +9,7 @@ resources:
     type:       FileSpec
     configuration:     
       sourceArtifactory:    art_v
-      pattern:              "go*"
+      pattern:              "*"
       buildName:            Master_test_pipe
 #       buildNumber:          2387
 

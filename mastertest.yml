@@ -316,7 +316,7 @@ pipelines:
         type: GoPublishBinary
         configuration:
           environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-go_binarytest"
+            JFROG_CLI_BUILD_NAME: "go_test"
             JFROG_CLI_BUILD_NUMBER: 2387
           inputSteps:
             - name: build_go
@@ -339,7 +339,7 @@ pipelines:
             - go version
         configuration:  
           environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-go-pusblishmodule"
+            JFROG_CLI_BUILD_NAME: "go_test"
             JFROG_CLI_BUILD_NUMBER: 2387
           sourceLocation: .  # required
           version: v0.0.0           # required
@@ -497,7 +497,7 @@ pipelines:
         type: NpmBuild
         configuration:
           environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-npm-build"
+            JFROG_CLI_BUILD_NAME: "npm-test"
             JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           sourceLocation: .
@@ -518,7 +518,7 @@ pipelines:
         type: NpmPublish
         configuration:
           environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-npm-build"
+            JFROG_CLI_BUILD_NAME: "npm-test"
             JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           inputSteps:
@@ -610,6 +610,7 @@ pipelines:
       - name: helm_pub
         type: HelmPublish
         configuration:
+          autoPublishBuildInfo: true
           environmentVariables: # optional
             JFROG_CLI_BUILD_NAME: "PIPE-f2387-helm-publish"
             JFROG_CLI_BUILD_NUMBER: 2387

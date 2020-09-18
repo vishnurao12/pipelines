@@ -290,9 +290,7 @@ pipelines:
       - name: build_go
         type: GoBuild
         configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-go-build"
-            JFROG_CLI_BUILD_NUMBER: 2387
+
           sourceLocation: golang-example/hello
           repository: test-go-local
           outputLocation: /tmp/dist

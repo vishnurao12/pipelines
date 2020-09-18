@@ -10,7 +10,7 @@ resources:
     configuration:     
       sourceArtifactory:    art_v
       pattern:              "npm-virtual/underscore/-/underscore-1.11.0.tgz"
-      buildName:            npm-test12
+      buildName:            PIPE-f2387-npm-build
 #       buildNumber:          2387
 
   - name: ns_aql

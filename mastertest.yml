@@ -216,8 +216,8 @@ pipelines:
           dockerImageTag: latest
           integrations:
             - name: art_v
-          inputSteps:
-            - name: Upload_to_artifactory
+#           inputSteps:
+#             - name: Upload_to_artifactory
           inputResources:
             - name: ns_dockerbuild_gitRepo 
             - name: connecting_resource

@@ -151,6 +151,13 @@ resources:
       sourceArtifactory: art_v
       buildName: npm_publish
       buildNumber: 1
+
+  - name: buildinfo_for_npmPublish
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: npm_publish
+      buildNumber: 1
   
   - name: npm_build_info_promoted
     type: BuildInfo
@@ -517,6 +524,7 @@ pipelines:
       - name: publish_npm
         type: NpmPublish
         configuration:
+          autoPublishBuildInfo: true
           environmentVariables: # optional
             JFROG_CLI_BUILD_NAME: "npm-test"
             JFROG_CLI_BUILD_NUMBER: 2387
@@ -525,6 +533,8 @@ pipelines:
             - name: build_npm
           integrations:
             - name: art_v
+          outputResources:            
+            - name: buildinfo_for_npmPublish 
 #           runtime: 
 #             type: image
 #             image: 
@@ -571,12 +581,13 @@ pipelines:
       - name: publish_npm_auto_true
         type: NpmPublish
         configuration:
+
           repositoryName: npm-virtual
           autoPublishBuildInfo: true
           inputSteps:
             - name: build_npm_remote
           outputResources:
-            - name: npm_build_info_publish1     # required if autoPublishBuildInfo is true.
+            - name: npm_build_info_publish1    # required if autoPublishBuildInfo is true.
           integrations:
             - name: art_v
 #           runtime: 

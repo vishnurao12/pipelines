@@ -210,59 +210,59 @@ pipelines:
 #             - echo automation > test.sh
 #             - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
-      - name: To_build_Docker_Image
-        type: DockerBuild
-        configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          dockerFileLocation: .
-          dockerFileName: Dockerfile
-#           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
-          dockerImageName: 192.168.11.4:8082/docker-local/node
-          dockerImageTag: latest
-          integrations:
-            - name: art_v
+#       - name: To_build_Docker_Image
+#         type: DockerBuild
+#         configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+#           dockerFileLocation: .
+#           dockerFileName: Dockerfile
+# #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
+#           dockerImageName: 192.168.11.4:8082/docker-local/node
+#           dockerImageTag: latest
+#           integrations:
+#             - name: art_v
+# #           inputSteps:
+# #             - name: Upload_to_artifactory
+#           inputResources:
+#             - name: ns_dockerbuild_gitRepo 
+#             - name: connecting_resource
+
+
+#       - name: To_Push_Docker_Image
+#         type: DockerPush
+#         configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+#           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
+#           targetRepository: docker-local #required
+#           integrations:
+#             - name: art_v 
 #           inputSteps:
-#             - name: Upload_to_artifactory
-          inputResources:
-            - name: ns_dockerbuild_gitRepo 
-            - name: connecting_resource
+#             - name: To_build_Docker_Image
 
+#       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: To_Push_Docker_Image
+#           outputResources:
+#             - name: ns_buildInfo
 
-      - name: To_Push_Docker_Image
-        type: DockerPush
-        configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
-          targetRepository: docker-local #required
-          integrations:
-            - name: art_v 
-          inputSteps:
-            - name: To_build_Docker_Image
-
-      - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: To_Push_Docker_Image
-          outputResources:
-            - name: ns_buildInfo
-
-      - name: To_promote_build
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: ns_buildInfo
-          inputSteps:
-            - name: To_publish_buildInfo
-          outputResources:
-            - name: ns_promotedInfo
+#       - name: To_promote_build
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: ns_buildInfo
+#           inputSteps:
+#             - name: To_publish_buildInfo
+#           outputResources:
+#             - name: ns_promotedInfo
 
 #       - name: docker_releaseBundle
 #         type: CreateReleaseBundle
@@ -317,7 +317,7 @@ pipelines:
 #             - "pushd $buildDir/golang-example/hello"
 #             - "go get -insecure"
 #             - popd
-            - $buildDir = find_resource_variable "$inputGitRepoResourceName" inputGitRepoResourceName
+            - $buildDir = find_resource_variable artifactory_go_example resourcePath
             - Push-Location $buildDir/golang-example/hello
             - go get -insecure
             - Pop-Location

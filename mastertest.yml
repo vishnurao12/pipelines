@@ -9,7 +9,7 @@ resources:
     type:       FileSpec
     configuration:     
       sourceArtifactory:    art_v
-      pattern:              "npm-remote/*"
+      pattern:              "npm-virtual/underscore/-/underscore-1.11.0.tgz"
       buildName:            npm-test12
 #       buildNumber:          2387
 

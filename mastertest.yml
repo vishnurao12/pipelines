@@ -9,7 +9,7 @@ resources:
     type:       FileSpec
     configuration:     
       sourceArtifactory:    art_v
-      pattern:              "*"
+      pattern:              npm-remote/*
       buildName:            npm-test12
 #       buildNumber:          2387
 

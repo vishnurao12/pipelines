@@ -308,6 +308,9 @@ pipelines:
       - name: build_Docker_Image_1
         type: DockerBuild
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "docker"
+            JFROG_CLI_BUILD_NUMBER: 2387
           dockerFileLocation: .
           dockerFileName: Dockerfile
           dockerImageName: '193.169.3.119:8082/docker-local/node'
@@ -321,9 +324,7 @@ pipelines:
       - name: To_Push_Docker_Image
         type: DockerPush
         configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "docker"
-            JFROG_CLI_BUILD_NUMBER: 2387
+
           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
           targetRepository: docker-local #required
           integrations:

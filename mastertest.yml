@@ -191,17 +191,17 @@ pipelines:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
 #           JFROG_CLI_BUILD_NUMBER: 2387
     steps:
-      - name: Upload_to_artifactory
-        type: Bash
-        configuration:
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: connecting_resource
-        execution:
-          onExecute:
-            - echo automation > test.sh
-            - jfrog rt u test.sh example-repo-local/setup/test.sh 
+#       - name: Upload_to_artifactory
+#         type: Bash
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: connecting_resource
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
+#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
       - name: To_build_Docker_Image
         type: DockerBuild

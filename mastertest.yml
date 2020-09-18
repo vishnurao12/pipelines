@@ -561,6 +561,9 @@ pipelines:
       - name: build_npm_remote
         type: NpmBuild
         configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "npm-test12"
+            JFROG_CLI_BUILD_NUMBER: 2387
           repositoryName: npm-virtual
           sourceLocation: .
           inputResources:
@@ -579,9 +582,7 @@ pipelines:
       - name: publish_npm_auto_true
         type: NpmPublish
         configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "npm-test"
-            JFROG_CLI_BUILD_NUMBER: 2387
+
           repositoryName: npm-virtual
           autoPublishBuildInfo: true
           inputSteps:

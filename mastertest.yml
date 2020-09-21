@@ -9,8 +9,8 @@ resources:
     type: FileSpec
     configuration:     
       sourceArtifactory: art_v
-      pattern: "artifactory-build-info/go_test/2387-1600422011544.json"
-      buildName: npm-test12
+      pattern: "test-generic-local/github.com/deepika/hello/@v/v0.0.0.mod"
+      buildName: go_test
 #       buildNumber:          2387
 
   - name: ns_aql

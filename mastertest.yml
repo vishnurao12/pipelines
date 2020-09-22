@@ -378,7 +378,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.15.2"
+                  - "1.15.2-f2674"
         execution:
           onStart:
 #             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
@@ -409,7 +409,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.15.2"
+                  - "1.15.2-f2674"
      
       - name: publish_buildtest
         type: PublishBuildInfo
@@ -440,7 +440,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - "1.15.2"
+                  - "1.15.2-f2674"
           inputResources:
             - name: artifactory_go_module_example
           outputResources:

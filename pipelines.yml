@@ -18,13 +18,11 @@ pipelines:
            - name: resource_pipelines123
          integrations:
            - name: git_v
-           - name: listUrlToken
         execution:
           onExecute:
             - printenv
             - pushd $res_resource_pipelines123_resourcePath
             - ls
-            - sleep 1m
           onSuccess:
             - pushd $res_resource_pipelines123_resourcePath
             - ls

@@ -372,13 +372,13 @@ pipelines:
             - name: docker_step
 #           inputSteps:
 #             - name: Upload_to_artifactory
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.12.17"
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.15.2"
         execution:
           onStart:
 #             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
@@ -403,6 +403,13 @@ pipelines:
           targetRepository: test-go-local
           integrations:
             - name: art_v
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.15.2"
      
       - name: publish_buildtest
         type: PublishBuildInfo
@@ -427,13 +434,13 @@ pipelines:
           autoPublishBuildInfo: true
           integrations:
             - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.12.17"
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.15.2"
           inputResources:
             - name: artifactory_go_module_example
           outputResources:

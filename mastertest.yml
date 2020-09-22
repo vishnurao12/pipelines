@@ -206,29 +206,29 @@ pipelines:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
 #           JFROG_CLI_BUILD_NUMBER: 2387
     steps:
-      - name: Download_win
-        type: PowerShell
-        configuration:
-          nodePool: win_2019
-          inputResources:
-            - name: connecting_resource
-            - name: testfileSpec
-              trigger: true
-        execution:
-          onExecute:
-            - write-output "executing step..."
-      - name: dowload_linux
-        type: Bash
-        configuration:
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: connecting_resource
-            - name: testfileSpec
-        execution:
-          onExecute:
-            - echo automation > test.sh
-            - jfrog rt u test.sh example-repo-local/setup/test.sh 
+#       - name: Download_win
+#         type: PowerShell
+#         configuration:
+#           nodePool: win_2019
+#           inputResources:
+#             - name: connecting_resource
+#             - name: testfileSpec
+#               trigger: true
+#         execution:
+#           onExecute:
+#             - write-output "executing step..."
+#       - name: dowload_linux
+#         type: Bash
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: connecting_resource
+#             - name: testfileSpec
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
+#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
 #       - name: To_build_Docker_Image
 #         type: DockerBuild
@@ -460,274 +460,274 @@ pipelines:
           outputResources:
             - name: promoted_go_build_info_go_publishtest
 
-      - name: gradle_build_step
-        type: GradleBuild
-        configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-gradle-build"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          gradleCommand: clean artifactoryPublish -b build.gradle
-          sourceLocation: gradle-examples/gradle-example-minimal
-          configFileLocation: .
-          configFileName: gradle-art-config
-          inputResources:
-            - name: gradle_repo
-            - name: connecting_resource
-          integrations:
-            - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: java
-#                 versions:
-#                   - "8"
-        execution:
-          onStart:
-            - javac -version
-            - gradle --version
-      - name: publish_build_info_gradle
-        type: PublishBuildInfo
-        execution:
-          onStart:
-            - echo "hello"
-        configuration:
-          inputSteps:
-            - name: gradle_build_step
-          outputResources:
-            - name: build_info_gradle
-
-      - name: promote_build_info_gradle
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          copy: true
-          integrations:
-            - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: node
-#                 versions:
-#                   - "8.17.0"
-          inputResources:
-            - name: build_info_gradle
-          outputResources:
-            - name: promoted_build_info_gradle
-
-      - name: mvnBuild_sample
-        type: MvnBuild
-        configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-mvn"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          sourceLocation: ./artifactory-maven-plugin-example
-          mvnCommand: clean install
-          configFileLocation: .
-          configFileName: mvn-art-config
-          inputResources:
-            - name: maven_repo
-            - name: connecting_resource
-          integrations:
-            - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: java
-#                 versions:
-#                   - "8"
-
-        execution:
-          onStart:
-            - javac -version
-            - mvn --version
-            
-      - name: mvnBuild_publish
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: mvnBuild_sample
-          outputResources:
-            - name: mvnBuild_info
-                
-      - name: mvn_build_promote
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local # required 
-          includeDependencies: true    # default false
-          status: "promote success" # for mvn_build_promoted" # optional
-          comment: "build needs to be promoted" # for mvn_build_promoted" # optional
-          copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: java
-#                 versions:
-#                   - "8"
-          inputResources:
-            - name: mvnBuild_info #required
-          outputResources:
-            - name: mvnBuild_infopromoted #required
-
-      - name: build_npm
-        type: NpmBuild
-        configuration:
+#       - name: gradle_build_step
+#         type: GradleBuild
+#         configuration:
 #           environmentVariables: # optional
-#             JFROG_CLI_BUILD_NAME: "npm-test"
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387-gradle-build"
 #             JFROG_CLI_BUILD_NUMBER: 2387
-          repositoryName: npm-virtual
-          sourceLocation: .
-          inputResources:
-            - name: npmHelloWorld_repo
-            - name: connecting_resource
-          integrations:
-            - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: node
-#                 versions:
-#                   - "8.17.0"
+#           gradleCommand: clean artifactoryPublish -b build.gradle
+#           sourceLocation: gradle-examples/gradle-example-minimal
+#           configFileLocation: .
+#           configFileName: gradle-art-config
+#           inputResources:
+#             - name: gradle_repo
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: java
+# #                 versions:
+# #                   - "8"
+#         execution:
+#           onStart:
+#             - javac -version
+#             - gradle --version
+#       - name: publish_build_info_gradle
+#         type: PublishBuildInfo
+#         execution:
+#           onStart:
+#             - echo "hello"
+#         configuration:
+#           inputSteps:
+#             - name: gradle_build_step
+#           outputResources:
+#             - name: build_info_gradle
 
-      - name: publish_npm
-        type: NpmPublish
-        configuration:
-#           autoPublishBuildInfo: true
+#       - name: promote_build_info_gradle
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           copy: true
+#           integrations:
+#             - name: art_v
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: node
+# #                 versions:
+# #                   - "8.17.0"
+#           inputResources:
+#             - name: build_info_gradle
+#           outputResources:
+#             - name: promoted_build_info_gradle
 
-          repositoryName: npm-virtual
-          inputSteps:
-            - name: build_npm
-          integrations:
-            - name: art_v
-#           outputResources:            
-#             - name: buildinfo_for_npmPublish 
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: node
-#                 versions:
-#                   - "8.17.0"
+#       - name: mvnBuild_sample
+#         type: MvnBuild
+#         configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387-mvn"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+#           sourceLocation: ./artifactory-maven-plugin-example
+#           mvnCommand: clean install
+#           configFileLocation: .
+#           configFileName: mvn-art-config
+#           inputResources:
+#             - name: maven_repo
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: java
+# #                 versions:
+# #                   - "8"
 
-      - name: publish_build_info
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: publish_npm  
-          outputResources:
-            - name: npm_build_info_publish1
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: node
-#                 versions:
-#                   - "8.17.0"
+#         execution:
+#           onStart:
+#             - javac -version
+#             - mvn --version
             
- ##################### - name: npm_auto_publish ###############################
+#       - name: mvnBuild_publish
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: mvnBuild_sample
+#           outputResources:
+#             - name: mvnBuild_info
+                
+#       - name: mvn_build_promote
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local # required 
+#           includeDependencies: true    # default false
+#           status: "promote success" # for mvn_build_promoted" # optional
+#           comment: "build needs to be promoted" # for mvn_build_promoted" # optional
+#           copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: java
+# #                 versions:
+# #                   - "8"
+#           inputResources:
+#             - name: mvnBuild_info #required
+#           outputResources:
+#             - name: mvnBuild_infopromoted #required
 
-      - name: build_npm_remote
-        type: NpmBuild
-        configuration:
-          repositoryName: npm-virtual
-          sourceLocation: .
-          inputResources:
-            - name: npmHelloWorld_repo
-            - name: connecting_resource
-          integrations:
-            - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: node
-#                 versions:
-#                   - "8.17.0"
+#       - name: build_npm
+#         type: NpmBuild
+#         configuration:
+# #           environmentVariables: # optional
+# #             JFROG_CLI_BUILD_NAME: "npm-test"
+# #             JFROG_CLI_BUILD_NUMBER: 2387
+#           repositoryName: npm-virtual
+#           sourceLocation: .
+#           inputResources:
+#             - name: npmHelloWorld_repo
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: node
+# #                 versions:
+# #                   - "8.17.0"
 
-      - name: publish_npm_auto_true
-        type: NpmPublish
-        configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "npm-test12"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          repositoryName: npm-virtual
-          autoPublishBuildInfo: true
-          inputSteps:
-            - name: build_npm_remote
-          outputResources:
-            - name: npm_build_info_publish1    # required if autoPublishBuildInfo is true.
-          integrations:
-            - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: node
-#                 versions:
-#                   - "8.17.0"
+#       - name: publish_npm
+#         type: NpmPublish
+#         configuration:
+# #           autoPublishBuildInfo: true
 
-##################### end of npm_auto_publish ###############################
-      - name: promote_build_npm
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: npm_build_info_publish1
-            - name: connecting_resource
-          outputResources:
-            - name: npm_build_info_promoted
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: node
-#                 versions:
-#                   - "8.17.0"
+#           repositoryName: npm-virtual
+#           inputSteps:
+#             - name: build_npm
+#           integrations:
+#             - name: art_v
+# #           outputResources:            
+# #             - name: buildinfo_for_npmPublish 
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: node
+# #                 versions:
+# #                   - "8.17.0"
 
-      - name: helm_pub
-        type: HelmPublish
-        configuration:
-          autoPublishBuildInfo: true
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387-helm-publish"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          chartPath: stable/tomcat
-          lint: true
-#           lintFlags: --help
-          helmVersion: 3
-          inputResources:
-            - name: git_vishnu 
-            - name: connecting_resource
-          outputResources:
-            - name: helm_repo
-            - name: ns_buildInfo_helm
+#       - name: publish_build_info
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: publish_npm  
+#           outputResources:
+#             - name: npm_build_info_publish1
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: node
+# #                 versions:
+# #                   - "8.17.0"
+            
+#  ##################### - name: npm_auto_publish ###############################
 
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: node
-#                 versions:
-#                   - "10.21.0"                  # required
+#       - name: build_npm_remote
+#         type: NpmBuild
+#         configuration:
+#           repositoryName: npm-virtual
+#           sourceLocation: .
+#           inputResources:
+#             - name: npmHelloWorld_repo
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: node
+# #                 versions:
+# #                   - "8.17.0"
+
+#       - name: publish_npm_auto_true
+#         type: NpmPublish
+#         configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "npm-test12"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+#           repositoryName: npm-virtual
+#           autoPublishBuildInfo: true
+#           inputSteps:
+#             - name: build_npm_remote
+#           outputResources:
+#             - name: npm_build_info_publish1    # required if autoPublishBuildInfo is true.
+#           integrations:
+#             - name: art_v
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: node
+# #                 versions:
+# #                   - "8.17.0"
+
+# ##################### end of npm_auto_publish ###############################
+#       - name: promote_build_npm
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: npm_build_info_publish1
+#             - name: connecting_resource
+#           outputResources:
+#             - name: npm_build_info_promoted
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: node
+# #                 versions:
+# #                   - "8.17.0"
+
+#       - name: helm_pub
+#         type: HelmPublish
+#         configuration:
+#           autoPublishBuildInfo: true
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387-helm-publish"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+#           chartPath: stable/tomcat
+#           lint: true
+# #           lintFlags: --help
+#           helmVersion: 3
+#           inputResources:
+#             - name: git_vishnu 
+#             - name: connecting_resource
+#           outputResources:
+#             - name: helm_repo
+#             - name: ns_buildInfo_helm
+
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: node
+# #                 versions:
+# #                   - "10.21.0"                  # required
  
-        execution:
-          onStart:
-            - echo "Preparing for work..."
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
 
-          onSuccess:
-            - echo "Job well done!"
+#           onSuccess:
+#             - echo "Job well done!"
 
-          onFailure:
-            - echo "uh oh, something went wrong"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
 
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"
 
 #       - name: To_publish_buildInfo_helm 
 #         type: PublishBuildInfo

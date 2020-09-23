@@ -370,13 +370,13 @@ pipelines:
             - name: art_v
 #           inputSteps:
 #             - name: Upload_to_artifactory
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: go
-                versions:
-                  - "1.15.2-f2674"
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.15.2-f2674"
         execution:
           onStart:
 #             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"

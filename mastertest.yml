@@ -5,13 +5,13 @@ resources:
       key1: value1
       key2: value2
 
-  - name: testfileSpec
-    type: FileSpec
-    configuration:     
-      sourceArtifactory: art_v
-      pattern: "test-generic-local/github.com/deepika/hello/@v/v0.0.0.mod"
-      buildName: go_test
-#       buildNumber:          2387
+#   - name: testfileSpec
+#     type: FileSpec
+#     configuration:     
+#       sourceArtifactory: art_v
+#       pattern: "test-generic-local/github.com/deepika/hello/@v/v0.0.0.mod"
+#       buildName: go_test
+# #       buildNumber:          2387
 
   - name: ns_aql
     type: Aql
@@ -466,6 +466,28 @@ pipelines:
             - name: go_build_info_publish_moduletest
           outputResources:
             - name: promoted_go_build_info_go_publishtest
+
+#       - name: go_releaseBundle
+#         type: CreateReleaseBundle
+#         configuration:
+#           #inherits from bash
+#           releaseBundleName:        test1
+#           releaseBundleVersion:     1.0.0
+ 
+#           inputResources:
+#             - name:                  promoted_go_build_info_go_publishtest
+#           outputResources:
+#             - name:                 go_ReleaseBundle
+#           dryRun: false
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
+#           onSuccess:
+#             - echo "Job well done!"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"
 
 #       - name: gradle_build_step
 #         type: GradleBuild

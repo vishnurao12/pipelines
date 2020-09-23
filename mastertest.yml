@@ -193,14 +193,14 @@ resources:
     configuration:
       sourceDistribution:  pipe_master_dist
       name:                 test
-      version:              1.0.0
+      version:              1.0.0-m000
 
   - name:       signed_go_ReleaseBundle
     type:       ReleaseBundle
     configuration:
       sourceDistribution:  pipe_master_dist
       name:                 test
-      version:              1.0.0
+      version:              1.0.0-m000
 
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo

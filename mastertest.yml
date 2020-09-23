@@ -191,7 +191,7 @@ resources:
   - name:       go_ReleaseBundle
     type:       ReleaseBundle
     configuration:
-      sourceDistribution:  dis_v
+      sourceDistribution:  pipe_master_dist
       name:                 test
       version:              1.0.0
 

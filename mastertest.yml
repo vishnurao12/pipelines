@@ -194,6 +194,7 @@ resources:
       sourceDistribution:  pipe_master_dist
       name:                 test1
       version:              1.0.0-m000
+      isSigned: true
 
   - name:       signed_go_ReleaseBundle
     type:       ReleaseBundle
@@ -201,6 +202,7 @@ resources:
       sourceDistribution:  pipe_master_dist
       name:                 test1
       version:              1.0.0-m000
+      true: 
 
   - name:       go_ReleaseBundle_1
     type:       ReleaseBundle
@@ -208,6 +210,7 @@ resources:
       sourceDistribution:  pipe_master_dist
       name:                 test2
       version:              1.0.2
+      isSigned: true
 
   - name:       signed_go_ReleaseBundle_2
     type:       ReleaseBundle
@@ -496,8 +499,9 @@ pipelines:
           inputResources:
             - name:                  promoted_go_build_info_go_publishtest
           outputResources:
-            - name:                 go_ReleaseBundle_1
+            - name:                 go_ReleaseBundle
           dryRun: false
+          sign:                     true
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -512,9 +516,9 @@ pipelines:
         type: SignReleaseBundle
         configuration:
           inputResources:
-            - name:            go_ReleaseBundle_1
+            - name:            go_ReleaseBundle
           outputResources:
-            - name:            signed_go_ReleaseBundle_2
+            - name:            signed_go_ReleaseBundle
  
         execution:
           onStart:

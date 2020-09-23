@@ -845,8 +845,7 @@ pipelines:
 #           onComplete: #always
 #             - echo "Cleaning up some stuff"
 
-pipelines:
-  - name: Master_test_pipe
+  - name: Master_test_pipe_1
     configuration:
       nodePool: u18-test-pipe-3770
     steps:

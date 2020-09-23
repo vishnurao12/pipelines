@@ -188,6 +188,37 @@ resources:
 #       chart: test
 #       version: 1.0.0
 
+  - name:       go_ReleaseBundle_without
+    type:       ReleaseBundle
+    configuration:
+      sourceDistribution:  pipe_master_dist_without_sign
+      name:                 test1
+      version:              1.0.0-m000
+      isSigned: true
+
+  - name:       signed_go_ReleaseBundle_without
+    type:       ReleaseBundle
+    configuration:
+      sourceDistribution:  pipe_master_dist_without_sign
+      name:                 test1
+      version:              1.0.0-m000
+
+
+  - name:       go_ReleaseBundle_1_without
+    type:       ReleaseBundle
+    configuration:
+      sourceDistribution:  pipe_master_dist_without_sign
+      name:                 test2
+      version:              1.0.2
+      isSigned: true
+
+  - name:       signed_go_ReleaseBundle_2_without
+    type:       ReleaseBundle
+    configuration:
+      sourceDistribution:  pipe_master_dist_without_sign
+      name:                 test2
+      version:              1.0.2
+
   - name:       go_ReleaseBundle
     type:       ReleaseBundle
     configuration:
@@ -494,12 +525,12 @@ pipelines:
         configuration:
           #inherits from bash
           releaseBundleName:        test1
-          releaseBundleVersion:     1.0.0
+          releaseBundleVersion:     ${run_number}
  
           inputResources:
             - name:                  promoted_go_build_info_go_publishtest
           outputResources:
-            - name:                 go_ReleaseBundle
+            - name:                 go_ReleaseBundle_without
           dryRun: false
           sign:                     true
         execution:
@@ -516,9 +547,9 @@ pipelines:
 #         type: SignReleaseBundle
 #         configuration:
 #           inputResources:
-#             - name:            go_ReleaseBundle
+#             - name:            go_ReleaseBundle_without
 #           outputResources:
-#             - name:            signed_go_ReleaseBundle
+#             - name:            signed_go_ReleaseBundle_without
  
 #         execution:
 #           onStart:
@@ -968,12 +999,12 @@ pipelines:
         configuration:
           #inherits from bash
           releaseBundleName:        test1
-          releaseBundleVersion:     1.0.0
+          releaseBundleVersion:     ${run_number}
  
           inputResources:
             - name:                  promoted_go_build_info_go_publishtest
           outputResources:
-            - name:                 go_ReleaseBundle_1
+            - name:                 go_ReleaseBundle_1_without
           dryRun: false
           sign:                     true
         execution:
@@ -990,9 +1021,9 @@ pipelines:
 #         type: SignReleaseBundle
 #         configuration:
 #           inputResources:
-#             - name:            go_ReleaseBundle_1
+#             - name:            go_ReleaseBundle_1_without
 #           outputResources:
-#             - name:            signed_go_ReleaseBundle_2
+#             - name:            signed_go_ReleaseBundle_2_without
  
 #         execution:
 #           onStart:

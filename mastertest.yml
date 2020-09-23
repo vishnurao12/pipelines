@@ -368,7 +368,6 @@ pipelines:
             - name: connecting_resource
           integrations:
             - name: art_v
-            - name: docker_step
 #           inputSteps:
 #             - name: Upload_to_artifactory
           runtime: 

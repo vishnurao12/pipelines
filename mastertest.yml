@@ -251,7 +251,7 @@ resources:
       version:              1.0.2
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
-# pipelines:
+pipelines:
 #   - name: Master_test_pipe
 #     configuration:
 #       nodePool: windows-test-pipe-3770

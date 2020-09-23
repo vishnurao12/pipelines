@@ -27,34 +27,34 @@ resources:
           input: "regex"
           output: "$2/$1"
       
-  - name: ns_dockerbuild_gitRepo
-    type: GitRepo
-    configuration:
-      path: vishnurao12/sample-script
-      gitProvider: git_v
-      branches: 
-        include: master
+#   - name: ns_dockerbuild_gitRepo
+#     type: GitRepo
+#     configuration:
+#       path: vishnurao12/sample-script
+#       gitProvider: git_v
+#       branches: 
+#         include: master
 
-  - name: ns_buildInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_buildInfo
-      buildNumber: 123
+#   - name: ns_buildInfo
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_buildInfo
+#       buildNumber: 123
 
-  - name: ns_buildInfo_helm
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_buildInfo_helm
-      buildNumber: 1.0.0
+#   - name: ns_buildInfo_helm
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_buildInfo_helm
+#       buildNumber: 1.0.0
   
-  - name: ns_promotedInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_promotedInfo
-      buildNumber: 1
+#   - name: ns_promotedInfo
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_promotedInfo
+#       buildNumber: 1
 
   - name: artifactory_go_example
     type: GitRepo
@@ -107,100 +107,100 @@ resources:
       buildName: promotoed-full-gradle-native
       buildNumber: 1
 
-  - name: gradle_repo
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/project-examples
-
-  - name: build_info_gradle
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: full-gradle-native
-      buildNumber: 1
-
-  - name: mvnBuild_info
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: mvn_sample_build_master_test
-      buildNumber: 9
-
-  - name: mvnBuild_infoScaned
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: mvn_scan_master_test
-      buildNumber: 2
-      
-  - name: mvnBuild_infopromoted
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: mvn_promote_build_master_test
-      buildNumber: 3
-      
-  - name: maven_repo
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/project-examples
-
-  - name: npmHelloWorld_repo
-    type: GitRepo
-    configuration:
-      path: vishnurao12/npmHelloWorld
-      gitProvider: git_v
-
-  - name: npm_build_info_publish1
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: npm_publish
-      buildNumber: 1
-
-  - name: buildinfo_for_npmPublish
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: npm_publish
-      buildNumber: 1
-  
-  - name: npm_build_info_promoted
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: npm+promote
-      buildNumber: 1
-
-  - name: git_vishnu
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/charts
-   
-  - name: helm_repo
-    type: HelmChart
-    configuration: 
-      sourceArtifactory: art_v
-      repository: helm-local
-      chart: test
-      version: 1.0.0
-
-#   - name:       docker_ReleaseBundle
-#     type:       ReleaseBundle
+#   - name: gradle_repo
+#     type: GitRepo
 #     configuration:
-#       sourceDistribution:  dis_v
-#       name:                 test
-#       version:              1.0.0
+#       gitProvider: git_v
+#       path: vishnurao12/project-examples
+
+#   - name: build_info_gradle
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: full-gradle-native
+#       buildNumber: 1
+
+#   - name: mvnBuild_info
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: mvn_sample_build_master_test
+#       buildNumber: 9
+
+#   - name: mvnBuild_infoScaned
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: mvn_scan_master_test
+#       buildNumber: 2
+      
+#   - name: mvnBuild_infopromoted
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: mvn_promote_build_master_test
+#       buildNumber: 3
+      
+#   - name: maven_repo
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/project-examples
+
+#   - name: npmHelloWorld_repo
+#     type: GitRepo
+#     configuration:
+#       path: vishnurao12/npmHelloWorld
+#       gitProvider: git_v
+
+#   - name: npm_build_info_publish1
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: npm_publish
+#       buildNumber: 1
+
+#   - name: buildinfo_for_npmPublish
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: npm_publish
+#       buildNumber: 1
+  
+#   - name: npm_build_info_promoted
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: npm+promote
+#       buildNumber: 1
+
+#   - name: git_vishnu
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/charts
+   
+#   - name: helm_repo
+#     type: HelmChart
+#     configuration: 
+#       sourceArtifactory: art_v
+#       repository: helm-local
+#       chart: test
+#       version: 1.0.0
+
+  - name:       go_ReleaseBundle
+    type:       ReleaseBundle
+    configuration:
+      sourceDistribution:  dis_v
+      name:                 test
+      version:              1.0.0
 
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
   - name: Master_test_pipe
     configuration:
-      nodePool: win_2019
+      nodePool: windows-test-pipe-3770
 #       environmentVariables:
 #         readOnly:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
@@ -359,7 +359,6 @@ pipelines:
       - name: build_go
         type: GoBuild
         configuration:
-
           sourceLocation: golang-example/hello
           repository: test-go-local
           outputLocation: /tmp/dist
@@ -403,13 +402,13 @@ pipelines:
           targetRepository: test-go-local
           integrations:
             - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: go
-                versions:
-                  - "1.15.2-f2674"
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.15.2-f2674"
      
       - name: publish_buildtest
         type: PublishBuildInfo
@@ -434,13 +433,13 @@ pipelines:
           autoPublishBuildInfo: true
           integrations:
             - name: art_v
-          runtime: 
-            type: image
-            image: 
-              auto:
-                language: go
-                versions:
-                  - "1.15.2-f2674"
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.15.2-f2674"
           inputResources:
             - name: artifactory_go_module_example
           outputResources:

@@ -209,7 +209,7 @@ resources:
       name:                 test2
       version:              1.0.2
 
-  - name:       signed_go_ReleaseBundle_3
+  - name:       signed_go_ReleaseBundle_2
     type:       ReleaseBundle
     configuration:
       sourceDistribution:  pipe_master_dist
@@ -514,7 +514,7 @@ pipelines:
           inputResources:
             - name:            go_ReleaseBundle_1
           outputResources:
-            - name:            signed_go_ReleaseBundle_1
+            - name:            signed_go_ReleaseBundle_2
  
         execution:
           onStart:
@@ -988,7 +988,7 @@ pipelines:
           inputResources:
             - name:            go_ReleaseBundle_1
           outputResources:
-            - name:            signed_go_ReleaseBundle_1
+            - name:            signed_go_ReleaseBundle_2
  
         execution:
           onStart:

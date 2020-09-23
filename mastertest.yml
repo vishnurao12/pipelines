@@ -202,6 +202,20 @@ resources:
       name:                 test
       version:              1.0.0-m000
 
+  - name:       go_ReleaseBundle_1
+    type:       ReleaseBundle
+    configuration:
+      sourceDistribution:  pipe_master_dist
+      name:                 test
+      version:              1.0.0-m000
+
+  - name:       signed_go_ReleaseBundle_3
+    type:       ReleaseBundle
+    configuration:
+      sourceDistribution:  pipe_master_dist
+      name:                 test
+      version:              1.0.0-m000
+
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
@@ -483,7 +497,7 @@ pipelines:
           inputResources:
             - name:                  promoted_go_build_info_go_publishtest
           outputResources:
-            - name:                 go_ReleaseBundle
+            - name:                 go_ReleaseBundle_1
           dryRun: false
         execution:
           onStart:
@@ -499,10 +513,9 @@ pipelines:
         type: SignReleaseBundle
         configuration:
           inputResources:
-            - name:            go_ReleaseBundle
-              trigger: false
+            - name:            go_ReleaseBundle_1
           outputResources:
-            - name:            signed_go_ReleaseBundle
+            - name:            signed_go_ReleaseBundle_1
  
         execution:
           onStart:

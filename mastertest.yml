@@ -202,7 +202,7 @@ resources:
       sourceDistribution:  pipe_master_dist
       name:                 test1
       version:              1.0.0-m000
-      true: 
+
 
   - name:       go_ReleaseBundle_1
     type:       ReleaseBundle

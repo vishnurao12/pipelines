@@ -194,7 +194,7 @@ resources:
       sourceDistribution:  pipe_master_dist_without_sign
       name:                 test1
       version:              1.0.0-m000
-#       isSigned: true
+      isSigned: true
 
   - name:       signed_go_ReleaseBundle_without
     type:       ReleaseBundle
@@ -210,7 +210,7 @@ resources:
       sourceDistribution:  pipe_master_dist_without_sign
       name:                 test2
       version:              1.0.2
-#       isSigned: true
+      isSigned: true
 
   - name:       signed_go_ReleaseBundle_2_without
     type:       ReleaseBundle
@@ -532,7 +532,7 @@ pipelines:
           outputResources:
             - name:                 go_ReleaseBundle_without
           dryRun: false
-#           sign:                     true
+          sign:                     true
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -543,13 +543,13 @@ pipelines:
           onComplete: #always
             - echo "Cleaning up some stuff"
 
-      - name: go_signReleaseBundle
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name:            go_ReleaseBundle_without
-          outputResources:
-            - name:            signed_go_ReleaseBundle_without
+#       - name: go_signReleaseBundle
+#         type: SignReleaseBundle
+#         configuration:
+#           inputResources:
+#             - name:            go_ReleaseBundle_without
+#           outputResources:
+#             - name:            signed_go_ReleaseBundle_without
  
         execution:
           onStart:
@@ -1006,7 +1006,7 @@ pipelines:
           outputResources:
             - name:                 go_ReleaseBundle_1_without
           dryRun: false
-#           sign:                     true
+          sign:                     true
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -1017,20 +1017,20 @@ pipelines:
           onComplete: #always
             - echo "Cleaning up some stuff"
 
-      - name: go_signReleaseBundle
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name:            go_ReleaseBundle_1_without
-          outputResources:
-            - name:            signed_go_ReleaseBundle_2_without
+#       - name: go_signReleaseBundle
+#         type: SignReleaseBundle
+#         configuration:
+#           inputResources:
+#             - name:            go_ReleaseBundle_1_without
+#           outputResources:
+#             - name:            signed_go_ReleaseBundle_2_without
  
-        execution:
-          onStart:
-            - echo "Preparing for work..."
-          onSuccess:
-            - echo "Job well done!"
-          onFailure:
-            - echo "uh oh, something went wrong"
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
+#           onSuccess:
+#             - echo "Job well done!"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"

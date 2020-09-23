@@ -512,23 +512,23 @@ pipelines:
           onComplete: #always
             - echo "Cleaning up some stuff"
 
-      - name: go_signReleaseBundle
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name:            go_ReleaseBundle
-          outputResources:
-            - name:            signed_go_ReleaseBundle
+#       - name: go_signReleaseBundle
+#         type: SignReleaseBundle
+#         configuration:
+#           inputResources:
+#             - name:            go_ReleaseBundle
+#           outputResources:
+#             - name:            signed_go_ReleaseBundle
  
-        execution:
-          onStart:
-            - echo "Preparing for work..."
-          onSuccess:
-            - echo "Job well done!"
-          onFailure:
-            - echo "uh oh, something went wrong"
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
+#           onSuccess:
+#             - echo "Job well done!"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"
 
 #       - name: gradle_build_step
 #         type: GradleBuild
@@ -975,6 +975,7 @@ pipelines:
           outputResources:
             - name:                 go_ReleaseBundle_1
           dryRun: false
+          sign:                     true
         execution:
           onStart:
             - echo "Preparing for work..."
@@ -985,20 +986,20 @@ pipelines:
           onComplete: #always
             - echo "Cleaning up some stuff"
 
-      - name: go_signReleaseBundle
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name:            go_ReleaseBundle_1
-          outputResources:
-            - name:            signed_go_ReleaseBundle_2
+#       - name: go_signReleaseBundle
+#         type: SignReleaseBundle
+#         configuration:
+#           inputResources:
+#             - name:            go_ReleaseBundle_1
+#           outputResources:
+#             - name:            signed_go_ReleaseBundle_2
  
-        execution:
-          onStart:
-            - echo "Preparing for work..."
-          onSuccess:
-            - echo "Job well done!"
-          onFailure:
-            - echo "uh oh, something went wrong"
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
+#           onSuccess:
+#             - echo "Job well done!"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"

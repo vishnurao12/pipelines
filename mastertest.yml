@@ -529,6 +529,7 @@ pipelines:
  
           inputResources:
             - name:                  promoted_go_build_info_go_publishtest
+              trigger: false
           outputResources:
             - name:                 go_ReleaseBundle_without
           dryRun: false
@@ -548,6 +549,7 @@ pipelines:
 #         configuration:
 #           inputResources:
 #             - name:            go_ReleaseBundle_without
+#               trigger: false
 #           outputResources:
 #             - name:            signed_go_ReleaseBundle_without
  
@@ -1003,6 +1005,7 @@ pipelines:
  
           inputResources:
             - name:                  promoted_go_build_info_go_publishtest
+              trigger: false
           outputResources:
             - name:                 go_ReleaseBundle_1_without
           dryRun: false
@@ -1022,6 +1025,7 @@ pipelines:
 #         configuration:
 #           inputResources:
 #             - name:            go_ReleaseBundle_1_without
+#               trigger: false
 #           outputResources:
 #             - name:            signed_go_ReleaseBundle_2_without
  

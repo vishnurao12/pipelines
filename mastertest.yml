@@ -903,11 +903,11 @@ pipelines:
 #             - name: Upload_to_artifactory
           runtime: 
             type: image
-            image: 
-              auto:
-                language: go
-                versions:
-                  - "1.15.2-f2674"
+              custom:
+                name: jfpip.jfrog.io/jfrog/pipelines-w19go
+                tag: 1.15.2-f2674
+                registry: art # optional integration for private registry
+                sourceRepository: jfpip.jfrog.io
         execution:
           onStart:
             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
@@ -965,11 +965,16 @@ pipelines:
             - name: art_v
           runtime: 
             type: image
-            image: 
-              auto:
-                language: go
-                versions:
-                  - "1.15.2-f2674"
+#             image: 
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.15.2-f2674"
+              custom:
+                name: jfpip.jfrog.io/jfrog/pipelines-w19go
+                tag: 1.15.2-f2674
+                registry: art # optional integration for private registry
+                sourceRepository: jfpip.jfrog.io
           inputResources:
             - name: artifactory_go_module_example
           outputResources:

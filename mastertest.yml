@@ -933,7 +933,6 @@ pipelines:
           targetRepository: test-go-local
           integrations:
             - name: art_v
-            - name: art
           runtime: 
             type: image
             image: 
@@ -970,7 +969,6 @@ pipelines:
           autoPublishBuildInfo: true
           integrations:
             - name: art_v
-            - name: art 
           runtime: 
             type: image
             image: 

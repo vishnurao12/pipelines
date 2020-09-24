@@ -188,67 +188,67 @@ resources:
 #       chart: test
 #       version: 1.0.0
 
-  - name:       go_ReleaseBundle_without
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  pipe_master_dist_without_sign
-      name:                 test1
-      version:              1.0.0-m000
-      isSigned: true
+#   - name:       go_ReleaseBundle_without
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  pipe_master_dist_without_sign
+#       name:                 test1
+#       version:              1.0.0-m000
+#       isSigned: true
 
-  - name:       signed_go_ReleaseBundle_without
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  pipe_master_dist_without_sign
-      name:                 test1
-      version:              1.0.0-m000
-
-
-  - name:       go_ReleaseBundle_1_without
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  pipe_master_dist_without_sign
-      name:                 test2
-      version:              1.0.2
-      isSigned: true
-
-  - name:       signed_go_ReleaseBundle_2_without
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  pipe_master_dist_without_sign
-      name:                 test2
-      version:              1.0.2
-
-  - name:       go_ReleaseBundle
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  pipe_master_dist
-      name:                 test1
-      version:              1.0.0-m000
-      isSigned: true
-
-  - name:       signed_go_ReleaseBundle
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  pipe_master_dist
-      name:                 test1
-      version:              1.0.0-m000
+#   - name:       signed_go_ReleaseBundle_without
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  pipe_master_dist_without_sign
+#       name:                 test1
+#       version:              1.0.0-m000
 
 
-  - name:       go_ReleaseBundle_1
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  pipe_master_dist
-      name:                 test2
-      version:              1.0.2
-      isSigned: true
+#   - name:       go_ReleaseBundle_1_without
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  pipe_master_dist_without_sign
+#       name:                 test2
+#       version:              1.0.2
+#       isSigned: true
 
-  - name:       signed_go_ReleaseBundle_2
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  pipe_master_dist
-      name:                 test2
-      version:              1.0.2
+#   - name:       signed_go_ReleaseBundle_2_without
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  pipe_master_dist_without_sign
+#       name:                 test2
+#       version:              1.0.2
+
+#   - name:       go_ReleaseBundle
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  pipe_master_dist
+#       name:                 test1
+#       version:              1.0.0-m000
+#       isSigned: true
+
+#   - name:       signed_go_ReleaseBundle
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  pipe_master_dist
+#       name:                 test1
+#       version:              1.0.0-m000
+
+
+#   - name:       go_ReleaseBundle_1
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  pipe_master_dist
+#       name:                 test2
+#       version:              1.0.2
+#       isSigned: true
+
+#   - name:       signed_go_ReleaseBundle_2
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  pipe_master_dist
+#       name:                 test2
+#       version:              1.0.2
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
@@ -883,8 +883,8 @@ pipelines:
 #             - echo "Cleaning up some stuff"
 
   - name: Master_test_pipe_1
-    configuration:
-      nodePool: windows-test-pipe-3770
+#     configuration:
+#       nodePool: windows-test-pipe-3770
 
     steps:
       - name: build_go
@@ -901,24 +901,24 @@ pipelines:
             - name: art_v
 #           inputSteps:
 #             - name: Upload_to_artifactory
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.15.2-f2674"
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.15.2-f2674"
         execution:
           onStart:
-#             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-#             - "pushd $buildDir/golang-example/hello"
-#             - "go get -insecure"
-#             - popd
+            - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+            - "pushd $buildDir/golang-example/hello"
+            - "go get -insecure"
+            - popd
 #             - $buildDir = find_resource_variable artifactory_go_example resourcePath
 #             - write-output $buildDir
-            - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
-            - go get -insecure
-            - Pop-Location
+#             - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
+#             - go get -insecure
+#             - Pop-Location
 #             - go version
 
       - name: publish_go_binarytest
@@ -932,13 +932,13 @@ pipelines:
           targetRepository: test-go-local
           integrations:
             - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.15.2-f2674"
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.15.2-f2674"
      
       - name: publish_buildtest
         type: PublishBuildInfo
@@ -963,13 +963,13 @@ pipelines:
           autoPublishBuildInfo: true
           integrations:
             - name: art_v
-#           runtime: 
-#             type: image
-#             image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.15.2-f2674"
+          runtime: 
+            type: image
+            image: 
+              auto:
+                language: go
+                versions:
+                  - "1.15.2-f2674"
           inputResources:
             - name: artifactory_go_module_example
           outputResources:
@@ -997,29 +997,29 @@ pipelines:
           outputResources:
             - name: promoted_go_build_info_go_publishtest
 
-      - name: go_releaseBundle
-        type: CreateReleaseBundle
-        configuration:
-          #inherits from bash
-          releaseBundleName:        test1
-          releaseBundleVersion:     ${run_number}
+#       - name: go_releaseBundle
+#         type: CreateReleaseBundle
+#         configuration:
+#           #inherits from bash
+#           releaseBundleName:        test1
+#           releaseBundleVersion:     ${run_number}
  
-          inputResources:
-            - name:                  promoted_go_build_info_go_publishtest
-              trigger: false
-          outputResources:
-            - name:                 go_ReleaseBundle_1_without
-          dryRun: false
-          sign:                     true
-        execution:
-          onStart:
-            - echo "Preparing for work..."
-          onSuccess:
-            - echo "Job well done!"
-          onFailure:
-            - echo "uh oh, something went wrong"
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#           inputResources:
+#             - name:                  promoted_go_build_info_go_publishtest
+#               trigger: false
+#           outputResources:
+#             - name:                 go_ReleaseBundle_1_without
+#           dryRun: false
+#           sign:                     true
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
+#           onSuccess:
+#             - echo "Job well done!"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"
 
 #       - name: go_signReleaseBundle
 #         type: SignReleaseBundle

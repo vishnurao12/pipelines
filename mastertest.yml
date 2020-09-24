@@ -903,6 +903,7 @@ pipelines:
 #             - name: Upload_to_artifactory
           runtime: 
             type: image
+            image:
               custom:
                 name: jfpip.jfrog.io/jfrog/pipelines-w19go
                 tag: 1.15.2-f2674
@@ -932,13 +933,19 @@ pipelines:
           targetRepository: test-go-local
           integrations:
             - name: art_v
+            - name: art
           runtime: 
             type: image
             image: 
-              auto:
-                language: go
-                versions:
-                  - "1.15.2-f2674"
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.15.2-f2674"
+              custom:
+                name: jfpip.jfrog.io/jfrog/pipelines-w19go
+                tag: 1.15.2-f2674
+                registry: art # optional integration for private registry
+                sourceRepository: jfpip.jfrog.io
      
       - name: publish_buildtest
         type: PublishBuildInfo
@@ -963,9 +970,10 @@ pipelines:
           autoPublishBuildInfo: true
           integrations:
             - name: art_v
+            - name: art 
           runtime: 
             type: image
-#             image: 
+            image: 
 #               auto:
 #                 language: go
 #                 versions:

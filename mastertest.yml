@@ -935,11 +935,7 @@ pipelines:
             - name: art_v
           runtime: 
             type: image
-            image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.15.2-f2674"
+            image:
               custom:
                 name: jfpip.jfrog.io/jfrog/pipelines-w19go
                 tag: 1.15.2-f2674
@@ -971,11 +967,7 @@ pipelines:
             - name: art_v
           runtime: 
             type: image
-            image: 
-#               auto:
-#                 language: go
-#                 versions:
-#                   - "1.15.2-f2674"
+            image:
               custom:
                 name: jfpip.jfrog.io/jfrog/pipelines-w19go
                 tag: 1.15.2-f2674

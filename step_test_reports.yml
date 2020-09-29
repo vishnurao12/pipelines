@@ -15,7 +15,7 @@ pipelines:
             - name: script
         execution:
           onExecute:
-            - cd $res_script_repo1_resourcePath
+            - cd $res_script_resourcePath
             - python -m py_compile calc.py
             - pip install --upgrade pip
             - hash -d pip

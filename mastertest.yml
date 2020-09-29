@@ -252,14 +252,14 @@ resources:
 # need to add git_v,art_v,docker_v integration. 
 # need to add these repo docker-local,test-generic-local repo
 pipelines:
-#   - name: Master_test_pipe
+  - name: Master_test_pipe
 #     configuration:
 #       nodePool: windows-test-pipe-3770
-# #       environmentVariables:
-# #         readOnly:
-# #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-# #           JFROG_CLI_BUILD_NUMBER: 2387
-#     steps:
+#       environmentVariables:
+#         readOnly:
+#           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#           JFROG_CLI_BUILD_NUMBER: 2387
+    steps:
 #       - name: Download_win
 #         type: PowerShell
 #         configuration:
@@ -882,123 +882,123 @@ pipelines:
 #           onComplete: #always
 #             - echo "Cleaning up some stuff"
 
-  - name: Master_test_pipe_1
-#     configuration:
-#       nodePool: windows-test-pipe-3770
+#   - name: Master_test_pipe_1
+# #     configuration:
+# #       nodePool: windows-test-pipe-3770
 
-    steps:
-      - name: build_go
-        type: GoBuild
-        configuration:
-          sourceLocation: golang-example/hello
-          repository: test-go-local
-          outputLocation: /tmp/dist
-          outputFile: hello_sample
-          inputResources:
-            - name: artifactory_go_example
-            - name: connecting_resource
-          integrations:
-            - name: art_v
+#     steps:
+#       - name: build_go
+#         type: GoBuild
+#         configuration:
+#           sourceLocation: golang-example/hello
+#           repository: test-go-local
+#           outputLocation: /tmp/dist
+#           outputFile: hello_sample
+#           inputResources:
+#             - name: artifactory_go_example
+#             - name: connecting_resource
+#           integrations:
+#             - name: art_v
+# #           inputSteps:
+# #             - name: Upload_to_artifactory
+#           runtime: 
+#             type: image
+#             image:
+#               custom:
+#                 name: jfpip.jfrog.io/jfrog/pipelines-w19go
+#                 tag: 1.15.2-f2674
+#                 registry: art # optional integration for private registry
+#                 sourceRepository: jfpip.jfrog.io
+#         execution:
+#           onStart:
+# #             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+# #             - "pushd $buildDir/golang-example/hello"
+# #             - "go get -insecure"
+# #             - popd
+# #             - $buildDir = find_resource_variable artifactory_go_example resourcePath
+# #             - write-output $buildDir
+#             - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
+#             - go get -insecure
+#             - Pop-Location
+# #             - go version
+
+#       - name: publish_go_binarytest
+#         type: GoPublishBinary
+#         configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "go_test"
+#             JFROG_CLI_BUILD_NUMBER: 2387
 #           inputSteps:
-#             - name: Upload_to_artifactory
-          runtime: 
-            type: image
-            image:
-              custom:
-                name: jfpip.jfrog.io/jfrog/pipelines-w19go
-                tag: 1.15.2-f2674
-                registry: art # optional integration for private registry
-                sourceRepository: jfpip.jfrog.io
-        execution:
-          onStart:
-#             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-#             - "pushd $buildDir/golang-example/hello"
-#             - "go get -insecure"
-#             - popd
-#             - $buildDir = find_resource_variable artifactory_go_example resourcePath
-#             - write-output $buildDir
-            - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
-            - go get -insecure
-            - Pop-Location
-#             - go version
-
-      - name: publish_go_binarytest
-        type: GoPublishBinary
-        configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "go_test"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          inputSteps:
-            - name: build_go
-          targetRepository: test-go-local
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image:
-              custom:
-                name: jfpip.jfrog.io/jfrog/pipelines-w19go
-                tag: 1.15.2-f2674
-                registry: art # optional integration for private registry
-                sourceRepository: jfpip.jfrog.io
+#             - name: build_go
+#           targetRepository: test-go-local
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image:
+#               custom:
+#                 name: jfpip.jfrog.io/jfrog/pipelines-w19go
+#                 tag: 1.15.2-f2674
+#                 registry: art # optional integration for private registry
+#                 sourceRepository: jfpip.jfrog.io
      
-      - name: publish_buildtest
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: publish_go_binarytest
-          outputResources:
-            - name: go_build_info_publishtest
+#       - name: publish_buildtest
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: publish_go_binarytest
+#           outputResources:
+#             - name: go_build_info_publishtest
         
-      - name: publish_go_moduletest
-        type: GoPublishModule
-        execution:
-          onStart:
-            - go version
-        configuration:  
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "go_test"
-            JFROG_CLI_BUILD_NUMBER: 2387
-          sourceLocation: .  # required
-          version: v0.0.0           # required
-          targetRepository: test-go-local
-          autoPublishBuildInfo: true
-          integrations:
-            - name: art_v
-          runtime: 
-            type: image
-            image:
-              custom:
-                name: jfpip.jfrog.io/jfrog/pipelines-w19go
-                tag: 1.15.2-f2674
-                registry: art # optional integration for private registry
-                sourceRepository: jfpip.jfrog.io
-          inputResources:
-            - name: artifactory_go_module_example
-          outputResources:
-            - name: go_build_info_publish_moduletest
+#       - name: publish_go_moduletest
+#         type: GoPublishModule
+#         execution:
+#           onStart:
+#             - go version
+#         configuration:  
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "go_test"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+#           sourceLocation: .  # required
+#           version: v0.0.0           # required
+#           targetRepository: test-go-local
+#           autoPublishBuildInfo: true
+#           integrations:
+#             - name: art_v
+#           runtime: 
+#             type: image
+#             image:
+#               custom:
+#                 name: jfpip.jfrog.io/jfrog/pipelines-w19go
+#                 tag: 1.15.2-f2674
+#                 registry: art # optional integration for private registry
+#                 sourceRepository: jfpip.jfrog.io
+#           inputResources:
+#             - name: artifactory_go_module_example
+#           outputResources:
+#             - name: go_build_info_publish_moduletest
             
-      - name: promote_build_gotest_binary
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: go_build_info_publishtest #go_build_info_publish
-          outputResources:
-            - name: promoted_go_build_info_go_publishtest
+#       - name: promote_build_gotest_binary
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: go_build_info_publishtest #go_build_info_publish
+#           outputResources:
+#             - name: promoted_go_build_info_go_publishtest
     
-      - name: promote_build_gotest_module
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: go_build_info_publish_moduletest
-          outputResources:
-            - name: promoted_go_build_info_go_publishtest
+#       - name: promote_build_gotest_module
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: go_build_info_publish_moduletest
+#           outputResources:
+#             - name: promoted_go_build_info_go_publishtest
 
 #       - name: go_releaseBundle
 #         type: CreateReleaseBundle

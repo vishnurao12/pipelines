@@ -810,6 +810,8 @@ pipelines:
           outputResources:
             - name: helm_repo
             - name: ns_buildInfo_helm
+          integrations:
+            - name: git_v
 
 #           runtime: 
 #             type: image

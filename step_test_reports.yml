@@ -20,7 +20,6 @@ pipelines:
             - python -m py_compile calc.py
             - pip install --upgrade pip
             - hash -d pip
-            - pip install pytest
-            - cd $res_script_repo1_resourcePath            
+            - pip install pytest           
             - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
             - save_tests $res_script_repo1_resourcePath/test-reports/results.xml 

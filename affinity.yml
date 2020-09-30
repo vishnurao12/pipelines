@@ -116,15 +116,15 @@ pipelines:
         type: Bash
         configuration:
           inputResources: 
-           - name: resource_pipelines123
-             trigger: false
+            - name: resource_pipelines123
+              trigger: false
           integrations:
-           - name: git_v
+            - name: git_v
           inputSteps: 
-           - name: myStepa3
+            - name: myStepa3
           affinityGroup: "group2"
           outputResources:
-           - name: connect
+            - name: connect
         execution:
           onExecute:
             - printenv
@@ -134,8 +134,6 @@ pipelines:
         type: Bash
         configuration:
           inputResources: 
-            - name: resource_pipelines123
-              trigger: false
             - name: connect
               trigger: true
           integrations:

@@ -403,14 +403,14 @@ pipelines:
 #                   - "1.15.2-f2674"
         execution:
           onStart:
-            - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-            - "pushd $buildDir/golang-example/hello"
-            - "go get -insecure"
-            - popd
-#             - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
-#             - go get -insecure
-#             - Pop-Location
-#             - go version
+#             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+#             - "pushd $buildDir/golang-example/hello"
+#             - "go get -insecure"
+#             - popd
+            - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
+            - go get -insecure
+            - Pop-Location
+            - go version
 
       - name: publish_go_binarytest
         type: GoPublishBinary

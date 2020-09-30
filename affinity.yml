@@ -137,6 +137,8 @@ pipelines:
 
   - name: win_testing_123
     steps:
+    configuration:
+      nodePool: win_2019
       - name: first
         type: PowerShell
         configuration:

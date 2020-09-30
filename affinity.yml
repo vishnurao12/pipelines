@@ -88,7 +88,7 @@ pipelines:
           inputSteps: 
            - name: myStepa1
           affinityGroup: "group1"
-          priority: 10 # optional
+          priority: 20 # optional
         execution:
           onExecute:
             - printenv
@@ -108,7 +108,7 @@ pipelines:
           inputSteps: 
            - name: myStepa1
           affinityGroup: "group1"
-          priority: 20 
+          priority: 30
         execution:
           onExecute:
             - printenv

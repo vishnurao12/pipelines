@@ -262,8 +262,8 @@ resources:
 
 pipelines:
   - name: Master_test_pipe
-#     configuration:
-#       nodePool: win_2019
+    configuration:
+      nodePool: win_2019
 #       environmentVariables:
 #         readOnly:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"

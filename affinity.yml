@@ -1,0 +1,101 @@
+resources:
+ - name: resource_pipelines123
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
+     files: 
+       include: ^README.md$
+     branches:
+       include: ^master$
+pipelines:
+  - name: testing_123
+    steps:
+      - name: myStepa1
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+          integrations:
+           - name: git_v
+          affinityGroup: "group1"
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+          onSuccess:
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+      - name: myStepa2
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa1
+          affinityGroup: "group1"
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+          onSuccess:
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+      - name: myStepa3
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa2
+          affinityGroup: "group1"
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+          onSuccess:
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+      - name: myStepa4
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa3
+          affinityGroup: "group2"
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+          onSuccess:
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+      - name: myStepa5
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepa4
+          affinityGroup: "group2"
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+          onSuccess:
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls

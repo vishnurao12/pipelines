@@ -4,7 +4,7 @@ resources:
     configuration:
       key1: value1
       key2: value2
- - name: resource_pipelines123
+  - name: resource_pipelines123
    type: GitRepo
    configuration:
      gitProvider: git_v

@@ -33,12 +33,9 @@ pipelines:
            - name: git_v
         execution:
           onExecute:
-            - printenv
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
           onSuccess:
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
       - name: second
         type: Bash
         configuration:
@@ -51,12 +48,9 @@ pipelines:
            - name: git_v
         execution:
           onExecute:
-            - printenv
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
           onSuccess:
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
       - name: myStepa1
         type: Bash
         configuration:
@@ -71,12 +65,9 @@ pipelines:
           affinityGroup: "group1" 
         execution:
           onExecute:
-            - printenv
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
           onSuccess:
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
       - name: myStepa2
         type: Bash
         configuration:
@@ -91,13 +82,9 @@ pipelines:
           priority: 20 # optional
         execution:
           onExecute:
-            - printenv
-            - dsfaf
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
           onSuccess:
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
       - name: myStepa3
         type: Bash
         configuration:
@@ -112,12 +99,9 @@ pipelines:
           priority: 30
         execution:
           onExecute:
-            - printenv
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
           onSuccess:
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - echo "hello"
       - name: myStepa4
         type: Bash
         configuration:
@@ -133,7 +117,7 @@ pipelines:
             - name: connect2
         execution:
           onExecute:
-            - printenv
+            - echo "hello"
           onSuccess:
             - write_output connect2 "testKey=$run_id"
       - name: myStepa5
@@ -147,7 +131,6 @@ pipelines:
           affinityGroup: "group2"
         execution:
           onExecute:
-            - printenv
-            - ls
+            - echo "hello"
           onSuccess:
-            - ls
+            - echo "hello"

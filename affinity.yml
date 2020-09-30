@@ -65,6 +65,7 @@ pipelines:
           affinityGroup: "group1" 
         execution:
           onExecute:
+            - aaaa
             - echo "hello"
           onSuccess:
             - echo "hello"

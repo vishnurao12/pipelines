@@ -136,9 +136,9 @@ pipelines:
             - echo "hello"
 
   - name: win_testing_123
-    steps:
     configuration:
       nodePool: win_2019
+    steps:
       - name: first
         type: PowerShell
         configuration:

@@ -135,7 +135,7 @@ pipelines:
           onSuccess:
             - echo "hello"
 
-- name: win_testing_123
+  - name: win_testing_123
     steps:
       - name: first
         type: PowerShell

@@ -1,4 +1,9 @@
 resources:
+  - name: connect
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
  - name: resource_pipelines123
    type: GitRepo
    configuration:
@@ -11,14 +16,54 @@ resources:
 pipelines:
   - name: testing_123
     steps:
+      - name: first
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+           - name: connect
+             trigger: false
+          integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+          onSuccess:
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+      - name: second
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+           - name: connect
+             trigger: false
+          integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
+          onSuccess:
+            - pushd $res_resource_pipelines123_resourcePath
+            - ls
       - name: myStepa1
         type: Bash
         configuration:
           inputResources: 
            - name: resource_pipelines123
+             trigger: false
           integrations:
            - name: git_v
-          affinityGroup: "group1"
+          inputSteps: 
+           - name: first
+           - name: second
+          affinityGroup: "group1" 
         execution:
           onExecute:
             - printenv
@@ -32,11 +77,13 @@ pipelines:
         configuration:
           inputResources: 
            - name: resource_pipelines123
+             trigger: false
           integrations:
            - name: git_v
           inputSteps: 
            - name: myStepa1
           affinityGroup: "group1"
+          priority: 10 # optional
         execution:
           onExecute:
             - printenv
@@ -50,11 +97,13 @@ pipelines:
         configuration:
           inputResources: 
            - name: resource_pipelines123
+             trigger: false
           integrations:
            - name: git_v
           inputSteps: 
-           - name: myStepa2
+           - name: myStepa1
           affinityGroup: "group1"
+          priority: 20 
         execution:
           onExecute:
             - printenv
@@ -68,28 +117,30 @@ pipelines:
         configuration:
           inputResources: 
            - name: resource_pipelines123
+             trigger: false
           integrations:
            - name: git_v
+           - name: connect
           inputSteps: 
            - name: myStepa3
           affinityGroup: "group2"
+          outputSteps:
+           - name: myStepa5
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
           onSuccess:
-            - pushd $res_resource_pipelines123_resourcePath
-            - ls
+            - write_output connect "testKey=$run_id"
       - name: myStepa5
         type: Bash
         configuration:
           inputResources: 
             - name: resource_pipelines123
+              trigger: false
+            - name: connect
+              trigger: true
           integrations:
             - name: git_v
-          inputSteps: 
-            - name: myStepa4
           affinityGroup: "group2"
         execution:
           onExecute:

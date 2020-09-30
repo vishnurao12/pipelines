@@ -92,6 +92,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - dsfaf
             - pushd $res_resource_pipelines123_resourcePath
             - ls
           onSuccess:

@@ -303,7 +303,7 @@ pipelines:
           dockerFileName: Dockerfile
 #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
 #           dockerImageName: 192.168.11.4:8082/docker-local/node
-          dockerImageName: rhel.jfrog-pipelines.com:8082/docker-local/node
+          dockerImageName: rhel.jfrog-pipelines.com/docker-local/node
           dockerImageTag: latest
           integrations:
             - name: art_v

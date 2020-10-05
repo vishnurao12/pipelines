@@ -1,0 +1,25 @@
+pipelines:
+  - name: vijay_test_pipe1
+    configuration:
+      nodePool: win_2019
+  steps:
+    - name: build_Docker_Image
+      type: DockerBuild
+      configuration:
+        dockerFileLocation: .
+        dockerFileName: Dockerfile
+        dockerImageName: 'pipelines.westus.cloudapp.azure.com:8082/docker-local/node'
+        dockerImageTag: latest
+        integrations:
+          - name: art_v
+        inputResources:
+          - name: vijay_gitRepo
+    - name: Push_Docker_Image
+      type: DockerPush
+      configuration:
+        autoPublishBuildInfo: false
+        targetRepository: docker-local
+        integrations:
+          - name: art_v
+        inputSteps:
+          - name: build_Docker_Image

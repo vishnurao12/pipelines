@@ -107,11 +107,11 @@ resources:
 #       buildName: promotoed-full-gradle-native
 #       buildNumber: 1
 
-#   - name: gradle_repo
-#     type: GitRepo
-#     configuration:
-#       gitProvider: git_v
-#       path: vishnurao12/project-examples
+  - name: gradle_repo
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/project-examples
 
 #   - name: build_info_gradle
 #     type: BuildInfo
@@ -141,11 +141,11 @@ resources:
 #       buildName: mvn_promote_build_master_test
 #       buildNumber: 3
       
-#   - name: maven_repo
-#     type: GitRepo
-#     configuration:
-#       gitProvider: git_v
-#       path: vishnurao12/project-examples
+  - name: maven_repo
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/project-examples
 
 #   - name: npmHelloWorld_repo
 #     type: GitRepo
@@ -539,32 +539,32 @@ pipelines:
 
 
 
-#       - name: gradle_build_step
-#         type: GradleBuild
-#         configuration:
-# #           environmentVariables: # optional
-# #             JFROG_CLI_BUILD_NAME: "PIPE-f2387-gradle-build"
-# #             JFROG_CLI_BUILD_NUMBER: 2387
-#           gradleCommand: clean artifactoryPublish -b build.gradle
-#           sourceLocation: gradle-examples/gradle-example-minimal
-#           configFileLocation: .
-#           configFileName: gradle-art-config
-#           inputResources:
-#             - name: gradle_repo
-#             - name: connecting_resource
-#           integrations:
-#             - name: art_v
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: java
-# #                 versions:
-# #                   - "8"
-#         execution:
-#           onStart:
-#             - javac -version
-#             - gradle --version
+      - name: gradle_build_step
+        type: GradleBuild
+        configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387-gradle-build"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+          gradleCommand: clean artifactoryPublish -b build.gradle
+          sourceLocation: gradle-examples/gradle-example-minimal
+          configFileLocation: .
+          configFileName: gradle-art-config
+          inputResources:
+            - name: gradle_repo
+            - name: connecting_resource
+          integrations:
+            - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: java
+#                 versions:
+#                   - "8"
+        execution:
+          onStart:
+            - javac -version
+            - gradle --version
 
 #       - name: publish_build_info_gradle
 #         type: PublishBuildInfo
@@ -606,32 +606,32 @@ pipelines:
 
 
 
-#       - name: mvnBuild_sample
-#         type: MvnBuild
-#         configuration:
-# #           environmentVariables: # optional
-# #             JFROG_CLI_BUILD_NAME: "PIPE-f2387-mvn"
-# #             JFROG_CLI_BUILD_NUMBER: 2387
-#           sourceLocation: ./artifactory-maven-plugin-example
-#           mvnCommand: clean install
-#           configFileLocation: .
-#           configFileName: mvn-art-config
-#           inputResources:
-#             - name: maven_repo
-#             - name: connecting_resource
-#           integrations:
-#             - name: art_v
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: java
-# #                 versions:
-# #                   - "8"
-#         execution:
-#           onStart:
-#             - javac -version
-#             - mvn --version
+      - name: mvnBuild_sample
+        type: MvnBuild
+        configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387-mvn"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+          sourceLocation: ./artifactory-maven-plugin-example
+          mvnCommand: clean install
+          configFileLocation: .
+          configFileName: mvn-art-config
+          inputResources:
+            - name: maven_repo
+            - name: connecting_resource
+          integrations:
+            - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: java
+#                 versions:
+#                   - "8"
+        execution:
+          onStart:
+            - javac -version
+            - mvn --version
             
 #       - name: mvnBuild_publish
 #         type: PublishBuildInfo

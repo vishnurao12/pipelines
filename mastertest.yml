@@ -13,56 +13,56 @@ resources:
 #       buildName: go_test
 #        buildNumber:          2387
 
-  - name: ns_aql
-    type: Aql
-    configuration:
-      sourceArtifactory: art_v
-      query: 'items.find({"$and":[{"artifact.module.build.name":{"$eq":"native_pipeline"}},{"artifact.module.build.number":{"$eq":"8"}}]})'     
-      #addedProperties:
-      mappings:
-        - name: "a"
-          input: "regex"
-          output: "$1/$2"
-        - name: "b"
-          input: "regex"
-          output: "$2/$1"
+#   - name: ns_aql
+#     type: Aql
+#     configuration:
+#       sourceArtifactory: art_v
+#       query: 'items.find({"$and":[{"artifact.module.build.name":{"$eq":"native_pipeline"}},{"artifact.module.build.number":{"$eq":"8"}}]})'     
+#       #addedProperties:
+#       mappings:
+#         - name: "a"
+#           input: "regex"
+#           output: "$1/$2"
+#         - name: "b"
+#           input: "regex"
+#           output: "$2/$1"
       
-  - name: ns_dockerbuild_gitRepo
-    type: GitRepo
-    configuration:
-      path: vishnurao12/sample-script
-      gitProvider: git_v
-      branches: 
-        include: master
-
-  - name: ns_buildInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_buildInfo
-      buildNumber: 123
-
-  - name: ns_buildInfo_helm
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_buildInfo_helm
-      buildNumber: 1.0.0
-  
-  - name: ns_promotedInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_promotedInfo
-      buildNumber: 1
-
-#   - name: artifactory_go_example
+#   - name: ns_dockerbuild_gitRepo
 #     type: GitRepo
 #     configuration:
-#       path: vishnurao12/project-examples
-#       branches:
-#         include: master
+#       path: vishnurao12/sample-script
 #       gitProvider: git_v
+#       branches: 
+#         include: master
+
+#   - name: ns_buildInfo
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_buildInfo
+#       buildNumber: 123
+
+#   - name: ns_buildInfo_helm
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_buildInfo_helm
+#       buildNumber: 1.0.0
+  
+#   - name: ns_promotedInfo
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_promotedInfo
+#       buildNumber: 1
+
+  - name: artifactory_go_example
+    type: GitRepo
+    configuration:
+      path: vishnurao12/project-examples
+      branches:
+        include: master
+      gitProvider: git_v
 #   - name: artifactory_go_exampletest
 #     type: GitRepo
 #     configuration:
@@ -293,39 +293,39 @@ pipelines:
 #             - echo automation > test.sh
 #             - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
-      - name: To_build_Docker_Image
-        type: DockerBuild
-        configuration:
-#           environmentVariables: # optional
-#             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-#             JFROG_CLI_BUILD_NUMBER: 2387
-          dockerFileLocation: .
-          dockerFileName: Dockerfile
-#           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
-#           dockerImageName: 192.168.11.4:8082/docker-local/node
-          dockerImageName: vishtest.jfrog.io/docker-local/node
-          dockerImageTag: latest
-          integrations:
-            - name: art_v
+#       - name: To_build_Docker_Image
+#         type: DockerBuild
+#         configuration:
+# #           environmentVariables: # optional
+# #             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+# #             JFROG_CLI_BUILD_NUMBER: 2387
+#           dockerFileLocation: .
+#           dockerFileName: Dockerfile
+# #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
+# #           dockerImageName: 192.168.11.4:8082/docker-local/node
+#           dockerImageName: vishtest.jfrog.io/docker-local/node
+#           dockerImageTag: latest
+#           integrations:
+#             - name: art_v
+# #           inputSteps:
+# #             - name: Upload_to_artifactory
+#           inputResources:
+#             - name: ns_dockerbuild_gitRepo 
+#             - name: connecting_resource
+
+
+#       - name: To_Push_Docker_Image
+#         type: DockerPush
+#         configuration:
+# #           environmentVariables: # optional
+# #             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+# #             JFROG_CLI_BUILD_NUMBER: 2387
+#           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
+#           targetRepository: docker-local #required
+#           integrations:
+#             - name: art_v 
 #           inputSteps:
-#             - name: Upload_to_artifactory
-          inputResources:
-            - name: ns_dockerbuild_gitRepo 
-            - name: connecting_resource
-
-
-      - name: To_Push_Docker_Image
-        type: DockerPush
-        configuration:
-#           environmentVariables: # optional
-#             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-#             JFROG_CLI_BUILD_NUMBER: 2387
-          autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
-          targetRepository: docker-local #required
-          integrations:
-            - name: art_v 
-          inputSteps:
-            - name: To_build_Docker_Image
+#             - name: To_build_Docker_Image
 
 #       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
 #         type: PublishBuildInfo
@@ -380,33 +380,33 @@ pipelines:
 
 
 
-#       - name: build_go
-#         type: GoBuild
-#         configuration:
-#           sourceLocation: golang-example/hello
-#           repository: test-go-local
-#           outputLocation: /tmp/dist
-#           outputFile: hello_sample
-#           inputResources:
-#             - name: artifactory_go_example
-#             - name: connecting_resource
-#           integrations:
-#             - name: art_v
-# #           inputSteps:
-# #             - name: Upload_to_artifactory
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: go
-# #                 versions:
-# #                   - "1.15.2-f2674"
-#         execution:
-#           onStart:
-# #             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-# #             - "pushd $buildDir/golang-example/hello"
-# #             - "go get -insecure"
-# #             - popd
+      - name: build_go
+        type: GoBuild
+        configuration:
+          sourceLocation: golang-example/hello
+          repository: test-go-local
+          outputLocation: /tmp/dist
+          outputFile: hello_sample
+          inputResources:
+            - name: artifactory_go_example
+            - name: connecting_resource
+          integrations:
+            - name: art_v
+#           inputSteps:
+#             - name: Upload_to_artifactory
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.15.2-f2674"
+        execution:
+          onStart:
+            - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+            - "pushd $buildDir/golang-example/hello"
+            - "go get -insecure"
+            - popd
 #             - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
 #             - go get -insecure
 #             - Pop-Location

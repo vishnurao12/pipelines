@@ -5,11 +5,11 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: art_v 
+            - name: bsArt 
         execution:
           onExecute:
             - echo automation > test1.sh
-            - jfrog rt u test1.sh testupload-generic-local/test1.sh
+            - jfrog rt u test1.sh example-repo-local/test1.sh
             - ls
             - add_pipeline_files test1.sh mytestfile #test.sh is the file and mytestfile is the filename.
 
@@ -17,14 +17,14 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: art_v 
+            - name: bsArt 
           inputSteps:
             - name: Upload_to_artifactory
         execution:
           onExecute:
 
             - mkdir /testfolder # create test folder at the root
-            - jfrog rt dl testupload-generic-local/test1.sh
+            - jfrog rt dl example-repo-local/test1.sh
             - ls
 
 

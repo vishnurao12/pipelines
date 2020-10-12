@@ -8,8 +8,9 @@ pipelines:
             - name: art_v
         execution:
           onExecute:
-            - echo automation > test1.sh
-            - jfrog rt u test1.sh example-repo-local/test1.sh
+            - echo pipelineState > pipeline.sh
+            - echo RunState > pipeline.sh
+            - jfrog rt u test1.sh example-repo-local/pipeline.sh
             - ls
             #pipeline state
             - add_pipeline_files pipeline.sh mypipelinefile #test.sh is the file and mytestfile is the filename.

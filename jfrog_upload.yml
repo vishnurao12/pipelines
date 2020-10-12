@@ -9,7 +9,7 @@ pipelines:
         execution:
           onExecute:
             - echo pipelineState > pipeline.sh
-            - echo RunState > pipeline.sh
+            - echo RunState > run.sh
             - jfrog rt u test1.sh example-repo-local/pipeline.sh
             - ls
             #pipeline state

@@ -5,7 +5,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: bsArt
+            - name: art_v
         execution:
           onExecute:
             - echo pipelineState > pipeline.sh
@@ -21,7 +21,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: bsArt
+            - name: art_v
           inputSteps:
             - name: Upload_to_artifactory
         execution:

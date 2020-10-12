@@ -5,7 +5,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: bsArt 
+            - name: git_v
         execution:
           onExecute:
             - echo automation > test1.sh
@@ -17,7 +17,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: bsArt 
+            - name: git_v
           inputSteps:
             - name: Upload_to_artifactory
         execution:

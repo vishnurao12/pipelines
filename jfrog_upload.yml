@@ -11,7 +11,10 @@ pipelines:
             - echo automation > test1.sh
             - jfrog rt u test1.sh example-repo-local/test1.sh
             - ls
-            - add_pipeline_files test1.sh mytestfile #test.sh is the file and mytestfile is the filename.
+            #pipeline state
+            - add_pipeline_files pipeline.sh mypipelinefile #test.sh is the file and mytestfile is the filename.
+            #run state
+            - add_run_files run.sh myrunfile
 
       - name: Download_frm_artifactory
         type: Bash
@@ -31,5 +34,9 @@ pipelines:
     #adding an artifact to pipeline state using pipelines utility function 
 
 
-            - restore_pipeline_files mytestfile /testfolder/test.sh # restoring the Artifactory from the pipeline state.
-            - cat /testfolder/test.sh
+            - restore_pipeline_files mypipelinefile /testfolder/pipeline.sh # restoring the Artifactory from the pipeline state.
+            - cat /testfolder/pipeline.sh
+
+            #run state
+            - restore_run_files myrunfile /testfolder/run.sh
+            - cat /testfolder/run.sh

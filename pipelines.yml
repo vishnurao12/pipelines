@@ -8,6 +8,7 @@ resources:
        include: ^README.md$
      branches:
        include: ^master$
+
 pipelines:
   - name: testing_123
     steps:

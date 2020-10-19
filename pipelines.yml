@@ -23,6 +23,7 @@ pipelines:
             - printenv
             - pushd $res_resource_pipelines123_resourcePath
             - ls
+            - echo "hi"
           onSuccess:
             - pushd $res_resource_pipelines123_resourcePath
             - ls

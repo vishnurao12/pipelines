@@ -1,3 +1,4 @@
+#PIPE_2138.yml
 resources:
   - name: auto_GitRepotest
     type: GitRepo

@@ -1,5 +1,5 @@
 resources:
- - name: resource_pipelines123
+ - name: resource_pipelines12
    type: GitRepo
    configuration:
      gitProvider: git_v
@@ -7,7 +7,7 @@ resources:
      files: 
        include: ^README.md$
      branches:
-       include: ^master$
+       include: ^{{gitBranch}}$
 
 pipelines:
   - name: testing_123
@@ -16,17 +16,17 @@ pipelines:
         type: Bash
         configuration:
          inputResources: 
-           - name: resource_pipelines123
+           - name: resource_pipelines12
          integrations:
            - name: git_v
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines123_resourcePath
+            - pushd $res_resource_pipelines12_resourcePath
             - ls
             - echo "hi"
           onSuccess:
-            - pushd $res_resource_pipelines123_resourcePath
+            - pushd $res_resource_pipelines12_resourcePath
             - ls
 
 

@@ -10,6 +10,8 @@ resources:
        include: ^{{gitBranch}}$
      buildOn:
        pullRequestCreate: true
+     cancelPendingRunsOn:
+       pullRequestUpdate: true
 
 pipelines:
   - name: testing_123

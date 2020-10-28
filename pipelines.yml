@@ -8,8 +8,8 @@ resources:
        include: ^README.md$
 #      branches:
 #        include: ^{{gitBranch}}$
-      buildOn:
-        pullRequestCreate: true
+     buildOn:
+       pullRequestCreate: true
 
 pipelines:
   - name: testing_123

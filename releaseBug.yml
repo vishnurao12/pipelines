@@ -1,0 +1,55 @@
+resources:
+  - name: git
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      gitProvider: git_v
+      branches:
+        include: master 
+
+pipelines:
+  - name: basic1
+    steps:
+      - name: basic
+        type: Bash
+        configuration:
+          runtime:
+            type: host
+          inputResources:
+           - name: git
+          environmentVariables:
+            foo: bar
+#           runtime:
+#             type: host
+        execution:
+          onExecute:
+            - printenv
+            - echo lol
+            - add_pipeline_variables foo=bar
+#       - name: second
+#         type: Bash
+#         configuration:
+#           #inputResources:
+#           #  - name: git
+#           environmentVariables:
+#             foo: bar
+#           runtime:
+#             type: host
+#         execution: 
+#           onExecute:
+#             - echo $foo
+#       - name: third
+#         type: Bash
+#         configuration:
+#           #inputResources:
+#           #  - name: git
+#           inputSteps:
+#             - name: basic
+#             - name: second
+#           environmentVariables:
+#             foo: bar
+#           runtime:
+#             type: host
+#         execution:
+#           onExecute:
+#             - echo $foo

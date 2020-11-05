@@ -8,7 +8,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 'vishtest.jfrog.io/docker-local/node'
+          dockerImageName: 'pipelines.westus.cloudapp.azure.com:8082/docker-local/node'
           dockerImageTag: latest
           integrations:
             - name: art_v

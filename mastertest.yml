@@ -13,48 +13,48 @@ resources:
 #       buildName: go_test
 #        buildNumber:          2387
 
-#   - name: ns_aql
-#     type: Aql
-#     configuration:
-#       sourceArtifactory: art_v
-#       query: 'items.find({"$and":[{"artifact.module.build.name":{"$eq":"native_pipeline"}},{"artifact.module.build.number":{"$eq":"8"}}]})'     
-#       #addedProperties:
-#       mappings:
-#         - name: "a"
-#           input: "regex"
-#           output: "$1/$2"
-#         - name: "b"
-#           input: "regex"
-#           output: "$2/$1"
+  - name: ns_aql
+    type: Aql
+    configuration:
+      sourceArtifactory: art_v
+      query: 'items.find({"$and":[{"artifact.module.build.name":{"$eq":"native_pipeline"}},{"artifact.module.build.number":{"$eq":"8"}}]})'     
+      #addedProperties:
+      mappings:
+        - name: "a"
+          input: "regex"
+          output: "$1/$2"
+        - name: "b"
+          input: "regex"
+          output: "$2/$1"
       
-#   - name: ns_dockerbuild_gitRepo
-#     type: GitRepo
-#     configuration:
-#       path: vishnurao12/sample-script
-#       gitProvider: git_v
-#       branches: 
-#         include: master
+  - name: ns_dockerbuild_gitRepo
+    type: GitRepo
+    configuration:
+      path: vishnurao12/sample-script
+      gitProvider: git_v
+      branches: 
+        include: master
 
-#   - name: ns_buildInfo
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: master_test_buildInfo
-#       buildNumber: 123
+  - name: ns_buildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: master_test_buildInfo
+      buildNumber: 123
 
-#   - name: ns_buildInfo_helm
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: master_test_buildInfo_helm
-#       buildNumber: 1.0.0
+  - name: ns_buildInfo_helm
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: master_test_buildInfo_helm
+      buildNumber: 1.0.0
   
-#   - name: ns_promotedInfo
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: master_test_promotedInfo
-#       buildNumber: 1
+  - name: ns_promotedInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: master_test_promotedInfo
+      buildNumber: 1
 
   - name: artifactory_go_example
     type: GitRepo
@@ -63,49 +63,49 @@ resources:
       branches:
         include: master
       gitProvider: git_v
-#   - name: artifactory_go_exampletest
-#     type: GitRepo
-#     configuration:
-#       path: vishnurao12/project-examples
-#       branches:
-#         include: master
-#       gitProvider: git_v
+  - name: artifactory_go_exampletest
+    type: GitRepo
+    configuration:
+      path: vishnurao12/project-examples
+      branches:
+        include: master
+      gitProvider: git_v
 
-#   - name: artifactory_go_module_example
-#     type: GitRepo
-#     configuration:
-#       path: vishnurao12/artifactory-go-example
-#       branches:
-#         include: master
-#       gitProvider: git_v
+  - name: artifactory_go_module_example
+    type: GitRepo
+    configuration:
+      path: vishnurao12/artifactory-go-example
+      branches:
+        include: master
+      gitProvider: git_v
 
-#   - name: go_build_info_publish_moduletest
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: go_example_module_publish_varsha
-#       buildNumber: 332
+  - name: go_build_info_publish_moduletest
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: go_example_module_publish_varsha
+      buildNumber: 332
       
-#   - name: go_build_info_publishtest
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: go_example_build_publish_varsha
-#       buildNumber: 32
+  - name: go_build_info_publishtest
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: go_example_build_publish_varsha
+      buildNumber: 32
   
-#   - name: promoted_go_build_info_go_publishtest
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: promote_go_build_info_publish
-#       buildNumber: 35
+  - name: promoted_go_build_info_go_publishtest
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: promote_go_build_info_publish
+      buildNumber: 35
 
-#   - name: promoted_build_info_gradle
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: promotoed-full-gradle-native
-#       buildNumber: 1
+  - name: promoted_build_info_gradle
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: promotoed-full-gradle-native
+      buildNumber: 1
 
   - name: gradle_repo
     type: GitRepo
@@ -113,33 +113,33 @@ resources:
       gitProvider: git_v
       path: vishnurao12/project-examples
 
-#   - name: build_info_gradle
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: full-gradle-native
-#       buildNumber: 1
+  - name: build_info_gradle
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: full-gradle-native
+      buildNumber: 1
 
-#   - name: mvnBuild_info
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: mvn_sample_build_master_test
-#       buildNumber: 9
+  - name: mvnBuild_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: mvn_sample_build_master_test
+      buildNumber: 9
 
-#   - name: mvnBuild_infoScaned
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: mvn_scan_master_test
-#       buildNumber: 2
+  - name: mvnBuild_infoScaned
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: mvn_scan_master_test
+      buildNumber: 2
       
-#   - name: mvnBuild_infopromoted
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: mvn_promote_build_master_test
-#       buildNumber: 3
+  - name: mvnBuild_infopromoted
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: mvn_promote_build_master_test
+      buildNumber: 3
       
   - name: maven_repo
     type: GitRepo
@@ -147,46 +147,46 @@ resources:
       gitProvider: git_v
       path: vishnurao12/project-examples
 
-#   - name: npmHelloWorld_repo
-#     type: GitRepo
-#     configuration:
-#       path: vishnurao12/npmHelloWorld
-#       gitProvider: git_v
+  - name: npmHelloWorld_repo
+    type: GitRepo
+    configuration:
+      path: vishnurao12/npmHelloWorld
+      gitProvider: git_v
 
-#   - name: npm_build_info_publish1
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: npm_publish
-#       buildNumber: 1
+  - name: npm_build_info_publish1
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: npm_publish
+      buildNumber: 1
 
-#   - name: buildinfo_for_npmPublish
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: npm_publish
-#       buildNumber: 1
+  - name: buildinfo_for_npmPublish
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: npm_publish
+      buildNumber: 1
   
-#   - name: npm_build_info_promoted
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: npm+promote
-#       buildNumber: 1
+  - name: npm_build_info_promoted
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: npm+promote
+      buildNumber: 1
 
-#   - name: git_vishnu
-#     type: GitRepo
-#     configuration:
-#       gitProvider: git_v
-#       path: vishnurao12/charts
+  - name: git_vishnu
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/charts
    
-#   - name: helm_repo
-#     type: HelmChart
-#     configuration: 
-#       sourceArtifactory: art_v
-#       repository: helm-local
-#       chart: test
-#       version: 1.0.0
+  - name: helm_repo
+    type: HelmChart
+    configuration: 
+      sourceArtifactory: art_v
+      repository: helm-local
+      chart: test
+      version: 1.0.0
 
 #   - name:       go_ReleaseBundle_without
 #     type:       ReleaseBundle
@@ -280,73 +280,73 @@ pipelines:
 #         execution:
 #           onExecute:
 #             - write-output "executing step..."
-#       - name: dowload_linux
-#         type: Bash
-#         configuration:
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: connecting_resource
-#             - name: testfileSpec
-#         execution:
-#           onExecute:
-#             - echo automation > test.sh
-#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
+      - name: dowload_linux
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: connecting_resource
+            - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
-#       - name: To_build_Docker_Image
-#         type: DockerBuild
-#         configuration:
-# #           environmentVariables: # optional
-# #             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-# #             JFROG_CLI_BUILD_NUMBER: 2387
-#           dockerFileLocation: .
-#           dockerFileName: Dockerfile
-# #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
-# #           dockerImageName: 192.168.11.4:8082/docker-local/node
-#           dockerImageName: vishtest.jfrog.io/docker-local/node
-#           dockerImageTag: latest
-#           integrations:
-#             - name: art_v
-# #           inputSteps:
-# #             - name: Upload_to_artifactory
-#           inputResources:
-#             - name: ns_dockerbuild_gitRepo 
-#             - name: connecting_resource
-
-
-#       - name: To_Push_Docker_Image
-#         type: DockerPush
-#         configuration:
-# #           environmentVariables: # optional
-# #             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-# #             JFROG_CLI_BUILD_NUMBER: 2387
-#           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
-#           targetRepository: docker-local #required
-#           integrations:
-#             - name: art_v 
+      - name: To_build_Docker_Image
+        type: DockerBuild
+        configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+#           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
+#           dockerImageName: 192.168.11.4:8082/docker-local/node
+          dockerImageName: vishtest.jfrog.io/docker-local/node
+          dockerImageTag: latest
+          integrations:
+            - name: art_v
 #           inputSteps:
-#             - name: To_build_Docker_Image
+#             - name: Upload_to_artifactory
+          inputResources:
+            - name: ns_dockerbuild_gitRepo 
+            - name: connecting_resource
 
-#       - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
-#         type: PublishBuildInfo
-#         configuration:
-#           inputSteps:
-#             - name: To_Push_Docker_Image
-#           outputResources:
-#             - name: ns_buildInfo
 
-#       - name: To_promote_build
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-generic-local
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: ns_buildInfo
-#           inputSteps:
-#             - name: To_publish_buildInfo
-#           outputResources:
-#             - name: ns_promotedInfo
+      - name: To_Push_Docker_Image
+        type: DockerPush
+        configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+          autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
+          targetRepository: docker-local #required
+          integrations:
+            - name: art_v 
+          inputSteps:
+            - name: To_build_Docker_Image
+
+      - name: To_publish_buildInfo #IMPORTANGT******************* : required if autoPublishBuildInfo is false
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: To_Push_Docker_Image
+          outputResources:
+            - name: ns_buildInfo
+
+      - name: To_promote_build
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: ns_buildInfo
+          inputSteps:
+            - name: To_publish_buildInfo
+          outputResources:
+            - name: ns_promotedInfo
 
 #       - name: docker_releaseBundle
 #         type: CreateReleaseBundle
@@ -412,81 +412,81 @@ pipelines:
 #             - Pop-Location
 #             - go version
 
-#       - name: publish_go_binarytest
-#         type: GoPublishBinary
-#         configuration:
-# #           environmentVariables: # optional
-# #             JFROG_CLI_BUILD_NAME: "go_test"
-# #             JFROG_CLI_BUILD_NUMBER: 2387
-#           inputSteps:
-#             - name: build_go
-#           targetRepository: test-go-local
-#           integrations:
-#             - name: art_v
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: go
-# #                 versions:
-# #                   - "1.15.2-f2674"
+      - name: publish_go_binarytest
+        type: GoPublishBinary
+        configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "go_test"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+          inputSteps:
+            - name: build_go
+          targetRepository: test-go-local
+          integrations:
+            - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.15.2-f2674"
      
-#       - name: publish_buildtest
-#         type: PublishBuildInfo
-#         configuration:
-#           inputSteps:
-#             - name: publish_go_binarytest
-#           outputResources:
-#             - name: go_build_info_publishtest
+      - name: publish_buildtest
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: publish_go_binarytest
+          outputResources:
+            - name: go_build_info_publishtest
         
-#       - name: publish_go_moduletest
-#         type: GoPublishModule
-#         execution:
-#           onStart:
-#             - go version
-#         configuration:  
-# #           environmentVariables: # optional
-# #             JFROG_CLI_BUILD_NAME: "go_test"
-# #             JFROG_CLI_BUILD_NUMBER: 2387
-#           sourceLocation: .  # required
-#           version: v0.0.0           # required
-#           targetRepository: test-go-local
-#           autoPublishBuildInfo: true
-#           integrations:
-#             - name: art_v
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: go
-# #                 versions:
-# #                   - "1.15.2-f2674"
-#           inputResources:
-#             - name: artifactory_go_module_example
-#           outputResources:
-#             - name: go_build_info_publish_moduletest
+      - name: publish_go_moduletest
+        type: GoPublishModule
+        execution:
+          onStart:
+            - go version
+        configuration:  
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "go_test"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+          sourceLocation: .  # required
+          version: v0.0.0           # required
+          targetRepository: test-go-local
+          autoPublishBuildInfo: true
+          integrations:
+            - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: go
+#                 versions:
+#                   - "1.15.2-f2674"
+          inputResources:
+            - name: artifactory_go_module_example
+          outputResources:
+            - name: go_build_info_publish_moduletest
             
-#       - name: promote_build_gotest_binary
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-generic-local
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: go_build_info_publishtest #go_build_info_publish
-#           outputResources:
-#             - name: promoted_go_build_info_go_publishtest
+      - name: promote_build_gotest_binary
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: go_build_info_publishtest #go_build_info_publish
+          outputResources:
+            - name: promoted_go_build_info_go_publishtest
     
-#       - name: promote_build_gotest_module
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-generic-local
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: go_build_info_publish_moduletest
-#           outputResources:
-#             - name: promoted_go_build_info_go_publishtest
+      - name: promote_build_gotest_module
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: go_build_info_publish_moduletest
+          outputResources:
+            - name: promoted_go_build_info_go_publishtest
 
 # #       - name: go_releaseBundle
 # #         type: CreateReleaseBundle
@@ -566,35 +566,35 @@ pipelines:
             - javac -version
             - gradle --version
 
-#       - name: publish_build_info_gradle
-#         type: PublishBuildInfo
-#         execution:
-#           onStart:
-#             - echo "hello"
-#         configuration:
-#           inputSteps:
-#             - name: gradle_build_step
-#           outputResources:
-#             - name: build_info_gradle
+      - name: publish_build_info_gradle
+        type: PublishBuildInfo
+        execution:
+          onStart:
+            - echo "hello"
+        configuration:
+          inputSteps:
+            - name: gradle_build_step
+          outputResources:
+            - name: build_info_gradle
 
-#       - name: promote_build_info_gradle
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-generic-local
-#           copy: true
-#           integrations:
-#             - name: art_v
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: node
-# #                 versions:
-# #                   - "8.17.0"
-#           inputResources:
-#             - name: build_info_gradle
-#           outputResources:
-#             - name: promoted_build_info_gradle
+      - name: promote_build_info_gradle
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          copy: true
+          integrations:
+            - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
+          inputResources:
+            - name: build_info_gradle
+          outputResources:
+            - name: promoted_build_info_gradle
 
 
 
@@ -633,33 +633,33 @@ pipelines:
             - javac -version
             - mvn --version
             
-#       - name: mvnBuild_publish
-#         type: PublishBuildInfo
-#         configuration:
-#           inputSteps:
-#             - name: mvnBuild_sample
-#           outputResources:
-#             - name: mvnBuild_info
+      - name: mvnBuild_publish
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: mvnBuild_sample
+          outputResources:
+            - name: mvnBuild_info
                 
-#       - name: mvn_build_promote
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-generic-local # required 
-#           includeDependencies: true    # default false
-#           status: "promote success" # for mvn_build_promoted" # optional
-#           comment: "build needs to be promoted" # for mvn_build_promoted" # optional
-#           copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: java
-# #                 versions:
-# #                   - "8"
-#           inputResources:
-#             - name: mvnBuild_info #required
-#           outputResources:
-#             - name: mvnBuild_infopromoted #required
+      - name: mvn_build_promote
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local # required 
+          includeDependencies: true    # default false
+          status: "promote success" # for mvn_build_promoted" # optional
+          comment: "build needs to be promoted" # for mvn_build_promoted" # optional
+          copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: java
+#                 versions:
+#                   - "8"
+          inputResources:
+            - name: mvnBuild_info #required
+          outputResources:
+            - name: mvnBuild_infopromoted #required
 
 
 
@@ -670,124 +670,122 @@ pipelines:
 
 
 
-#       - name: build_npm
-#         type: NpmBuild
-#         configuration:
-# #           environmentVariables: # optional
-# #             JFROG_CLI_BUILD_NAME: "npm-test"
-# #             JFROG_CLI_BUILD_NUMBER: 2387
-#           repositoryName: npm-virtual
-#           sourceLocation: .
-#           inputResources:
-#             - name: npmHelloWorld_repo
-#             - name: connecting_resource
-#           integrations:
-#             - name: art_v
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: node
-# #                 versions:
-# #                   - "8.17.0"
+      - name: build_npm
+        type: NpmBuild
+        configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "npm-test"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+          repositoryName: npm-virtual
+          sourceLocation: .
+          inputResources:
+            - name: npmHelloWorld_repo
+            - name: connecting_resource
+          integrations:
+            - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
-#       - name: publish_npm
-#         type: NpmPublish
-#         configuration:
-# #           autoPublishBuildInfo: true
-#           repositoryName: npm-virtual
-#           inputSteps:
-#             - name: build_npm
-#           integrations:
-#             - name: art_v
-#           outputResources:            
-#             - name: buildinfo_for_npmPublish 
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: node
-# #                 versions:
-# #                   - "8.17.0"
+      - name: publish_npm
+        type: NpmPublish
+        configuration:
+#           autoPublishBuildInfo: true
+          repositoryName: npm-virtual
+          inputSteps:
+            - name: build_npm
+          integrations:
+            - name: art_v
+          outputResources:            
+            - name: buildinfo_for_npmPublish 
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
-#       - name: publish_build_info
-#         type: PublishBuildInfo
-#         configuration:
-#           inputSteps:
-#             - name: publish_npm  
-#           outputResources:
-#             - name: npm_build_info_publish1
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: node
-# #                 versions:
-# #                   - "8.17.0"
+      - name: publish_build_info
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: publish_npm  
+          outputResources:
+            - name: npm_build_info_publish1
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
             
-# #  ##################### - name: npm_auto_publish ###############################
+#  ##################### - name: npm_auto_publish ###############################
 
-#       - name: build_npm_remote
-#         type: NpmBuild
-#         configuration:
-#           repositoryName: npm-virtual
-#           sourceLocation: .
-#           inputResources:
-#             - name: npmHelloWorld_repo
-#             - name: connecting_resource
-#           integrations:
-#             - name: art_v
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: node
-# #                 versions:
-# #                   - "8.17.0"
+      - name: build_npm_remote
+        type: NpmBuild
+        configuration:
+          repositoryName: npm-virtual
+          sourceLocation: .
+          inputResources:
+            - name: npmHelloWorld_repo
+            - name: connecting_resource
+          integrations:
+            - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
-#       - name: publish_npm_auto_true
-#         type: NpmPublish
-#         configuration:
-#           environmentVariables: # optional
-#             JFROG_CLI_BUILD_NAME: "npm-test12"
-#             JFROG_CLI_BUILD_NUMBER: 2387
-#           repositoryName: npm-virtual
-#           autoPublishBuildInfo: true
-#           inputSteps:
-#             - name: build_npm_remote
-#           outputResources:
-#             - name: npm_build_info_publish1    # required if autoPublishBuildInfo is true.
-#           integrations:
-#             - name: art_v
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: node
-# #                 versions:
-# #                   - "8.17.0"
+      - name: publish_npm_auto_true
+        type: NpmPublish
+        configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "npm-test12"
+            JFROG_CLI_BUILD_NUMBER: 2387
+          repositoryName: npm-virtual
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: build_npm_remote
+          outputResources:
+            - name: npm_build_info_publish1    # required if autoPublishBuildInfo is true.
+          integrations:
+            - name: art_v
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
-# # ##################### end of npm_auto_publish ###############################
-#       - name: promote_build_npm
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-generic-local
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: npm_build_info_publish1
-#             - name: connecting_resource
-#           outputResources:
-#             - name: npm_build_info_promoted
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: node
-# #                 versions:
-# #                   - "8.17.0"
-
-
+# ##################### end of npm_auto_publish ###############################
+      - name: promote_build_npm
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: npm_build_info_publish1
+            - name: connecting_resource
+          outputResources:
+            - name: npm_build_info_promoted
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "8.17.0"
 
 
 
@@ -797,63 +795,65 @@ pipelines:
 
 
 
-#       - name: helm_pub
-#         type: HelmPublish
-#         configuration:
-#           autoPublishBuildInfo: true
-#           environmentVariables: # optional
-#             JFROG_CLI_BUILD_NAME: "PIPE-f2387-helm-publish"
-#             JFROG_CLI_BUILD_NUMBER: 2387
-#           chartPath: stable/tomcat
-#           lint: true
-# #           lintFlags: --help
-#           helmVersion: 3
-#           inputResources:
-#             - name: git_vishnu 
-#             - name: connecting_resource
-#           outputResources:
-#             - name: helm_repo
-#             - name: ns_buildInfo_helm
-#           integrations:
-#             - name: git_v
 
-# #           runtime: 
-# #             type: image
-# #             image: 
-# #               auto:
-# #                 language: node
-# #                 versions:
-# #                   - "10.21.0"                  # required
-#         execution:
-#           onStart:
-#             - echo "Preparing for work..."
-#           onSuccess:
-#             - echo "Job well done!"
-#           onFailure:
-#             - echo "uh oh, something went wrong"
-#           onComplete: #always
-#             - echo "Cleaning up some stuff"
 
-#       - name: To_publish_buildInfo_helm 
-#         type: PublishBuildInfo
-#         configuration:
-#           inputSteps:
-#             - name: helm_pub
-#           outputResources:
-#             - name: ns_buildInfo_helm
+      - name: helm_pub
+        type: HelmPublish
+        configuration:
+          autoPublishBuildInfo: true
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387-helm-publish"
+            JFROG_CLI_BUILD_NUMBER: 2387
+          chartPath: stable/tomcat
+          lint: true
+#           lintFlags: --help
+          helmVersion: 3
+          inputResources:
+            - name: git_vishnu 
+            - name: connecting_resource
+          outputResources:
+            - name: helm_repo
+            - name: ns_buildInfo_helm
+          integrations:
+            - name: git_v
 
-#       - name: To_promote_build_helm
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-helm-local
-#           integrations:
-#             - name: art_v
-#           inputResources:
-#             - name: ns_buildInfo
-#           inputSteps:
-#             - name: To_publish_buildInfo
-#           outputResources:
-#             - name: ns_promotedInfo
+#           runtime: 
+#             type: image
+#             image: 
+#               auto:
+#                 language: node
+#                 versions:
+#                   - "10.21.0"                  # required
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+          onSuccess:
+            - echo "Job well done!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete: #always
+            - echo "Cleaning up some stuff"
+
+      - name: To_publish_buildInfo_helm 
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: helm_pub
+          outputResources:
+            - name: ns_buildInfo_helm
+
+      - name: To_promote_build_helm
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-helm-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: ns_buildInfo
+          inputSteps:
+            - name: To_publish_buildInfo
+          outputResources:
+            - name: ns_promotedInfo
 
 #       - name: HelmDeploy
 #         type: HelmDeploy

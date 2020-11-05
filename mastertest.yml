@@ -269,29 +269,29 @@ pipelines:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
 #           JFROG_CLI_BUILD_NUMBER: 2387
     steps:
-#       - name: Download_win
-#         type: PowerShell
-#         configuration:
-#           nodePool: win_2019
-#           inputResources:
-#             - name: connecting_resource
-#             - name: testfileSpec
-#               trigger: true
-#         execution:
-#           onExecute:
-#             - write-output "executing step..."
-      - name: dowload_linux
-        type: Bash
+      - name: Download_win
+        type: PowerShell
         configuration:
-          integrations:
-            - name: art_v
+          nodePool: win_2019
           inputResources:
             - name: connecting_resource
 #             - name: testfileSpec
+              trigger: true
         execution:
           onExecute:
-            - echo automation > test.sh
-            - jfrog rt u test.sh example-repo-local/setup/test.sh 
+            - write-output "executing step..."
+#       - name: dowload_linux
+#         type: Bash
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: connecting_resource
+# #             - name: testfileSpec
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
+#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
       - name: To_build_Docker_Image
         type: DockerBuild
@@ -403,13 +403,13 @@ pipelines:
 #                   - "1.15.2-f2674"
         execution:
           onStart:
-            - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-            - "pushd $buildDir/golang-example/hello"
-            - "go get -insecure"
-            - popd
-#             - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
-#             - go get -insecure
-#             - Pop-Location
+#             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+#             - "pushd $buildDir/golang-example/hello"
+#             - "go get -insecure"
+#             - popd
+            - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
+            - go get -insecure
+            - Pop-Location
 #             - go version
 
       - name: publish_go_binarytest

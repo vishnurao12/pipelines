@@ -12,6 +12,8 @@ pipelines:
         configuration:
           inputResources:
             - name: git_resc
+          inputSteps:
+            - name: req_step
         execution:
           onStart:
             - echo "executing onStart"
@@ -22,4 +24,24 @@ pipelines:
           onFailure:
             - echo "executing onFailure"
           onComplete: 
-            - echo "executing onComplete"   
+            - echo "executing onComplete" 
+    steps:
+      - name: req_step
+        type: Bash
+        configuration:
+          inputResources:
+            - name: git_resc
+        execution:
+          onExecute:
+            - echo "executing onExecute"
+    steps:
+      - name: second_step
+        type: Bash
+        configuration:
+          inputResources:
+            - name: git_resc
+          inputSteps:
+            - name: req_step
+        execution:
+          onExecute:
+            - echo "executing onExecute"

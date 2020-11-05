@@ -5,7 +5,6 @@ pipelines:
         type: Bash
         configuration:
           priority: 1
-          nodePool: build
         execution:
           onStart:
             - echo "executing onStart"

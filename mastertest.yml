@@ -287,7 +287,7 @@ pipelines:
             - name: art_v
           inputResources:
             - name: connecting_resource
-            - name: testfileSpec
+#             - name: testfileSpec
         execution:
           onExecute:
             - echo automation > test.sh
@@ -834,13 +834,13 @@ pipelines:
           onComplete: #always
             - echo "Cleaning up some stuff"
 
-      - name: To_publish_buildInfo_helm 
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: helm_pub
-          outputResources:
-            - name: ns_buildInfo_helm
+#       - name: To_publish_buildInfo_helm 
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: helm_pub
+#           outputResources:
+#             - name: ns_buildInfo_helm
 
       - name: To_promote_build_helm
         type: PromoteBuild

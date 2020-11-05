@@ -1,10 +1,17 @@
+resources:
+  - name: git
+    type: gitRepo
+    configuration:
+      gitProvider: github_integration  
+      path: codecode10/pipelines
 pipelines:
   - name: my_pipeline
     steps:
       - name: first_step
         type: Bash
         configuration:
-          priority: 1
+          inputResources:
+            - name: git
         execution:
           onStart:
             - echo "executing onStart"
@@ -15,4 +22,4 @@ pipelines:
           onFailure:
             - echo "executing onFailure"
           onComplete: 
-            - echo "executing onComplete"
+            - echo "executing onComplete"   

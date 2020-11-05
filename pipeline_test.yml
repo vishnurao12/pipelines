@@ -1,5 +1,5 @@
 resources:
-  - name: git
+  - name: git_resc
     type: gitRepo
     configuration:
       gitProvider: github_integration  
@@ -11,7 +11,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: git
+            - name: git_resc
         execution:
           onStart:
             - echo "executing onStart"

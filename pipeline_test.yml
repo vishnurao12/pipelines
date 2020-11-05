@@ -25,7 +25,6 @@ pipelines:
             - echo "executing onFailure"
           onComplete: 
             - echo "executing onComplete" 
-    steps:
       - name: req_step
         type: Bash
         configuration:
@@ -34,7 +33,6 @@ pipelines:
         execution:
           onExecute:
             - echo "executing onExecute"
-    steps:
       - name: second_step
         type: Bash
         configuration:

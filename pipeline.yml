@@ -1,0 +1,19 @@
+pipelines:
+  - name: my_pipeline
+    steps:
+      - name: first_step
+        type: Bash
+        configuration:
+          priority: 1
+          nodePool: build
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - echo "executing onExecute"
+          onSuccess:
+            - echo "executing onSuccess"
+          onFailure:
+            - echo "executing onFailure"
+          onComplete: 
+            - echo "executing onComplete"

@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: git_v
-      path: vishnurao12/pipelines
+      path: vishnurao12/pipelines12
       files:  
         include: random/test.sh
 

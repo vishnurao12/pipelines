@@ -5,12 +5,12 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: art_v
+            - name: rt_integration
         execution:
           onExecute:
             - echo pipelineState > pipeline.sh
             - echo RunState > run.sh
-            #- jfrog rt u pipeline.sh example-repo-local/pipeline.sh
+            - jfrog rt u pipeline.sh first_repo/pipeline.sh
             - ls
             #pipeline state
             - add_pipeline_files pipeline.sh mypipelinefile #test.sh is the file and mytestfile is the filename.
@@ -21,14 +21,14 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: art_v
+            - name: rt_integration
           inputSteps:
             - name: Upload_to_artifactory
         execution:
           onExecute:
 
             - mkdir /testfolder # create test folder at the root
-            #- jfrog rt dl example-repo-local/pipeline.sh
+            - jfrog rt dl first_repo/pipeline.sh
             - ls
 
 

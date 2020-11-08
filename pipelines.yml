@@ -1,3 +1,4 @@
+#testpipelines
 resources:
  - name: resource_pipelines1245
    type: GitRepo

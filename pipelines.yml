@@ -17,26 +17,17 @@ pipelines:
           onExecute:
             - printenv
 
-     # - name: myStep2
-      #  type: Bash
-       # configuration: 
-       #   inputResources: # optional
-       #     - name: gitResource
-          #inputSteps: 
-           # - name: myStep1
-       # execution:
-        #  onExecute:
-        #    - printenv
-     # - name: myStep3
-     #   type: Bash
-     #   configuration: 
-     #     inputResources: # optional
-     #       - name: gitResource
-        #  inputSteps: 
-         #   - name: myStep2
-     #   execution:
-      #   onExecute:
-       #     - printenv
+     - name: myStep2
+       type: Bash
+       configuration: 
+         inputResources: # optional
+           - name: gitResource
+#           inputSteps: 
+#            - name: myStep1
+       execution:
+         onExecute:
+           - printenv
+
 
 
 

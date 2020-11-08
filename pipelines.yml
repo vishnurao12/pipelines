@@ -33,6 +33,18 @@ pipelines:
           onExecute:
             - printenv
 
+      - name: myStep3
+        type: Bash
+        configuration: 
+          nodePool: gcp-test
+          inputResources: # optional
+            - name: gitResource
+              trigger: true
+ #           inputSteps: 
+ #            - name: myStep1
+        execution:
+          onExecute:
+            - printenv
 
 
 

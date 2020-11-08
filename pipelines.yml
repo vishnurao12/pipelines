@@ -6,8 +6,8 @@ resources:
 
 pipelines:
   - name: testing_123
-    configuration:
-      nodePool: gcp-test
+#     configuration:
+#       nodePool: gcp-test
     steps:
       - name: myStep112
         type: Bash

@@ -13,6 +13,7 @@ pipelines:
          nodePool: gcp-test
          inputResources: # optional
            - name: gitResource
+             trigger: false
         execution:
           onExecute:
             - printenv
@@ -23,6 +24,7 @@ pipelines:
           nodePool: gcp-test
           inputResources: # optional
             - name: gitResource
+              trigger: false
  #           inputSteps: 
  #            - name: myStep1
         execution:

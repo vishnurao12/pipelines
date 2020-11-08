@@ -7,17 +7,17 @@ resources:
 pipelines:
   - name: testing_123
     steps:
-      - name: myStep112
-        type: Bash
-        configuration:
-          outputResources: 
-            - name: resource_pipelines12
-#               trigger: false
-          integrations:
-            - name: git_v
-        execution:
-          onExecute:
-            - write_output resource_pipelines12 "test:value"
+#       - name: myStep112
+#         type: Bash
+#         configuration:
+#           outputResources: 
+#             - name: resource_pipelines12
+# #               trigger: false
+#           integrations:
+#             - name: git_v
+#         execution:
+#           onExecute:
+#             - write_output resource_pipelines12 "test:value"
 
       - name: myStep113
         type: Bash
@@ -34,6 +34,8 @@ pipelines:
       - name: myStep114
         type: Bash
         configuration:
+          inputsteps:
+            - name: myStep113
           inputResources: 
             - name: resource_pipelines12
 #               trigger: false

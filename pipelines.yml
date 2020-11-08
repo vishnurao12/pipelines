@@ -4,6 +4,8 @@ resources:
    configuration:
      gitProvider: git_v
      path: vishnurao12/pipelines
+     branches:
+       include:    master
 pipelines:
   - name: pipelines_test
     steps:

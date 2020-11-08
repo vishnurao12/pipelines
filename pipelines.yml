@@ -45,3 +45,5 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - df -H /dev/sda1
+            - df -H

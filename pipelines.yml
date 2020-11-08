@@ -6,18 +6,20 @@ resources:
 
 pipelines:
   - name: testing_123
+    configuration:
+    nodePool: gcp-test
     steps:
-#       - name: myStep112
-#         type: Bash
-#         configuration:
-#           outputResources: 
-#             - name: resource_pipelines12
-# #               trigger: false
-#           integrations:
-#             - name: git_v
-#         execution:
-#           onExecute:
-#             - write_output resource_pipelines12 "test:value"
+      - name: myStep112
+        type: Bash
+        configuration:
+          outputResources: 
+            - name: resource_pipelines12
+#               trigger: false
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - write_output resource_pipelines12 "test:value"
 
       - name: myStep113
         type: Bash

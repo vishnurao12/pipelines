@@ -37,8 +37,8 @@ pipelines:
       - name: myStep114
         type: Bash
         configuration:
-          inputSteps:
-            - name: myStep113
+#           inputSteps:
+#             - name: myStep113
           inputResources: 
             - name: resource_pipelines12
 #               trigger: false

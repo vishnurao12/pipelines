@@ -8,6 +8,8 @@ resources:
        include:    master
 pipelines:
   - name: pipelines_test
+    configuration:
+      nodePool: gcp-test
     steps:
       - name: myStep1
         type: Bash

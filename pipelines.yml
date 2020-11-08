@@ -29,6 +29,7 @@ pipelines:
             - name: git_v
         execution:
           onExecute:
+            - sleep 1m
             - printenv
 
       - name: myStep114

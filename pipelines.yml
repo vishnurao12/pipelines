@@ -42,6 +42,8 @@ pipelines:
 #               trigger: false
           integrations:
             - name: git_v
+          runtime:
+            type: host
         execution:
           onExecute:
             - printenv

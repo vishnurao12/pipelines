@@ -10,7 +10,7 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration:
-          inputResources: 
+          outputResources: 
             - name: resource_pipelines12
 #               trigger: false
           integrations:

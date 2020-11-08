@@ -1,13 +1,9 @@
 resources:
  - name: resource_pipelines123
-   type: GitRepo
+   type: PropertyBag
    configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-#      branches:
-#        include: ^master$
+     test: values12
+
 pipelines:
   - name: testing_123
     steps:
@@ -21,8 +17,21 @@ pipelines:
             - name: git_v
         execution:
           onExecute:
-            - printenv
+            - write_output resource_pipelines123 "test:value"
+
       - name: myStep113
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+#               trigger: false
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - printenv
+
+      - name: myStep114
         type: Bash
         configuration:
           inputResources: 

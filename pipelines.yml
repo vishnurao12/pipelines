@@ -27,8 +27,8 @@ pipelines:
           inputResources: # optional
             - name: gitResource
               trigger: true
- #           inputSteps: 
- #            - name: myStep1
+           inputSteps: 
+            - name: myStep1
         execution:
           onExecute:
             - printenv
@@ -40,8 +40,8 @@ pipelines:
           inputResources: # optional
             - name: gitResource
               trigger: true
- #           inputSteps: 
- #            - name: myStep1
+           inputSteps: 
+            - name: myStep2
         execution:
           onExecute:
             - printenv

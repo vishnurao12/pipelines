@@ -45,7 +45,7 @@ pipelines:
       - name: c7node
         type: Bash
         configuration:
-          nodePool: c7node
+          nodePool: centos7
           inputResources:
             - name: connecting_resource_node_test
         execution:
@@ -65,7 +65,7 @@ pipelines:
       - name: rhel
         type: Bash
         configuration:
-          nodePool: rhel
+          nodePool: rhel7
           inputResources:
             - name: connecting_resource_node_test
         execution:

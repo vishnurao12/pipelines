@@ -37,7 +37,7 @@ pipelines:
         configuration:
           nodePool: u16
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
@@ -47,7 +47,7 @@ pipelines:
         configuration:
           nodePool: c7node
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
@@ -57,7 +57,7 @@ pipelines:
         configuration:
           nodePool: u18
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
@@ -67,7 +67,7 @@ pipelines:
         configuration:
           nodePool: rhel
           inputResources:
-            - name: connecting_resource
+            - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv

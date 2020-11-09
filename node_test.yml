@@ -1,0 +1,73 @@
+resources:
+  - name: connecting_resource_node_test
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
+
+
+pipelines:
+  - name: node_test
+    steps:
+      - name: myStep112
+        type: Bash
+        configuration:
+          outputResources: 
+            - name: connecting_resource_node_test
+#               trigger: false
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - write_output connecting_resource_node_test "test:value"
+
+      - name: win_2019
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
+          inputResources:
+            - name: connecting_resource_node_test
+        execution:
+          onExecute:
+            - write-output "Hi"
+            - docker images
+
+      - name: u16
+        type: Bash
+        configuration:
+          nodePool: u16
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - printenv
+
+      - name: c7node
+        type: Bash
+        configuration:
+          nodePool: c7node
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - printenv
+
+      - name: u18
+        type: Bash
+        configuration:
+          nodePool: u18
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - printenv
+
+      - name: rhel
+        type: Bash
+        configuration:
+          nodePool: rhel
+          inputResources:
+            - name: connecting_resource
+        execution:
+          onExecute:
+            - printenv

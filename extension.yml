@@ -232,8 +232,8 @@ resources:
 #      Digital Ocean : DO_extension
    #   Docker Registry : DR_extension
 #      File Server : FS_extension
-      Google Cloud : GC_extension
-      Generic Integration : generic_extension
+     # Google Cloud : GC_extension
+     # Generic Integration : generic_extension
       GitHub : git_v
       # Github Enterprise : ghe_extension
    #   GitLab : gL_extension

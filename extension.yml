@@ -434,6 +434,14 @@ resources:
         foo49 :
           - "jfr"
           - "jfr1"
+          
+   - name: r_GitRepo
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      branches:
+        include: master
+      gitProvider: git_v
 
 pipelines:
   - name: extensionstest
@@ -451,7 +459,7 @@ pipelines:
 #            - name: cronTriggerResource
 #            - name: myDistributionRule
 #            - name: r_FileSpec_pattern
-           # - name: r_GitRepo
+            - name: r_GitRepo
             #- name: helm_repo
             #- name: image_google
 #            - name: r_IncomingWebhook

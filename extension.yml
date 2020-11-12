@@ -435,7 +435,7 @@ resources:
           - "jfr"
           - "jfr1"
           
-   - name: r_GitRepo
+  - name: r_GitRepo
     type: GitRepo
     configuration:
       path: vishnurao12/pipelines

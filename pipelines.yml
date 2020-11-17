@@ -6,9 +6,9 @@ resources:
      path: vishnurao12/pipelines
 
 pipelines:
-  - name: testP123
+  - name: testP121
     steps:
-      - name: testP123
+      - name: testP1222
         type: PowerShell
         configuration:
           nodePool: win_2019
@@ -16,6 +16,4 @@ pipelines:
         execution:
           onExecute:
             - dotnet --version
-#             - if($(dotnet --version) -ne "3.1.[0-9][0-9][0-9]"){
-#               Write-Error "Stop" -ErrorAction Stop
-#               }
+

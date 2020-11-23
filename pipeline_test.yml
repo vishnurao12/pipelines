@@ -2,8 +2,8 @@ resources:
   - name: git_resc
     type: gitRepo
     configuration:
-      gitProvider: github_integration  
-      path: codecode10/pipelines
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines
 pipelines:
   - name: my_pipeline
     steps:

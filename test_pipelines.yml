@@ -1,9 +1,9 @@
 pipelines:
-  - name: sample
+  - name: test_dynamicPool
     configuration:
       nodePool: dynamic_aws
     steps:
-      - name: testBash1
+      - name: testBashStep
         type: Bash       
         execution:
           onStart:

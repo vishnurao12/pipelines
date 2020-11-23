@@ -1,0 +1,12 @@
+pipelines:
+  - name: sample
+    configuration:
+      nodePool: dynamic_aws
+    steps:
+      - name: testBash1
+        type: Bash       
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - sleep 5m

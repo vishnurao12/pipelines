@@ -9,4 +9,4 @@ pipelines:
           onStart:
             - echo "executing onStart"
           onExecute:
-            - sleep 2m
+            - sleep 3m

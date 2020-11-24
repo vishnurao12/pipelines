@@ -1,7 +1,7 @@
 pipelines:
   - name: test_DynamicPool
     configuration:
-      nodePool: dynamic_azure
+      nodePool: dynamic_aws
     steps:
       - name: testBashStep
         type: Bash       

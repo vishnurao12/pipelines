@@ -8,10 +8,10 @@ resources:
        include: ^README.md$
      branches:
        include: ^{{gitBranch}}$
-     buildOn:
-       pullRequestCreate: true
-     cancelPendingRunsOn:
-       pullRequestUpdate: true
+#      buildOn:
+#        pullRequestCreate: true
+#      cancelPendingRunsOn:
+#        pullRequestUpdate: true
 
 pipelines:
   - name: testing_123

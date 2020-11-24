@@ -1,5 +1,5 @@
 pipelines:
-  - name: test_dynamicPool_
+  - name: test_dynamicPool
     configuration:
       nodePool: dynamic_aws
     steps:

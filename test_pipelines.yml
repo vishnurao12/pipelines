@@ -1,5 +1,5 @@
 pipelines:
-  - name: test_dynamicPool
+  - name: test_dynamicPool_
     configuration:
       nodePool: dynamic_azure
     steps:

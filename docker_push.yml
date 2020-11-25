@@ -17,7 +17,7 @@ resources:
 pipelines:
   - name: docker_push
 
-
+    steps:
       - name: To_build_Docker_Image
         type: DockerBuild
         configuration:

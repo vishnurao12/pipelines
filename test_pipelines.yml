@@ -1,7 +1,7 @@
 pipelines:
   - name: test_DynamicPool
     configuration:
-      nodePool: test_u18
+      nodePool: gcp_dynamic
     steps:
       - name: testBashStep
         type: Bash       

@@ -10,7 +10,7 @@ pipelines:
           onExecute:
             - echo pipelineState > pipeline.sh
             - echo RunState > run.sh
-            #- jfrog rt u pipeline.sh example-repo-local/pipeline.sh
+            - jfrog rt u pipeline.sh example-repo-local/pipeline.sh
             - ls
             #pipeline state
             - add_pipeline_files pipeline.sh mypipelinefile #test.sh is the file and mytestfile is the filename.
@@ -28,7 +28,7 @@ pipelines:
           onExecute:
 
             - mkdir /testfolder # create test folder at the root
-            #- jfrog rt dl example-repo-local/pipeline.sh
+            - jfrog rt dl example-repo-local/pipeline.sh
             - ls
 
 

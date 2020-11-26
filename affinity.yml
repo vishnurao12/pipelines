@@ -68,6 +68,23 @@ pipelines:
             - echo "hello"
           onSuccess:
             - echo "hello"
+      - name: myStepa2i
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa1
+          affinityGroup: "group1"
+          priority: 20 # optional
+        execution:
+          onExecute:
+            - echo "hello"
+          onSuccess:
+            - echo "hello"
       - name: myStepa2
         type: Bash
         configuration:

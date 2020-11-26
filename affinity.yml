@@ -118,14 +118,15 @@ pipelines:
           inputResources: 
            - name: resource_pipelines123
              trigger: false
+
           integrations:
            - name: git_v
-           - name: connect
+
           inputSteps: 
            - name: myStepa3
           affinityGroup: "group2"
-#           outputSteps:
-#            - name: myStepa5
+          outputResources:
+           - name: connect
         execution:
           onExecute:
             - printenv

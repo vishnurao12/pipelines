@@ -124,8 +124,8 @@ pipelines:
           inputSteps: 
            - name: myStepa3
           affinityGroup: "group2"
-          outputSteps:
-           - name: myStepa5
+#           outputSteps:
+#            - name: myStepa5
         execution:
           onExecute:
             - printenv

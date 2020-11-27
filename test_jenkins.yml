@@ -1,5 +1,7 @@
 pipelines:
   - name: test_jenkins
+    configuration:
+      nodePool: u16_dynamic
     steps:
       - name: testStepJenkins
         type: Jenkins

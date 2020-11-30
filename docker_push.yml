@@ -21,10 +21,9 @@ pipelines:
       - name: To_build_Docker_Image
         type: DockerBuild
         configuration:
-
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 10.70.35.43:8082/docker-local/node
+          dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/node
 
           dockerImageTag: latest
           integrations:
@@ -38,7 +37,6 @@ pipelines:
       - name: To_Push_Docker_Image
         type: DockerPush
         configuration:
-
           autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
           targetRepository: docker-local #required
           integrations:

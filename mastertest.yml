@@ -404,7 +404,7 @@ pipelines:
 #                   - "1.15.2-f2674"
         execution:
           onStart:
-#             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+            - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
             - "pushd $buildDir/golang-example/hello"
             - "go get -insecure"
             - popd

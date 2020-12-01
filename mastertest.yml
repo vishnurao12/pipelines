@@ -303,7 +303,8 @@ pipelines:
           dockerFileName: Dockerfile
 #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
 #           dockerImageName: 192.168.11.4:8082/docker-local/node
-          dockerImageName: vishtest.jfrog.io/docker-local/node
+#           dockerImageName: vishtest.jfrog.io/docker-local/node
+            dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker_local/node
           dockerImageTag: latest
           integrations:
             - name: art_v

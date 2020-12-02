@@ -2,12 +2,11 @@ pipelines:
   - name: test_Jenkins
     configuration:
       nodePool: u16dynamic
-      jenkinsJobName: basic-api
     steps:
       - name: testStepJenkins
         type: Jenkins
         configuration:
-          jenkinsJobName: testPipeline     
+          jenkinsJobName: xyz     
           buildParameters:
             foo1: bar1
             foo2: bar2  

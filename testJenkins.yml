@@ -3,7 +3,7 @@ pipelines:
     configuration:
       nodePool: u16dynamic
     steps:
-      - name: testStepJenkins
+      - name: firstTestStepJenkins
         type: Jenkins
         configuration:
           inputSteps:
@@ -18,6 +18,17 @@ pipelines:
         type: Jenkins
         configuration:
           jenkinsJobName: testPipeline
+          buildParameters:
+            foo1: bar1
+            foo2: bar2  
+          integrations:
+            - name: jenkins
+      - name: secondTestStepJenkins
+        type: Jenkins
+        configuration:
+          inputSteps:
+            - name: reqStepJenkins
+          jenkinsJobName: testPipelineUpdated
           buildParameters:
             foo1: bar1
             foo2: bar2  

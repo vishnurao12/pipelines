@@ -6,7 +6,18 @@ pipelines:
       - name: testStepJenkins
         type: Jenkins
         configuration:
-          jenkinsJobName: xyz     
+          jenkinsJobName: testPipeline
+          inputSteps:
+            - name: reqStepJenkins
+          buildParameters:
+            foo1: bar1
+            foo2: bar2  
+          integrations:
+            - name: jenkins
+      - name: reqStepJenkins
+        type: Jenkins
+        configuration:
+          jenkinsJobName: testPipeline
           buildParameters:
             foo1: bar1
             foo2: bar2  

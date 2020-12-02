@@ -35,13 +35,13 @@ pipelines:
           integrations:
             - name: jenkins
        - name: testBashStep
-        type: Bash 
-        configuration:
-          inputSteps:
-            - name: secondTestStepJenkins
-        execution:
-          onStart:
-            - echo "executing onStart"
-          onExecute:
-            - sleep 5s
+         type: Bash 
+         configuration:
+           inputSteps:
+             - name: secondTestStepJenkins
+         execution:
+           onStart:
+             - echo "executing onStart"
+           onExecute:
+             - sleep 5s
         

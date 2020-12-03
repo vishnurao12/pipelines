@@ -183,7 +183,7 @@ resources:
   - name: helm_repo
     type: HelmChart
     configuration: 
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       repository: helm-local
       chart: test
       version: 1.0.0
@@ -421,7 +421,7 @@ pipelines:
 #             JFROG_CLI_BUILD_NUMBER: 2387
           inputSteps:
             - name: build_go
-          targetRepository: test-go-local_1
+          targetRepository: test-go-local
           integrations:
             - name: art_v
 #           runtime: 
@@ -451,7 +451,7 @@ pipelines:
 #             JFROG_CLI_BUILD_NUMBER: 2387
           sourceLocation: .  # required
           version: v0.0.0           # required
-          targetRepository: test-go-local_1
+          targetRepository: test-go-local
           autoPublishBuildInfo: true
           integrations:
             - name: art_v
@@ -554,7 +554,7 @@ pipelines:
             - name: gradle_repo
             - name: connecting_resource
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -621,7 +621,7 @@ pipelines:
             - name: maven_repo
             - name: connecting_resource
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -683,7 +683,7 @@ pipelines:
             - name: npmHelloWorld_repo
             - name: connecting_resource
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 

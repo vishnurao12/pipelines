@@ -1,12 +1,35 @@
+resources:
+ - name: resource_pipelines1245
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
+     files: 
+       include: ^README.md$
+     branches:
+       include: ^{{gitBranch}}$
+#      buildOn:
+#        pullRequestCreate: true
+#      cancelPendingRunsOn:
+#        pullRequestUpdate: true
 
 pipelines:
-  - name: sleep_test_win
+  - name: testing_123
     steps:
-      - name: win_2019
-        type: PowerShell
+      - name: myStep112
+        type: Bash
         configuration:
-          nodePool: win_2019
+         inputResources: 
+           - name: resource_pipelines1245
+         integrations:
+           - name: git_v
+           - name: docker_test
         execution:
           onExecute:
-            - write-output  "executing step..."
-            - Start-Sleep -s 300
+            - printenv
+            - pushd $res_resource_pipelines1245_resourcePath
+            - ls
+            - echo "hi"
+          onSuccess:
+            - pushd $res_resource_pipelines1245_resourcePath
+            - ls

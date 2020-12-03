@@ -263,7 +263,7 @@ resources:
       siteName:             test
       cityName:             test
       countryCodes:
-        - *
+        - 123
 
 
 

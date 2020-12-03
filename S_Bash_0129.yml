@@ -3,7 +3,7 @@ resources:
   - name: S_Bash_0205_RemoteFile
     type: RemoteFile
     configuration:
-      source: s_artifactory
+      source: test
       fileLocation: example-repo-local/setup/test.sh
       #fileName: test.sh # optional
       #fileDateTime: 19/12/19

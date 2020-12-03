@@ -10,7 +10,8 @@ pipelines:
       type: Bash
       execution:
         onExecute:
-          - echo "${step_name} running"    - name: step_2
+          - echo "${step_name} running"    
+    - name: step_2
       type: Bash
       configuration:
         inputSteps:
@@ -23,7 +24,8 @@ pipelines:
         onExecute:
           - echo "${step_name} running"
           - sleep 10s
-          - write_output prop_bag "lastRunId=$run_id"    - name: step_3
+          - write_output prop_bag "lastRunId=$run_id"    
+    - name: step_3
       type: Bash
       configuration:
         inputSteps:
@@ -31,7 +33,9 @@ pipelines:
       execution:
         onExecute:
           - echo "${step_name} running"
-          - sleep 40s    - name: step_4
+          - sleep 40s    
+          
+    - name: step_4
       type: Bash
       configuration:
         inputSteps:

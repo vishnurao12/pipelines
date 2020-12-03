@@ -23,6 +23,7 @@ pipelines:
            - name: resource_pipelines1245
          integrations:
            - name: git_v
+           - name: docker_test
         execution:
           onExecute:
             - printenv

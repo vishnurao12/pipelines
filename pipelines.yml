@@ -1,53 +1,87 @@
+# resources:
+#  - name: gitResource
+#    type: GitRepo
+#    configuration:
+#      gitProvider: git_v
+#      path: vishnurao12/pipelines
+#      branches:
+#        include:    master
+# pipelines:
+#   - name: pipelines_test
+#     configuration:
+#       nodePool: gcp-test
+#     steps:
+#       - name: myStep1
+#         type: Bash
+#         configuration: 
+#          nodePool: gcp-test
+#          inputResources: # optional
+#            - name: gitResource
+#              trigger: true
+#         execution:
+#           onExecute:
+#             - printenv
+
+#       - name: myStep2
+#         type: Bash
+#         configuration: 
+#           nodePool: gcp-test
+#           inputResources: # optional
+#             - name: gitResource
+#               trigger: true
+#           inputSteps: 
+#             - name: myStep1
+#         execution:
+#           onExecute:
+#             - printenv
+
+#       - name: myStep3
+#         type: Bash
+#         configuration: 
+#           nodePool: gcp-test
+#           inputResources: # optional
+#             - name: gitResource
+#               trigger: true
+#           inputSteps: 
+#             - name: myStep2
+#         execution:
+#           onExecute:
+#             - printenv
+
 resources:
- - name: gitResource
+ - name: resource_pipelines1245
    type: GitRepo
    configuration:
      gitProvider: git_v
      path: vishnurao12/pipelines
+     files: 
+       include: ^README.md$
      branches:
-       include:    master
+       include: ^{{gitBranch}}$
+#      buildOn:
+#        pullRequestCreate: true
+#      cancelPendingRunsOn:
+#        pullRequestUpdate: true
+
 pipelines:
-  - name: pipelines_test
-    configuration:
-      nodePool: gcp-test
+  - name: testing_123
     steps:
-      - name: myStep1
+      - name: myStep112
         type: Bash
-        configuration: 
-         nodePool: gcp-test
-         inputResources: # optional
-           - name: gitResource
-             trigger: true
+        configuration:
+         inputResources: 
+           - name: resource_pipelines1245
+         integrations:
+           - name: git_v
+           - name: docker_test
         execution:
           onExecute:
             - printenv
-
-      - name: myStep2
-        type: Bash
-        configuration: 
-          nodePool: gcp-test
-          inputResources: # optional
-            - name: gitResource
-              trigger: true
-          inputSteps: 
-            - name: myStep1
-        execution:
-          onExecute:
-            - printenv
-
-      - name: myStep3
-        type: Bash
-        configuration: 
-          nodePool: gcp-test
-          inputResources: # optional
-            - name: gitResource
-              trigger: true
-          inputSteps: 
-            - name: myStep2
-        execution:
-          onExecute:
-            - printenv
-
-
+            - pushd $res_resource_pipelines1245_resourcePath
+            - ls
+            - echo "hi"
+          onSuccess:
+            - pushd $res_resource_pipelines1245_resourcePath
+            - ls
 
       

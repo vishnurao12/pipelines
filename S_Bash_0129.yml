@@ -1,21 +1,22 @@
 resources:
 
-  - name: S_Bash_0129_FileSpec
-    type: FileSpec
+  - name: S_Bash_0152_Image
+    type: Image
     configuration:
-      sourceArtifactory: s_artifactory
-      pattern: "example-repo-local/setup/test.sh"
-      recursive: false
+      registry: BSR_DockerRegistry
+      imageName: shipbeta00/ubuntu
+      imageTag: master
+      autoPull: true
 
 pipelines:
 
-  - name: pipelines_S_Bash_0129
+  - name: pipelines_S_Bash_0152
     steps:
-      - name: S_Bash_0129
+      - name: S_Bash_0152
         type: Bash
         configuration:
           inputResources:
-            - name: S_Bash_0129_FileSpec
+            - name: S_Bash_0152_Image
               trigger: true
         execution:
           onExecute:

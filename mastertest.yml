@@ -188,6 +188,20 @@ resources:
       chart: test
       version: 1.0.0
 
+  - name: release_bundle
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: distribution_v
+      name: demo_rb
+      version: v1.0.0
+      
+  - name: signed_bundle
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: distribution_v
+      name: demo_rb
+      version: v1.0.0      
+
   - name:       go_ReleaseBundle_without1
     type:       ReleaseBundle
     configuration:
@@ -507,7 +521,7 @@ pipelines:
             - name:                  promoted_go_build_info_go_publishtest
               trigger: false
           outputResources:
-            - name:                 go_ReleaseBundle_without1
+            - name:                 release_bundle
           dryRun: false
           sign:                     false
 
@@ -516,10 +530,10 @@ pipelines:
         type: SignReleaseBundle
         configuration:
           inputResources:
-            - name:            go_ReleaseBundle_without1
+            - name:            release_bundle
               trigger: false
           outputResources:
-            - name:            signed_go_ReleaseBundle_without
+            - name:            signed_bundle
  
 
 

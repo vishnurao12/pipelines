@@ -515,7 +515,7 @@ pipelines:
         type: CreateReleaseBundle
         configuration:
           #inherits from bash
-          releaseBundleName:        test1
+          releaseBundleName:        demo_rb
           releaseBundleVersion:     ${run_number}
           inputResources:
             - name:                  promoted_go_build_info_go_publishtest

@@ -510,7 +510,7 @@ pipelines:
           outputResources:
             - name:                 go_ReleaseBundle_without
           dryRun: false
-          sign:                     true
+          sign:                     false
         execution:
           onStart:
             - echo "Preparing for work..."

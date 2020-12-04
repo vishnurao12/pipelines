@@ -527,7 +527,6 @@ pipelines:
       - name: go_signReleaseBundle_v
         type: SignReleaseBundle
         configuration:
-          dryRun: true
           inputResources:
             - name:            release_bundle_v
           outputResources:

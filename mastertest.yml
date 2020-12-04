@@ -519,7 +519,6 @@ pipelines:
           releaseBundleVersion:     ${run_number}
           inputResources:
             - name:                  promoted_go_build_info_go_publishtest
-              trigger: false
           outputResources:
             - name:                 release_bundle_v
           dryRun: false
@@ -528,9 +527,9 @@ pipelines:
       - name: go_signReleaseBundle_v
         type: SignReleaseBundle
         configuration:
+          dryRun: true
           inputResources:
             - name:            release_bundle_v
-              trigger: false
           outputResources:
             - name:            signed_bundle_v
  

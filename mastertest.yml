@@ -521,8 +521,7 @@ pipelines:
             - name:                  promoted_go_build_info_go_publishtest
           outputResources:
             - name:                 release_bundle_v
-          dryRun: false
-          sign:                     false
+          dryRun: true
     
       - name: go_signReleaseBundle_v
         type: SignReleaseBundle

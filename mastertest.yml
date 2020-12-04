@@ -515,6 +515,7 @@ pipelines:
         type: CreateReleaseBundle
         configuration:
           #inherits from bash
+          dryRun:                   false
           releaseBundleName:        demo_rb
           releaseBundleVersion:     ${run_number}
           inputResources:

@@ -542,7 +542,7 @@ pipelines:
         configuration:
           dryRun: true                
           inputResources:
-            - name: signed_go_ReleaseBundle_without
+            - name: signed_bundle_v
               trigger: false   
             - name:  distributionRuleresource  # one distributionRule is required
               trigger: false    # default true

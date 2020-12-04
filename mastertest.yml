@@ -511,7 +511,7 @@ pipelines:
           outputResources:
             - name: promoted_go_build_info_go_publishtest
 
-      - name: go_releaseBundle
+      - name: go_releaseBundle_v
         type: CreateReleaseBundle
         configuration:
           #inherits from bash

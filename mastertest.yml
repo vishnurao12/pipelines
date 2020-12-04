@@ -258,7 +258,7 @@ resources:
   - name:           distributionRuleresource
     type:           DistributionRule
     configuration:
-      sourceDistribution:  distribution_v1
+      sourceDistribution:  distribution_v
       serviceName:          test
       siteName:             test
       cityName:             test

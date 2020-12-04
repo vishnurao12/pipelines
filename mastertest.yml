@@ -191,7 +191,7 @@ resources:
   - name:       go_ReleaseBundle_without
     type:       ReleaseBundle
     configuration:
-      sourceDistribution:  distribution_v1
+      sourceDistribution:  distribution_v
       name:                 test1
       version:              1.0.0-m000
       isSigned: true
@@ -199,7 +199,7 @@ resources:
   - name:       signed_go_ReleaseBundle_without
     type:       ReleaseBundle
     configuration:
-      sourceDistribution:  distribution_v1
+      sourceDistribution:  distribution_v
       name:                 test1
       version:              1.0.0-m000
 

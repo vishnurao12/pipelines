@@ -104,5 +104,5 @@ pipelines:
             - name: ns_promotedInfo
             - name: ns_buildInfo
           outputResources:
-            - name: docker_ReleaseBundle
+            - name: res_bundle
           dryRun: false

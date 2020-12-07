@@ -18,14 +18,14 @@ resources:
     configuration:
       sourceDistribution: distribution_v
       name: test_123
-      version: v1.0.0
+      version: v1.0.1
       
   - name: sig_bundle
     type: ReleaseBundle
     configuration:
       sourceDistribution: distribution_v
       name: test_123
-      version: v1.0.0 
+      version: v1.0.1
       
   - name: ns_promotedInfo
     type: BuildInfo
@@ -101,9 +101,17 @@ pipelines:
         configuration:
           #inherits from bash
           releaseBundleName:        test_123
-          releaseBundleVersion:     v1.0.0
+          releaseBundleVersion:     v1.0.1
           inputResources:
             - name: ns_promotedInfo
           outputResources:
             - name: res_bundle
           dryRun: false
+          
+      - name: docker sign_releaseBundle
+        type: SignReleaseBundle
+        configuration:
+          inputResources:
+            - name:            res_bundle
+          outputResources:
+            - name:            sig_bundle

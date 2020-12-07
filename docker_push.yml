@@ -108,7 +108,7 @@ pipelines:
             - name: res_bundle
           dryRun: false
           
-      - name: docker sign_releaseBundle
+      - name: docker_sign_releaseBundle
         type: SignReleaseBundle
         configuration:
           inputResources:

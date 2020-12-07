@@ -102,7 +102,6 @@ pipelines:
           releaseBundleVersion:     v1.0.0
           inputResources:
             - name: ns_promotedInfo
-            - name: ns_buildInfo
           outputResources:
             - name: res_bundle
           dryRun: false

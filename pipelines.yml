@@ -20,7 +20,7 @@ pipelines:
         type: Bash
         configuration:
          environmentVariables:
-           testCases: "[\"core/testHarness/setup.js\"]"
+           testCases: setup.js
           
          inputResources: 
            - name: resource_pipelines1245
@@ -30,6 +30,7 @@ pipelines:
           onExecute:
             - printenv | grep "testCases"
             - echo $testCases
+            - testcaseDup="[\"core/testHarness/$testCases\"]"
             - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - echo "hi"

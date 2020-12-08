@@ -19,13 +19,16 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration:
+         environmentVariables:
+           testCases: setup.js
+          
          inputResources: 
            - name: resource_pipelines1245
          integrations:
            - name: git_v
         execution:
           onExecute:
-            - printenv
+            - printenv | grep "testCases"
             - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - echo "hi"

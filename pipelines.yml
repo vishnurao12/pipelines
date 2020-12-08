@@ -29,6 +29,7 @@ pipelines:
         execution:
           onExecute:
             - printenv | grep "testCases"
+            - echo $testCases
             - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - echo "hi"

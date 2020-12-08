@@ -20,7 +20,7 @@ pipelines:
         type: Bash
         configuration:
          environmentVariables:
-           testCases: setup.js
+           testCases: "[\"core/testHarness/setup.js\"]"
           
          inputResources: 
            - name: resource_pipelines1245

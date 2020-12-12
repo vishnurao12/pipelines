@@ -40,6 +40,28 @@ pipelines:
           onExecute:
             - printenv
             - docker images
+            
+      - name: u20dynamic
+        type: Bash
+        configuration:
+          nodePool: u20dynamic
+          inputResources:
+            - name: connecting_resource_node_test
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            
+      - name: c8dynamic
+        type: Bash
+        configuration:
+          nodePool: c8dynamic
+          inputResources:
+            - name: connecting_resource_node_test
+        execution:
+          onExecute:
+            - printenv
+            - docker images
 
       - name: win_2019
         type: PowerShell

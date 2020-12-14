@@ -318,7 +318,7 @@ pipelines:
       - name: To_build_Docker_Image
         type: DockerBuild
         configuration:
-            affinityGroup: docker"
+            affinityGroup: "docker"
 #           environmentVariables: # optional
 #             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
 #             JFROG_CLI_BUILD_NUMBER: 2387

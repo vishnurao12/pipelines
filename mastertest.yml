@@ -188,33 +188,33 @@ resources:
       chart: test
       version: 1.0.0
 
-  - name: release_bundle_v
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: distribution_v
-      name: demo_rb
-      version: v1.0.0
+#   - name: release_bundle_v
+#     type: ReleaseBundle
+#     configuration:
+#       sourceDistribution: distribution_v
+#       name: demo_rb
+#       version: v1.0.0
       
-  - name: signed_bundle_v
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: distribution_v
-      name: demo_rb
-      version: v1.0.0      
+#   - name: signed_bundle_v
+#     type: ReleaseBundle
+#     configuration:
+#       sourceDistribution: distribution_v
+#       name: demo_rb
+#       version: v1.0.0      
 
-  - name:       go_ReleaseBundle_without1
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  distribution_v
-      name:                 test1
-      version:              1.0.0-m000
+#   - name:       go_ReleaseBundle_without1
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  distribution_v
+#       name:                 test1
+#       version:              1.0.0-m000
 
-  - name:       signed_go_ReleaseBundle_without
-    type:       ReleaseBundle
-    configuration:
-      sourceDistribution:  distribution_v
-      name:                 test1
-      version:              1.0.0-m000
+#   - name:       signed_go_ReleaseBundle_without
+#     type:       ReleaseBundle
+#     configuration:
+#       sourceDistribution:  distribution_v
+#       name:                 test1
+#       version:              1.0.0-m000
 
 
 #   - name:       go_ReleaseBundle_1_without
@@ -268,15 +268,15 @@ resources:
 
 
 
-  - name:           distributionRuleresource
-    type:           DistributionRule
-    configuration:
-      sourceDistribution:  distribution_v
-      serviceName:          test
-      siteName:             test
-      cityName:             test
-      countryCodes:
-        - "123"
+#   - name:           distributionRuleresource
+#     type:           DistributionRule
+#     configuration:
+#       sourceDistribution:  distribution_v
+#       serviceName:          test
+#       siteName:             test
+#       cityName:             test
+#       countryCodes:
+#         - "123"
 
 
 
@@ -511,47 +511,47 @@ pipelines:
           outputResources:
             - name: promoted_go_build_info_go_publishtest
 
-      - name: go_releaseBundle_v
-        type: CreateReleaseBundle
-        configuration:
-          #inherits from bash
-          dryRun:                   false
-          releaseBundleName:        demo_rb
-          releaseBundleVersion:     ${run_number}
-          inputResources:
-            - name:                  promoted_go_build_info_go_publishtest
-          outputResources:
-            - name:                 release_bundle_v
+#       - name: go_releaseBundle_v
+#         type: CreateReleaseBundle
+#         configuration:
+#           #inherits from bash
+#           dryRun:                   false
+#           releaseBundleName:        demo_rb
+#           releaseBundleVersion:     ${run_number}
+#           inputResources:
+#             - name:                  promoted_go_build_info_go_publishtest
+#           outputResources:
+#             - name:                 release_bundle_v
     
-      - name: go_signReleaseBundle_v
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name:            release_bundle_v
-          outputResources:
-            - name:            signed_bundle_v
+#       - name: go_signReleaseBundle_v
+#         type: SignReleaseBundle
+#         configuration:
+#           inputResources:
+#             - name:            release_bundle_v
+#           outputResources:
+#             - name:            signed_bundle_v
  
 
 
-      - name: my_distribute_v
-        type: DistributeReleaseBundle
-        configuration:
-          dryRun: true                
-          inputResources:
-            - name: signed_bundle_v
-              trigger: false   
-            - name:  distributionRuleresource  # one distributionRule is required
-              trigger: false    # default true
+#       - name: my_distribute_v
+#         type: DistributeReleaseBundle
+#         configuration:
+#           dryRun: true                
+#           inputResources:
+#             - name: signed_bundle_v
+#               trigger: false   
+#             - name:  distributionRuleresource  # one distributionRule is required
+#               trigger: false    # default true
  
-        execution:
-          onStart:
-            - echo "Preparing for work..."
-          onSuccess:
-            - echo "Job well done!"
-          onFailure:
-            - echo "uh oh, something went wrong"
-          onComplete: #always
-            - echo "Cleaning up some stuff"
+#         execution:
+#           onStart:
+#             - echo "Preparing for work..."
+#           onSuccess:
+#             - echo "Job well done!"
+#           onFailure:
+#             - echo "uh oh, something went wrong"
+#           onComplete: #always
+#             - echo "Cleaning up some stuff"
 
 
 #       - name: go_signReleaseBundle

@@ -47,26 +47,48 @@
 
 
 
-resources:
-  - name: S_Bash_0205_RemoteFile
-    type: RemoteFile
-    configuration:
-      source: art_v1
-      fileLocation: example-repo-local/setup/test.sh
-      #fileName: test.sh # optional
-      #fileDateTime: 19/12/19
+# resources:
+#   - name: S_Bash_0205_RemoteFile
+#     type: RemoteFile
+#     configuration:
+#       source: art_v1
+#       fileLocation: example-repo-local/setup/test.sh
+#       #fileName: test.sh # optional
+#       #fileDateTime: 19/12/19
+
+# pipelines:
+#   - name: S_Bash_0205
+#     steps:
+#       - name: S_Bash_0205
+#         type: Bash
+#         configuration:
+#           integrations:
+#             - name: s_artifactory
+#           inputResources:
+#             - name: S_Bash_0205_RemoteFile
+#               trigger: true
+#         execution:
+#           onExecute:
+#             - echo "executing step..." 
+
 
 pipelines:
-  - name: S_Bash_0205
+  - name: S_Bash_0049
     steps:
-      - name: S_Bash_0205
+      - name: S_Bash_0049
         type: Bash
         configuration:
-          integrations:
-            - name: s_artifactory
-          inputResources:
-            - name: S_Bash_0205_RemoteFile
-              trigger: true
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: shippabledocker/jfreq
+                tag: latest
+                registry: docker_v
         execution:
           onExecute:
-            - echo "executing step..." 
+            - echo "executing step..."
+            - |
+              [ "$step_image_name" == "shippabledocker/jfreq" ]
+            - |
+              [ "$step_image_tag" == "latest" ]

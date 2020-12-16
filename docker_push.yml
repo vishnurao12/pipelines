@@ -5,7 +5,7 @@ resources:
       key1: value1
       key2: value2
       
-  - name: ns_dockerbuild_gitRepo
+  - name: ns_dockerbuild_gitRepo_v
     type: GitRepo
     configuration:
       path: vishnurao12/sample-script
@@ -20,21 +20,21 @@ resources:
 #       name: test_123
 #       version: v1.0.1
       
-  - name: sig_bundle
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: distribution_v
-      name: test_123
-      version: v1.0.1
+#   - name: sig_bundle
+#     type: ReleaseBundle
+#     configuration:
+#       sourceDistribution: distribution_v
+#       name: test_123
+#       version: v1.0.1
       
-  - name: ns_promotedInfo
+  - name: ns_promotedInfo_v
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
       buildName: master_test_promotedInfo
       buildNumber: 1
 
-  - name: ns_buildInfo
+  - name: ns_buildInfo_v
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
@@ -46,24 +46,24 @@ pipelines:
   - name: docker_push
 
     steps:
-      - name: To_build_Docker_Image
+      - name: To_build_Docker_Image_v
         type: DockerBuild
         configuration:
           affinityGroup: "BasicTest"
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: u18.jfrog-pipelines.com/:8082/docker-local/node
+          dockerImageName: u18.jfrog-pipelines.com:8082/docker-local/node
 
           dockerImageTag: latest
           integrations:
             - name: art_v
 
           inputResources:
-            - name: ns_dockerbuild_gitRepo 
+            - name: ns_dockerbuild_gitRepo_v
             - name: connecting_resource
 
 
-      - name: To_Push_Docker_Image
+      - name: To_Push_Docker_Image_v
         type: DockerPush
         configuration:
           affinityGroup: "BasicTest"
@@ -72,29 +72,29 @@ pipelines:
           integrations:
             - name: art_v 
           inputSteps:
-            - name: To_build_Docker_Image
+            - name: To_build_Docker_Image_v
             
                
-      - name: To_publish_buildInfo 
+      - name: To_publish_buildInfo_v
         type: PublishBuildInfo
         configuration:
           inputSteps:
             - name: To_Push_Docker_Image
           outputResources:
-            - name: ns_buildInfo
+            - name: ns_buildInfo_v
 
-      - name: To_promote_build
+      - name: To_promote_build_v
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
           integrations:
             - name: art_v
           inputResources:
-            - name: ns_buildInfo
+            - name: ns_buildInfo_v
           inputSteps:
-            - name: To_publish_buildInfo
+            - name: To_publish_buildInfo_v
           outputResources:
-            - name: ns_promotedInfo
+            - name: ns_promotedInfo_v
 
 #       - name: docker_releaseBundle
 #         type: CreateReleaseBundle

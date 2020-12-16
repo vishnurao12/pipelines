@@ -843,7 +843,7 @@ pipelines:
           inputSteps:
             - name: build_npm
           integrations:
-            - name: art_v
+            - name: art_v1
           outputResources:            
             - name: buildinfo_for_npmPublish 
 #           runtime: 

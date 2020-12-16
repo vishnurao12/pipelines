@@ -183,7 +183,7 @@ resources:
   - name: helm_repo
     type: HelmChart
     configuration: 
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       repository: helm-local
       chart: test
       version: 1.0.0
@@ -291,29 +291,117 @@ pipelines:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
 #           JFROG_CLI_BUILD_NUMBER: 2387
     steps:
-#       - name: Download_win
-#         type: PowerShell
-#         configuration:
-#           nodePool: win_2019
-#           inputResources:
-#             - name: connecting_resource
-# #             - name: testfileSpec
-#               trigger: true
-#         execution:
-#           onExecute:
-#             - write-output "executing step..."
-#       - name: dowload_linux
+      - name: Download_win
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
+          integrations:
+            - name: art_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+              trigger: true
+        execution:
+          onExecute:
+            - write-output "executing step..."
+
+      - name: dowload_linux
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - jfrog rt u test.sh example-repo-local/setup/test.sh 
+            
+      - name: docker_fail
+        type: Bash
+        configuration:
+          integrations:
+            - name: docker_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
+
+      - name: art_login_fail
+        type: Bash
+        configuration:
+          integrations:
+            - name: art_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            
+      - name: gcp_login_fail
+        type: Bash
+        configuration:
+          integrations:
+            - name: gcp_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            
+      - name: azure_login_fail
+        type: Bash
+        configuration:
+          integrations:
+            - name: azure_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+
+#       - name: fileSpec_login_fail
 #         type: Bash
 #         configuration:
 #           integrations:
-#             - name: art_v
+#             - name: azure_v1
 #           inputResources:
 #             - name: connecting_resource
 # #             - name: testfileSpec
 #         execution:
 #           onExecute:
 #             - echo automation > test.sh
-#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
+            
+#        - name: Images_login_fail
+#         type: Bash
+#         configuration:
+#           integrations:
+#             - name: azure_v1
+#           inputResources:
+#             - name: connecting_resource
+# #             - name: testfileSpec
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh  
+            
+#       - name: remote_File_login_fail
+#         type: Bash
+#         configuration:
+#           integrations:
+#             - name: azure_v1
+#           inputResources:
+#             - name: connecting_resource
+# #             - name: testfileSpec
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
 
       - name: To_build_Docker_Image
         type: DockerBuild
@@ -448,7 +536,7 @@ pipelines:
             - name: build_go
           targetRepository: test-go-local
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 
@@ -479,7 +567,7 @@ pipelines:
           targetRepository: test-go-local
           autoPublishBuildInfo: true
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 
@@ -609,7 +697,7 @@ pipelines:
             - name: gradle_repo
             - name: connecting_resource
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 
@@ -676,7 +764,7 @@ pipelines:
             - name: maven_repo
             - name: connecting_resource
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 
@@ -792,7 +880,7 @@ pipelines:
             - name: npmHelloWorld_repo
             - name: connecting_resource
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 

@@ -4,7 +4,7 @@ resources:
     type: FileSpec
     configuration:
 #       sourceArtifactory: s_artifactory
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       pattern: "example-repo-local/foo"
       recursive: false
 

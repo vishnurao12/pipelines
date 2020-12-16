@@ -367,7 +367,7 @@ pipelines:
           onExecute:
             - echo automation > test.sh
  
-       - name: docker_fail
+      - name: docker_fail
         type: PowerShell
         configuration:
           integrations:

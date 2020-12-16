@@ -1,5 +1,5 @@
 resources:
-  - name: connecting_resource
+  - name: connecting_resource_v
     type: PropertyBag
     configuration:
       key1: value1
@@ -60,7 +60,7 @@ pipelines:
 
           inputResources:
             - name: ns_dockerbuild_gitRepo_v
-            - name: connecting_resource
+            - name: connecting_resource_v
 
 
       - name: To_Push_Docker_Image_v
@@ -79,7 +79,7 @@ pipelines:
         type: PublishBuildInfo
         configuration:
           inputSteps:
-            - name: To_Push_Docker_Image
+            - name: To_Push_Docker_Image_v
           outputResources:
             - name: ns_buildInfo_v
 

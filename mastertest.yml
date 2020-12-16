@@ -45,7 +45,7 @@ resources:
   - name: ns_buildInfo_helm
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       buildName: master_test_buildInfo_helm
       buildNumber: 1.0.0
   
@@ -77,19 +77,19 @@ resources:
       path: vishnurao12/artifactory-go-example
       branches:
         include: master
-      gitProvider: git_v1
+      gitProvider: git_v
 
   - name: go_build_info_publish_moduletest
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       buildName: go_example_module_publish_varsha
       buildNumber: 332
       
   - name: go_build_info_publishtest
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       buildName: go_example_build_publish_varsha
       buildNumber: 32
   
@@ -110,20 +110,20 @@ resources:
   - name: gradle_repo
     type: GitRepo
     configuration:
-      gitProvider: git_v1
+      gitProvider: git_v
       path: vishnurao12/project-examples
 
   - name: build_info_gradle
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       buildName: full-gradle-native
       buildNumber: 1
 
   - name: mvnBuild_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       buildName: mvn_sample_build_master_test
       buildNumber: 9
 
@@ -144,14 +144,14 @@ resources:
   - name: maven_repo
     type: GitRepo
     configuration:
-      gitProvider: git_v1
+      gitProvider: git_v
       path: vishnurao12/project-examples
 
   - name: npmHelloWorld_repo
     type: GitRepo
     configuration:
       path: vishnurao12/npmHelloWorld
-      gitProvider: git_v1
+      gitProvider: git_v
 
   - name: npm_build_info_publish1
     type: BuildInfo
@@ -183,7 +183,7 @@ resources:
   - name: helm_repo
     type: HelmChart
     configuration: 
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       repository: helm-local
       chart: test
       version: 1.0.0
@@ -284,8 +284,8 @@ resources:
 
 pipelines:
   - name: Master_test_pipe
-#     configuration:
-#       nodePool: win_2019
+    configuration:
+      nodePool: win_2019
 #       environmentVariables:
 #         readOnly:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
@@ -357,6 +357,55 @@ pipelines:
             
       - name: azure_login_fail
         type: Bash
+        configuration:
+          integrations:
+            - name: azure_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+ 
+       - name: docker_fail
+        type: PowerShell
+        configuration:
+          integrations:
+            - name: docker_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
+
+      - name: art_login_fail
+        type: PowerShell
+        configuration:
+          integrations:
+            - name: art_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            
+      - name: gcp_login_fail
+        type: PowerShell
+        configuration:
+          integrations:
+            - name: gcp_v1
+          inputResources:
+            - name: connecting_resource
+#             - name: testfileSpec
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            
+      - name: azure_login_fail
+        type: PowerShell
         configuration:
           integrations:
             - name: azure_v1
@@ -536,7 +585,7 @@ pipelines:
             - name: build_go
           targetRepository: test-go-local
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 
@@ -567,7 +616,7 @@ pipelines:
           targetRepository: test-go-local
           autoPublishBuildInfo: true
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 
@@ -697,7 +746,7 @@ pipelines:
             - name: gradle_repo
             - name: connecting_resource
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 
@@ -764,7 +813,7 @@ pipelines:
             - name: maven_repo
             - name: connecting_resource
           integrations:
-            - name: art_v
+            - name: art_v1
 #           runtime: 
 #             type: image
 #             image: 
@@ -843,7 +892,7 @@ pipelines:
           inputSteps:
             - name: build_npm
           integrations:
-            - name: art_v
+            - name: art_v1
           outputResources:            
             - name: buildinfo_for_npmPublish 
 #           runtime: 

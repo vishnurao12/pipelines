@@ -5,7 +5,7 @@ resources:
     configuration:
 #       sourceArtifactory: s_artifactory
       sourceArtifactory: art_v
-      pattern: "example-repo-local/setup/foo"
+      pattern: "example-repo-local/foo"
       recursive: false
 
 pipelines:

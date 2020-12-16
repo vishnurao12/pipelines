@@ -84,7 +84,7 @@ pipelines:
               custom:
                 name: shippabledocker/jfreq
                 tag: latest
-                registry: docker_v
+                registry: docker_v1
         execution:
           onExecute:
             - echo "executing step..."

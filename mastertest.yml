@@ -367,7 +367,7 @@ pipelines:
           onExecute:
             - echo automation > test.sh
  
-      - name: docker_fail
+      - name: docker_fail_win
         type: PowerShell
         configuration:
           integrations:
@@ -380,7 +380,7 @@ pipelines:
             - echo automation > test.sh
 #             - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
-      - name: art_login_fail
+      - name: art_login_fail_win
         type: PowerShell
         configuration:
           integrations:
@@ -392,7 +392,7 @@ pipelines:
           onExecute:
             - echo automation > test.sh
             
-      - name: gcp_login_fail
+      - name: gcp_login_fail_win
         type: PowerShell
         configuration:
           integrations:
@@ -404,7 +404,7 @@ pipelines:
           onExecute:
             - echo automation > test.sh
             
-      - name: azure_login_fail
+      - name: azure_login_fail_win
         type: PowerShell
         configuration:
           integrations:

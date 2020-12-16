@@ -77,7 +77,7 @@ resources:
       path: vishnurao12/artifactory-go-example
       branches:
         include: master
-      gitProvider: git_v
+      gitProvider: git_v1
 
   - name: go_build_info_publish_moduletest
     type: BuildInfo
@@ -110,7 +110,7 @@ resources:
   - name: gradle_repo
     type: GitRepo
     configuration:
-      gitProvider: git_v
+      gitProvider: git_v1
       path: vishnurao12/project-examples
 
   - name: build_info_gradle
@@ -144,14 +144,14 @@ resources:
   - name: maven_repo
     type: GitRepo
     configuration:
-      gitProvider: git_v
+      gitProvider: git_v1
       path: vishnurao12/project-examples
 
   - name: npmHelloWorld_repo
     type: GitRepo
     configuration:
       path: vishnurao12/npmHelloWorld
-      gitProvider: git_v
+      gitProvider: git_v1
 
   - name: npm_build_info_publish1
     type: BuildInfo
@@ -163,7 +163,7 @@ resources:
   - name: buildinfo_for_npmPublish
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v
+      sourceArtifactory: art_v1
       buildName: npm_publish
       buildNumber: 1
   
@@ -183,7 +183,7 @@ resources:
   - name: helm_repo
     type: HelmChart
     configuration: 
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       repository: helm-local
       chart: test
       version: 1.0.0
@@ -536,7 +536,7 @@ pipelines:
             - name: build_go
           targetRepository: test-go-local
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -567,7 +567,7 @@ pipelines:
           targetRepository: test-go-local
           autoPublishBuildInfo: true
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -697,7 +697,7 @@ pipelines:
             - name: gradle_repo
             - name: connecting_resource
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -764,7 +764,7 @@ pipelines:
             - name: maven_repo
             - name: connecting_resource
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -843,7 +843,7 @@ pipelines:
           inputSteps:
             - name: build_npm
           integrations:
-            - name: art_v1
+            - name: art_v
           outputResources:            
             - name: buildinfo_for_npmPublish 
 #           runtime: 
@@ -880,7 +880,7 @@ pipelines:
             - name: npmHelloWorld_repo
             - name: connecting_resource
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 

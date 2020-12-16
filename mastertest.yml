@@ -284,8 +284,8 @@ resources:
 
 pipelines:
   - name: Master_test_pipe
-    configuration:
-      nodePool: win_2019
+#     configuration:
+#       nodePool: win_2019
 #       environmentVariables:
 #         readOnly:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
@@ -429,14 +429,14 @@ pipelines:
 #                   - "1.15.2-f2674"
         execution:
           onStart:
-#             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-#             - "pushd $buildDir/golang-example/hello"
-#             - "go get -insecure"
-#             - popd
-            - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
-            - go get -insecure
-            - Pop-Location
-            - go version
+            - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+            - "pushd $buildDir/golang-example/hello"
+            - "go get -insecure"
+            - popd
+#             - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
+#             - go get -insecure
+#             - Pop-Location
+#             - go version
 
       - name: publish_go_binarytest
         type: GoPublishBinary

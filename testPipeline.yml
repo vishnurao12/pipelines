@@ -1,13 +1,19 @@
-pipelines:
-  - name: testPipeline
+resources:
+  - name: git_resc
+    type: gitRepo
     configuration:
-      nodePool: k8_dynamic
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines
+pipelines:
+  - name: testpipeline
     steps:
-      - name: testBashStep
-        type: Bash 
+      - name: testStep
+        type: Bash
         configuration:
+          inputResources:
+            - name: git_resc
         execution:
           onStart:
             - echo "executing onStart"
           onExecute:
-            - echo "executing step.."
+            - echo "executing onExecute"

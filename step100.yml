@@ -1273,7 +1273,7 @@ pipelines:
 
       - name: retiredcheck
         type: templates1/gitstep
-        syntaxVersion: 1.1.0
+#         syntaxVersion: 1.1.0
         configuration:              
           foo: bar
           inputResources:

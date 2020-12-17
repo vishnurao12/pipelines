@@ -1271,17 +1271,17 @@ pipelines:
           onExecute:
             - printenv
 
-#       - name: retiredcheck
-#         type: templates1/gitstep
-#         configuration:              
-#           foo: bar
-#           inputResources:
-#             - name: step004
-#             - name: connecting_resource1
-#           inputSteps:
-#             - name: step111
-#         execution:
-#           onStart:
-#             - printenv
-#             - echo ${res_step001_foo2}
-#             - printenv
+      - name: retiredcheck
+        type: templates1/gitstep
+        configuration:              
+          foo: bar
+          inputResources:
+            - name: step004
+            - name: connecting_resource1
+          inputSteps:
+            - name: step111
+        execution:
+          onStart:
+            - printenv
+            - echo ${res_step001_foo2}
+            - printenv

@@ -1,47 +1,13 @@
 pipelines:
-  - name: test_Jenkins
+  - name: testPipeline
     configuration:
-      nodePool: u16dynamic
+      nodePool: k8_dynamic
     steps:
-      - name: firstTestStepJenkins
-        type: Jenkins
-        configuration:
-          inputSteps:
-            - name: reqStepJenkins
-          jenkinsJobName: testPipeline
-          buildParameters:
-            foo1: bar1
-            foo2: bar2  
-          integrations:
-            - name: jenkins
-      - name: reqStepJenkins
-        type: Jenkins
-        configuration:
-          jenkinsJobName: testPipeline
-          buildParameters:
-            foo1: bar1
-            foo2: bar2  
-          integrations:
-            - name: jenkins
-      - name: secondTestStepJenkins
-        type: Jenkins
-        configuration:
-          inputSteps:
-            - name: reqStepJenkins
-          jenkinsJobName: testPipelineUpdated
-          buildParameters:
-            foo1: bar1
-            foo2: bar2  
-          integrations:
-            - name: jenkins
       - name: testBashStep
         type: Bash 
         configuration:
-          inputSteps:
-            - name: secondTestStepJenkins
         execution:
           onStart:
             - echo "executing onStart"
           onExecute:
-            - sleep 5s
-        
+            - echo "executing step.."

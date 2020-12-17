@@ -28,6 +28,7 @@ pipelines:
            - name: git_v
         execution:
           onExecute:
+            - docker images
             - printenv | grep "testCases"
             - echo $testCases
             - testcaseDup="[\"core/testHarness/$testCases\"]"

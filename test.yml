@@ -4,6 +4,7 @@ pipelines:
       - name: NP_DyGCP_0041
         type: Bash
         configuration:
+          nodePool: dynamic_gcp
         execution:
           onExecute:
             - echo "hi"

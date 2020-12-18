@@ -4,7 +4,7 @@ pipelines:
       - name: testStepBash
         type: Bash
         configuration:
-          nodePool: gcpDy
+          nodePool: gcpDyn
         execution:
           onExecute:
             - echo "hello"

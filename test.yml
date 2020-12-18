@@ -1,7 +1,7 @@
 pipelines:
-  - name: NP_DyGCP
+  - name: testPipeline
     steps:
-      - name: NP_DyGCP_41
+      - name: testStepBash
         type: Bash
         configuration:
           nodePool: dynamic_gcp

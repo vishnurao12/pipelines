@@ -1,7 +1,7 @@
 pipelines:
-  - name: testPipeline
+  - name: test_Pipeline
     steps:
-      - name: testStepBash
+      - name: testBashStep
         type: Bash
         configuration:
           nodePool: dynamicGCP

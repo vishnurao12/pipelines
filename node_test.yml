@@ -5,14 +5,47 @@ resources:
       key1: value1
       key2: value2
 
-
 pipelines:
   - name: node_test
     steps:
+      - name: myStep112
+        type: Bash
+        configuration:
+          outputResources: 
+            - name: connecting_resource_node_test
+#               trigger: false
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - write_output connecting_resource_node_test "test:value"
+
+      - name: win_2019
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
+          inputResources:
+            - name: connecting_resource_node_test
+        execution:
+          onExecute:
+            - write-output "Hi"
+            - docker images
+
       - name: u16dynamic
         type: Bash
         configuration:
           nodePool: u16dynamic
+          inputResources:
+            - name: connecting_resource_node_test
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+
+      - name: c7dynamic
+        type: Bash
+        configuration:
+          nodePool: c7dynamic
           inputResources:
             - name: connecting_resource_node_test
         execution:
@@ -30,16 +63,16 @@ pipelines:
           onExecute:
             - printenv
             - docker images
-      - name: c7dynamic
-        type: Bash
-        configuration:
-          nodePool: c7dynamic
-          inputResources:
-            - name: connecting_resource_node_test
-        execution:
-          onExecute:
-            - printenv
-            - docker images
+
+#       - name: rhel
+#         type: Bash
+#         configuration:
+#           nodePool: rhe7
+#           inputResources:
+#             - name: connecting_resource_node_test
+#         execution:
+#           onExecute:
+#             - printenv
             
       - name: u20dynamic
         type: Bash
@@ -63,16 +96,16 @@ pipelines:
             - printenv
             - docker images
 
-      - name: win_2019
-        type: PowerShell
-        configuration:
-          nodePool: win_2019
-          inputResources:
-            - name: connecting_resource_node_test
-        execution:
-          onExecute:
-            - write-output "Hi"
-            - docker images
+#       - name: win_2019
+#         type: PowerShell
+#         configuration:
+#           nodePool: win_2019
+#           inputResources:
+#             - name: connecting_resource_node_test
+#         execution:
+#           onExecute:
+#             - write-output "Hi"
+#             - docker images
 
 #       - name: u16
 #         type: Bash

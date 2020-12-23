@@ -5,7 +5,7 @@ resources:
      test: values12
 
 pipelines:
-  - name: testing_123
+  - name: testing_1234
 #     configuration:
 #       nodePool: gcp-test
     steps:

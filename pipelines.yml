@@ -1,37 +1,60 @@
 resources:
- - name: resource_pipelines1245
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-     buildOn:
-       pullRequestCreate: true
-     cancelPendingRunsOn:
-       pullRequestUpdate: true
+  - name: connecting_resource_node_test12
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
 
 pipelines:
-  - name: testing_123
+  - name: node_test
     steps:
       - name: myStep112
         type: Bash
         configuration:
-         inputResources: 
-           - name: resource_pipelines1245
-         integrations:
-           - name: git_v
+          outputResources: 
+            - name: connecting_resource_node_test12
+#               trigger: false
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - write_output connecting_resource_node_test "test:value"
+
+      - name: static
+        type: Bash
+        configuration:
+          nodePool: static
+          inputResources:
+            - name: connecting_resource_node_test12
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
-            - echo "hi"
-          onSuccess:
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
+            - docker images
+            - sleep 10m
+
+      - name: gcp_dynamic
+        type: Bash
+        configuration:
+          nodePool: u16dynamic
+          inputResources:
+            - name: connecting_resource_node_test12
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            - sleep 10m
+
+      - name: k8sdynamic
+        type: Bash
+        configuration:
+          nodePool: k8sdynamic
+          inputResources:
+            - name: connecting_resource_node_test12
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            - sleep 10m
 
 
 

@@ -36,7 +36,7 @@ pipelines:
             - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - echo "hi"
-            - echo $vishnur
+            - exit 1
 #             - sleep 3m
           onSuccess:
             - pushd $res_resource_pipelines1245_resourcePath

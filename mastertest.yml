@@ -367,54 +367,54 @@ pipelines:
 #           onExecute:
 #             - echo automation > test.sh
  
-      - name: docker_fail_win
-        type: PowerShell
-        configuration:
-          integrations:
-            - name: docker_v
-          inputResources:
-            - name: connecting_resource
-#             - name: testfileSpec
-        execution:
-          onExecute:
-            - echo automation > test.sh
-#             - jfrog rt u test.sh example-repo-local/setup/test.sh 
+#       - name: docker_fail_win
+#         type: PowerShell
+#         configuration:
+#           integrations:
+#             - name: docker_v
+#           inputResources:
+#             - name: connecting_resource
+# #             - name: testfileSpec
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
+# #             - jfrog rt u test.sh example-repo-local/setup/test.sh 
 
-      - name: art_login_fail_win
-        type: PowerShell
-        configuration:
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: connecting_resource
-#             - name: testfileSpec
-        execution:
-          onExecute:
-            - echo automation > test.sh
+#       - name: art_login_fail_win
+#         type: PowerShell
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: connecting_resource
+# #             - name: testfileSpec
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
             
-      - name: gcp_login_fail_win
-        type: PowerShell
-        configuration:
-          integrations:
-            - name: gcp_v
-          inputResources:
-            - name: connecting_resource
-#             - name: testfileSpec
-        execution:
-          onExecute:
-            - echo automation > test.sh
+#       - name: gcp_login_fail_win
+#         type: PowerShell
+#         configuration:
+#           integrations:
+#             - name: gcp_v
+#           inputResources:
+#             - name: connecting_resource
+# #             - name: testfileSpec
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
             
-      - name: azure_login_fail_win
-        type: PowerShell
-        configuration:
-          integrations:
-            - name: azure_v
-          inputResources:
-            - name: connecting_resource
-#             - name: testfileSpec
-        execution:
-          onExecute:
-            - echo automation > test.sh
+#       - name: azure_login_fail_win
+#         type: PowerShell
+#         configuration:
+#           integrations:
+#             - name: azure_v
+#           inputResources:
+#             - name: connecting_resource
+# #             - name: testfileSpec
+#         execution:
+#           onExecute:
+#             - echo automation > test.sh
 
 #       - name: fileSpec_login_fail
 #         type: Bash

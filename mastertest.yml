@@ -45,7 +45,7 @@ resources:
   - name: ns_buildInfo_helm
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       buildName: master_test_buildInfo_helm
       buildNumber: 1.0.0
   
@@ -82,14 +82,14 @@ resources:
   - name: go_build_info_publish_moduletest
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       buildName: go_example_module_publish_varsha
       buildNumber: 332
       
   - name: go_build_info_publishtest
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       buildName: go_example_build_publish_varsha
       buildNumber: 32
   
@@ -116,14 +116,14 @@ resources:
   - name: build_info_gradle
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       buildName: full-gradle-native
       buildNumber: 1
 
   - name: mvnBuild_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       buildName: mvn_sample_build_master_test
       buildNumber: 9
 
@@ -163,7 +163,7 @@ resources:
   - name: buildinfo_for_npmPublish
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       buildName: npm_publish
       buildNumber: 1
   
@@ -183,7 +183,7 @@ resources:
   - name: helm_repo
     type: HelmChart
     configuration: 
-      sourceArtifactory: art_v1
+      sourceArtifactory: art_v
       repository: helm-local
       chart: test
       version: 1.0.0
@@ -296,7 +296,7 @@ pipelines:
         configuration:
           nodePool: win_2019
           integrations:
-            - name: art_v1
+            - name: art_v
           inputResources:
             - name: connecting_resource
 #             - name: testfileSpec
@@ -322,7 +322,7 @@ pipelines:
 #         type: Bash
 #         configuration:
 #           integrations:
-#             - name: docker_v1
+#             - name: docker_v
 #           inputResources:
 #             - name: connecting_resource
 # #             - name: testfileSpec
@@ -335,7 +335,7 @@ pipelines:
 #         type: Bash
 #         configuration:
 #           integrations:
-#             - name: art_v1
+#             - name: art_v
 #           inputResources:
 #             - name: connecting_resource
 # #             - name: testfileSpec
@@ -347,7 +347,7 @@ pipelines:
 #         type: Bash
 #         configuration:
 #           integrations:
-#             - name: gcp_v1
+#             - name: gcp_v
 #           inputResources:
 #             - name: connecting_resource
 # #             - name: testfileSpec
@@ -371,7 +371,7 @@ pipelines:
         type: PowerShell
         configuration:
           integrations:
-            - name: docker_v1
+            - name: docker_v
           inputResources:
             - name: connecting_resource
 #             - name: testfileSpec
@@ -384,7 +384,7 @@ pipelines:
         type: PowerShell
         configuration:
           integrations:
-            - name: art_v1
+            - name: art_v
           inputResources:
             - name: connecting_resource
 #             - name: testfileSpec
@@ -396,7 +396,7 @@ pipelines:
         type: PowerShell
         configuration:
           integrations:
-            - name: gcp_v1
+            - name: gcp_v
           inputResources:
             - name: connecting_resource
 #             - name: testfileSpec
@@ -408,7 +408,7 @@ pipelines:
         type: PowerShell
         configuration:
           integrations:
-            - name: azure_v1
+            - name: azure_v
           inputResources:
             - name: connecting_resource
 #             - name: testfileSpec
@@ -420,7 +420,7 @@ pipelines:
 #         type: Bash
 #         configuration:
 #           integrations:
-#             - name: azure_v1
+#             - name: azure_v
 #           inputResources:
 #             - name: connecting_resource
 # #             - name: testfileSpec
@@ -432,7 +432,7 @@ pipelines:
 #         type: Bash
 #         configuration:
 #           integrations:
-#             - name: azure_v1
+#             - name: azure_v
 #           inputResources:
 #             - name: connecting_resource
 # #             - name: testfileSpec
@@ -444,7 +444,7 @@ pipelines:
 #         type: Bash
 #         configuration:
 #           integrations:
-#             - name: azure_v1
+#             - name: azure_v
 #           inputResources:
 #             - name: connecting_resource
 # #             - name: testfileSpec
@@ -585,7 +585,7 @@ pipelines:
             - name: build_go
           targetRepository: test-go-local
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -616,7 +616,7 @@ pipelines:
           targetRepository: test-go-local
           autoPublishBuildInfo: true
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -746,7 +746,7 @@ pipelines:
             - name: gradle_repo
             - name: connecting_resource
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -813,7 +813,7 @@ pipelines:
             - name: maven_repo
             - name: connecting_resource
           integrations:
-            - name: art_v1
+            - name: art_v
 #           runtime: 
 #             type: image
 #             image: 
@@ -892,7 +892,7 @@ pipelines:
           inputSteps:
             - name: build_npm
           integrations:
-            - name: art_v1
+            - name: art_v
           outputResources:            
             - name: buildinfo_for_npmPublish 
 #           runtime: 

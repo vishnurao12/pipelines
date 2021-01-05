@@ -284,6 +284,11 @@ resources:
 
 pipelines:
   - name: Master_test_pipe
+  
+      configuration:  
+      runtime: # optional            
+        type: host 
+        
 #     configuration:
 #       nodePool: win_2019
 #       environmentVariables:

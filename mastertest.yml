@@ -284,8 +284,7 @@ resources:
 
 pipelines:
   - name: Master_test_pipe
-  
-      configuration:  
+    configuration:  
       runtime: # optional            
         type: host 
         

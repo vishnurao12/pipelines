@@ -7,6 +7,7 @@ pipelines:
       - name: Upload_to_artifactory
         type: Bash
         configuration:
+          nodePool: awsu16
           integrations:
             - name: art_v
         execution:
@@ -23,6 +24,7 @@ pipelines:
       - name: Download_frm_artifactory
         type: Bash
         configuration:
+          nodePool: awsu16
           integrations:
             - name: art_v
           inputSteps:

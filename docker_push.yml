@@ -53,7 +53,7 @@ pipelines:
           dockerFileLocation: .
           dockerFileName: Dockerfile
           dockerImageName: fullstack.jfrog-pipelines.com/docker-local/node
-
+          
           dockerImageTag: latest
           integrations:
             - name: art_v
@@ -68,6 +68,8 @@ pipelines:
         configuration:
           affinityGroup: "BasicTest"
           autoPublishBuildInfo: false 
+          forceXrayScan:        true
+          failOnScan:           false
           targetRepository: docker-local #required
           integrations:
             - name: art_v 

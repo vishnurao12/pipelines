@@ -24,7 +24,7 @@ pipelines:
       - name: Download_frm_artifactory
         type: Bash
         configuration:
-          nodePool: awsu16
+          nodePool: rhel
           integrations:
             - name: art_v
           inputSteps:

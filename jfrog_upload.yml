@@ -32,7 +32,7 @@ pipelines:
         execution:
           onExecute:
 
-            - mkdir /testfolder # create test folder at the root
+            - mkdir /testfolder1 # create test folder at the root
             - jfrog rt dl example-repo-local/pipeline.sh
             - ls
 
@@ -40,9 +40,9 @@ pipelines:
     #adding an artifact to pipeline state using pipelines utility function 
 
 
-            - restore_pipeline_files mypipelinefile /testfolder/pipeline.sh # restoring the Artifactory from the pipeline state.
-            - cat /testfolder/pipeline.sh
+            - restore_pipeline_files mypipelinefile /testfolder1/pipeline.sh # restoring the Artifactory from the pipeline state.
+            - cat /testfolder1/pipeline.sh
 
             #run state
-            - restore_run_files myrunfile /testfolder/run.sh
-            - cat /testfolder/run.sh
+            - restore_run_files myrunfile /testfolder1/run.sh
+            - cat /testfolder1/run.sh

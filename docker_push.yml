@@ -75,15 +75,17 @@ pipelines:
             - name: art_v 
           inputSteps:
             - name: To_build_Docker_Image
-            
-               
-      - name: To_publish_buildInfo 
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: To_Push_Docker_Image
           outputResources:
             - name: ns_buildInfo
+            
+               
+#       - name: To_publish_buildInfo 
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: To_Push_Docker_Image
+#           outputResources:
+#             - name: ns_buildInfo
 
       - name: To_promote_build
         type: PromoteBuild
@@ -94,7 +96,7 @@ pipelines:
           inputResources:
             - name: ns_buildInfo
           inputSteps:
-            - name: To_publish_buildInfo
+            - name: To_Push_Docker_Image
           outputResources:
             - name: ns_promotedInfo
 

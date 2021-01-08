@@ -19,5 +19,5 @@ pipelines:
         execution:
           onExecute:
             - dotnet --version
-            - sleep 5m
+            - Start-Sleep -s 300
 

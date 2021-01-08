@@ -1,8 +1,5 @@
 pipelines:
-  - name: test_pipe
-    configuration:  
-      runtime: # optional            
-        type: host 
+  - name: test_pipe 
     steps:
       - name: Upload_to_artifactory
         type: Bash

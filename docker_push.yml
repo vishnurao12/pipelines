@@ -67,7 +67,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: "BasicTest"
-          autoPublishBuildInfo: false 
+          autoPublishBuildInfo: true 
           forceXrayScan:        true
           failOnScan:           false
           targetRepository: docker-local #required

@@ -40,6 +40,16 @@ resources:
       sourceArtifactory: art_v
       buildName: master_test_buildInfo
       buildNumber: 1514
+ 
+ 
+  - name:       out_image
+    type:      Image
+    configuration:
+      registry:            art_v
+      sourceRepository:    image-docker   # required if registry is Artifactory
+
+      imageName:           fullstack.jfrog-pipelines.com/docker-local/node
+      imageTag:            1.2.3
 
 
 pipelines:
@@ -77,6 +87,7 @@ pipelines:
             - name: To_build_Docker_Image
           outputResources:
             - name: ns_buildInfo
+            - name: out_image
             
                
 #       - name: To_publish_buildInfo 
@@ -108,9 +119,11 @@ pipelines:
           releaseBundleVersion:     v1.0.1
           inputResources:
             - name: ns_promotedInfo
-#           outputResources:
-#             - name: res_bundle
+          outputResources:
+            - name: res_bundle
           dryRun: false
+
+          autoPull:            <boolean> 
           
 #       - name: docker_sign_releaseBundle
 #         type: SignReleaseBundle

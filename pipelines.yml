@@ -11,7 +11,9 @@ pipelines:
       - name: testP1222
         type: PowerShell
         configuration:
-          nodePool: win_2019
+          integrations:
+            - name: art_v
+          nodePool: win_2019-1
           inputResources: 
           - name: testp123
         execution:

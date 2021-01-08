@@ -108,8 +108,8 @@ pipelines:
           releaseBundleVersion:     v1.0.1
           inputResources:
             - name: ns_promotedInfo
-          outputResources:
-            - name: res_bundle
+#           outputResources:
+#             - name: res_bundle
           dryRun: false
           
 #       - name: docker_sign_releaseBundle

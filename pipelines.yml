@@ -11,12 +11,13 @@ pipelines:
       - name: testP1222
         type: PowerShell
         configuration:
-          integrations:
-            - name: art_v
+#           integrations:
+#             - name: art_v
           nodePool: win-2019-1
           inputResources: 
           - name: testp123
         execution:
           onExecute:
             - dotnet --version
+            - sleep 5m
 

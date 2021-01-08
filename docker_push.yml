@@ -64,7 +64,7 @@ pipelines:
           dockerFileName: Dockerfile
           dockerImageName: fullstack.jfrog-pipelines.com/docker-local/node
           
-          dockerImageTag: latest
+          dockerImageTag: 1.2.3
           integrations:
             - name: art_v
 

@@ -20,12 +20,12 @@ resources:
       name: test_123
       version: v1.0.1
       
-#   - name: sig_bundle
-#     type: ReleaseBundle
-#     configuration:
-#       sourceDistribution: distribution_v
-#       name: test_123
-#       version: v1.0.1
+  - name: sig_bundle
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: distribution_v
+      name: test_123
+      version: v1.0.1
       
   - name: ns_promotedInfo
     type: BuildInfo
@@ -124,10 +124,10 @@ pipelines:
           dryRun: false
 
           
-#       - name: docker_sign_releaseBundle
-#         type: SignReleaseBundle
-#         configuration:
-#           inputResources:
-#             - name:            res_bundle
-#           outputResources:
-#             - name:            sig_bundle
+      - name: docker_sign_releaseBundle
+        type: SignReleaseBundle
+        configuration:
+          inputResources:
+            - name:            res_bundle
+          outputResources:
+            - name:            sig_bundle

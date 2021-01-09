@@ -18,14 +18,14 @@ resources:
     configuration:
       sourceDistribution: distribution_v
       name: test_123
-      version: v1.0.1
+      version: v1.0.3
       
   - name: sig_bundle
     type: ReleaseBundle
     configuration:
       sourceDistribution: distribution_v
       name: test_123
-      version: v1.0.1
+      version: v1.0.3
       
   - name: ns_promotedInfo
     type: BuildInfo
@@ -116,7 +116,7 @@ pipelines:
         configuration:
           #inherits from bash
           releaseBundleName:        test_123
-          releaseBundleVersion:     v1.0.1
+          releaseBundleVersion:     v1.0.3
           inputResources:
             - name: ns_promotedInfo
           outputResources:

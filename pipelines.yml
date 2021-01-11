@@ -18,6 +18,7 @@ pipelines:
           - name: testp123
         execution:
           onExecute:
+            - jfrog --version
             - dotnet --version
             - Start-Sleep -s 300
 

@@ -6,8 +6,8 @@ resources:
       path: neha-mishraa/pipelines
 pipelines:
   - name: testpipeline
-#     configuration:
-#       nodePool: k8_dynamic
+    configuration:
+      nodePool: awsNP
     steps:
       - name: testStep
         type: Bash

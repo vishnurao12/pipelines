@@ -7,7 +7,7 @@ resources:
 pipelines:
   - name: testpipeline
     configuration:
-      nodePool: awsNP
+      nodePool: K8NP
     steps:
       - name: testStep
         type: Bash

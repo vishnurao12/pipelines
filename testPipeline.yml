@@ -6,8 +6,8 @@ resources:
       path: neha-mishraa/pipelines
 pipelines:
   - name: testpipeline
-    configuration:
-      nodePool: K8NP
+#     configuration:
+#       nodePool: u16
     steps:
       - name: testStep
         type: Bash

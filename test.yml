@@ -4,7 +4,7 @@ pipelines:
       - name: testBashStep
         type: Bash
         configuration:
-          nodePool: dynamicGCP
+          nodePool: dynamic_u16
         execution:
           onExecute:
             - echo "hello"

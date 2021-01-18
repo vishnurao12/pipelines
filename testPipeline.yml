@@ -1,9 +1,9 @@
-resources:
-  - name: git_resc
-    type: gitRepo
-    configuration:
-      gitProvider: github_neha
-      path: neha-mishraa/pipelines
+# resources:
+#   - name: git_resc
+#     type: gitRepo
+#     configuration:
+#       gitProvider: github_neha
+#       path: neha-mishraa/pipelines
 pipelines:
   - name: testpipeline
     configuration:
@@ -11,9 +11,9 @@ pipelines:
     steps:
       - name: testStep
         type: PowerShell
-        configuration:
-          inputResources:
-            - name: git_resc
+#         configuration:
+#           inputResources:
+#             - name: git_resc
         execution:
           onStart:
             - echo "executing onStart"

@@ -1,0 +1,63 @@
+resources:
+ - name: resource_pipelines12
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
+     files: 
+       include: ^README.md$
+     branches:
+       include: ^{{gitBranch}}$
+#      buildOn:
+#        pullRequestCreate: true
+#      cancelPendingRunsOn:
+#        pullRequestUpdate: true
+
+pipelines:
+  - name: testing_12
+    steps:
+      - name: myStep112
+        type: Bash
+        configuration:
+         environmentVariables:
+           testCases: setup.js
+         inputResources: 
+           - name: resource_pipelines12
+         integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - docker images
+            - printenv | grep "testCases"
+            - echo $testCases
+            - testcaseDup="[\"core/testHarness/$testCases\"]"
+            - echo $testcaseDup
+            - pushd $res_resource_pipelines12_resourcePath
+            - ls
+            - echo "hi"
+#             - cat doesnotexist.txt
+#             - sleep 15m
+          onSuccess:
+            - pushd $res_resource_pipelines12_resourcePath
+            - ls
+
+
+      - name: myStep113
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: myStep112          
+        execution:
+          onExecute:
+            - docker images
+            - echo "hi"
+
+      - name: myStep114
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: myStep112         
+        execution:
+          onExecute:
+            - docker images
+            - echo "hi"

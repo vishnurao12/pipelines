@@ -1097,7 +1097,7 @@ pipelines:
 #            - name: air_extension
   #          - name: azure_extension
             - name: bb_extension
-            - name: bbs_extension
+#             - name: bbs_extension
 #            - name: DO_extension
             - name: DR_extension
 #            - name: ds_extension

@@ -10,7 +10,7 @@ pipelines:
       nodePool: win_2019
     steps:
       - name: testStep
-        type: Bash
+        type: PowerShell
         configuration:
           inputResources:
             - name: git_resc

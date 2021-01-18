@@ -1,5 +1,5 @@
 resources:
- - name: resource_pipelines12
+ - name: resource_pipelines122
    type: GitRepo
    configuration:
      gitProvider: git_v
@@ -22,7 +22,7 @@ pipelines:
          environmentVariables:
            testCases: setup.js
          inputResources: 
-           - name: resource_pipelines12
+           - name: resource_pipelines122
          integrations:
            - name: git_v
         execution:
@@ -32,13 +32,13 @@ pipelines:
             - echo $testCases
             - testcaseDup="[\"core/testHarness/$testCases\"]"
             - echo $testcaseDup
-            - pushd $res_resource_pipelines12_resourcePath
+            - pushd $res_resource_pipelines122_resourcePath
             - ls
             - echo "hi"
 #             - cat doesnotexist.txt
 #             - sleep 15m
           onSuccess:
-            - pushd $res_resource_pipelines12_resourcePath
+            - pushd $res_resource_pipelines122_resourcePath
             - ls
 
 

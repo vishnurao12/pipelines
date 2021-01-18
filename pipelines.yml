@@ -37,7 +37,7 @@ pipelines:
             - ls
             - echo "hi"
 #             - cat doesnotexist.txt
-            - sleep 15m
+#             - sleep 15m
           onSuccess:
             - pushd $res_resource_pipelines1245_resourcePath
             - ls

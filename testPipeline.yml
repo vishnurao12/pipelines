@@ -7,7 +7,7 @@ resources:
 pipelines:
   - name: testpipeline
     configuration:
-      nodePool: centOS_7
+      nodePool: win_2019
     steps:
       - name: testStep
         type: Bash

@@ -1,5 +1,5 @@
 resources:
-  - name: connecting_resource_node_test
+  - name: prop
     type: PropertyBag
     configuration:
       key1: value1
@@ -13,61 +13,20 @@ pipelines:
         type: Bash
         configuration:
           outputResources: 
-            - name: connecting_resource_node_test
+            - name: prop
 #               trigger: false
-          integrations:
-            - name: git_v
+#           integrations:
+#             - name: git_v
         execution:
           onExecute:
-            - write_output connecting_resource_node_test "test:value"
-
-      - name: win_2019
-        type: PowerShell
-        configuration:
-          nodePool: win_2019
-          inputResources:
-            - name: connecting_resource_node_test
-        execution:
-          onExecute:
-            - write-output "Hi"
-            - docker images
+            - write_output prop "test:value"
 
       - name: u16
         type: Bash
         configuration:
-          nodePool: u16
+#           nodePool: u16
           inputResources:
-            - name: connecting_resource_node_test
-        execution:
-          onExecute:
-            - printenv
-
-      - name: c7node
-        type: Bash
-        configuration:
-          nodePool: centos7
-          inputResources:
-            - name: connecting_resource_node_test
-        execution:
-          onExecute:
-            - printenv
-
-      - name: u18
-        type: Bash
-        configuration:
-          nodePool: u18
-          inputResources:
-            - name: connecting_resource_node_test
-        execution:
-          onExecute:
-            - printenv
-
-      - name: rhel
-        type: Bash
-        configuration:
-          nodePool: rhel7
-          inputResources:
-            - name: connecting_resource_node_test
+            - name: prop
         execution:
           onExecute:
             - printenv

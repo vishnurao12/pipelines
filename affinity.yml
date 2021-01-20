@@ -19,7 +19,7 @@ resources:
       branches:
         include: ^master$
 pipelines:
-  - name: testing_123
+  - name: testing_1231
     steps:
       - name: first
         type: Bash

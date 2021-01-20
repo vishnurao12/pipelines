@@ -135,7 +135,7 @@ pipelines:
           onSuccess:
             - echo "hello"
 
-  - name: win_testing_123
+  - name: pipelines_123
     configuration:
       nodePool: win_2019
     steps:

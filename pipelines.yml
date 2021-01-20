@@ -153,7 +153,6 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - sleep 5m
  
@@ -168,7 +167,6 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - sleep 5m
             
@@ -183,7 +181,6 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - sleep 5m
             
@@ -198,7 +195,6 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - sleep 5m
             
@@ -213,7 +209,6 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
             - ls
             
       - name: myStep127
@@ -227,7 +222,6 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - sleep 5m
             

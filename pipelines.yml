@@ -93,6 +93,33 @@ pipelines:
             - sleep 15m
             - ls
             
+      - name: myStep1124
+        type: Bash
+        configuration:
+         inputResources: 
+           - name: resource_pipelines1245
+         inputSteps:
+           - name:  myStep1121
+         integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - sleep 15m
+            - ls
+            
+      - name: myStep1125
+        type: Bash
+        configuration:
+         inputResources: 
+           - name: resource_pipelines1245
+         inputSteps:
+           - name:  myStep1124
+         integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - sleep 15m
+            - ls
 
       - name: myStep1122
         type: Bash

@@ -174,7 +174,7 @@ pipelines:
           integrations:
            - name: git_v
           inputSteps: 
-           - name: myStepa8
+           - name: myStepa6
           affinityGroup: "group1" 
         execution:
           onExecute:
@@ -309,7 +309,7 @@ pipelines:
           integrations:
             - name: git_v
           inputSteps: 
-            - name: myStepb9
+            - name: myStepb7
           affinityGroup: "group1a"
         execution:
           onExecute:

@@ -57,7 +57,7 @@ resources:
      files: 
        include: ^README.md$
      branches:
-       include: ^{{gitBranch}}$
+       include: ^test2$
 #      buildOn:
 #        pullRequestCreate: true
 #      cancelPendingRunsOn:
@@ -78,74 +78,117 @@ pipelines:
             - printenv
             - pushd $res_resource_pipelines1245_resourcePath
             - ls
+            - sleep 15m
 
-      - name: myStep1121
-        type: Bash
-        configuration:
-         inputResources: 
-           - name: resource_pipelines1245
-         inputSteps:
-           - name:  myStep112
-         integrations:
-           - name: git_v
-        execution:
-          onExecute:
-            - sleep 15m
-            - ls
+#       - name: myStep1121
+#         type: Bash
+#         configuration:
+#          inputResources: 
+#            - name: resource_pipelines1245
+#          inputSteps:
+#            - name:  myStep112
+#          integrations:
+#            - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
             
-      - name: myStep1124
-        type: Bash
-        configuration:
-         inputResources: 
-           - name: resource_pipelines1245
-         inputSteps:
-           - name:  myStep1121
-         integrations:
-           - name: git_v
-        execution:
-          onExecute:
-            - sleep 15m
-            - ls
+#       - name: myStep1124
+#         type: Bash
+#         configuration:
+#          inputResources: 
+#            - name: resource_pipelines1245
+#          inputSteps:
+#            - name:  myStep1121
+#          integrations:
+#            - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
             
-      - name: myStep1125
-        type: Bash
-        configuration:
-         inputResources: 
-           - name: resource_pipelines1245
-         inputSteps:
-           - name:  myStep1124
-         integrations:
-           - name: git_v
-        execution:
-          onExecute:
-            - sleep 15m
-            - ls
+#       - name: myStep1125
+#         type: Bash
+#         configuration:
+#          inputResources: 
+#            - name: resource_pipelines1245
+#          inputSteps:
+#            - name:  myStep1124
+#          integrations:
+#            - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
 
-      - name: myStep1122
-        type: Bash
-        configuration:
-         inputResources: 
-           - name: resource_pipelines1245
-         inputSteps:
-           - name:  myStep112
-         integrations:
-           - name: git_v
-        execution:
-          onExecute:
-            - sleep 15m
-            - ls
+#       - name: myStep1122
+#         type: Bash
+#         configuration:
+#          inputResources: 
+#            - name: resource_pipelines1245
+#          inputSteps:
+#            - name:  myStep112
+#          integrations:
+#            - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
+            
+#        - name: myStep1126
+#         type: Bash
+#         configuration:
+#          inputResources: 
+#            - name: resource_pipelines1245
+#          inputSteps:
+#            - name:  myStep1122
+#          integrations:
+#            - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
+            
+#        - name: myStep1127
+#         type: Bash
+#         configuration:
+#          inputResources: 
+#            - name: resource_pipelines1245
+#          inputSteps:
+#            - name:  myStep1122
+#          integrations:
+#            - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
+            
+#        - name: myStep1128
+#         type: Bash
+#         configuration:
+#          inputResources: 
+#            - name: resource_pipelines1245
+#          inputSteps:
+#            - name:  myStep1122
+#          integrations:
+#            - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
       
       
-      - name: myStep1123
-        type: Bash
-        configuration:
-         inputResources: 
-           - name: resource_pipelines1245
-         inputSteps:
-           - name:  myStep112
-         integrations:
-           - name: git_v
-        execution:
-          onExecute:
-            - sleep 15m
-            - ls
+#       - name: myStep1123
+#         type: Bash
+#         configuration:
+#          inputResources: 
+#            - name: resource_pipelines1245
+#          inputSteps:
+#            - name:  myStep112
+#          integrations:
+#            - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls

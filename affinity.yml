@@ -195,7 +195,7 @@ pipelines:
           inputSteps: 
             - name: first
             - name: second 
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -212,7 +212,7 @@ pipelines:
           inputSteps: 
             - name: first
             - name: second 
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -229,7 +229,7 @@ pipelines:
           inputSteps: 
             - name: first
             - name: second 
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -246,7 +246,7 @@ pipelines:
           inputSteps: 
             - name: first
             - name: second 
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -262,7 +262,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb1
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -278,7 +278,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb5
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -294,7 +294,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb6
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -310,7 +310,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb7
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -326,7 +326,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb2
-          affinityGroup: "group2"
+          affinityGroup: "group1"
           outputResources:
             - name: connect2
         execution:
@@ -346,7 +346,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb2
-          affinityGroup: "group2"
+          affinityGroup: "group1"
           outputResources:
             - name: connect2
         execution:
@@ -364,7 +364,7 @@ pipelines:
               trigger: true
           integrations:
             - name: git_v
-          affinityGroup: "group2"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -550,7 +550,7 @@ pipelines:
           inputSteps: 
             - name: first
             - name: second 
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -567,7 +567,7 @@ pipelines:
           inputSteps: 
             - name: first
             - name: second 
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -584,7 +584,7 @@ pipelines:
           inputSteps: 
             - name: first
             - name: second 
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -601,7 +601,7 @@ pipelines:
           inputSteps: 
             - name: first
             - name: second 
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -617,7 +617,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb1
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -633,7 +633,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb5
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -649,7 +649,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb6
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -665,7 +665,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb7
-          affinityGroup: "group1a"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"
@@ -681,7 +681,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb2
-          affinityGroup: "group2"
+          affinityGroup: "group1"
           outputResources:
             - name: connect2
         execution:
@@ -701,7 +701,7 @@ pipelines:
             - name: git_v
           inputSteps: 
             - name: myStepb2
-          affinityGroup: "group2"
+          affinityGroup: "group1"
           outputResources:
             - name: connect2
         execution:
@@ -719,7 +719,7 @@ pipelines:
               trigger: true
           integrations:
             - name: git_v
-          affinityGroup: "group2"
+          affinityGroup: "group1"
         execution:
           onExecute:
             - echo "hello"

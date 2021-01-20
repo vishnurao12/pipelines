@@ -372,6 +372,7 @@ pipelines:
             - echo "hello"
 
 ##########################################################################
+##########################################################################
   - name: pipelines_123
     configuration:
       nodePool: win_2019
@@ -391,6 +392,7 @@ pipelines:
             - echo "hello"
           onSuccess:
             - echo "hello"
+
       - name: second
         type: PowerShell
         configuration:
@@ -406,6 +408,7 @@ pipelines:
             - echo "hello"
           onSuccess:
             - echo "hello"
+
       - name: myStepa1
         type: PowerShell
         configuration:
@@ -421,8 +424,10 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
+            - Start-Sleep -s 780
           onSuccess:
             - echo "hello"
+
       - name: myStepa2
         type: PowerShell
         configuration:
@@ -438,8 +443,10 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
+            - Start-Sleep -s 1200
           onSuccess:
             - echo "hello"
+
       - name: myStepa3
         type: PowerShell
         configuration:
@@ -455,9 +462,84 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
+            - Start-Sleep -s 1200
           onSuccess:
             - echo "hello"
+
       - name: myStepa4
+        type: PowerShell
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa1
+          affinityGroup: "group1" 
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 780
+          onSuccess:
+            - echo "hello"
+
+      - name: myStepa5
+        type: PowerShell
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa4
+          affinityGroup: "group1" 
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 720
+          onSuccess:
+            - echo "hello"
+
+      - name: myStepa6
+        type: PowerShell
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa5
+          affinityGroup: "group1" 
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 12m
+          onSuccess:
+            - echo "hello"
+
+      - name: myStepa7
+        type: PowerShell
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa6
+          affinityGroup: "group1" 
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 12m
+          onSuccess:
+            - echo "hello"
+
+
+      - name: myStepb1
         type: PowerShell
         configuration:
           inputResources: 
@@ -466,16 +548,170 @@ pipelines:
           integrations:
             - name: git_v
           inputSteps: 
-            - name: myStepa3
+            - name: first
+            - name: second 
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 780 
+
+      - name: myStepb2
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: first
+            - name: second 
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 720 
+
+      - name: myStepb3
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: first
+            - name: second 
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 1560
+
+      - name: myStepb4
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: first
+            - name: second 
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 1080 
+
+      - name: myStepb5
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb1
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 780 
+
+      - name: myStepb6
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb5
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 1800 
+
+      - name: myStepb7
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb6
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 600 
+
+      - name: myStepb8
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb7
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 1200 
+
+      - name: myStepc1
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb2
           affinityGroup: "group2"
           outputResources:
             - name: connect2
         execution:
           onExecute:
             - echo "hello"
+            - Start-Sleep -s 600
           onSuccess:
             - write_output connect2 "testKey=$run_id"
-      - name: myStepa5
+
+      - name: myStepc2
+        type: PowerShell
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb2
+          affinityGroup: "group2"
+          outputResources:
+            - name: connect2
+        execution:
+          onExecute:
+            - echo "hello"
+            - Start-Sleep -s 420
+          onSuccess:
+            - write_output connect2 "testKey=$run_id"
+
+      - name: myStepc3
         type: PowerShell
         configuration:
           inputResources: 

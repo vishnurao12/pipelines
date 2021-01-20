@@ -20,7 +20,7 @@ resources:
         include: ^master$
 
 pipelines:
-  - name: testing_1231
+  - name: testing_1213m
     steps:
       - name: first
         type: Bash
@@ -69,7 +69,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 3m
+            - sleep 13m
           onSuccess:
             - echo "hello"
 
@@ -88,7 +88,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 35min
+            - sleep 20m
           onSuccess:
             - echo "hello"
 
@@ -107,7 +107,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 35m
+            - sleep 20m
           onSuccess:
             - echo "hello"
 
@@ -125,7 +125,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 3m
+            - sleep 13m
           onSuccess:
             - echo "hello"
 
@@ -143,7 +143,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 32m
+            - sleep 112m
           onSuccess:
             - echo "hello"
 
@@ -161,7 +161,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 2m
+            - sleep 12m
           onSuccess:
             - echo "hello"
 
@@ -179,7 +179,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 2m
+            - sleep 12m
           onSuccess:
             - echo "hello"
 
@@ -199,7 +199,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 31m 
+            - sleep 13m 
 
       - name: myStepb2
         type: Bash
@@ -216,7 +216,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 32m 
+            - sleep 112m 
 
       - name: myStepb3
         type: Bash
@@ -233,7 +233,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 36m 
+            - sleep 26m
 
       - name: myStepb4
         type: Bash
@@ -250,7 +250,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 45m 
+            - sleep 18m 
 
       - name: myStepb5
         type: Bash
@@ -266,7 +266,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 3m 
+            - sleep 13m 
 
       - name: myStepb6
         type: Bash
@@ -332,7 +332,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 4m
+            - sleep 10m
           onSuccess:
             - write_output connect2 "testKey=$run_id"
 

@@ -18,6 +18,7 @@ resources:
         include: ^README.md$
       branches:
         include: ^master$
+
 pipelines:
   - name: testing_1231
     steps:
@@ -36,6 +37,7 @@ pipelines:
             - echo "hello"
           onSuccess:
             - echo "hello"
+
       - name: second
         type: Bash
         configuration:
@@ -51,6 +53,7 @@ pipelines:
             - echo "hello"
           onSuccess:
             - echo "hello"
+
       - name: myStepa1
         type: Bash
         configuration:
@@ -66,8 +69,10 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
+            - sleep 3m
           onSuccess:
             - echo "hello"
+
       - name: myStepa2
         type: Bash
         configuration:
@@ -83,8 +88,10 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
+            - sleep 35min
           onSuccess:
             - echo "hello"
+
       - name: myStepa3
         type: Bash
         configuration:
@@ -100,9 +107,84 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
+            - sleep 35m
           onSuccess:
             - echo "hello"
+
       - name: myStepa4
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa1
+          affinityGroup: "group1" 
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 3m
+          onSuccess:
+            - echo "hello"
+
+      - name: myStepa5
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa4
+          affinityGroup: "group1" 
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 32m
+          onSuccess:
+            - echo "hello"
+
+      - name: myStepa6
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa5
+          affinityGroup: "group1" 
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 2m
+          onSuccess:
+            - echo "hello"
+
+      - name: myStepa7
+        type: Bash
+        configuration:
+          inputResources: 
+           - name: resource_pipelines123
+             trigger: false
+          integrations:
+           - name: git_v
+          inputSteps: 
+           - name: myStepa8
+          affinityGroup: "group1" 
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 2m
+          onSuccess:
+            - echo "hello"
+
+
+      - name: myStepb1
         type: Bash
         configuration:
           inputResources: 
@@ -111,16 +193,170 @@ pipelines:
           integrations:
             - name: git_v
           inputSteps: 
-            - name: myStepa3
+            - name: first
+            - name: second 
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 31m 
+
+      - name: myStepb2
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: first
+            - name: second 
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 32m 
+
+      - name: myStepb3
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: first
+            - name: second 
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 36m 
+
+      - name: myStepb4
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: first
+            - name: second 
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 45m 
+
+      - name: myStepb5
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb1
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 3m 
+
+      - name: myStepb6
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb5
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 30m 
+
+      - name: myStepb7
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb6
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 10m 
+
+      - name: myStepb8
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb9
+          affinityGroup: "group1a"
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 20m 
+
+      - name: myStepc1
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb2
           affinityGroup: "group2"
           outputResources:
             - name: connect2
         execution:
           onExecute:
             - echo "hello"
+            - sleep 4m
           onSuccess:
             - write_output connect2 "testKey=$run_id"
-      - name: myStepa5
+
+      - name: myStepc2
+        type: Bash
+        configuration:
+          inputResources: 
+            - name: resource_pipelines123
+              trigger: false
+          integrations:
+            - name: git_v
+          inputSteps: 
+            - name: myStepb2
+          affinityGroup: "group2"
+          outputResources:
+            - name: connect2
+        execution:
+          onExecute:
+            - echo "hello"
+            - sleep 7m
+          onSuccess:
+            - write_output connect2 "testKey=$run_id"
+
+      - name: myStepc3
         type: Bash
         configuration:
           inputResources: 
@@ -135,6 +371,7 @@ pipelines:
           onSuccess:
             - echo "hello"
 
+##########################################################################
   - name: pipelines_123
     configuration:
       nodePool: win_2019

@@ -73,15 +73,52 @@ pipelines:
            - name: resource_pipelines1245
          integrations:
            - name: git_v
-           - name: docker_test
         execution:
           onExecute:
             - printenv
             - pushd $res_resource_pipelines1245_resourcePath
             - ls
-            - echo "hi"
-          onSuccess:
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
 
+      - name: myStep1121
+        type: Bash
+        configuration:
+         inputResources: 
+           - name: resource_pipelines1245
+         inputSteps:
+           - name:  myStep112
+         integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - sleep 15m
+            - ls
+            
+
+      - name: myStep1122
+        type: Bash
+        configuration:
+         inputResources: 
+           - name: resource_pipelines1245
+         inputSteps:
+           - name:  myStep112
+         integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - sleep 15m
+            - ls
       
+      
+      - name: myStep1123
+        type: Bash
+        configuration:
+         inputResources: 
+           - name: resource_pipelines1245
+         inputSteps:
+           - name:  myStep112
+         integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - sleep 15m
+            - ls

@@ -143,7 +143,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 112m
+            - sleep 12m
           onSuccess:
             - echo "hello"
 
@@ -216,7 +216,7 @@ pipelines:
         execution:
           onExecute:
             - echo "hello"
-            - sleep 112m 
+            - sleep 12m 
 
       - name: myStepb3
         type: Bash

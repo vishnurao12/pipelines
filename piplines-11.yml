@@ -1,0 +1,13 @@
+resources:
+  - name: prop_bag
+    type: PropertyBag
+    configuration:
+      key: value
+pipelines:
+  - name: pipelines_112
+    steps:
+    - name: step_1
+      type: Bash
+      execution:
+        onExecute:
+          - echo "${step_name} running"   

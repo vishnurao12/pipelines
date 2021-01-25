@@ -3,8 +3,8 @@ pipelines:
     steps:
       - name: testBashStep
         type: Bash
-        configuration:
-          nodePool: dynamic_u16
+#         configuration:
+#           nodePool: dynamic_u16
         execution:
           onExecute:
             - echo "hello"

@@ -1,24 +1,13 @@
 resources:
- - name: testp123
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-
+  - name: prop_bag
+    type: PropertyBag
+    configuration:
+      key: value
 pipelines:
-  - name: testP121
+  - name: pipelines_12
     steps:
-      - name: testP1222
-        type: PowerShell
-        configuration:
-          integrations:
-            - name: art_v
-          nodePool: win-2019-1
-          inputResources: 
-          - name: testp123
-        execution:
-          onExecute:
-            - jfrog --version
-            - dotnet --version
-            - Start-Sleep -s 300
-
+    - name: step_1
+      type: Bash
+      execution:
+        onExecute:
+          - echo "${step_name} running"   

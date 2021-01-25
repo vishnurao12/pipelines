@@ -1,0 +1,7 @@
+name: pipelines_123
+steps:
+  - name: step_1
+    type: Bash
+    execution:
+      onExecute:
+        - 'echo "${step_name} running"'

@@ -1,6 +1,6 @@
 
 pipelines:
-  - name: pipelines_111
+  - name: pipelines_
     steps:
     - name: step_1
       type: Bash

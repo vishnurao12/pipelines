@@ -11,7 +11,7 @@ resources:
         pullRequestClose: true
 
 pipelines:
-  - name: 
+  - name: test
     steps:
       - name: test
         type: Bash

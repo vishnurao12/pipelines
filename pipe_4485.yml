@@ -4,48 +4,11 @@ resources:
     configuration:
       key: value
 pipelines:
-  - name: pipelines_parallel_step_state
+  - name: pipelines_111
     steps:
     - name: step_1
       type: Bash
       execution:
         onExecute:
           - echo "${step_name} running"    
-    - name: step_2
-      type: Bash
-      configuration:
-        inputSteps:
-          - name: step_1
-        outputResources:
-          - name: prop_bag
-      execution:
-        onStart:
-          - add_run_variables foo="bar"
-        onExecute:
-          - echo "${step_name} running"
-          - sleep 10s
-          - write_output prop_bag "lastRunId=$run_id"    
-    - name: step_3
-      type: Bash
-      configuration:
-        inputSteps:
-          - name: step_1
-      execution:
-        onExecute:
-          - echo "${step_name} running"
-          - sleep 40s    
-          
-    - name: step_4
-      type: Bash
-      configuration:
-        inputSteps:
-          - name: step_3
-        inputResources:
-          - name: prop_bag
-      execution:
-        onStart:
-          - echo "foo ---> $foo"
-          - echo "lastRunId ---> $lastRunId"
-        onExecute:
-          - echo "${step_name} running"
-          - if [ "$foo" != "bar" ]; then exit 1; fi
+ 

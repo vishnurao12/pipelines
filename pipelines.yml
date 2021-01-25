@@ -2,7 +2,7 @@ resources:
   - name: repo_git
     type: GitRepo
     configuration:
-      path: vishnurao12/master
+      path: vishnurao12/pipelines
       gitProvider: git_v
       
       buildOn:

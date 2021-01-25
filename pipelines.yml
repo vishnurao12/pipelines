@@ -1,8 +1,4 @@
-resources:
-  - name: prop_bag
-    type: PropertyBag
-    configuration:
-      key: value
+
 pipelines:
   - name: pipelines_12
     steps:

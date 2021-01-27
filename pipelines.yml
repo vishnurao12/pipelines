@@ -20,5 +20,5 @@ pipelines:
           onExecute:
             - jfrog --version
             - dotnet --version
-            - Start-Sleep -s 300
+#             - Start-Sleep -s 300
 

@@ -1,5 +1,9 @@
 pipelines:
   - name: testpipeline
+    configuration:
+      retentionPolicy:
+          maxAgeDays: 15
+          minRuns: 2
     steps:
       - name: testStep
         type: Bash

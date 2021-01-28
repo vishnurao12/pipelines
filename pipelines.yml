@@ -6,8 +6,8 @@ resources:
 
 pipelines:
   - name: testing_1234
-#     configuration:
-#       nodePool: gcp-test
+    configuration:
+      nodePool: u16dynamic
     steps:
       - name: myStep112
         type: Bash

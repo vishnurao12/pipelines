@@ -2,7 +2,7 @@ resources:
   - name: cron_5min
     type: CronTrigger
     configuration:
-      interval: "*/5 * * * *"
+      interval: "*/3 * * * *"
 
 pipelines:
   - name: testing_123

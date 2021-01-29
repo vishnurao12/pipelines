@@ -1,0 +1,53 @@
+resources:
+  - name: cron_5min
+    type: CronTrigger
+    configuration:
+      interval: "*/3 * * * *"
+
+pipelines:
+  - name: testing_123
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          nodePool: u16
+          inputResources: 
+            - name: cron_5min
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+            - echo test>sample.txt
+            - add_cache_files sample.txt sample
+            - add_run_variables sample:$run_id
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+          nodePool: u18
+          inputResources: 
+            - name: cron_5min
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+            - echo test>sample.txt
+            - add_cache_files sample.txt sample
+            - add_run_variables sample:$run_id 
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+          nodePool: u20
+          inputResources: 
+            - name: cron_5min
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+            - echo test>sample.txt
+            - add_cache_files sample.txt sample
+            - add_run_variables sample:$run_id

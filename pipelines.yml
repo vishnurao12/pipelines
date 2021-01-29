@@ -1,47 +1,53 @@
 resources:
- - name: resource_pipelines1245
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-#      buildOn:
-#        pullRequestCreate: true
-#      cancelPendingRunsOn:
-#        pullRequestUpdate: true
+  - name: cron_5min
+    type: CronTrigger
+    configuration:
+      interval: "*/5 * * * *"
 
 pipelines:
   - name: testing_123
     steps:
-      - name: myStep112
+      - name: myStep1
         type: Bash
         configuration:
-         environmentVariables:
-           testCases: setup.js
-          
          inputResources: 
-           - name: resource_pipelines1245
+           - name: cron_5min
          integrations:
            - name: git_v
-           - name: art_v
         execution:
           onExecute:
-            - docker images
-            - printenv | grep "testCases"
-            - echo $testCases
-            - testcaseDup="[\"core/testHarness/$testCases\"]"
-            - echo $testcaseDup
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
-            - echo "hi"
-#             - cat doesnotexist.txt
-#             - sleep 15m
-          onSuccess:
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
+            - touch sample.txt
+            - echo test>sample.txt
+            - add_cache_files sample.txt sample
+            - add_run_variables sample:$run_id
+            
+      - name: myStep12
+        type: Bash
+        configuration:
+         inputResources: 
+           - name: cron_5min
+         integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+            - echo test>sample.txt
+            - add_cache_files sample.txt sample
+            - add_run_variables sample:$run_id 
+            
+      - name: myStep12
+        type: Bash
+        configuration:
+         inputResources: 
+           - name: cron_5min
+         integrations:
+           - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+            - echo test>sample.txt
+            - add_cache_files sample.txt sample
+            - add_run_variables sample:$run_id
 
 
 

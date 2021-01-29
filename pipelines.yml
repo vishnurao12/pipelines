@@ -10,10 +10,11 @@ pipelines:
       - name: myStep1
         type: Bash
         configuration:
-         inputResources: 
-           - name: cron_5min
-         integrations:
-           - name: git_v
+          nodePool: u16
+          inputResources: 
+            - name: cron_5min
+          integrations:
+            - name: git_v
         execution:
           onExecute:
             - touch sample.txt
@@ -21,13 +22,14 @@ pipelines:
             - add_cache_files sample.txt sample
             - add_run_variables sample:$run_id
             
-      - name: myStep12
+      - name: myStep2
         type: Bash
         configuration:
-         inputResources: 
-           - name: cron_5min
-         integrations:
-           - name: git_v
+          nodePool: u18
+          inputResources: 
+            - name: cron_5min
+          integrations:
+            - name: git_v
         execution:
           onExecute:
             - touch sample.txt
@@ -35,13 +37,14 @@ pipelines:
             - add_cache_files sample.txt sample
             - add_run_variables sample:$run_id 
             
-      - name: myStep12
+      - name: myStep3
         type: Bash
         configuration:
-         inputResources: 
-           - name: cron_5min
-         integrations:
-           - name: git_v
+          nodePool: u20
+          inputResources: 
+            - name: cron_5min
+          integrations:
+            - name: git_v
         execution:
           onExecute:
             - touch sample.txt

@@ -25,7 +25,7 @@ pipelines:
       - name: myStep2
         type: Bash
         configuration:
-          nodePool: u18
+          nodePool: cen7
           inputResources: 
             - name: cron_5min
           integrations:
@@ -40,7 +40,7 @@ pipelines:
       - name: myStep3
         type: Bash
         configuration:
-          nodePool: u20
+          nodePool: cen8
           inputResources: 
             - name: cron_5min
           integrations:

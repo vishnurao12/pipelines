@@ -10,7 +10,9 @@ pipelines:
       - name: myStep1
         type: Bash
         configuration:
-
+          retentionPolicy:
+            maxAgeDays: 2
+            minRuns: 1000
 #           inputResources: 
 #             - name: cron_5min
           integrations:

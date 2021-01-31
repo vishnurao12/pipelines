@@ -41,8 +41,8 @@ pipelines:
         type: Bash
         configuration:
 
-          inputResources: 
-            - name: cron_5min
+#           inputResources: 
+#             - name: cron_5min
           integrations:
             - name: git_v
         execution:

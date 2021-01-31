@@ -12,8 +12,8 @@ pipelines:
         configuration:
           nodePool: u16
           retentionPolicy:
-            maxAgeDays: 2
-            minRuns: 1000
+            - maxAgeDays: 2
+            - minRuns: 1000
 #           inputResources: 
 #             - name: cron_5min
           integrations:

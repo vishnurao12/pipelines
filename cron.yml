@@ -1,8 +1,8 @@
-resources:
-  - name: cron_5min
-    type: CronTrigger
-    configuration:
-      interval: "* */2 * * *"
+# resources:
+#   - name: cron_5min
+#     type: CronTrigger
+#     configuration:
+#       interval: "* */2 * * *"
 
 pipelines:
   - name: testing_123
@@ -11,8 +11,8 @@ pipelines:
         type: Bash
         configuration:
 
-          inputResources: 
-            - name: cron_5min
+#           inputResources: 
+#             - name: cron_5min
           integrations:
             - name: git_v
         execution:

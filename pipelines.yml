@@ -2,9 +2,7 @@ resources:
  - name: resource_pipelines1245
    type: GitRepo
    configuration:
-     retentionPolicy:
-       maxAgeDays: 1
-       minRuns: 5
+
      gitProvider: git_v1
      path: vishnurao12/pipelines
      files: 
@@ -18,10 +16,13 @@ resources:
 
 pipelines:
   - name: testing_123
+    configuration:
+      retentionPolicy:
+      maxAgeDays: 1
+      minRuns: 5
     steps:
       - name: myStep112
         type: Bash
-        configuration:
          inputResources: 
            - name: resource_pipelines1245
          integrations:

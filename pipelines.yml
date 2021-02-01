@@ -2,7 +2,7 @@ resources:
  - name: resource_pipelines1245
    type: GitRepo
    configuration:
-     gitProvider: git_v
+     gitProvider: git_v1
      path: vishnurao12/pipelines
      files: 
        include: ^README.md$
@@ -22,7 +22,7 @@ pipelines:
          inputResources: 
            - name: resource_pipelines1245
          integrations:
-           - name: git_v
+           - name: git_v1
         execution:
           onExecute:
             - printenv

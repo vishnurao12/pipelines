@@ -6,7 +6,7 @@
 
 pipelines:
   - name: testing_123        
-    configuration:
+#     configuration:
 #       retentionPolicy:
 #         - maxAgeDays: 2
 #         - minRuns: 1000

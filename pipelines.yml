@@ -29,7 +29,7 @@ pipelines:
 #           inputResources: 
 #             - name: cron_5min
           integrations:
-            - name: git_v
+            - name: git_v1
         execution:
           onExecute:
             - touch sample.txt

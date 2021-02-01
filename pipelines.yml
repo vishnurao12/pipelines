@@ -2,6 +2,9 @@ resources:
  - name: resource_pipelines1245
    type: GitRepo
    configuration:
+     retentionPolicy:
+       maxAgeDays: 1
+       minRuns: 5
      gitProvider: git_v1
      path: vishnurao12/pipelines
      files: 

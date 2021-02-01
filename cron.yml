@@ -8,7 +8,7 @@ pipelines:
   - name: testing_123
     configuration:
       retentionPolicy:
-        maxAgeDays: 2
+        maxAgeDays: 1
         minRuns: 10
     steps:
       - name: myStep1

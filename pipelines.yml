@@ -29,19 +29,21 @@ pipelines:
             - add_cache_files sample.txt sample
             - add_run_variables sample=$run_id
             
-#       - name: myStep2
-#         type: Bash
-#         configuration:
-#           nodePool: u18
+      - name: myStep2
+        type: Bash
+        configuration:
+          nodePool: u18
+          inputSteps:
+            - name: myStep1
 #           inputResources: 
 #             - name: cron_5min
-#           integrations:
-#             - name: git_v
-#         execution:
-#           onExecute:
-#             - touch sample.txt
-#             - echo test>sample.txt
-#             - add_cache_files sample.txt sample
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+            - echo test>sample.txt
+            - add_cache_files sample.txt sample
 #             - add_run_variables sample:$run_id 
             
 #       - name: myStep3

@@ -6,13 +6,17 @@
 
 pipelines:
   - name: testing_123
+    configuration:
+      retentionPolicy:
+        maxAgeDays: 2
+        minRuns: 1000
     steps:
       - name: myStep1
         type: Bash
         configuration:
-          retentionPolicy:
-            maxAgeDays: 2
-            minRuns: 1000
+#           retentionPolicy:
+#             maxAgeDays: 2
+#             minRuns: 1000
 #           inputResources: 
 #             - name: cron_5min
           integrations:

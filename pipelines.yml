@@ -2,7 +2,6 @@ resources:
  - name: resource_pipelines1245
    type: GitRepo
    configuration:
-
      gitProvider: git_v1
      path: vishnurao12/pipelines
      files: 

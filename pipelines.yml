@@ -1,24 +1,38 @@
-resources:
- - name: testp123
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
+# resources:
+#  - name: testp123
+#    type: GitRepo
+#    configuration:
+#      gitProvider: git_v
+#      path: vishnurao12/pipelines
+
+# pipelines:
+#   - name: testP121
+#     steps:
+#       - name: testP1222
+#         type: PowerShell
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           nodePool: win_2019
+#           inputResources: 
+#           - name: testp123
+#         execution:
+#           onExecute:
+#             - jfrog --version
+#             - dotnet --version
+# #             - Start-Sleep -s 300
 
 pipelines:
-  - name: testP121
+  - name: writeOutput
     steps:
-      - name: testP1222
-        type: PowerShell
+
+      - name: stepout
+        type: Bash
         configuration:
-          integrations:
-            - name: art_v
-          nodePool: win_2019
-          inputResources: 
-          - name: testp123
+          runtime:
+            type: host
+          outputResources:
+            - name: S_Bash_0130_FileSpec
         execution:
           onExecute:
-            - jfrog --version
-            - dotnet --version
-#             - Start-Sleep -s 300
-
+            - write_output S_Bash_0130_FileSpec var=$run

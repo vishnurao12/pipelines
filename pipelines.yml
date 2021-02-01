@@ -22,10 +22,11 @@ pipelines:
     steps:
       - name: myStep112
         type: Bash
-         inputResources: 
-           - name: resource_pipelines1245
-         integrations:
-           - name: git_v1
+        configuration:
+          inputResources: 
+            - name: resource_pipelines1245
+          integrations:
+            - name: git_v1
         execution:
           onExecute:
             - printenv

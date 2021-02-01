@@ -17,25 +17,25 @@ pipelines:
   - name: testing_123
     configuration:
       retentionPolicy:
-      maxAgeDays: 1
-      minRuns: 5
+        maxAgeDays: 1
+        minRuns: 5
     steps:
-      - name: myStep112
+      - name: myStep1
         type: Bash
         configuration:
-          inputResources: 
-            - name: resource_pipelines1245
+#           retentionPolicy:
+#             maxAgeDays: 2
+#             minRuns: 1000
+#           inputResources: 
+#             - name: cron_5min
           integrations:
-            - name: git_v1
+            - name: git_v
         execution:
           onExecute:
-            - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
-            - echo "hi"
-          onSuccess:
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
+            - touch sample.txt
+            - echo test>sample.txt
+            - add_cache_files sample.txt sample
+            - add_run_variables sample:$run_id
 
 
 

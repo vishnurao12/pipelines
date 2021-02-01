@@ -9,7 +9,7 @@ pipelines:
     configuration:
       retentionPolicy:
         maxAgeDays: 2
-        minRuns: 500
+        minRuns: 10
     steps:
       - name: myStep1
         type: Bash

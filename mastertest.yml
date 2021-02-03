@@ -843,7 +843,7 @@ pipelines:
         configuration:
           targetRepository: test-generic-local # required 
           includeDependencies: true    # default false
-          status: "promote success" # for mvn_build_promoted" # optional
+          status: success # for mvn_build_promoted" # optional
           comment: "build needs to be promoted" # for mvn_build_promoted" # optional
           copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
 #           runtime: 

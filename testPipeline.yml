@@ -6,8 +6,8 @@
 #       path: neha-mishraa/pipelines
 pipelines:
   - name: testpipeline
-#     configuration:
-#       nodePool: win_2019
+    configuration:
+      nodePool: aws_u16
     steps:
       - name: testStep
         type: Bash

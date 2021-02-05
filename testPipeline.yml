@@ -7,7 +7,7 @@
 pipelines:
   - name: testpipeline
     configuration:
-      nodePool: aws_u16
+      nodePool: K8NP
     steps:
       - name: testStep
         type: Bash

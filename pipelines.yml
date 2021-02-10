@@ -19,23 +19,25 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration:
-         environmentVariables:
-           testCases: setup.js
-          
-         inputResources: 
-           - name: resource_pipelines1245
-         integrations:
-           - name: git_v
-           - name: art_v
+          environmentVariables:
+            testCases: setup.js
+          runtime:           
+            type: host
+          inputResources: 
+            - name: resource_pipelines1245
+          integrations:
+            - name: git_v
+#            - name: art_v
         execution:
           onExecute:
-            - docker images
-            - printenv | grep "testCases"
-            - echo $testCases
-            - testcaseDup="[\"core/testHarness/$testCases\"]"
-            - echo $testcaseDup
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
+#             - docker images
+            - df -h
+#             - printenv | grep "testCases"
+#             - echo $testCases
+#             - testcaseDup="[\"core/testHarness/$testCases\"]"
+#             - echo $testcaseDup
+#             - pushd $res_resource_pipelines1245_resourcePath
+#             - ls
             - echo "hi"
 #             - cat doesnotexist.txt
 #             - sleep 15m

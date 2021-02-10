@@ -15,7 +15,7 @@ pipelines:
             - name: connecting_resource_node_test
 #               trigger: false
           integrations:
-            - name: git_v
+            - name: git_neha
         execution:
           onExecute:
             - write_output connecting_resource_node_test "test:value"

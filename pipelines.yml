@@ -14,7 +14,7 @@ resources:
        pullRequestUpdate: true
 
 pipelines:
-  - name: testing_123
+  - name: testing_1234
     steps:
       - name: myStep112
         type: Bash

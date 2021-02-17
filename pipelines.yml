@@ -29,7 +29,7 @@ pipelines:
             - pushd $res_resource_pipelines1245_resourcePath
             - ls
             - echo "hi"
-            - sleep 15m
+            - sleep 5m
           onSuccess:
             - pushd $res_resource_pipelines1245_resourcePath
             - ls

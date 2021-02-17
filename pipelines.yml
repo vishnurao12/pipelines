@@ -1,5 +1,5 @@
 resources:
- - name: resource_pipelines1245
+ - name: resource_pipelines124
    type: GitRepo
    configuration:
      gitProvider: git_v
@@ -20,18 +20,18 @@ pipelines:
         type: Bash
         configuration:
          inputResources: 
-           - name: resource_pipelines1245
+           - name: resource_pipelines124
          integrations:
            - name: git_v
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
+            - pushd $res_resource_pipelines124_resourcePath
             - ls
             - echo "hi"
             - sleep 5m
           onSuccess:
-            - pushd $res_resource_pipelines1245_resourcePath
+            - pushd $res_resource_pipelines124_resourcePath
             - ls
 
 

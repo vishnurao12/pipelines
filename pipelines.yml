@@ -1,38 +1,231 @@
 resources:
- - name: resource_pipelines1245
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-#      buildOn:
-#        pullRequestCreate: true
-#      cancelPendingRunsOn:
-#        pullRequestUpdate: true
+  - name: cron_min
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
 
 pipelines:
-  - name: testing_123
+  - name: kogerPipelineId10Steps7Runs4
+
     steps:
-      - name: myStep112
+      - name: myStep1
         type: Bash
         configuration:
-         inputResources: 
-           - name: resource_pipelines1245
-         integrations:
-           - name: git_v
+          integrations:
+            - name: git_v
         execution:
           onExecute:
-            - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
-            - echo "hi"
-          onSuccess:
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+            
+      - name: myStep5
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep6
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+ 
+      - name: myStep7
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+#-------------------------------------------------------------------------------------
 
 
+  - name: kogerPipelineId11Steps1Runs1
 
-      
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+#-------------------------------------------------------------------------------------
+
+  - name: kogerPipelineId12Steps1Runs12
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+ #-------------------------------------------------------------------------------------
+   
+   - name: smartthingsPipelineId11Steps4Runs70
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: cron_min
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+ #-------------------------------------------------------------------------------------
+ 
+- name: smartthingsPipelineId12Steps4Runs4
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt

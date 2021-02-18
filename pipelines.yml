@@ -124,7 +124,7 @@ pipelines:
 
  #-------------------------------------------------------------------------------------
    
-   - name: smartthingsPipelineId11Steps4Runs70
+  - name: smartthingsPipelineId11Steps4Runs70
 
     steps:
       - name: myStep1
@@ -179,7 +179,7 @@ pipelines:
 
  #-------------------------------------------------------------------------------------
  
-- name: smartthingsPipelineId12Steps4Runs4
+  - name: smartthingsPipelineId12Steps4Runs4
 
     steps:
       - name: myStep1

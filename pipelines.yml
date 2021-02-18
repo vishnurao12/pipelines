@@ -1,8 +1,8 @@
-resources:
-  - name: cron_min
-    type: CronTrigger
-    configuration:
-      interval: "* * * * *"
+# resources:
+#   - name: cron_min
+#     type: CronTrigger
+#     configuration:
+#       interval: "* * * * *"
 
 pipelines:
   - name: kogerPipelineId10Steps7Runs4
@@ -130,8 +130,8 @@ pipelines:
       - name: myStep1
         type: Bash
         configuration:
-          inputResources:
-            - name: cron_min
+#           inputResources:
+#             - name: cron_min
           integrations:
             - name: git_v
         execution:

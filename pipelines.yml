@@ -41,6 +41,8 @@ pipelines:
             - echo "hi"
 #             - cat doesnotexist.txt
              #- sleep 5m
+            - docker pull postgres
+            - docker images
           onSuccess:
             - pushd $res_resource_pipelines1245_resourcePath
             - ls

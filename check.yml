@@ -7,7 +7,7 @@ pipelines:
           removeConfFile: "false"
           FILE: conf.json
           exitCode: "1"
-          SECONDSUPERUSERTOKEN: "$int_test_automation_secondSuperUserAccessToken_azure_env"
+          SECONDSUPERUSERTOKEN: "$int_test_dummykey"
      # nodePool: u16-gcp-dynamic
     steps:
       - name: testStep
@@ -17,5 +17,5 @@ pipelines:
             - name: test
         execution:
           onStart:
-            - echo $int_test_automation_secondSuperUserAccessToken_azure_env
+            - echo $int_test_dummykey
        

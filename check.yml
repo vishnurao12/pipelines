@@ -1,0 +1,21 @@
+pipelines:
+  - name: testPipe
+    configuration:
+      environmentVariables:
+        readOnly:
+          #set this env to true to delete the Conf.json file
+          removeConfFile: "false"
+          FILE: conf.json
+          exitCode: "1"
+          SECONDSUPERUSERTOKEN: "$int_test_automation_secondSuperUserAccessToken_azure_env"
+     # nodePool: u16-gcp-dynamic
+    steps:
+      - name: testStep
+        type: Bash
+        configuration:
+          integrations:
+            - name: test
+        execution:
+          onStart:
+            - echo "$int_test_automation_secondSuperUserAccessToken_azure_env"
+       

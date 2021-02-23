@@ -17,5 +17,5 @@ pipelines:
             - name: test
         execution:
           onStart:
-            - echo "$int_test_automation_secondSuperUserAccessToken_azure_env"
+            - echo $int_test_automation_secondSuperUserAccessToken_azure_env
        

@@ -11,9 +11,9 @@ pipelines:
     steps:
       - name: testStep
         type: Bash
-#         configuration:
-#           inputResources:
-#             - name: git_resc
+        configuration:
+          inputResources:
+            - name: dynamicNP
         execution:
           onStart:
             - echo "executing onStart"

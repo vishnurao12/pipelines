@@ -6,14 +6,14 @@
 #       path: neha-mishraa/pipelines
 pipelines:
   - name: testpipeline
-#     configuration:
-#       nodePool: K8NP
+    configuration:
+      nodePool: dynamicNP
     steps:
       - name: testStep
         type: Bash
-        configuration:
-          inputResources:
-            - name: dynamicNP
+#         configuration:
+#           inputResources:
+#             - name: dynamicNP
         execution:
           onStart:
             - echo "executing onStart"

@@ -31,7 +31,7 @@ pipelines:
 #             - df -h
 #             - fallocate -l 10G huge_file.dat4
 #             - df -h
-    steps:
+
       - name: testStepBash
         type: Bash
         execution:

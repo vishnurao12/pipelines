@@ -32,36 +32,36 @@ pipelines:
 #             - fallocate -l 10G huge_file.dat4
 #             - df -h
 
-#       - name: testStepBash1
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: testStep
-#         execution:
-#           onStart:
-#             - echo "executing onStart"
-#           onExecute:
-#             - echo "executing onExecute"
-#             - sleep 5s
-#       - name: testStepBash2
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: testStep
-#         execution:
-#           onStart:
-#             - echo "executing onStart"
-#           onExecute:
-#             - echo "executing onExecute"
-#             - sleep 5s
-#       - name: testStepBash3
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: testStep
-#         execution:
-#           onStart:
-#             - echo "executing onStart"
-#           onExecute:
-#             - echo "executing onExecute"
-#             - sleep 5s
+      - name: testStepBash1
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: testStep
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - echo "executing onExecute"
+            - sleep 5s
+      - name: testStepBash2
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: testStep
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - echo "executing onExecute"
+            - sleep 5s
+      - name: testStepBash3
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: testStep
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - echo "executing onExecute"
+            - sleep 5s

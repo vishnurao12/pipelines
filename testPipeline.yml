@@ -31,3 +31,12 @@ pipelines:
 #             - df -h
 #             - fallocate -l 10G huge_file.dat4
 #             - df -h
+    steps:
+      - name: testStepBash
+        type: Bash
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - echo "executing onExecute"
+            - sleep 5s

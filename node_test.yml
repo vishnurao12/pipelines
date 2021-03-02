@@ -1,5 +1,5 @@
 resources:
-  - name: connecting_resource_node_test_
+  - name: connecting_resource_node_test
     type: PropertyBag
     configuration:
       key1: value1

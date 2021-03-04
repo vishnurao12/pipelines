@@ -21,8 +21,8 @@ pipelines:
           onExecute:
             - echo automation > test.sh
             - echo automation > foo1
-            - jfrog rt u example-repo-local/setup/test.sh
-            - jfrog rt u example-repo-local/setup/foo1
+            - jfrog rt u test.sh example-repo-local/setup/test.sh
+            - jfrog rt u foo1 example-repo-local/setup/foo1
             - write_output connecting_resource_node_test "test=value"
 
       - name: win_2019

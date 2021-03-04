@@ -1,0 +1,2201 @@
+pipelines:
+- name: artifactory_monorepo_build
+  #CI_PIPELINE_URL=https://entplus.jfrog.io/ui/pipelines/myPipelines/artifactory_monorepo_build?branch=${GIT_BRANCH_URLENCODED}
+  configuration:
+    # nodePool: k8_node_pool
+    environmentVariables:
+      readOnly:
+        GOSUMDB: off
+        GOPRIVATE: jfrog.com
+        GONOPROXY: none
+        JFROG_CLI_TEMP_DIR: /tmp
+        CI: "true"
+        GO_VERSION: 1.15.1
+        MAVEN_OPTS: "'-Dorg.slf4j.simpleLogger.showDateTime=true -Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss,SSS -Dmaven.wagon.http.pool=false'"
+        MAVEN_CONFIG: "'-B -nsu -e'"
+        SLACK_MAIN_INTEGRATION: pipelines_release_notifications
+        SLACK_RELEASE_INTEGRATION: repo21_notifications
+  steps:
+  - name: trigger_all
+    type: Bash
+    execution:
+      onExecute:
+        - echo "Starting full pipeline run."
+        - sleep 1m
+  - name: test_ci_scripts
+    type: Bash
+    configuration:
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: artifactory_ci_scripts_bitbucket
+          trigger: true
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onExecute:
+        - sleep 15m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+############################
+######## GO MODULES ########
+############################
+  - name: router_grpc_go
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+            - 1.13.7
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: router_grpc_bitbucket
+          trigger: true
+      outputResources:
+        - name: router_grpc_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+  - name: go_commons
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: go_commons_bitbucket
+          trigger: true
+      outputResources:
+        - name: go_commons_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+  - name: replicator
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+            - 1.13.7
+      inputResources:
+        - name: replicator_bitbucket
+          trigger: true
+        - name: router_grpc_go_module_build_info
+        - name: go_commons_go_module_build_info
+        - name: access_go_client_go_module_build_info
+        - name: p2p_common_go_module_build_info
+        - name: p2p_tracker_go_module_build_info
+        - name: p2p_client_go_module_build_info
+      outputResources:
+        - name: replicator_go_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+  - name: router
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: router_bitbucket
+          trigger: true
+        - name: go_commons_go_module_build_info
+        - name: router_grpc_go_module_build_info
+        - name: access_grpc_go_module_build_info
+        - name: access_go_client_go_module_build_info
+      outputResources:
+        - name: router_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+  - name: router_security_scan
+    type: Bash
+    configuration:
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      inputResources:
+        - name: router_go_module_build_info
+        - name: artifactory_monorepo_bitbucket
+          trigger: false
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: router_itest
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: router_bitbucket
+          trigger: false
+        - name: access_art_jfrog_io_docker_image
+        - name: router_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+  - name: router_package_docker
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: router_bitbucket
+          trigger: false
+        - name: router_bin_build_info
+      outputResources:
+        - name: router_docker_build_info
+        - name: router_art_jfrog_io_docker_image
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "router_docker_build_info" "foo=$run_number"
+        - write_output "router_art_jfrog_io_docker_image" "foo=$run_number"
+
+
+  - name: router_bin
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: router_bitbucket
+          trigger: false
+        - name: router_go_module_build_info
+      outputResources:
+        - name: router_bin_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "router_bin_build_info" "foo=$run_number"
+
+  - name: router_package_maven
+    type: Bash
+    configuration:
+      inputResources:
+        - name: router_bitbucket
+          trigger: true
+        - name: router_bin_build_info
+      outputResources:
+        - name: router_maven_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 8
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "router_maven_build_info" "foo=$run_number"
+
+  - name: router_docker_security_scan
+    type: Bash
+    configuration:
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      inputResources:
+        - name: router_docker_build_info
+        - name: artifactory_monorepo_bitbucket
+          trigger: false
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: metadata
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: metadata_bitbucket
+          trigger: true
+        - name: go_commons_go_module_build_info
+        - name: router_grpc_go_module_build_info
+        - name: access_grpc_go_module_build_info
+        - name: access_go_client_go_module_build_info
+      outputResources:
+        - name: metadata_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "metadata_go_module_build_info" "foo=$run_number"
+
+  - name: metadata_bin
+    type: Bash
+    configuration:
+      inputResources:
+        - name: metadata_bitbucket
+          trigger: true
+        - name: metadata_go_module_build_info
+      outputResources:
+        - name: jenkins_metadata_bin_build_info
+    execution:
+      onExecute:
+        - sleep 1m
+        - write_output "jenkins_metadata_bin_build_info" "foo=$run_number"
+
+  - name: metadata_package_maven
+    type: Bash
+    configuration:
+      #      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: jenkins_metadata_bin_build_info
+        - name: metadata_bitbucket
+          trigger: true
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      outputResources:
+        - name: metadata_maven_build_info
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "metadata_maven_build_info" "foo=$run_number"
+
+  - name: metadata_security_scan
+    type: Bash
+    configuration:
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      inputResources:
+        - name: metadata_go_module_build_info
+        - name: artifactory_monorepo_bitbucket
+          trigger: false
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: p2p_common
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: p2p_bitbucket
+          trigger: true
+        - name: go_commons_go_module_build_info
+        - name: router_grpc_go_module_build_info
+        - name: access_grpc_go_module_build_info
+        - name: access_go_client_go_module_build_info
+      outputResources:
+        - name: p2p_common_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      environmentVariables:
+        REUSE_VERSION_VAR: p2p_go_snapshot_version
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "p2p_common_go_module_build_info" "foo=$run_number"
+
+  - name: p2p_tracker
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: p2p_bitbucket
+          trigger: true
+        - name: p2p_common_go_module_build_info
+        - name: access_go_client_go_module_build_info
+        - name: go_commons_go_module_build_info
+        - name: access_grpc_go_module_build_info
+        - name: router_grpc_go_module_build_info
+      outputResources:
+        - name: p2p_tracker_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      environmentVariables:
+        REUSE_VERSION_VAR: p2p_go_snapshot_version
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "p2p_tracker_go_module_build_info" "foo=$run_number"
+
+  - name: p2p_client
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: p2p_bitbucket
+          trigger: true
+        - name: p2p_tracker_go_module_build_info
+        - name: p2p_common_go_module_build_info
+        - name: access_go_client_go_module_build_info
+        - name: go_commons_go_module_build_info
+        - name: access_grpc_go_module_build_info
+        - name: router_grpc_go_module_build_info
+      outputResources:
+        - name: p2p_client_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      environmentVariables:
+        REUSE_VERSION_VAR: p2p_go_snapshot_version
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "p2p_client_go_module_build_info" "foo=$run_number"
+
+  - name: p2p_client_bin
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: p2p_bitbucket
+          trigger: false
+        - name: p2p_client_go_module_build_info
+      outputResources:
+        - name: p2p_client_bin_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+        - write_output "p2p_client_bin_build_info" "foo=$run_number"
+
+  - name: p2p_client_package_maven
+    type: Bash
+    configuration:
+      inputResources:
+        - name: p2p_bitbucket
+          trigger: true
+        - name: p2p_client_bin_build_info
+      outputResources:
+        - name: p2p_client_maven_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "p2p_client_maven_build_info" "foo=$run_number"
+
+  - name: p2p_client_archive
+    type: Bash
+    configuration:
+      inputResources:
+        - name: p2p_bitbucket
+          trigger: false
+        - name: p2p_client_bin_build_info
+      outputResources:
+        - name: p2p_client_archive_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 8
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+        - write_output "p2p_client_archive_build_info" "foo=$run_number"
+
+  - name: p2p_client_package_docker
+    type: Bash
+    configuration:
+      inputResources:
+        - name: p2p_bitbucket
+          trigger: false
+        - name: p2p_client_bin_build_info
+      outputResources:
+        - name: p2p_client_docker_build_info
+        - name: p2p_client_art_jfrog_io_docker_image
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 8
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+        - on_failure
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "p2p_client_docker_build_info" "foo=$run_number"
+        - write_output "p2p_client_art_jfrog_io_docker_image" "foo=$run_number"
+
+  - name: access_grpc_go
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: access_grpc_bitbucket
+          trigger: true
+      outputResources:
+        - name: access_grpc_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 6m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "access_grpc_go_module_build_info" "foo=$run_number"
+
+  - name: access_go_client
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: access_go_client_bitbucket
+        - name: go_commons_go_module_build_info
+        - name: router_grpc_go_module_build_info
+        - name: access_grpc_go_module_build_info
+          trigger: true
+      outputResources:
+        - name: access_go_client_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10m
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "access_go_client_go_module_build_info" "foo=$run_number"
+
+  - name: metadata_go_client
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: metadata_go_client_bitbucket
+          trigger: true
+      outputResources:
+        - name: metadata_go_client_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "metadata_go_client_go_module_build_info" "foo=$run_number"
+
+  - name: event_grpc_go
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: event_grpc_bitbucket
+          trigger: true
+      outputResources:
+        - name: event_grpc_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "event_grpc_go_module_build_info" "foo=$run_number"
+
+  - name: event_service
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: event_service_bitbucket
+        - name: access_go_client_go_module_build_info
+        - name: event_grpc_go_module_build_info
+          trigger: true
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      outputResources:
+        - name: event_go_module_build_info
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "event_go_module_build_info" "foo=$run_number"
+
+  - name: event_service_security_scan
+    type: Bash
+    configuration:
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      inputResources:
+        - name: event_go_module_build_info
+        - name: artifactory_monorepo_bitbucket
+          trigger: false
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: event_service_itest
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: go
+            versions:
+              - 1.13.7
+      inputResources:
+        - name: event_service_bitbucket
+          trigger: true
+        - name: event_go_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+############################
+###### JAVA MODULES ########
+############################
+
+  - name: router_grpc_maven
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: router_grpc_bitbucket
+          trigger: true
+      outputResources:
+        - name: router_grpc_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 8
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+        - write_output "router_grpc_java_module_build_info" "foo=$run_number"
+      onFailure:
+        - echo "fail :("
+
+  - name: event_service_package_maven
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: event_service_bitbucket
+          trigger: true
+        - name: event_go_module_build_info
+      outputResources:
+        - name: event_service_maven_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 8
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "event_service_maven_build_info" "foo=$run_number"
+
+  - name: thanos
+    type: Bash
+    configuration:
+      integrations:
+        - name: entArt
+        - name: awsBits
+      inputResources:
+        - name: artifactory_pro_art_jfrog_io_docker_image
+        - name: artifactory_pro_bitbucket
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+
+  - name: event_e2e_tests
+    type: Bash
+    configuration:
+      inputResources:
+        - name: event_service_e2e_bitbucket
+          trigger: true
+        - name: artifactory_pro_art_jfrog_io_docker_image
+        - name: event_go_module_build_info
+        - name: event_java_client_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onComplete:
+        - echo "onComplete :|"
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: parent_pom
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      affinityGroup: maven_build_main_path
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: parent_pom_bitbucket
+          trigger: true
+      outputResources:
+        - name: parent_pom_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "parent_pom_java_module_build_info" "foo=$run_number"
+
+  - name: commons
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      affinityGroup: maven_build_main_path
+      inputResources:
+        - name: commons_bitbucket
+          trigger: true
+        - name: parent_pom_java_module_build_info
+      outputResources:
+        - name: commons_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "commons_java_module_build_info" "foo=$run_number"
+
+  - name: commons_pro
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      affinityGroup: maven_build_main_path
+      inputResources:
+        - name: commons_bitbucket
+          trigger: true
+        - name: commons_java_module_build_info
+      outputResources:
+        - name: commons_pro_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "commons_pro_java_module_build_info" "foo=$run_number"
+
+  - name: access
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      affinityGroup: maven_build_main_path
+      inputResources:
+        - name: access_bitbucket
+          trigger: true
+        - name: commons_pro_java_module_build_info
+        - name: router_grpc_java_module_build_info
+        - name: access_grpc_java_module_build_info
+      outputResources:
+        - name: access_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "access_java_module_build_info" "foo=$run_number"
+
+  - name: access_package
+    type: Bash
+    configuration:
+      inputResources:
+        - name: access_bitbucket
+          trigger: true
+        - name: access_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      outputResources:
+        - name: access_art_jfrog_io_docker_image
+        - name: access_maven_build_info
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+        - write_output "access_art_jfrog_io_docker_image" "foo=$run_number"
+        - write_output "access_maven_build_info" "foo=$run_number"
+      onFailure:
+        - echo "fail :("
+
+  - name: access_itest
+    type: Bash
+    configuration:
+      integrations:
+        - name: entArt
+        - name: awsBits
+      inputResources:
+        - name: access_bitbucket
+          trigger: true
+        - name: access_java_module_build_info
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onComplete:
+        - echo "onComplete :|"
+
+
+  - name: access_pro
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: access_bitbucket
+          trigger: true
+        - name: access_java_module_build_info
+      outputResources:
+        - name: access_pro_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "access_pro_java_module_build_info" "foo=$run_number"
+
+  - name: binary_store
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      affinityGroup: maven_build_main_path
+      inputResources:
+        - name: binary_store_bitbucket
+          trigger: true
+        - name: access_java_module_build_info
+      outputResources:
+        - name: binary_store_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "binary_store_java_module_build_info" "foo=$run_number"
+
+  - name: binary_store_pro
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: binary_store_bitbucket
+          trigger: true
+        - name: binary_store_java_module_build_info
+      outputResources:
+        - name: binary_store_pro_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "binary_store_pro_java_module_build_info" "foo=$run_number"
+
+  - name: artifactory_pro_docker_security_scan
+    type: Bash
+    configuration:
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      inputResources:
+        - name: artifactory_pro_docker_build_info
+        - name: artifactory_monorepo_bitbucket
+          trigger: false
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: artifactory_oss_docker_security_scan
+    type: Bash
+    configuration:
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      inputResources:
+        - name: artifactory_oss_docker_build_info
+        - name: artifactory_monorepo_bitbucket
+          trigger: false
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: artifactory_pro_package_security_scan
+    type: Bash
+    configuration:
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      inputResources:
+        - name: artifactory_pro_package_build_info
+        - name: artifactory_monorepo_bitbucket
+          trigger: false
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: artifactory_oss_package_security_scan
+    type: Bash
+    configuration:
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      inputResources:
+        - name: artifactory_oss_package_build_info
+        - name: artifactory_monorepo_bitbucket
+          trigger: false
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: artifactory_oss_build
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      affinityGroup: artifactory_oss_build_package
+      inputResources:
+        - name: artifactory_oss_bitbucket
+          trigger: true
+        - name: metadata_java_client_build_info
+        - name: binary_store_java_module_build_info
+      outputResources:
+        - name: artifactory_oss_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+        - write_output "artifactory_oss_java_module_build_info" "foo=$run_number"
+      onFailure:
+        - echo "fail :("
+
+  - name: artifactory_oss_test
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: artifactory_oss_bitbucket
+          trigger: true
+        - name: artifactory_oss_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+  - name: artifactory_oss_package
+    type: Bash
+    configuration:
+      affinityGroup: artifactory_oss_build_package
+      inputResources:
+        - name: artifactory_oss_bitbucket
+          trigger: true
+        - name: artifactory_oss_java_module_build_info
+        - name: router_maven_build_info
+        - name: metadata_maven_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      outputResources:
+        - name: artifactory_online_art_v_docker_image
+        - name: artifactory_oss_docker_build_info
+        - name: artifactory_oss_package_build_info
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+        - write_output "artifactory_online_art_v_docker_image" "foo=$run_number"
+        - write_output "artifactory_oss_docker_build_info" "foo=$run_number"
+        - write_output "artifactory_oss_package_build_info" "foo=$run_number"
+      onFailure:
+        - echo "fail :("
+
+  - name: package_indexer_maven
+    type: Bash
+    configuration:
+      inputResources:
+        - name: package_indexer_bitbucket
+          trigger: true
+        - name: commons_java_module_build_info
+      outputResources:
+        - name: package_indexer_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+            - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "package_indexer_java_module_build_info" "foo=$run_number"
+
+  - name: artifactory_pro_build
+    type: Bash
+    configuration:
+#      priority: 1 # TODO: Ignore until PIPE-2790 is fixed
+      outputResources:
+        - name: artifactory_pro_java_module_build_info
+      inputResources:
+        - name: artifactory_pro_bitbucket
+          trigger: true
+        - name: artifactory_oss_java_module_build_info
+        - name: event_java_client_build_info
+        - name: binary_store_pro_java_module_build_info
+        - name: package_indexer_java_module_build_info
+        - name: access_pro_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+        - write_output "artifactory_pro_java_module_build_info" "foo=$run_number"
+
+  - name: artifactory_pro_sonar_scan
+    type: Bash
+    configuration:
+#      priority: 1 # TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: artifactory_pro_bitbucket
+          trigger: false
+        - name: artifactory_pro_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: artifactory_pro_test
+    type: Bash
+    configuration:
+      priority: 1 # TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: artifactory_pro_bitbucket
+          trigger: true
+        - name: artifactory_pro_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+
+  - name: artifactory_pro_package
+    type: Bash
+    configuration:
+      inputResources:
+        - name: artifactory_pro_bitbucket
+          trigger: true
+        - name: artifactory_oss_package_build_info
+        - name: artifactory_pro_java_module_build_info
+        - name: p2p_client_maven_build_info
+        - name: event_service_maven_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      outputResources:
+        - name: artifactory_pro_art_jfrog_io_docker_image
+        - name: artifactory_nginx_pro_art_jfrog_io_docker_image
+        - name: artifactory_nginx_oss_art_jfrog_io_docker_image
+        - name: artifactory_cpp_ce_art_jfrog_io_docker_image
+        - name: artifactory_jcr_art_jfrog_io_docker_image
+        - name: artifactory_jcr_online_art_jfrog_io_docker_image
+        - name: artifactory_online_art_jfrog_io_docker_image
+        - name: artifactory_pro_docker_build_info
+        - name: artifactory_pro_package_build_info
+        - name: artifactory_release_bitbucket
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "artifactory_pro_art_jfrog_io_docker_image" "foo=$run_number"
+        - write_output "artifactory_nginx_pro_art_jfrog_io_docker_image" "foo=$run_number"
+        - write_output "artifactory_nginx_oss_art_jfrog_io_docker_image" "foo=$run_number"
+        - write_output "artifactory_cpp_ce_art_jfrog_io_docker_image" "foo=$run_number"
+        - write_output "artifactory_jcr_art_jfrog_io_docker_image" "foo=$run_number"
+        - write_output "artifactory_jcr_online_art_jfrog_io_docker_image" "foo=$run_number"
+        - write_output "artifactory_online_art_jfrog_io_docker_image" "foo=$run_number"
+        - write_output "artifactory_pro_docker_build_info" "foo=$run_number"
+        - write_output "artifactory_pro_package_build_info" "foo=$run_number"
+        - write_output "artifactory_release_bitbucket" "foo=$run_number"
+
+  - name: artifactory_pro_itest
+    type: Bash
+    configuration:
+      priority: 1
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: entArt
+      inputResources:
+        - name: artifactory_pro_bitbucket
+          trigger: true
+        - name: artifactory_pro_java_module_build_info
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+            - 11
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo lol
+      onComplete:
+        - echo "onComplete :|"
+
+  - name: metadata_java_client
+    type: Bash
+    configuration:
+#      priority: 2 TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: metadata_java_client_bitbucket
+          trigger: true
+        - name: commons_java_module_build_info
+      outputResources:
+        - name: metadata_java_client_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+            - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "metadata_java_client_build_info" "foo=$run_number"
+
+  - name: event_java_client
+    type: Bash
+    configuration:
+#      priority: 2 TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: event_java_client_bitbucket
+          trigger: true
+        - name: commons_java_module_build_info
+        - name: access_java_module_build_info
+        - name: event_grpc_java_module_build_info
+      outputResources:
+        - name: event_java_client_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+            - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "event_java_client_build_info" "foo=$run_number"
+
+  - name: access_grpc_maven
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: access_grpc_bitbucket
+          trigger: true
+      outputResources:
+        - name: access_grpc_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+        - write_output "access_grpc_java_module_build_info" "foo=$run_number"
+      onFailure:
+        - echo "fail :("
+
+  - name: event_grpc_maven
+    type: Bash
+    configuration:
+#      priority: 1 TODO: Ignore until PIPE-2790 is fixed
+      inputResources:
+        - name: event_grpc_bitbucket
+        - name: parent_pom_java_module_build_info
+          trigger: true
+      outputResources:
+        - name: event_grpc_java_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+      runtime:
+        type: image
+        image:
+          auto:
+            language: java
+            versions:
+              - 11
+    execution:
+      onStart:
+        - sleep 10
+      onSuccess:
+        - echo "success :)"
+        - write_output "event_grpc_java_module_build_info" "foo=$run_number"
+      onFailure:
+        - echo "fail :("
+
+############################
+###### #NPM MODULES ########
+############################
+  - name: access_grpc_npm
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: node
+            versions:
+              - 12.14.0
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: access_grpc_bitbucket
+          trigger: true
+      outputResources:
+        - name: access_grpc_npm_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "access_grpc_npm_build_info" "foo=$run_number"
+
+  - name: router_grpc_npm
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: node
+            versions:
+              - 12.14.0
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: router_grpc_bitbucket
+          trigger: true
+      outputResources:
+        - name: router_grpc_npm_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "router_grpc_npm_build_info" "foo=$run_number"
+
+  - name: nodejs_commons
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: node
+            versions:
+              - 12.14.0
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: nodejs_commons_bitbucket
+          trigger: true
+      outputResources:
+        - name: nodejs_commons_npm_module_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "nodejs_commons_npm_module_build_info" "foo=$run_number"
+
+  - name: metadata_nodejs_client
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: node
+            versions:
+              - 12.14.0
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: metadata_nodejs_client_bitbucket
+          trigger: true
+      outputResources:
+        - name: metadata_nodejs_client_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "metadata_nodejs_client_build_info" "foo=$run_number"
+
+  - name: access_nodejs_client
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          custom:
+            name: docker.bintray.io/jfrog/pipelines-u16node
+            tag: "12.14.0"
+            options: "--net=host"
+      inputResources:
+        - name: access_nodejs_client_bitbucket
+        - name: access_grpc_npm_build_info
+        - name: router_grpc_npm_build_info
+        - name: nodejs_commons_npm_module_build_info
+          trigger: true
+      outputResources:
+        - name: access_nodejs_client_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "access_nodejs_client_build_info" "foo=$run_number"
+
+  - name: artifactory_nodejs_client
+    type: Bash
+    configuration:
+      runtime:
+        type: image
+        image:
+          auto:
+            language: node
+            versions:
+              - 12.14.0
+      inputSteps:
+        - name: trigger_all
+      inputResources:
+        - name: artifactory_nodejs_client_bitbucket
+          trigger: true
+      outputResources:
+        - name: artifactory_nodejs_client_build_info
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+      onComplete:
+        - echo "onComplete :|"
+        - write_output "artifactory_nodejs_client_build_info" "foo=$run_number"
+
+  - name: cross_component_api_test
+    type: Bash
+    configuration:
+      inputSteps:
+        - name: metadata_go_client
+        - name: metadata_nodejs_client
+        - name: access_nodejs_client
+        - name: artifactory_nodejs_client
+        - name: replicator
+        - name: metadata
+        - name: router
+        - name: artifactory_pro_test
+        - name: artifactory_pro_sonar_scan
+        - name: artifactory_oss_test
+        - name: event_service
+        - name: test_ci_scripts
+      inputResources:
+        - name: artifactory_monorepo_bitbucket
+          trigger: true
+      integrations:
+        - name: art_v
+        - name: awsBits
+        - name: test_webhook
+        - name: pipelines_release_notifications
+        - name: repo21_notifications
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m
+      onSuccess:
+        - echo "success :)"
+      onFailure:
+        - echo "fail :("
+
+  - name: status_update
+    type: Bash
+    configuration:
+      inputSteps:
+        - name: cross_component_api_test
+        - name: event_service_security_scan
+      inputResources:
+        - name: artifactory_monorepo_bitbucket
+          trigger: true
+      integrations:
+        - name: art_v
+        - name: awsBits
+    execution:
+      onStart:
+        - sleep 10
+      onExecute:
+        - sleep 1m

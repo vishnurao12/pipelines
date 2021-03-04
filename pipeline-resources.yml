@@ -2,15 +2,15 @@ resources:
   - name: artifactory_monorepo_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
   - name: replicator_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -18,8 +18,8 @@ resources:
   - name: p2p_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -27,8 +27,8 @@ resources:
   - name: parent_pom_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -36,8 +36,8 @@ resources:
   - name: access_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -45,8 +45,8 @@ resources:
   - name: artifactory_pro_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -54,8 +54,8 @@ resources:
   - name: commons_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -63,8 +63,8 @@ resources:
   - name: artifactory_oss_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -72,8 +72,8 @@ resources:
   - name: binary_store_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -81,8 +81,8 @@ resources:
   - name: go_commons_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -90,8 +90,8 @@ resources:
   - name: router_grpc_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -99,8 +99,8 @@ resources:
   - name: access_grpc_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -108,8 +108,8 @@ resources:
   - name: access_go_client_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -117,8 +117,8 @@ resources:
   - name: router_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -126,8 +126,8 @@ resources:
   - name: package_indexer_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -135,8 +135,8 @@ resources:
   - name: metadata_java_client_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -144,8 +144,8 @@ resources:
   - name: metadata_go_client_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -153,8 +153,8 @@ resources:
   - name: metadata_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -162,8 +162,8 @@ resources:
   - name: nodejs_commons_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -171,8 +171,8 @@ resources:
   - name: access_nodejs_client_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -180,8 +180,8 @@ resources:
   - name: artifactory_nodejs_client_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -189,8 +189,8 @@ resources:
   - name: metadata_nodejs_client_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -198,8 +198,8 @@ resources:
   - name: event_grpc_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -207,8 +207,8 @@ resources:
   - name: event_service_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -216,8 +216,8 @@ resources:
   - name: event_service_e2e_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -225,8 +225,8 @@ resources:
   - name: event_java_client_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -234,8 +234,8 @@ resources:
   - name: artifactory_ci_scripts_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       files:
@@ -243,8 +243,8 @@ resources:
   - name: artifactory_release_bitbucket
     type: GitRepo
     configuration:
-      path: ~bharathu/controlplane
-      gitProvider: bharath_bbs
+      path: neha-mishraa/pipelines
+      gitProvider: github_neha
       branches:
         include: ^{{gitBranch}}$
       buildOn:

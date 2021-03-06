@@ -775,7 +775,7 @@ resources:
   #       include: master
   #     gitProvider: git_v
 
-  - name: helm_repo
+  - name: helm_repo1
     type: HelmChart
     configuration: 
       sourceArtifactory: art_v
@@ -838,7 +838,7 @@ pipelines:
 #            - name: myDistributionRule
 #            - name: r_FileSpec_pattern
             - name: r_GitRepo
-            - name: helm_repo
+            - name: helm_repo1
             - name: image_google
 #            - name: r_IncomingWebhook
 #            - name: outgoingWebhook
@@ -878,7 +878,7 @@ pipelines:
 #            - name: myDistributionRule
 #            - name: r_FileSpec_pattern
 #            - name: r_GitRepo
-#            - name: helm_repo
+#            - name: helm_repo1
 #            - name: image_google
 #            - name: r_IncomingWebhook
 #            - name: outgoingWebhook
@@ -1129,7 +1129,7 @@ pipelines:
 #            - name: myDistributionRule
 #            - name: r_FileSpec_pattern
             - name: r_GitRepo
-            - name: helm_repo
+            - name: helm_repo1
             - name: image_google
 #            - name: r_IncomingWebhook
 #            - name: outgoingWebhook

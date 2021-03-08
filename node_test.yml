@@ -51,7 +51,7 @@ pipelines:
             - printenv
             - docker images
             - export name
-            - cat name
+            - cat $name
 
       - name: c7dynamic
         type: Bash

@@ -7,6 +7,10 @@ resources:
 
 pipelines:
   - name: node_test
+    configuration:
+      environmentVariables:
+        readOnly:
+          name: "vishnu"
     steps:
       - name: myStep112
         type: Bash
@@ -46,6 +50,8 @@ pipelines:
           onExecute:
             - printenv
             - docker images
+            - export name
+            - cat name
 
       - name: c7dynamic
         type: Bash

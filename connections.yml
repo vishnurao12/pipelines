@@ -47,27 +47,27 @@ pipelines:
             - echo "HI"
             - docker images
             
-#       - name: stepB1
-#         type: Bash
-#         configuration:
-#           affinityGroup: "Series4"
-#           inputSteps:
-#             - name: step1
-#             - name: step2
-#             - name: step3
-#         execution:
-#           onExecute:
-#             - echo "HI"
-#             - docker images
+      - name: stepB1
+        type: Bash
+        configuration:
+          affinityGroup: "Series4"
+          inputSteps:
+            - name: step1
+            - name: step2
+            - name: step3
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
             
       - name: stepB
         type: Bash
         configuration:
           inputSteps:
-#             - name: stepB1
-            - name: step1
-            - name: step2
-            - name: step3
+            - name: stepB1
+#             - name: step1
+#             - name: step2
+#             - name: step3
         execution:
           onExecute:
             - echo "HI"

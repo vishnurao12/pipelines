@@ -87,7 +87,7 @@ pipelines:
             - echo "HI"
             - docker images
             
-       - name: step1Series3
+      - name: step1Series3
         type: Bash
         configuration:
           affinityGroup: "Series3"

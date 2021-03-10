@@ -120,9 +120,10 @@ pipelines:
             - echo "HI"
             - docker images
             
-      - name: close
+      - name: step1Series4
         type: Bash
         configuration:
+          affinityGroup: "Series4"
           inputSteps:
             - name: step3Series1
             - name: step3Series2
@@ -131,24 +132,38 @@ pipelines:
           onExecute:
             - echo "HI"
             - docker images
-
-#       - name: rhel
-#         type: Bash
-#         configuration:
-#           nodePool: rhe7
-#           inputResources:
-#             - name: connecting_resource_node_test
-#         execution:
-#           onExecute:
-#             - printenv
             
-#       - name: u20dynamic
-#         type: Bash
-#         configuration:
-#           nodePool: u20dynamic
-#           inputResources:
-#             - name: connecting_resource_node_test
-#         execution:
-#           onExecute:
-#             - printenv
-#             - docker images
+      - name: step2Series4
+        type: Bash
+        configuration:
+          affinityGroup: "Series4"
+          inputSteps:
+            - name: step1Series4
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+            
+      - name: step3Series4
+        type: Bash
+        configuration:
+          affinityGroup: "Series4"
+          inputSteps:
+            - name: step2Series4
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+            
+      - name: close
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step3Series4
+#             - name: step3Series2
+#             - name: step3Series3
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+

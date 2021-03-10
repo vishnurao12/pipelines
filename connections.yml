@@ -1,0 +1,154 @@
+
+
+pipelines:
+  - name: connections
+    configuration:
+      environmentVariables:
+        readOnly:
+          name: "vishnu"
+    steps:
+      - name: start
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+            - name: art_v
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - echo automation > foo1
+#             - jfrog rt u test.sh example-repo-local/setup/test.sh
+#             - jfrog rt u foo1 example-repo-local/setup/foo1
+            - write_output connecting_resource_node_test "test=value"
+
+      - name: step1Series1
+        type: Bash
+        configuration:
+          affinityGroup: "Series1"
+          inputSteps:
+            - name: start
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+      - name: step2Series1
+        type: Bash
+        configuration:
+          affinityGroup: "Series1"
+          inputSteps:
+            - name: step1Series1
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+      - name: step3Series1
+        type: Bash
+        configuration:
+          affinityGroup: "Series1"
+          inputSteps:
+            - name: step2Series1
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+            
+      - name: step1Series2
+        type: Bash
+        configuration:
+          affinityGroup: "Series2"
+          inputSteps:
+            - name: start
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+      - name: step2Series2
+        type: Bash
+        configuration:
+          affinityGroup: "Series2"
+          inputSteps:
+            - name: step1Series2
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+      - name: step3Series2
+        type: Bash
+        configuration:
+          affinityGroup: "Series2"
+          inputSteps:
+            - name: step2Series2
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+            
+       - name: step1Series3
+        type: Bash
+        configuration:
+          affinityGroup: "Series3"
+          inputSteps:
+            - name: start
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+      - name: step2Series3
+        type: Bash
+        configuration:
+          affinityGroup: "Series3"
+          inputSteps:
+            - name: step1Series3
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+      - name: step3Series3
+        type: Bash
+        configuration:
+          affinityGroup: "Series3"
+          inputSteps:
+            - name: step2Series3
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+            
+      - name: close
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step3Series1
+            - name: step3Series2
+            - name: step3Series3
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+#       - name: rhel
+#         type: Bash
+#         configuration:
+#           nodePool: rhe7
+#           inputResources:
+#             - name: connecting_resource_node_test
+#         execution:
+#           onExecute:
+#             - printenv
+            
+#       - name: u20dynamic
+#         type: Bash
+#         configuration:
+#           nodePool: u20dynamic
+#           inputResources:
+#             - name: connecting_resource_node_test
+#         execution:
+#           onExecute:
+#             - printenv
+#             - docker images

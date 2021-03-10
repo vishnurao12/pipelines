@@ -65,9 +65,9 @@ pipelines:
         configuration:
           inputSteps:
 #             - name: step1Series4
-            - name: step1Series1
-            - name: step1Series2
-            - name: step1Series3
+            - name: step1
+            - name: step2
+            - name: step3
         execution:
           onExecute:
             - echo "HI"

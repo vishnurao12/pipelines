@@ -161,7 +161,7 @@ pipelines:
           inputSteps:
 #             - name: step1Series4
             - name: step1Series1
-            - name: step1eries2
+            - name: step1Series2
             - name: step1Series3
         execution:
           onExecute:

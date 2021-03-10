@@ -12,6 +12,7 @@ pipelines:
             - name: git_v
         execution:
           onExecute:
+            - echo "HI"
 
       - name: step1Series1
         type: Bash

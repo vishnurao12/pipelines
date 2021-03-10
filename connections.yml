@@ -53,8 +53,8 @@ pipelines:
           affinityGroup: "Series4"
           inputSteps:
             - name: step1
-            - name: step1
-            - name: step1
+            - name: step2
+            - name: step3
         execution:
           onExecute:
             - echo "HI"

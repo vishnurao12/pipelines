@@ -19,6 +19,7 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration:
+          timeoutSeconds: 60
           environmentVariables:
             testCases: setup.js
           runtime:           
@@ -40,7 +41,7 @@ pipelines:
 #             - ls
             - echo "hi"
 #             - cat doesnotexist.txt
-             #- sleep 5m
+             - sleep 10m
             #- docker pull postgres
             - docker images
           onSuccess:

@@ -1,0 +1,161 @@
+pipelines:
+  - name: connections
+    configuration:
+      environmentVariables:
+        readOnly:
+          name: "vishnu"
+    steps:
+      - name: start
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+
+      - name: step1Series1
+        type: Bash
+        configuration:
+          affinityGroup: "Series1"
+          inputSteps:
+            - name: start
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+#       - name: step2Series1
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series1"
+#           inputSteps:
+#             - name: step1Series1
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+
+#       - name: step3Series1
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series1"
+#           inputSteps:
+#             - name: step2Series1
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+            
+      - name: step1Series2
+        type: Bash
+        configuration:
+          affinityGroup: "Series2"
+          inputSteps:
+            - name: start
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+#       - name: step2Series2
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series2"
+#           inputSteps:
+#             - name: step1Series2
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+
+#       - name: step3Series2
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series2"
+#           inputSteps:
+#             - name: step2Series2
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+            
+      - name: step1Series3
+        type: Bash
+        configuration:
+          affinityGroup: "Series3"
+          inputSteps:
+            - name: start
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images
+
+#       - name: step2Series3
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series3"
+#           inputSteps:
+#             - name: step1Series3
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+
+#       - name: step3Series3
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series3"
+#           inputSteps:
+#             - name: step2Series3
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+            
+#       - name: step1Series4
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series4"
+#           inputSteps:
+#             - name: step1Series1
+#             - name: step1eries2
+#             - name: step1Series3
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+            
+#       - name: step2Series4
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series4"
+#           inputSteps:
+#             - name: step1Series4
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+            
+#       - name: step3Series4
+#         type: Bash
+#         configuration:
+#           affinityGroup: "Series4"
+#           inputSteps:
+#             - name: step2Series4
+#         execution:
+#           onExecute:
+#             - echo "HI"
+#             - docker images
+            
+      - name: close
+        type: Bash
+        configuration:
+          inputSteps:
+#             - name: step1Series4
+            - name: step1Series1
+            - name: step1Series2
+            - name: step1Series3
+        execution:
+          onExecute:
+            - echo "HI"
+            - docker images

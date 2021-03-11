@@ -19,7 +19,7 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration:
-          timeoutSeconds: 60
+#           timeoutSeconds: 60
           environmentVariables:
             testCases: setup.js
           runtime:           
@@ -31,8 +31,8 @@ pipelines:
 #            - name: art_v
         execution:
           onExecute:
-#             - docker images
-            - df -h
+            - docker images
+#             - df -h
 #             - printenv | grep "testCases"
 #             - echo $testCases
 #             - testcaseDup="[\"core/testHarness/$testCases\"]"
@@ -41,7 +41,7 @@ pipelines:
 #             - ls
             - echo "hi"
 #             - cat doesnotexist.txt
-            - sleep 10m
+#             - sleep 10m
             #- docker pull postgres
             - docker images
           onSuccess:

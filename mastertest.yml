@@ -449,6 +449,7 @@ pipelines:
             - go version
         configuration:  
           self: true 
+          deps: .
 #           environmentVariables: # optional
 #             JFROG_CLI_BUILD_NAME: "go_test"
 #             JFROG_CLI_BUILD_NUMBER: 2387

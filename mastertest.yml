@@ -708,7 +708,7 @@ pipelines:
       - name: publish_npm
         type: NpmPublish
         configuration:
-        deployerRepo: test-generic-local
+          deployerRepo: test-generic-local
 #           autoPublishBuildInfo: true
           repositoryName: npm-virtual
           inputSteps:

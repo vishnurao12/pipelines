@@ -623,8 +623,8 @@ pipelines:
 #             JFROG_CLI_BUILD_NUMBER: 2387
           sourceLocation: ./artifactory-maven-plugin-example
           mvnCommand: clean install
-          configFileLocation: .
-          configFileName: mvn-art-config
+#           configFileLocation: .
+#           configFileName: mvn-art-config
           resolverSnapshotRepo: snapshot-maven-test-local
           resolverReleaseRepo:  snapshot-maven-test-virtual
           deployerSnapshotRepo: deployerSnapshotRepo

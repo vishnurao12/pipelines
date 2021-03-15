@@ -387,7 +387,7 @@ pipelines:
           repository: test-go-local
           outputLocation: /tmp/dist
           outputFile: hello_sample
-          resolver: test-automation-generic-local
+          resolverRepo: test-automation-generic-local
           inputResources:
             - name: artifactory_go_example
             - name: connecting_resource

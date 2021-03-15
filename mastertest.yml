@@ -391,7 +391,6 @@ pipelines:
           inputResources:
             - name: artifactory_go_example
             - name: connecting_resource
-            - name: test-automation-generic-local
           integrations:
             - name: art_v
 #           inputSteps:

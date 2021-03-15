@@ -552,8 +552,8 @@ pipelines:
 #             JFROG_CLI_BUILD_NUMBER: 2387
           gradleCommand: clean artifactoryPublish -b build.gradle
           sourceLocation: gradle-examples/gradle-example-minimal
-          configFileLocation: .
-          configFileName: gradle-art-config
+#           configFileLocation: .
+#           configFileName: gradle-art-config
           resolverRepo: test-automation-generic-local
           deployerRepo: test-generic-local
           usesPlugin: true

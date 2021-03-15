@@ -554,6 +554,10 @@ pipelines:
           sourceLocation: gradle-examples/gradle-example-minimal
           configFileLocation: .
           configFileName: gradle-art-config
+          resolverRepo: test-automation-generic-local
+          deployerRepo: test-generic-local
+          usesPlugin: true
+          useWrapper: true
           inputResources:
             - name: gradle_repo
             - name: connecting_resource

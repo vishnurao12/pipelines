@@ -416,6 +416,7 @@ pipelines:
       - name: publish_go_binarytest
         type: GoPublishBinary
         configuration:
+          self: true 
 #           environmentVariables: # optional
 #             JFROG_CLI_BUILD_NAME: "go_test"
 #             JFROG_CLI_BUILD_NUMBER: 2387

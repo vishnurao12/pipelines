@@ -387,9 +387,11 @@ pipelines:
           repository: test-go-local
           outputLocation: /tmp/dist
           outputFile: hello_sample
+          resolver: test-automation-generic-local
           inputResources:
             - name: artifactory_go_example
             - name: connecting_resource
+            - name: test-automation-generic-local
           integrations:
             - name: art_v
 #           inputSteps:
@@ -403,13 +405,13 @@ pipelines:
 #                   - "1.15.2-f2674"
         execution:
           onStart:
-#             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
-#             - "pushd $buildDir/golang-example/hello"
-#             - "go get -insecure"
-#             - popd
-            - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
-            - go get -insecure
-            - Pop-Location
+            - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+            - "pushd $buildDir/golang-example/hello"
+            - "go get -insecure"
+            - popd
+#             - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
+#             - go get -insecure
+#             - Pop-Location
 #             - go version
 
       - name: publish_go_binarytest

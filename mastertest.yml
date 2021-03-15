@@ -689,8 +689,8 @@ pipelines:
 #           environmentVariables: # optional
 #             JFROG_CLI_BUILD_NAME: "npm-test"
 #             JFROG_CLI_BUILD_NUMBER: 2387
-#           repositoryName: npm-virtual
-          resolverRepo: test-automation-generic-local
+          repositoryName: npm-virtual
+#           resolverRepo: test-automation-generic-local
           sourceLocation: .
           inputResources:
             - name: npmHelloWorld_repo

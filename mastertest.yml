@@ -689,7 +689,7 @@ pipelines:
 #           environmentVariables: # optional
 #             JFROG_CLI_BUILD_NAME: "npm-test"
 #             JFROG_CLI_BUILD_NUMBER: 2387
-          repositoryName: npm-virtual
+#           repositoryName: npm-virtual
           resolverRepo: test-automation-generic-local
           sourceLocation: .
           inputResources:
@@ -710,7 +710,7 @@ pipelines:
         configuration:
           deployerRepo: test-generic-local
 #           autoPublishBuildInfo: true
-          repositoryName: npm-virtual
+#           repositoryName: npm-virtual
           inputSteps:
             - name: build_npm
           integrations:

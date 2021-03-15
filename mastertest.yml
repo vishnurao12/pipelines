@@ -625,6 +625,10 @@ pipelines:
           mvnCommand: clean install
           configFileLocation: .
           configFileName: mvn-art-config
+          resolverSnapshotRepo: snapshot-maven-test-local
+          resolverReleaseRepo:  snapshot-maven-test-virtual
+          deployerSnapshotRepo: deployerSnapshotRepo
+          deployerReleaseRepo:  deployerReleaseRepo
           inputResources:
             - name: maven_repo
             - name: connecting_resource

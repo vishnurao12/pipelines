@@ -19,6 +19,9 @@ pipelines:
             - sleep 5s
       - name: testStep2
         type: Bash
+        configuration:
+          inputSteps:
+            - name: testStep1
         execution:
           onStart:
             - echo "executing onStart"

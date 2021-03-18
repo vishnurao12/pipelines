@@ -11,7 +11,7 @@ pipelines:
           onExecute:
             - echo "executing onExecute"
             - sleep 5s
-            - df -h 1
+            - df -h 
             - fallocate -l 10G huge_file.dat
             - df -h
             - fallocate -l 10G huge_file.dat1

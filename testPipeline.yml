@@ -9,7 +9,7 @@ pipelines:
     configuration:
       nodePool: u16dynamic
     steps:
-      - name: testStep1
+      - name: testStep
         type: Bash
         execution:
           onStart:
@@ -17,17 +17,17 @@ pipelines:
           onExecute:
             - echo "executing onExecute"
             - sleep 5s
-      - name: testStep2
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: testStep1
-        execution:
-          onStart:
-            - echo "executing onStart"
-          onExecute:
-            - echo "executing onExecute"
-            - sleep 5s
+#       - name: testStep2
+#         type: Bash
+#         configuration:
+#           inputSteps:
+#             - name: testStep
+#         execution:
+#           onStart:
+#             - echo "executing onStart"
+#           onExecute:
+#             - echo "executing onExecute"
+#             - sleep 5s
 #             - df -h 1
 #             - fallocate -l 10G huge_file.dat
 #             - df -h

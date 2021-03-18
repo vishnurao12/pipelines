@@ -36,6 +36,7 @@ pipelines:
 #             JFROG_CLI_BUILD_NUMBER: 2387
           gradleCommand: clean artifactoryPublish -b build.gradle
           sourceLocation: gradle-examples/gradle-example-minimal
+          forceXrayScan:        true
           configFileLocation: .
           configFileName: gradle-art-config
           inputResources:

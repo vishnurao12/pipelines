@@ -7,7 +7,7 @@
 pipelines:
   - name: testpipeline
     configuration:
-      nodePool: u16dynamic
+      nodePool: u18dynamic
     steps:
       - name: testStep
         type: Bash

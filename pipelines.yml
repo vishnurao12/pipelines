@@ -1,8 +1,8 @@
 resources:
- - name: resource_pipelines1245
+ - name: resource_pipelines666
    type: GitRepo
    configuration:
-     gitProvider: git_v1
+     gitProvider: git_v
      path: vishnurao12/pipelines
      files: 
        include: ^README.md$
@@ -14,7 +14,7 @@ resources:
 #        pullRequestUpdate: true
 
 pipelines:
-  - name: testing_123
+  - name: testing_1236
     configuration:
       retentionPolicy:
         maxAgeDays: 1
@@ -26,10 +26,10 @@ pipelines:
 #           retentionPolicy:
 #             maxAgeDays: 2
 #             minRuns: 1000
-#           inputResources: 
-#             - name: cron_5min
+          inputResources: 
+            - name: resource_pipelines666
           integrations:
-            - name: git_v1
+            - name: git_v
         execution:
           onExecute:
             - touch sample.txt

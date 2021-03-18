@@ -9,7 +9,15 @@ pipelines:
     configuration:
       nodePool: u16dynamic
     steps:
-      - name: testStep
+      - name: testStep1
+        type: Bash
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - echo "executing onExecute"
+            - sleep 5s
+      - name: testStep2
         type: Bash
         execution:
           onStart:

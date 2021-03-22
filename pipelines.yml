@@ -18,18 +18,18 @@ resources:
   
 
 pipelines:
-  - name: pipelines_12
+  - name: pipelines_custom_trigger
     configuration:
       environmentVariables:
         readOnly:
-          pipeline_env_var:
+          pipeline_env_var_with_custom:
             default: value1
             description: test
             allowCustom: true
             values:
               - value1
               - value2
-          pipeline_env_var1:
+          pipeline_env_var1_without_custom:
             default: value1
             values:
               - value1
@@ -40,12 +40,12 @@ pipelines:
       configuration:
         environmentVariables:
           test: test
-          step_env_va1r:
+          step_env_va1r_without_custom:
             default: value1
             values:
               - value1
               - value2
-          step_env_var:
+          step_env_var_with_custom:
             default: value1
             description: test
             allowCustom: true

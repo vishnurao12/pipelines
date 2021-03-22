@@ -1,9 +1,28 @@
+resources:
+  - name: connecting_resource
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
+  
 
 pipelines:
   - name: pipelines_12
     steps:
     - name: step_1
       type: Bash
+      configuration:
+        outputResources:
+          - name: connecting_resource
+      execution:
+        onExecute:
+          - echo "${step_name} running"   
+
+    - name: step_2
+      type: Bash
+      configuration:
+        inputResources:
+          - name: connecting_resource
       execution:
         onExecute:
           - echo "${step_name} running"   

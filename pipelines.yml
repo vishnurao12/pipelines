@@ -25,6 +25,8 @@ pipelines:
       configuration:
         outputResources:
           - name: connecting_resource
+        environmentVariables:
+            FIRSTPROJECTNAME: "firstProject"
       execution:
         onExecute:
           - echo "${step_name} running"   

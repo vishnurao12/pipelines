@@ -29,14 +29,26 @@ pipelines:
             values:
               - value1
               - value2
+          pipeline_env_var1:
+            default: value1
+            values:
+              - value1
+              - value2
     steps:
     - name: step_1
       type: Bash
       configuration:
         environmentVariables:
           test: test
+          step_env_va1r:
+            default: value1
+            values:
+              - value1
+              - value2
           step_env_var:
             default: value1
+            description: test
+            allowCustom: true
             values:
               - value1
               - value2

@@ -4,6 +4,17 @@ resources:
     configuration:
       key1: value1
       key2: value2
+      
+  - name: resource_pipelines1245
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$
+      
   
 
 pipelines:
@@ -23,6 +34,7 @@ pipelines:
       configuration:
         inputResources:
           - name: connecting_resource
+            trigger: false
       execution:
         onExecute:
           - echo "${step_name} running"   

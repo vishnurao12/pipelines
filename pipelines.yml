@@ -22,7 +22,7 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          step_env_var:
+          pipeline_env_var:
             default: value1
             values:
               - value1

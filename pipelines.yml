@@ -12,6 +12,8 @@ resources:
        pullRequestCreate: true
      cancelPendingRunsOn:
        pullRequestUpdate: true
+     runtime:
+       type: host
 
 pipelines:
   - name: testing_1234

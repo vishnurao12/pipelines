@@ -24,6 +24,8 @@ pipelines:
         readOnly:
           pipeline_env_var:
             default: value1
+            description: test
+            allowCustom: true
             values:
               - value1
               - value2

@@ -20,12 +20,12 @@ resources:
 pipelines:
   - name: pipelines_12
     configuration:
-    environmentVariables:
-      step_env_var:
-        default: value1
-        values:
-          - value1
-          - value2
+      environmentVariables:
+        step_env_var:
+          default: value1
+          values:
+            - value1
+            - value2
     steps:
     - name: step_1
       type: Bash

@@ -12,7 +12,7 @@ resources:
 
 pipelines:
   - name: node_test_with_step_test_reports
-    configuration:
+#     configuration:
 #       environmentVariables:
 #         readOnly:
 #           name: "vishnu"

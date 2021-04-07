@@ -113,7 +113,7 @@ pipelines:
       - name: rhel7
         type: Bash
         configuration:
-          nodePool: rhe7
+          nodePool: rhel7
           inputResources:
             - name: connecting_resource_node_test
             - name: script
@@ -133,7 +133,7 @@ pipelines:
       - name: rhel8
         type: Bash
         configuration:
-          nodePool: rhe8
+          nodePool: rhel8
           inputResources:
             - name: connecting_resource_node_test
             - name: script

@@ -89,6 +89,8 @@ pipelines:
             - cd $res_script_resourcePath
             - ls
             - python -m py_compile calc.py
+            - which pip
+            - pip -V
 #             - pip2 install --upgrade pip2
             - hash -d pip2
             - pip2 install pytest           

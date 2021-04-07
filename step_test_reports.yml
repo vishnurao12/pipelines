@@ -1,20 +1,63 @@
 resources:
+  - name: connecting_resource_node_test
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
   - name: script
     type: GitRepo
     configuration:
       gitProvider: git_v
       path: vishnurao12/sample-script
-      
+
 pipelines:
-  - name: test_stepTestReports
+  - name: node_test_with_step_test_reports
+    configuration:
+      environmentVariables:
+        readOnly:
+          name: "vishnu"
     steps:
-      - name: testReport
+      - name: myStep112
         type: Bash
         configuration:
+          outputResources: 
+            - name: connecting_resource_node_test
+#               trigger: false
+          integrations:
+            - name: git_v
+            - name: art_v
+        execution:
+          onExecute:
+            - echo automation > test.sh
+            - echo automation > foo1
+#             - jfrog rt u test.sh example-repo-local/setup/test.sh
+#             - jfrog rt u foo1 example-repo-local/setup/foo1
+            - write_output connecting_resource_node_test "test=value"
+
+      - name: win_2019
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
           inputResources:
+            - name: connecting_resource_node_test
             - name: script
         execution:
           onExecute:
+            - write-output "Hi"
+            - docker images
+            
+
+      - name: u16dynamic
+        type: Bash
+        configuration:
+          nodePool: u16dynamic
+          inputResources:
+            - name: connecting_resource_node_test
+            - name: script
+        execution:
+          onExecute:
+            - printenv
+            - docker images
             - cd $res_script_resourcePath
             - ls
             - python -m py_compile calc.py
@@ -24,3 +67,129 @@ pipelines:
             - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
           onComplete:
             - save_tests $res_script_resourcePath/test-reports/results.xml 
+
+      - name: c7dynamic
+        type: Bash
+        configuration:
+          nodePool: c7dynamic
+          inputResources:
+            - name: connecting_resource_node_test
+            - name: script
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            - cd $res_script_resourcePath
+            - ls
+            - python -m py_compile calc.py
+            - pip install --upgrade pip
+            - hash -d pip
+            - pip install pytest           
+            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+          onComplete:
+            - save_tests $res_script_resourcePath/test-reports/results.xml 
+
+      - name: u18dynamic
+        type: Bash
+        configuration:
+          nodePool: u18dynamic
+          inputResources:
+            - name: connecting_resource_node_test
+            - name: script
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            - cd $res_script_resourcePath
+            - ls
+            - python -m py_compile calc.py
+            - pip install --upgrade pip
+            - hash -d pip
+            - pip install pytest           
+            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+          onComplete:
+            - save_tests $res_script_resourcePath/test-reports/results.xml 
+
+      - name: rhel7
+        type: Bash
+        configuration:
+          nodePool: rhe7
+          inputResources:
+            - name: connecting_resource_node_test
+            - name: script
+        execution:
+          onExecute:
+            - printenv
+            - cd $res_script_resourcePath
+            - ls
+            - python -m py_compile calc.py
+            - pip install --upgrade pip
+            - hash -d pip
+            - pip install pytest           
+            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+          onComplete:
+            - save_tests $res_script_resourcePath/test-reports/results.xml
+ 
+      - name: rhel8
+        type: Bash
+        configuration:
+          nodePool: rhe8
+          inputResources:
+            - name: connecting_resource_node_test
+            - name: script
+        execution:
+          onExecute:
+            - printenv
+            - cd $res_script_resourcePath
+            - ls
+            - python -m py_compile calc.py
+            - pip install --upgrade pip
+            - hash -d pip
+            - pip install pytest           
+            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+          onComplete:
+            - save_tests $res_script_resourcePath/test-reports/results.xml 
+            
+      - name: u20dynamic
+        type: Bash
+        configuration:
+          nodePool: u20dynamic
+          inputResources:
+            - name: connecting_resource_node_test
+            - name: script
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            - cd $res_script_resourcePath
+            - ls
+            - python -m py_compile calc.py
+            - pip install --upgrade pip
+            - hash -d pip
+            - pip install pytest           
+            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+          onComplete:
+            - save_tests $res_script_resourcePath/test-reports/results.xml 
+            
+      - name: c8dynamic
+        type: Bash
+        configuration:
+          nodePool: c8dynamic
+          inputResources:
+            - name: connecting_resource_node_test
+            - name: script
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            - cd $res_script_resourcePath
+            - ls
+            - python -m py_compile calc.py
+            - pip install --upgrade pip
+            - hash -d pip
+            - pip install pytest           
+            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+          onComplete:
+            - save_tests $res_script_resourcePath/test-reports/results.xml 
+
+      

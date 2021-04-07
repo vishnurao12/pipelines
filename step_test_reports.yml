@@ -91,7 +91,7 @@ pipelines:
             - python -m py_compile calc.py
             - which pip
             - pip -V
-            - easy_install pip==20.*
+            - easy_install pip==20.1
 #             - hash -d pip
             - pip install pytest  
 
@@ -135,7 +135,7 @@ pipelines:
             - cd $res_script_resourcePath
             - ls
             - python -m py_compile calc.py
-            - easy_install pip==20.*
+            - easy_install pip==20.1
 #             - hash -d pip
             - pip install pytest  
 

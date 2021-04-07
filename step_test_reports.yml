@@ -89,7 +89,7 @@ pipelines:
             - cd $res_script_resourcePath
             - ls
             - python -m py_compile calc.py
-            - pip install --upgrade pip
+#             - pip install --upgrade pip
             - hash -d pip
             - pip install pytest           
             - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
@@ -130,7 +130,7 @@ pipelines:
             - cd $res_script_resourcePath
             - ls
             - python -m py_compile calc.py
-            - pip install --upgrade pip
+#             - pip install --upgrade pip
             - hash -d pip
             - pip install pytest           
             - py.test --verbose --junit-xml test-reports/results.xml test_calc.py

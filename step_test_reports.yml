@@ -142,7 +142,7 @@ pipelines:
             - printenv
             - cd $res_script_resourcePath
             - ls
-            - python -m py_compile calc.py
+            - python3 -m py_compile calc.py
             - pip install --upgrade pip
             - hash -d pip
             - pip install pytest           
@@ -163,7 +163,7 @@ pipelines:
             - docker images
             - cd $res_script_resourcePath
             - ls
-            - python -m py_compile calc.py
+            - python3 -m py_compile calc.py
             - pip install --upgrade pip
             - hash -d pip
             - pip install pytest           
@@ -184,7 +184,7 @@ pipelines:
             - docker images
             - cd $res_script_resourcePath
             - ls
-            - python -m py_compile calc.py
+            - python3 -m py_compile calc.py
             - pip install --upgrade pip
             - hash -d pip
             - pip install pytest           

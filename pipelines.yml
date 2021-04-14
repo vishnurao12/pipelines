@@ -60,6 +60,7 @@ pipelines:
 #             - sleep 10m
             #- docker pull postgres
             - docker images
+            - free -m
           onSuccess:
             - pushd $res_resource_pipelines1245_resourcePath
             - ls

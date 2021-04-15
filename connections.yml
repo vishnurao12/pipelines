@@ -3,16 +3,21 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          name: "vishnu"
+          name: "true"
     steps:
       - name: stepA
         type: Bash
         configuration:
+          environmentVariables:
+            checkName: "${name}"
+            checkName1: ${name}
           integrations:
             - name: git_v
         execution:
           onExecute:
             - echo "HI"
+            - echo checkName 
+            - echo checkName1
 
       - name: step1
         type: Bash

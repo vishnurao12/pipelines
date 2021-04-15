@@ -16,19 +16,22 @@ pipelines:
         execution:
           onExecute:
             - echo "HI"
-            - echo checkName 
-            - echo checkName1
+            - echo $checkName 
+            - echo $checkName1
 
-#       - name: step1
-#         type: Bash
-#         configuration:
-#           affinityGroup: "Series1"
-#           inputSteps:
-#             - name: stepA
-#         execution:
-#           onExecute:
-#             - echo "HI"
-#             - docker images
+      - name: step1
+        type: Bash
+        configuration:
+          environmentVariables:
+            checkNamestep1: "${name}"
+            checkName1step1: ${name}
+          inputSteps:
+            - name: stepA
+        execution:
+          onExecute:
+            - echo "HI"
+            - echo $checkNamestep1 
+            - echo $checkName1step1
             
 #       - name: step2
 #         type: Bash

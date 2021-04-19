@@ -1,4 +1,9 @@
 resources:
+  - name: test_gitRepo
+    type: GitRepo
+    configuration:
+      path: neha-mishraa/pipelines
+      gitProvider: github_n
   - name: testRes
     type: newRes/testRes
     configuration:
@@ -11,9 +16,12 @@ pipelines:
       - name: testStep
         type: gitExt/newStep
         configuration:
+          inputResources:
+            - name: test_gitRepo
           foo17: [36,89]
 #           GitHub: github_n
         execution:
           onStart:
             - echo "Hello"
             - get_integration_name --type Slack
+            - get_resource_name --type GitRepo --operation IN

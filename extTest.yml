@@ -3,6 +3,8 @@ resources:
     type: newRes/testRes
     configuration:
       bdood1: sample1
+    userDefinedDataType:
+      foo1: qwerty
 pipelines:
   - name: testPipeline
     steps:

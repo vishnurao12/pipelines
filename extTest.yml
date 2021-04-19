@@ -1,0 +1,8 @@
+pipelines:
+  - name: testPipeline
+    steps:
+      - name: testStep
+        type: gitExt/newStep
+        execution:
+          onExecute:
+            - echo "Hello"

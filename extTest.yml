@@ -12,7 +12,7 @@ pipelines:
         type: gitExt/newStep
         configuration:
           foo17: [36,89]
-          GitHub: github_n
+#           GitHub: github_n
         execution:
           onStart:
             - echo "Hello"

@@ -8,7 +8,7 @@ resources:
     type: newRes/testRes
     configuration:
       bdood1: sample12
-      foo2: 4
+      foo2: 2
     userDefinedDataType:
       foo1: qwerty
 pipelines:

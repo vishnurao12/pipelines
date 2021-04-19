@@ -19,7 +19,6 @@ pipelines:
           inputResources:
             - name: test_gitRepo
           foo17: [36,89]
-#           GitHub: github_n
         execution:
           onStart:
             - echo "Hello"

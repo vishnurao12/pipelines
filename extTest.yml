@@ -4,7 +4,7 @@ pipelines:
       - name: testStep
         type: gitExt/newStep
         configuration:
-          foo17: [3]
+          foo17: [36,89]
         execution:
           onStart:
             - echo "Hello"

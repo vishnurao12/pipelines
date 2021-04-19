@@ -3,6 +3,8 @@ pipelines:
     steps:
       - name: testStep
         type: gitExt/newStep
+        configuration:
+          foo: "sample"
         execution:
           onStart:
             - echo "Hello"

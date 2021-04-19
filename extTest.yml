@@ -12,6 +12,8 @@ pipelines:
         type: gitExt/newStep
         configuration:
           foo17: [36,89]
+          GitHub: github_n
         execution:
           onStart:
             - echo "Hello"
+            - get_integration_name --type GitHub

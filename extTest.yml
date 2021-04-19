@@ -16,4 +16,4 @@ pipelines:
         execution:
           onStart:
             - echo "Hello"
-            - get_integration_name --type GitHub
+            - get_integration_name --type Slack

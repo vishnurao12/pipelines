@@ -2,7 +2,7 @@ resources:
   - name: testRes
     type: newRes/testRes
     configuration:
-      bdood1: sample)
+      bdood1: sample1
 pipelines:
   - name: testPipeline
     steps:

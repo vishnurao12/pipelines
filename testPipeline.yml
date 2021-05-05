@@ -6,8 +6,8 @@
 #       path: neha-mishraa/pipelines
 pipelines:
   - name: testpipeline
-    configuration:
-      nodePool: test
+#     configuration:
+#       nodePool: test
     steps:
       - name: testStep
         type: Bash

@@ -6,8 +6,8 @@
 #       path: neha-mishraa/pipelines
 pipelines:
   - name: testpipeline
-#     configuration:
-#       nodePool: u16dynamic
+    configuration:
+      nodePool: test
     steps:
       - name: testStep
         type: Bash
@@ -16,8 +16,8 @@ pipelines:
             - echo "executing onStart"
           onExecute:
             - echo "executing onExecute"
-            - sleep 5s
-            - printenv
+#             - sleep 5s
+#             - printenv
 #       - name: testStep2
 #         type: Bash
 #         configuration:

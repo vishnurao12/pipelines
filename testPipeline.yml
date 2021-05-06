@@ -18,27 +18,27 @@ pipelines:
             - echo "executing onExecute"
 #             - sleep 5s
 #             - printenv
-      - name: testStep2
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: testStep
-        execution:
-          onStart:
-            - echo "executing onStart"
-          onExecute:
-            - echo "executing onExecute"
-            - sleep 5s
-            - fallocate -l 10G huge_file.dat
-            - df -h
-            - fallocate -l 10G huge_file.dat1
-            - df -h
-            - fallocate -l 7G huge_file.dat2
-            - df -h
-#             - fallocate -l 7G huge_file.dat3
+#       - name: testStep2
+#         type: Bash
+#         configuration:
+#           inputSteps:
+#             - name: testStep
+#         execution:
+#           onStart:
+#             - echo "executing onStart"
+#           onExecute:
+#             - echo "executing onExecute"
+#             - sleep 5s
+#             - fallocate -l 10G huge_file.dat
 #             - df -h
-#             - fallocate -l 10G huge_file.dat4
+#             - fallocate -l 10G huge_file.dat1
 #             - df -h
+#             - fallocate -l 7G huge_file.dat2
+#             - df -h
+# #             - fallocate -l 7G huge_file.dat3
+# #             - df -h
+# #             - fallocate -l 10G huge_file.dat4
+# #             - df -h
 
 #       - name: testStepBash1
 #         type: Bash

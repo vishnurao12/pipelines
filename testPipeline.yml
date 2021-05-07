@@ -16,7 +16,7 @@ pipelines:
             - echo "executing onStart"
           onExecute:
             - echo "executing onExecute"
-#             - sleep 5s
+            - sleep 5s
 #             - printenv
 #       - name: testStep2
 #         type: Bash

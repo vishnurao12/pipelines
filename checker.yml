@@ -1,0 +1,8 @@
+pipelines:
+  - name: sample
+    steps:
+      - name: step
+        type: newStep2   
+        execution:
+          onExecute:
+            - echo "hello!"

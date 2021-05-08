@@ -3,8 +3,4 @@ pipelines:
     steps:
       - name: step
         type: newStep2  
-        configuration:
-          foo3: true
-        execution:
-          onExecute:
-            - echo "hello!"
+       

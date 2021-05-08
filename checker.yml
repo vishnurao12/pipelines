@@ -1,6 +1,8 @@
 resources:
   - name: res
     type: newRes2/testRes2
+    configuration:
+      bdood1: "hello"
 pipelines:
   - name: sample
     steps:

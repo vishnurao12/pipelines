@@ -2,5 +2,5 @@ pipelines:
   - name: sample
     steps:
       - name: step
-        type: newStep2  
+        type: gitExt2/newStep2  
        

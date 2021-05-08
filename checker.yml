@@ -4,7 +4,7 @@ pipelines:
       - name: step
         type: newStep2  
         configuration:
-          foo1va: "lol"
+          foo3: true
         execution:
           onExecute:
             - echo "hello!"

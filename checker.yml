@@ -1,3 +1,6 @@
+resources:
+  - name: res
+    type: newRes2/testRes2
 pipelines:
   - name: sample
     steps:

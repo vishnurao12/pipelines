@@ -64,6 +64,8 @@ pipelines:
           onSuccess:
             - pushd $res_resource_pipelines1245_resourcePath
             - ls
+          onComplete: 
+            - echo "hi"
 
 
 

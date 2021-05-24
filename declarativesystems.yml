@@ -1,0 +1,280 @@
+# resources:
+#   # - name: cron_min_70
+#   #   type: CronTrigger
+#   #   configuration:
+#   #     interval: "* * * * *"
+
+#   - name: cron_min_6094
+#     type: CronTrigger
+#     configuration:
+#       interval: "* * * * *"
+
+pipelines:
+  - name: declarativesystemsPipelineSteps6Runs15
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          # inputResources:
+          #   - name: cron_min_70
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+      - name: myStep5
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep6
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+ #-------------------------------------------------------------------------------------
+ 
+  - name: declarativesystemsPipelineSteps3Runs15
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+#-------------------------------------------------------------------------------------
+ 
+  - name: declarativesystemsPipelineSteps1Runs7
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          # inputResources:
+          #   - name: cron_min_6094
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+#-------------------------------------------------------------------------------------
+ 
+  - name: declarativesystemsPipelineSteps2Runs26
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+#-------------------------------------------------------------------------------------
+ 
+  - name: declarativesystemsPipelineSteps5Runs42
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep5
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+    
+#-------------------------------------------------------------------------------------
+ 
+  - name: declarativesystemsPipelineSteps4Runs19
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt

@@ -1,8 +1,8 @@
 resources:
-  - name: cron_min_70
-    type: CronTrigger
-    configuration:
-      interval: "* * * * *"
+  # - name: cron_min_70
+  #   type: CronTrigger
+  #   configuration:
+  #     interval: "* * * * *"
 
   - name: cron_min_6094
     type: CronTrigger
@@ -16,8 +16,8 @@ pipelines:
       - name: myStep1
         type: Bash
         configuration:
-          inputResources:
-            - name: cron_min_70
+          # inputResources:
+          #   - name: cron_min_70
           integrations:
             - name: git_v
         execution:

@@ -1,0 +1,172 @@
+resources:
+  - name: cron_min_70
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+
+  - name: cron_min_6094
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+
+pipelines:
+  - name: smartthingsPipelineId11Steps4Runs70
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: cron_min_70
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+ #-------------------------------------------------------------------------------------
+ 
+  - name: smartthingsPipelineId12Steps4Runs4
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+#-------------------------------------------------------------------------------------
+ 
+  - name: smartthingsPipelineSteps4Runs6094
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: cron_min_6094
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep3
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep4
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt

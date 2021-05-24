@@ -99,8 +99,8 @@ pipelines:
       - name: myStep1
         type: Bash
         configuration:
-          inputResources:
-            - name: cron_min_70
+          # inputResources:
+          #   - name: cron_min_70
           integrations:
             - name: git_v
         execution:

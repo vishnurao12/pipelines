@@ -17,6 +17,7 @@ pipelines:
 #               trigger: false
           integrations:
             - name: git_v
+            - name: art_v
         execution:
           onExecute:
             - write_output connecting_resource_node_test "test:value"
@@ -27,10 +28,14 @@ pipelines:
           nodePool: win_2019
           inputResources:
             - name: connecting_resource_node_test
+          integrations:
+            - name: git_v
+            - name: art_v  
         execution:
           onExecute:
             - write-output "Hi"
             - docker images
+            - jfrog --version
 
       - name: u16
         type: Bash
@@ -38,36 +43,94 @@ pipelines:
           nodePool: u16
           inputResources:
             - name: connecting_resource_node_test
+          integrations:
+            - name: git_v
+            - name: art_v
         execution:
           onExecute:
             - printenv
+            - jfrog --version
 
       - name: c7node
         type: Bash
         configuration:
           nodePool: centos7
+          integrations:
+            - name: git_v
+            - name: art_v
           inputResources:
             - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
-
+            - jfrog --version
+            
+      - name: c8node
+        type: Bash
+        configuration:
+          nodePool: centos8
+          integrations:
+            - name: git_v
+            - name: art_v
+          inputResources:
+            - name: connecting_resource_node_test
+        execution:
+          onExecute:
+            - printenv
+            - jfrog --version
+            
       - name: u18
         type: Bash
         configuration:
           nodePool: u18
+          integrations:
+            - name: git_v
+            - name: art_v
           inputResources:
             - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
-
+            - jfrog --version
+            
+      - name: u20
+        type: Bash
+        configuration:
+          nodePool: u20
+          integrations:
+            - name: git_v
+            - name: art_v
+          inputResources:
+            - name: connecting_resource_node_test
+        execution:
+          onExecute:
+            - printenv
+            - jfrog --version
+            
       - name: rhel
         type: Bash
         configuration:
           nodePool: rhel7
+          integrations:
+            - name: git_v
+            - name: art_v
           inputResources:
             - name: connecting_resource_node_test
         execution:
           onExecute:
             - printenv
+            - jfrog --version
+            
+      - name: rhel8
+        type: Bash
+        configuration:
+          nodePool: rhel8
+          integrations:
+            - name: git_v
+            - name: art_v
+          inputResources:
+            - name: connecting_resource_node_test
+        execution:
+          onExecute:
+            - printenv
+            - jfrog --version

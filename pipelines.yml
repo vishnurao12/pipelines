@@ -13,7 +13,7 @@ pipelines:
         configuration:
           integrations:
             - name: art_v
-          nodePool: win_2019
+          nodePool: win_2019-1
           inputResources: 
           - name: testp123
         execution:

@@ -25,7 +25,7 @@ pipelines:
       - name: win_2019
         type: PowerShell
         configuration:
-          nodePool: win_2019
+          nodePool: win_2019-1
           inputResources:
             - name: connecting_resource_node_test
           integrations:

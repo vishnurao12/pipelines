@@ -1,13 +1,13 @@
-resources:
-  - name: connecting_resource_node_test
-    type: PropertyBag
-    configuration:
-      key1: value1
-      key2: value2
+# resources:
+#   - name: connecting_resource_node_test
+#     type: PropertyBag
+#     configuration:
+#       key1: value1
+#       key2: value2
 
 
 pipelines:
-  - name: node_test
+  - name: node_test_static
     steps:
       - name: myStep112
         type: Bash

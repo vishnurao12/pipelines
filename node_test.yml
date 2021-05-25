@@ -35,10 +35,14 @@ pipelines:
           nodePool: win_2019
           inputResources:
             - name: connecting_resource_node_test
+          integrations:
+            - name: git_v
+            - name: art_v
         execution:
           onExecute:
             - write-output "Hi"
             - docker images
+            - jfrog --version
 
       - name: u16dynamic
         type: Bash
@@ -46,10 +50,14 @@ pipelines:
           nodePool: u16dynamic
           inputResources:
             - name: connecting_resource_node_test
+          integrations:
+            - name: git_v
+            - name: art_v
         execution:
           onExecute:
             - printenv
             - docker images
+            - jfrog --version
 
       - name: c7dynamic
         type: Bash
@@ -57,10 +65,14 @@ pipelines:
           nodePool: c7dynamic
           inputResources:
             - name: connecting_resource_node_test
+          integrations:
+            - name: git_v
+            - name: art_v
         execution:
           onExecute:
             - printenv
             - docker images
+            - jfrog --version
 
       - name: u18dynamic
         type: Bash
@@ -68,10 +80,14 @@ pipelines:
           nodePool: u18dynamic
           inputResources:
             - name: connecting_resource_node_test
+          integrations:
+            - name: git_v
+            - name: art_v
         execution:
           onExecute:
             - printenv
             - docker images
+            - jfrog --version
 
 #       - name: rhel
 #         type: Bash
@@ -89,10 +105,14 @@ pipelines:
           nodePool: u20dynamic
           inputResources:
             - name: connecting_resource_node_test
+          integrations:
+            - name: git_v
+            - name: art_v
         execution:
           onExecute:
             - printenv
             - docker images
+            - jfrog --version
             
       - name: c8dynamic
         type: Bash
@@ -100,10 +120,14 @@ pipelines:
           nodePool: c8dynamic
           inputResources:
             - name: connecting_resource_node_test
+          integrations:
+            - name: git_v
+            - name: art_v
         execution:
           onExecute:
             - printenv
             - docker images
+            - jfrog --version
 
 #       - name: win_2019
 #         type: PowerShell

@@ -1,13 +1,13 @@
-resources:
-  - name: cron_min_70
-    type: CronTrigger
-    configuration:
-      interval: "* * * * *"
+# resources:
+#   - name: cron_min_70
+#     type: CronTrigger
+#     configuration:
+#       interval: "* * * * *"
 
-  - name: cron_min_96
-    type: CronTrigger
-    configuration:
-      interval: "* * * * *"
+#   - name: cron_min_96
+#     type: CronTrigger
+#     configuration:
+#       interval: "* * * * *"
 
 pipelines:
   - name: truliooawsPipelineSteps1Runs96

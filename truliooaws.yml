@@ -26,7 +26,7 @@ pipelines:
 
  #-------------------------------------------------------------------------------------
  
-  - name: smartthingsPipelineId12Steps4Runs17
+  - name: truliooawsPipelineId12Steps4Runs17
 
     steps:
       - name: myStep1

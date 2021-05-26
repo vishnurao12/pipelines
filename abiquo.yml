@@ -1,5 +1,5 @@
 pipelines:
-  - name: declarativesystemsPipelineSteps2Runs57
+  - name: abiquoPipelineSteps2Runs57
 
     steps:
       - name: myStep1
@@ -26,7 +26,7 @@ pipelines:
 
  #-------------------------------------------------------------------------------------
  
-  - name: declarativesystemsPipelineSteps1Runs714
+  - name: abiquoPipelineSteps1Runs714
 
     steps:
       - name: myStep1

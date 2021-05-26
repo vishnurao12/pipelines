@@ -1,0 +1,43 @@
+pipelines:
+  - name: declarativesystemsPipelineSteps2Runs57
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+      - name: myStep2
+        type: Bash
+        configuration:
+
+          inputSteps: 
+            - name: myStep1
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+ #-------------------------------------------------------------------------------------
+ 
+  - name: declarativesystemsPipelineSteps1Runs714
+
+    steps:
+      - name: myStep1
+        type: Bash
+        configuration:
+          integrations:
+            - name: git_v
+        execution:
+          onExecute:
+            - touch sample.txt
+
+            
+
+#-------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-# resources:
+resources:
 #   # - name: cron_min_70
 #   #   type: CronTrigger
 #   #   configuration:

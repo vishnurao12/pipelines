@@ -1,13 +1,13 @@
-resources:
+# resources:
 #   # - name: cron_min_70
 #   #   type: CronTrigger
 #   #   configuration:
 #   #     interval: "* * * * *"
 
-  - name: cron_min_6094
-    type: CronTrigger
-    configuration:
-      interval: "* * * * *"
+#   - name: cron_min_6094
+#     type: CronTrigger
+#     configuration:
+#       interval: "* * * * *"
 
 pipelines:
   - name: smartthingsPipelineId11Steps4Runs70
@@ -124,8 +124,8 @@ pipelines:
       - name: myStep1
         type: Bash
         configuration:
-          inputResources:
-            - name: cron_min_6094
+#           inputResources:
+#             - name: cron_min_6094
           integrations:
             - name: git_v
         execution:

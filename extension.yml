@@ -46,12 +46,12 @@ pipelines:
           inputResources:
             - name: EXT_S_LX_AU_0001_fileSpec
 
-  - name: pipeline_EXT_S_LX_AU_0003
-    steps:          
-      - name: EXT_S_LX_AU_0001_3
-        type: LinuxVMDeploy
-        configuration:
-          environmentVariables:
-            DEPLOY_TARGETS_OVERRIDE: "test"
-          targetDirectory: example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
-          deployCommand: "echo hi"
+#   - name: pipeline_EXT_S_LX_AU_0003
+#     steps:          
+#       - name: EXT_S_LX_AU_0001_3
+#         type: LinuxVMDeploy
+#         configuration:
+#           environmentVariables:
+#             DEPLOY_TARGETS_OVERRIDE: "test"
+#           targetDirectory: example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
+#           deployCommand: "echo hi"

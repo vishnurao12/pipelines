@@ -1,4 +1,13 @@
 resources:
+  - name: resource_pipelines1245
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$
   - name: EXT_S_LX_AU_0001_fileSpec
     type: FileSpec
     configuration:
@@ -19,6 +28,8 @@ pipelines:
         configuration:
           integrations:
             - name: s_artifactory
+          inputResources:
+            - name: resource_pipelines1245         
           outputResources:
             - name: EXT_S_LX_AU_0001_fileSpec
         execution:

@@ -1,487 +1,57 @@
 resources:
-  - name: step001
-    type: Gitnp/gittest1
-    syntaxVersion: latest
-    configuration:      
-      test: foo
-      bdood: "present"
-      #slack: slack_extension
-      Artifactory: art_v
-#      Azure Keys: azure_extension
-      #Bitbucket: bb_extension
-      #Bitbucket Server : bbs_extension
-#      Distribution : ds_extension
-#      Digital Ocean : DO_extension
-      #Docker Registry : DR_extension
-#      File Server : FS_extension
-      #Google Cloud : GC_extension
-      #Generic Integration : generic_extension
-      GitHub : git_v
-      # Github Enterprise : ghe_extension
-      #GitLab : gL_extension
-      # Incoming Webhook : IW_extension
-      # Jenkins Server : JS_extension
-#      Jira : JI_extension
-      #Kubernetes : Kuber_extension
-      # NewRelic : NR_extension
-      # Outgoing Webhook : OW_extension
-      # PEM Key : PK_extension
-      # SMTP Credentials : SMTP_extension
-      # SSH Key: SSH_extension
-      # Airbrake : air_extension
-      foo1 : "namelol"
-#       foo1a : "lolwithoutImu"
-      foo2 : 3
-      foo3 : false
-      foo4 : http://www.jfrognew.com
-      foo5 : temp@jfrognew.com
-      foo6 : 192.168.50.51
-      foo7 : 255.255.255.01
-      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7331
-      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1001"
-      foo10 : "b"
-      foo11 : "a1"
-      foo12 : 731
-      foo13 : 74.51
-      foo14 : 123e4567-e89b-12d3-a456-426614174001
-      foo15 : 
-        - "lolvishnu1"
-        - "lol21"
-      foo30 : "vishnulol1"
-      foo31 : "lol"
-      foo32 : "vishnu1"
-      foo33 : "VISHNU1"
-      foo34 : "sfa"
-      foo35 : "vishnu"
-      foo36 : "asf1"
-      foo37 : "ma1"
-      foo38 : "ma1"
-      foo39 : "Wed Nov 01 2011 00:00:00 GMT+1001"
-      foo40 : 2
-      foo41 : 7
-      foo16 : 
-        - 4
-        - 1
-      foo17 : 
-        - 8
-        - 9
-      foo18 : 
-        - false
-        - true
-      foo19 : 
-        - http://www.jfrog.com
-      foo20 :
-        - temp1@jfrog.com
-        - temp2@jfrog.com
-      foo21 :
-        - 192.168.50.50
-        - 192.168.50.51
-      foo22 :
-        - 255.255.255.0
-        - 255.255.255.0
-      foo23 :
-        - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-        - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-      foo24 :
-        - "Wed Nov 03 2011 00:00:00 GMT+1000"
-        - "Wed Nov 05 2011 00:00:00 GMT+1000"
-      foo25 :
-        - "a"
-        
-      foo26 :
-        - "a5"
-        - "a6"
-      foo27 :
-        - 12
-        - 13
-      foo28 :
-        - 56.7
-        - 56.8
-      foo29 :
-        - 123e4567-e89b-12d3-a456-426614174000
-      foo42 :
-        - "lol1"
-        - "lol2"
-      foo43 :
-        - "lol"
-        - "lol"
-      foo44 :
-        - "sas"
-        - "saas"
-      foo45 :
-        - "AA"
-        - "BB"
-      foo46 :
-        - "sfaf"
-        - "sfaf"
-      foo47 :
-        - "jfr"
-        - "jjg"
-      foo48 :
-        - "sfaf"
-        - "fsf"
-      foo49 :
-        - "jfr"
-        - "jfr1"
-      foo50 :
-        foo1 : "vishnulol"
-        foo2 : 2
-        foo3 : true
-        foo4 : http://www.jfrog.com
-        foo5 : temp@jfrog.com 
-        foo6 : 192.168.50.50
-        foo7 : 255.255.255.0
-        foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-        foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
-        foo10 : "a"
-        foo11 : "a7"
-        foo12 : 734
-        foo13 : 74.5
-        foo14 : 123e4567-e89b-12d3-a456-426614174000
-        foo15 : 
-          - "lolvishnu"
-          - "lol2"
-        foo30 : "vishnulol"
-        foo31 : "lol"
-        foo32 : "vishnu"
-        foo33 : "VISHNU"
-        foo34 : "sfaf"
-        foo35 : "vishnu"
-        foo36 : "asf"
-        foo37 : "mac"
-        foo38 : "mac"
-        foo39 : "Wed Nov 01 2011 00:00:00 GMT+1000"
-        foo40 : 4
-        foo41 : 6
-        foo16 : 
-          - 4
-          - 3
-        foo17 : 
-          - 6
-          - 7
-        foo18 : 
-          - true
-          - false
-        foo19 : 
-          - http://www.jfrog.com
-        foo20 :
-          - temp1@jfrog.com
-          - temp2@jfrog.com
-        foo21 :
-          - 192.168.50.50
-          - 192.168.50.51
-        foo22 :
-          - 255.255.255.0
-          - 255.255.255.0
-        foo23 :
-          - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-          - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-        foo24 :
-          - "Wed Nov 03 2011 00:00:00 GMT+1000"
-          - "Wed Nov 05 2011 00:00:00 GMT+1000"
-        foo25 :
-          - "a"
-          
-        foo26 :
-          - "a5"
-          - "a6"
-        foo27 :
-          - 12
-          - 13
-        foo28 :
-          - 56.7
-          - 56.8
-        foo29 :
-          - 123e4567-e89b-12d3-a456-426614174000
-        foo42 :
-          - "lol1"
-          - "lol2"
-        foo43 :
-          - "lol"
-          - "lol"
-        foo44 :
-          - "sas"
-          - "saas"
-        foo45 :
-          - "AA"
-          - "BB"
-        foo46 :
-          - "sfaf"
-          - "sfaf"
-        foo47 :
-          - "jfr"
-          - "jjg"
-        foo48 :
-          - "sfaf"
-          - "fsf"
-        foo49 :
-          - "jfr"
-          - "jfr1" 
-
-  - name: step004
-    type: Gitnp2/test
-    syntaxVersion: 1.2.3
-    configuration:      
-      test: foo
-     # slack: slack_extension
-      Artifactory: art_v
-#      Azure Keys: azure_extension
-   #   Bitbucket: bb_extension
-   #   Bitbucket Server : bbs_extension
-#      Distribution : ds_extension
-#      Digital Ocean : DO_extension
-   #   Docker Registry : DR_extension
-#      File Server : FS_extension
-     # Google Cloud : GC_extension
-     # Generic Integration : generic_extension
-      GitHub : git_v
-      # Github Enterprise : ghe_extension
-   #   GitLab : gL_extension
-      # Incoming Webhook : IW_extension
-      # Jenkins Server : JS_extension
-#      Jira : JI_extension
-   #   Kubernetes : Kuber_extension
-      # NewRelic : NR_extension
-      # Outgoing Webhook : OW_extension
-      # PEM Key : PK_extension
-      # SMTP Credentials : SMTP_extension
-      # SSH Key: SSH_extension
-      # Airbrake : air_extension
-      foo1 : "namelol"
-#       foo1a : "lolwithoutImu"
-      foo2 : 4
-      foo3 : false
-      foo4 : http://www.jfrog.com
-      foo5 : temp@jfrog.com
-      foo6 : 192.168.51.51
-      foo7 : 255.255.251.01
-      foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7311
-      foo9 : "Wed Nov 03 2011 00:00:00 GMT+1011"
-      foo10 : "a"
-      foo11 : "a"
-      foo12 : 732
-      foo13 : 74.52
-      foo14 : 123e4567-e89b-12d3-a456-426614174011
-      foo15 : 
-        - "lolvishnu"
-        - "lol"
-      foo30 : "vishnulol"
-      foo31 : "lol"
-      foo32 : "vishnu"
-      foo33 : "VISHNU"
-      foo34 : "sfaf"
-      foo35 : "vishnu"
-      foo36 : "asf"
-      foo37 : "ma"
-      foo38 : "ma"
-      foo39 : "Wed Nov 01 2011 00:00:00 GMT+100"
-      foo40 : 3
-      foo41 : 6
-      foo16 : 
-        - 3
-        - 2
-      foo17 : 
-        - 7
-        - 6
-      foo18 : 
-        - true
-        - false
-      foo19 : 
-        - http://www.jfrognew
-        - http://www.jfrognew
-        - http://www.jfrognew
-      foo21 :
-        - 192.168.50.51
-        - 192.168.50.50
-      foo22 :
-        - 255.255.251.0
-        - 255.255.251.0
-      foo23 :
-        - 2001:0db8:85a3:0000:0000:8a2e:0370:7331
-        - 2001:0db8:85a3:0000:0000:8a2e:0370:7331
-      foo24 :
-        - "Wed Nov 03 2011 00:00:00 GMT+1001"
-        - "Wed Nov 05 2011 00:00:00 GMT+1001"
-      foo25 :
-        - "b"
-        
-      foo26 :
-        - "a5"
-        - "a6"
-      foo27 :
-        - 11
-        - 11
-      foo28 :
-        - 56.1
-        - 56.1
-      foo29 :
-        - 123e4567-e89b-12d3-a456-426614174001
-      foo42 :
-        - "lol"
-        - "lol"
-      foo43 :
-        - "lol"
-        - "lol"
-      foo44 :
-        - "saas"
-        - "saas"
-      foo45 :
-        - "A"
-        - "B"
-      foo46 :
-        - "sfa"
-        - "sfa"
-      foo47 :
-        - "jf"
-        - "jj"
-      foo48 :
-        - "sfa"
-        - "fs"
-      foo49 :
-        - "jfr"
-        - "jfr"
-      foo50 :
-        foo1 : "vishnulol"
-        foo2 : 2
-        foo3 : false
-        foo4 : http://www.jfrog.com
-        foo5 : temp@jfrog.com 
-        foo6 : 192.168.50.50
-        foo7 : 255.255.255.0
-        foo8 : 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-        foo9 : "Wed Nov 03 2011 00:00:00 GMT+1000"
-        foo10 : "a"
-        foo11 : "a7"
-        foo12 : 734
-        foo13 : 74.5
-        foo14 : 123e4567-e89b-12d3-a456-426614174000
-        foo15 : 
-          - "lolvishnu"
-          - "lol2"
-        foo30 : "vishnulol"
-        foo31 : "lol"
-        foo32 : "vishnu"
-        foo33 : "VISHNU"
-        foo34 : "sfaf"
-        foo35 : "vishnu"
-        foo36 : "asf"
-        foo37 : "mac"
-        foo38 : "mac"
-        foo39 : "Wed Nov 01 2011 00:00:00 GMT+1000"
-        foo40 : 4
-        foo41 : 6
-        foo16 : 
-          - 4
-          - 3
-        foo17 : 
-          - 6
-          - 7
-        foo18 : 
-          - false
-          - false
-        foo19 : 
-          - http://www.jfrog.com
-        foo20 :
-          - temp1@jfrog.com
-          - temp2@jfrog.com
-        foo21 :
-          - 192.168.50.50
-          - 192.168.50.51
-        foo22 :
-          - 255.255.255.0
-          - 255.255.255.0
-        foo23 :
-          - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-          - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-        foo24 :
-          - "Wed Nov 03 2011 00:00:00 GMT+1000"
-          - "Wed Nov 05 2011 00:00:00 GMT+1000"
-        foo25 :
-          - "a"
-          
-        foo26 :
-          - "a5"
-          - "a6"
-        foo27 :
-          - 12
-          - 13
-        foo28 :
-          - 56.7
-          - 56.8
-        foo29 :
-          - 123e4567-e89b-12d3-a456-426614174000
-        foo42 :
-          - "lol1"
-          - "lol2"
-        foo43 :
-          - "lol"
-          - "lol"
-        foo44 :
-          - "sas"
-          - "saas"
-        foo45 :
-          - "AA"
-          - "BB"
-        foo46 :
-          - "sfaf"
-          - "sfaf"
-        foo47 :
-          - "jfr"
-          - "jjg"
-        foo48 :
-          - "sfaf"
-          - "fsf"
-        foo49 :
-          - "jfr"
-          - "jfr1"
-          
-  - name: r_GitRepo
+  - name: resource_pipelines1245
     type: GitRepo
     configuration:
-      path: vishnurao12/pipelines
-      branches:
-        include: master
       gitProvider: git_v
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$
+  - name: EXT_S_LX_AU_0001_fileSpec
+    type: FileSpec
+    configuration:
+      sourceArtifactory: s_artifactory
+      pattern: "example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
+
+  - name: EXT_S_LX_AU_0001_propertyBag
+    type: propertyBag
+    configuration:
+      sourceArtifactory: s_artifactory
+      pattern: "example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
 
 pipelines:
-  - name: extensionstest
+  - name: pipeline_EXT_S_LX_AU_0001
     steps:
-      - name: step100
-        type: gitcheck/gitstep
-        syntaxVersion: 1.0.0 
-        configuration:              
-          foo: bar
+      - name: EXT_S_LX_AU_0001_1
+        type: Bash
+        configuration:
+          integrations:
+            - name: s_artifactory
           inputResources:
-            - name: step004
-           # - name: resource005
-#            - name: r_Aql
-#            - name: myBuildInfo
-#            - name: cronTriggerResource
-#            - name: myDistributionRule
-#            - name: r_FileSpec_pattern
-            - name: r_GitRepo
-            #- name: helm_repo
-            #- name: image_google
-#            - name: r_IncomingWebhook
-#            - name: outgoingWebhook
-           # - name: mypropertyBag
-#            - name: my_releaseBundle
-#            - name: r_FileSpec_pattern
-#            - name: VmCluster_resource
+            - name: resource_pipelines1245         
           outputResources:
-             - name: step001
+            - name: EXT_S_LX_AU_0001_fileSpec
         execution:
-          onStart:
-            - echo "Preparing for work..."
-            - printenv
-#            - ls
-#             - cd common
-#             - chmod +x common.js
-#             - ./common.js
-            - node common/common.js
-            - get_resource_name --namespace Gitnp --type gittest --operation OUT
-            - get_resource_name --namespace Gitnp --type gittest --operation OUT --syntax-version latest
-            - get_resource_name --namespace Gitnp --type gittest --operation OUT --syntax-version 9.9.9
-            - get_resource_name --namespace Gitnp --type test --operation IN
-            - get_resource_name --namespace Gitnp --type test --operation IN --syntax-version latest 
-            - get_resource_name --namespace Gitnp --type test --operation IN --syntax-version 9.9.9
+          onExecute:
+            - echo "${run_id}" > EXT_S_LX_AU_0001_fileSpec.txt
+            - jfrog rt upload EXT_S_LX_AU_0001_fileSpec.txt example-repo-local
+            
+      - name: EXT_S_LX_AU_0001_2
+        type: UploadArtifact
+        configuration:
+          targetPath: example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
+          integrations:
+            - name: s_artifactory
+          inputResources:
+            - name: EXT_S_LX_AU_0001_fileSpec
+
+  - name: pipeline_EXT_S_LX_AU_0003
+    steps:          
+      - name: EXT_S_LX_AU_0001_3
+        type: LinuxVMDeploy
+        configuration:
+          environmentVariables:
+            DEPLOY_TARGETS_OVERRIDE: "test"
+          targetDirectory: example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
+          deployCommand: "echo hi"

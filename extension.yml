@@ -34,7 +34,9 @@ pipelines:
             - name: s_artifactory
           inputResources:
             - name: EXT_S_LX_AU_0001_fileSpec
-            
+
+  - name: pipeline_EXT_S_LX_AU_0003
+    steps:          
       - name: EXT_S_LX_AU_0001_3
         type: jfrog_dev/LinuxVMDeploy
         configuration:
@@ -42,5 +44,4 @@ pipelines:
             DEPLOY_TARGETS_OVERRIDE: "test"
           targetDirectory: example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
           deployCommand: "echo hi"
-          inputResources:
-            - name: EXT_S_LX_AU_0001_propertyBag
+

@@ -5,6 +5,12 @@ resources:
       sourceArtifactory: s_artifactory
       pattern: "example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
 
+  - name: EXT_S_LX_AU_0001_propertyBag
+    type: propertyBag
+    configuration:
+      sourceArtifactory: s_artifactory
+      pattern: "example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
+
 pipelines:
   - name: pipeline_EXT_S_LX_AU_0001
     steps:
@@ -28,3 +34,13 @@ pipelines:
             - name: s_artifactory
           inputResources:
             - name: EXT_S_LX_AU_0001_fileSpec
+            
+      - name: EXT_S_LX_AU_0001_3
+        type: jfrog_dev/LinuxVMDeploy
+        configuration:
+          environmentVariables:
+            DEPLOY_TARGETS_OVERRIDE: "test"
+          targetDirectory: example-repo-local/EXT_S_LX_AU_0001_fileSpec.txt"
+          deployCommand: "echo hi"
+          inputResources:
+            - name: EXT_S_LX_AU_0001_propertyBag

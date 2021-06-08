@@ -52,7 +52,7 @@ pipelines:
           affinityGroup: "BasicTest"
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/node
+          dockerImageName: 10.70.30.29:8082/docker-local/node
 
           dockerImageTag: latest
           integrations:

@@ -22,8 +22,8 @@ pipelines:
 #           timeoutSeconds: 60
           environmentVariables:
             testCases: setup.js
-          runtime:           
-            type: host
+#           runtime:           
+#             type: host
           inputResources: 
             - name: resource_pipelines1245
           integrations:

@@ -13,33 +13,33 @@ resources:
       branches: 
         include: master
         
-  - name: res_bundle
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: distribution_v
-      name: test_123
-      version: v1.0.1
+#   - name: res_bundle
+#     type: ReleaseBundle
+#     configuration:
+#       sourceDistribution: distribution_v
+#       name: test_123
+#       version: v1.0.1
       
-  - name: sig_bundle
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: distribution_v
-      name: test_123
-      version: v1.0.1
+#   - name: sig_bundle
+#     type: ReleaseBundle
+#     configuration:
+#       sourceDistribution: distribution_v
+#       name: test_123
+#       version: v1.0.1
       
-  - name: ns_promotedInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_promotedInfo
-      buildNumber: 1
+#   - name: ns_promotedInfo
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_promotedInfo
+#       buildNumber: 1
 
-  - name: ns_buildInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: master_test_buildInfo
-      buildNumber: 1514
+#   - name: ns_buildInfo
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: art_v
+#       buildName: master_test_buildInfo
+#       buildNumber: 1514
 
 
 pipelines:
@@ -75,43 +75,43 @@ pipelines:
             - name: To_build_Docker_Image
             
                
-      - name: To_publish_buildInfo 
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: To_Push_Docker_Image
-          outputResources:
-            - name: ns_buildInfo
+#       - name: To_publish_buildInfo 
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: To_Push_Docker_Image
+#           outputResources:
+#             - name: ns_buildInfo
 
-      - name: To_promote_build
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: ns_buildInfo
-          inputSteps:
-            - name: To_publish_buildInfo
-          outputResources:
-            - name: ns_promotedInfo
+#       - name: To_promote_build
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: ns_buildInfo
+#           inputSteps:
+#             - name: To_publish_buildInfo
+#           outputResources:
+#             - name: ns_promotedInfo
 
-      - name: docker_releaseBundle
-        type: CreateReleaseBundle
-        configuration:
-          #inherits from bash
-          releaseBundleName:        test_123
-          releaseBundleVersion:     v1.0.1
-          inputResources:
-            - name: ns_promotedInfo
-          outputResources:
-            - name: res_bundle
-          dryRun: false
+#       - name: docker_releaseBundle
+#         type: CreateReleaseBundle
+#         configuration:
+#           #inherits from bash
+#           releaseBundleName:        test_123
+#           releaseBundleVersion:     v1.0.1
+#           inputResources:
+#             - name: ns_promotedInfo
+#           outputResources:
+#             - name: res_bundle
+#           dryRun: false
           
-      - name: docker_sign_releaseBundle
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name:            res_bundle
-          outputResources:
-            - name:            sig_bundle
+#       - name: docker_sign_releaseBundle
+#         type: SignReleaseBundle
+#         configuration:
+#           inputResources:
+#             - name:            res_bundle
+#           outputResources:
+#             - name:            sig_bundle

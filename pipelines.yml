@@ -31,7 +31,7 @@ pipelines:
 #            - name: art_v
         execution:
           onExecute:
-            - docker images
+#             - docker images
             - echo 'hi'
             - mkdir -p /tmp/test && mount /dev/sda /tmp/test
       - name: myStep113

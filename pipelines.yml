@@ -27,7 +27,7 @@ pipelines:
           inputResources: 
             - name: resource_pipelines1245
           integrations:
-            - name: test_pipeline
+            - name: git_v
 #            - name: art_v
         execution:
           onExecute:

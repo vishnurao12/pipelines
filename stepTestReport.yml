@@ -17,7 +17,7 @@ pipelines:
           onExecute:
             - printenv
             - docker images
-            - cd $res_script_resourcePath
+            - cd $res_script_repo1_resourcePath
             - ls
             - python -m py_compile calc.py
             - pip install --upgrade pip

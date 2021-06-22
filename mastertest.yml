@@ -146,6 +146,8 @@ resources:
     configuration:
       gitProvider: git_v
       path: vishnurao12/project-examples
+      branches:
+        include: ^test$
 
   - name: npmHelloWorld_repo
     type: GitRepo
@@ -811,8 +813,10 @@ pipelines:
 #             JFROG_CLI_BUILD_NUMBER: 2387
           sourceLocation: ./artifactory-maven-plugin-example
           mvnCommand: clean install
-          configFileLocation: .
-          configFileName: mvn-art-config
+          resolverSnapshotRepo: release-maven-remote
+          resolverReleaseRepo: release-maven-remote
+          deployerSnapshotRepo: release-maven-local
+          deployerReleaseRepo: release-maven-local
           inputResources:
             - name: maven_repo
             - name: connecting_resource

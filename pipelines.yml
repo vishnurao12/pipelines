@@ -33,7 +33,7 @@ pipelines:
           onExecute:
 #             - docker images
             - echo 'hi'
-            - mkdir -p /tmp/test && mount /dev/sda /tmp/test
+            
       - name: myStep113
         type: Bash
         configuration:

@@ -6,19 +6,19 @@
 #       path: neha-mishraa/pipelines
 
 ####################################
-# pipelines:
-#   - name: testpipeline
-# #     configuration:
-# #       nodePool: dynamicNP
-#     steps:
-#       - name: testStep
-#         type: Bash
-#         execution:
-#           onStart:
-#             - echo "executing onStart"
-#           onExecute:
-#             - echo "executing onExecute"
-#             - sleep 5s
+pipelines:
+  - name: testpipeline
+#     configuration:
+#       nodePool: dynamicNP
+    steps:
+      - name: testStep
+        type: Bash
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - echo "executing onExecute"
+            - sleep 5s
 
 ####################################
 # pipelines:

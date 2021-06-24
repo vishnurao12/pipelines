@@ -48,7 +48,7 @@ resources:
       registry:            art_v
       sourceRepository:    image-docker   # required if registry is Artifactory
 
-      imageName:           fullstack.jfrog-pipelines.com/docker-local/node
+      imageName:           jun24011160m003.jfrogdev.org/docker-local/node
       imageTag:            1.2.3
 
 

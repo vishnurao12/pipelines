@@ -48,7 +48,7 @@ resources:
       registry:            art_v
       sourceRepository:    image-docker   # required if registry is Artifactory
 
-      imageName:           jun24011160m003.jfrogdev.org/docker-local/node
+      imageName:           jun2401160m003.jfrogdev.org/docker-local/node
       imageTag:            1.2.3
 
 
@@ -62,7 +62,7 @@ pipelines:
           affinityGroup: "BasicTest"
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: jun24011160m003.jfrogdev.org/docker-local/node
+          dockerImageName: jun2401160m003.jfrogdev.org/docker-local/node
           
           dockerImageTag: 1.2.3
           integrations:

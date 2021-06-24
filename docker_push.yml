@@ -13,19 +13,19 @@ resources:
       branches: 
         include: master
         
-  - name: res_bundle
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: distribution_v
-      name: test_123
-      version: v1.0.3
+#   - name: res_bundle
+#     type: ReleaseBundle
+#     configuration:
+#       sourceDistribution: distribution_v
+#       name: test_123
+#       version: v1.0.3
       
-  - name: sig_bundle
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: distribution_v
-      name: test_123
-      version: v1.0.3
+#   - name: sig_bundle
+#     type: ReleaseBundle
+#     configuration:
+#       sourceDistribution: distribution_v
+#       name: test_123
+#       version: v1.0.3
       
   - name: ns_promotedInfo
     type: BuildInfo
@@ -62,7 +62,7 @@ pipelines:
           affinityGroup: "BasicTest"
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: fullstack.jfrog-pipelines.com/docker-local/node
+          dockerImageName: jun24011160m003.jfrogdev.org/docker-local/node
           
           dockerImageTag: 1.2.3
           integrations:
@@ -111,23 +111,23 @@ pipelines:
           outputResources:
             - name: ns_promotedInfo
 
-      - name: docker_releaseBundle
-        type: CreateReleaseBundle
-        configuration:
-          #inherits from bash
-          releaseBundleName:        test_123
-          releaseBundleVersion:     v1.0.3
-          inputResources:
-            - name: ns_promotedInfo
-          outputResources:
-            - name: res_bundle
-          dryRun: false
+#       - name: docker_releaseBundle
+#         type: CreateReleaseBundle
+#         configuration:
+#           #inherits from bash
+#           releaseBundleName:        test_123
+#           releaseBundleVersion:     v1.0.3
+#           inputResources:
+#             - name: ns_promotedInfo
+#           outputResources:
+#             - name: res_bundle
+#           dryRun: false
 
           
-      - name: docker_sign_releaseBundle
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name:            res_bundle
-          outputResources:
-            - name:            sig_bundle
+#       - name: docker_sign_releaseBundle
+#         type: SignReleaseBundle
+#         configuration:
+#           inputResources:
+#             - name:            res_bundle
+#           outputResources:
+#             - name:            sig_bundle

@@ -46,7 +46,7 @@ resources:
     type:      Image
     configuration:
       registry:            art_v
-      sourceRepository:    image-docker   # required if registry is Artifactory
+      sourceRepository:    docker-local   # required if registry is Artifactory
 
       imageName:           jun2401160m003.jfrogdev.org/docker-local/node
       imageTag:            1.2.3

@@ -21,19 +21,18 @@
 #             - sleep 5s
 
 ####################################
-
 pipelines:
-  - name: pipeline_S_PS_Generic_0048
+  - name: pipeline_S_PS_Generic_0047
     steps:
-      - name: S_PS_Generic_0048
+      - name: S_PS_Generic_0047
         type: PowerShell
         configuration:
           nodePool: win_2019
         execution:
           onExecute:
-            - write-output "onExecute"
-          onSuccess:
-            - write-output "onSuccess"
+            - java --version
+          onFailure:
+            - write-output "Job well done!"
 
 
 #             - printenv

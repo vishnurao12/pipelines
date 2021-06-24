@@ -42,14 +42,14 @@ resources:
       buildNumber: 1514
  
  
-  - name:       out_image
-    type:      Image
-    configuration:
-      registry:            art_v
-      sourceRepository:    docker-local   # required if registry is Artifactory
+#   - name:       out_image
+#     type:      Image
+#     configuration:
+#       registry:            art_v
+#       sourceRepository:    docker-local   # required if registry is Artifactory
 
-      imageName:           jun2401160m003.jfrogdev.org/docker-local/node
-      imageTag:            1.2.3
+#       imageName:           jun2401160m003.jfrogdev.org/docker-local/node
+#       imageTag:            1.2.3
 
 
 pipelines:
@@ -87,7 +87,7 @@ pipelines:
             - name: To_build_Docker_Image
           outputResources:
             - name: ns_buildInfo
-            - name: out_image
+#             - name: out_image
             
                
 #       - name: To_publish_buildInfo 

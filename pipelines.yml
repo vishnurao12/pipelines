@@ -33,6 +33,7 @@ pipelines:
           onExecute:
 #             - docker images
             - echo 'hi'
+            - echo 'hi'
             
       - name: myStep113
         type: Bash

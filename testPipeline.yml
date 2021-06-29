@@ -29,8 +29,8 @@ pipelines:
 #         configuration:
 #           nodePool: staticWinNP
         execution:
-          onExecute:
-            - java --version
+#           onExecute:
+#             - java --version
           onFailure:
             - write-output "Job well done!"
 

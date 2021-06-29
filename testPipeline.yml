@@ -26,8 +26,8 @@ pipelines:
     steps:
       - name: S_PS_Generic_0047
         type: PowerShell
-        configuration:
-          nodePool: staticWinNP
+#         configuration:
+#           nodePool: staticWinNP
         execution:
           onExecute:
             - java --version

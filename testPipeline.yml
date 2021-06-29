@@ -27,7 +27,7 @@ pipelines:
       - name: S_PS_Generic_0047
         type: PowerShell
         configuration:
-          nodePool: win_2019
+          nodePool: staticWinNP
         execution:
           onExecute:
             - java --version

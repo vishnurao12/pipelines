@@ -19,7 +19,7 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration:
-        timeoutSeconds: 7200
+          timeoutSeconds: 7200
 #           timeoutSeconds: 60
           environmentVariables:
             testCases: setup.js

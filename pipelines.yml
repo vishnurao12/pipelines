@@ -19,7 +19,7 @@ pipelines:
       - name: myStep112
         type: Bash
         configuration:
-          timeoutSeconds: 7200
+#           timeoutSeconds: 7200
 #           timeoutSeconds: 60
           environmentVariables:
             testCases: setup.js
@@ -51,7 +51,7 @@ pipelines:
 #            - name: art_v
         execution:
           onExecute:
-            - docker images
+#             - docker images
 #             - df -h
 #             - printenv | grep "testCases"
 #             - echo $testCases
@@ -63,7 +63,7 @@ pipelines:
 #             - cat doesnotexist.txt
 #             - sleep 10m
             #- docker pull postgres
-            - docker images
+#             - docker images
             - free -m
           onSuccess:
             - pushd $res_resource_pipelines1245_resourcePath

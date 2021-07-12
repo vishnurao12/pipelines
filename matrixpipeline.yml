@@ -20,7 +20,7 @@ pipelines:
 #           runtime:           
 #             type: host
           inputResources: 
-            - name: resource_pipelines1245
+            - name: resource_pipelines12
           integrations:
             - name: git_v
 #            - name: art_v

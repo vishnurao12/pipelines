@@ -18,7 +18,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: my_app_repo
+            - name: my_gitrepo
         execution:
            onStart:
             - echo "executing onStart"

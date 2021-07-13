@@ -1,0 +1,22 @@
+resources:
+  - name: resource_6348
+    type: GitRepo
+    configuration:
+      path: jfbeta/test
+      gitProvider: s_bitbucket
+      branches:
+        include: ^{{gitBranch}}$
+
+pipelines:
+ - name: pipeline_6348
+   steps:
+      - name: step_6348
+        type: Bash
+        execution:
+          onStart:
+            - echo "executing onStart"
+          onExecute:
+            - echo "executing onExecute"
+            - sleep 5s
+
+           

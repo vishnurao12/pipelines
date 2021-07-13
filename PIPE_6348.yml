@@ -1,22 +1,30 @@
 resources:
-  - name: resource_6348
+  - name: my_gitrepo
     type: GitRepo
     configuration:
-      path: jfbeta/test
-      gitProvider: s_bitbucket
+      gitProvider: bbs
+      path: ~vijaykp/testing
       branches:
-        include: ^{{gitBranch}}$
-
+        include: master
+      buildOn:
+        commit: true
+        pullRequestCreate: true
+        pullRequestClose: true
+      cloneProtocol: https
 pipelines:
  - name: pipeline_6348
    steps:
       - name: step_6348
         type: Bash
+        configuration:
+          inputResources:
+            - name: my_app_repo
         execution:
-          onStart:
+           onStart:
             - echo "executing onStart"
-          onExecute:
-            - echo "executing onExecute"
-            - sleep 5s
+           onExecute:
+             - pushd $res_my_gitrepo_resourcePath
+             - ./execute.sh
+             - popd
 
            

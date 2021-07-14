@@ -18,7 +18,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: my_gitrepo
+            - name: github_neha
         execution:
            onStart:
             - echo "executing onStart"

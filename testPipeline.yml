@@ -17,7 +17,7 @@ pipelines:
           onStart:
             - echo "executing onStart"
           onExecute:
-            - echo "executing onExecute"
+#             - echo "executing onExecute"
             - sleep 5s
 
 ####################################

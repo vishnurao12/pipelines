@@ -1,5 +1,5 @@
 resources:
-  - name: my_gitrepo
+  - name: github_neha
     type: GitRepo
     configuration:
       gitProvider: bbs

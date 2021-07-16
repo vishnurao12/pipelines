@@ -2,6 +2,7 @@ resources:
  - name: resource_pipelines1245
    type: GitRepo
    configuration:
+     nodePool: u16test
      gitProvider: git_v
      path: vishnurao12/pipelines
      files: 

@@ -37,6 +37,7 @@ pipelines:
 #             - docker images
             - echo 'hi'
             - echo 'hi'
+            - curl https://git.jfrog.info
             
       - name: myStep113
         type: Bash

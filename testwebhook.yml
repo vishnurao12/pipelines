@@ -1,0 +1,340 @@
+                       
+resources:
+      
+  - name: gitresource1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+        include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master 
+        exclude: readme
+      tags:  # optional
+        include: v*
+        exclude: m*  
+      buildOn:  # optional
+         commit: true
+#          pullRequestCreate: true
+#          pullRequestClose: true
+#          releaseCreate: true
+#          tagCreate: false
+#       shallowDepth: 10  # optional 
+      #cloneProtocol: https
+
+  - name: gitres1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master 
+        exclude: readme
+      buildOn:  # optional
+         commit: false
+#          pullRequestCreate: true
+#          pullRequestClose: true
+#          releaseCreate: true
+#          tagCreate: false
+      shallowDepth: 10  # optional 
+      #cloneProtocol: https      
+
+  - name: gitpullcreatetrue1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master 
+#         exclude: test
+      buildOn:  # optional
+          commit: false
+          pullRequestCreate: true
+#          releaseCreate: true
+#          tagCreate: false
+      shallowDepth: 10  # optional 
+      #cloneProtocol: https      
+
+  - name: gitpullcreatefalse1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master
+#         exclude: readme
+      buildOn:  # optional
+          commit: false
+          pullRequestCreate: false
+#          releaseCreate: true
+#          tagCreate: false
+      shallowDepth: 10  # optional 
+      #cloneProtocol: https      
+      
+  - name: gitpullclosetrue1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master
+        exclude: readme
+      buildOn:  # optional
+          commit: false
+          pullRequestClose: true  
+      #cloneProtocol: https          
+      
+  - name: gitpullclosefalse1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master
+        exclude: readme
+      buildOn:  # optional
+          commit: false
+#          pullRequestCreate: true
+          pullRequestClose: false
+#          releaseCreate: true   
+      #cloneProtocol: https
+      
+  - name: gittagcreatetrue1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master
+        exclude: readme
+      buildOn:  # optional
+          commit: false
+#          pullRequestCreate: true
+#          pullRequestClose: false
+#          releaseCreate: true
+          tagCreate: true
+      shallowDepth: 10  # optional   
+      #cloneProtocol: https      
+
+  - name: gittagcreatefalse1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master
+        exclude: readme
+      buildOn:  # optional
+          commit: false
+#          pullRequestCreate: true
+#          pullRequestClose: false
+#          releaseCreate: 
+          tagCreate: false
+      shallowDepth: 10  # optional 
+      #cloneProtocol: https      
+
+  - name: gitreleasecreatetrue1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master
+        exclude: readme
+      buildOn:  # optional
+          commit: false
+#          pullRequestCreate: true
+#          pullRequestClose: false
+          releaseCreate: true
+#          tagCreate: true
+      shallowDepth: 10  # optional   
+      #cloneProtocol: https      
+
+  - name: gitreleasecreatefalse1
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/pipelines 
+      files:  # optional
+#         include: pipelines.sh
+        exclude: readme
+      branches:  # optional
+        include: master
+        exclude: readme
+      buildOn:  # optional
+          commit: false
+#          pullRequestCreate: true
+#          pullRequestClose: false
+          releaseCreate: false
+#          tagCreate: false
+      shallowDepth: 10  # optiona
+      #cloneProtocol: https      
+
+pipelines:
+
+  - name: pipelines_true1
+  
+    steps:
+      - name: s_BashTriggerTrue1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gitresource1
+        execution:
+          onExecute:
+            - printenv 
+
+  - name: pipelines_False1
+    steps:
+      - name: s_BashTriggerFalse1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gitres1
+        execution:              
+          onExecute:
+            - printenv
+            
+  - name: pipelines_Pullcreatetrue1
+    steps:
+      - name: s_BashTriggercreatetrue1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env11: value1
+            env2: value2
+          inputResources:
+            - name: gitpullcreatetrue1
+        execution:              
+          onExecute:
+            - printenv     
+            
+  - name: pipelines_pullclosetrue1
+    steps:
+      - name: s_BashTriggerclosetrue1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gitpullclosetrue1
+        execution:              
+          onExecute:
+            - printenv 
+            
+  - name: pipelines_Pullcreatefalse1
+    steps:
+      - name: s_BashTriggercreatefalse1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gitpullcreatefalse1
+        execution:              
+          onExecute:
+            - printenv     
+            
+  - name: pipelines_pullclosefalse1
+    steps:
+      - name: s_BashTriggerclosefalse1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gitpullclosefalse1
+        execution:              
+          onExecute:
+            - printenv        
+
+  - name: pipelines_tagcreatefalse1
+    steps:
+      - name: s_Bashtagcreatefalse1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gittagcreatefalse1
+        execution:              
+          onExecute:
+            - printenv     
+            
+  - name: pipelines_tagcreatetrue1
+    steps:
+      - name: s_Bashtagcreatetrue1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gittagcreatetrue1
+        execution:              
+          onExecute:
+            - printenv  
+            
+  - name: pipelines_releasecreatefalse1
+    steps:
+      - name: s_Bashreleasecreatefalse1
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gitreleasecreatefalse1
+        execution:              
+          onExecute:
+            - printenv     
+            
+  - name: pipelines_releasecreatetrue1
+    steps:
+      - name: s_Bashreleasecreatetrue11
+        type: Bash
+        configuration:
+          environmentVariables:
+            env1: value1
+            env2: value2
+          inputResources:
+            - name: gitreleasecreatetrue1
+        execution:              
+          onExecute:
+            - printenv              

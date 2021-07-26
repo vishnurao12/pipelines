@@ -147,7 +147,6 @@ pipelines:
         configuration:
           dryRun: true                # optional
           inputResources:
-            - name: sig_bundle    # one ReleaseBundle is required
-              trigger: false  
+            - name: sig_bundle    # one ReleaseBundle is required  
             - name: my_distributionRule   # one DistributionRule is required
-              trigger: false    # default true
+              

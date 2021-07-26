@@ -147,7 +147,7 @@ pipelines:
         configuration:
           dryRun: true                # optional
           inputResources:
-            - name: docker_sign_releaseBundle    # one ReleaseBundle is required
+            - name: sig_bundle    # one ReleaseBundle is required
               trigger: false  
             - name: my_distributionRule   # one DistributionRule is required
               trigger: false    # default true

@@ -145,7 +145,7 @@ pipelines:
       - name: my_distribute
         type: DistributeReleaseBundle
         configuration:
-          dryRun: true                # optional
+          dryRun: false                # optional
           inputResources:
             - name: sig_bundle    # one ReleaseBundle is required  
             - name: my_distributionRule   # one DistributionRule is required

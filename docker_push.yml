@@ -18,14 +18,14 @@ resources:
     configuration:
       sourceDistribution: distribution_v
       name: test_123
-      version: v1.0.3
+      version: ${run_number}
       
   - name: sig_bundle
     type: ReleaseBundle
     configuration:
       sourceDistribution: distribution_v
       name: test_123
-      version: v1.0.3
+      version: ${run_number}
       
   - name: ns_promotedInfo
     type: BuildInfo
@@ -49,7 +49,17 @@ resources:
       sourceRepository:    image-docker   # required if registry is Artifactory
 
       imageName:           wtl12.jfrog.info/docker-local/node
-      imageTag:            1.2.3
+      imageTag:            ${run_number}
+      
+  - name: my_distributionRule
+    type: DistributionRule
+    configuration:
+      sourceDistribution: distribution_v
+      serviceName: "*"
+      siteName: "*"
+      cityName: "*"
+      countryCodes:
+        - DE
 
 
 pipelines:
@@ -64,7 +74,7 @@ pipelines:
           dockerFileName: Dockerfile
           dockerImageName: wtl12.jfrog.info/docker-local/node
           
-          dockerImageTag: 1.2.3
+          dockerImageTag: ${run_number}
           integrations:
             - name: art_v
 
@@ -116,7 +126,7 @@ pipelines:
         configuration:
           #inherits from bash
           releaseBundleName:        test_123
-          releaseBundleVersion:     v1.0.3
+          releaseBundleVersion:     ${run_number}
           inputResources:
             - name: ns_promotedInfo
           outputResources:
@@ -131,3 +141,15 @@ pipelines:
             - name:            res_bundle
           outputResources:
             - name:            sig_bundle
+            
+      - name: my_distribute
+        type: DistributeReleaseBundle
+        configuration:
+          dryRun: true                # optional
+          inputResources:
+            - name: docker_sign_releaseBundle    # one ReleaseBundle is required
+              trigger: false  
+            - name: my_distributionRule   # one DistributionRule is required
+              trigger: false    # default true
+          outputResources:
+            - name: my_releaseBundleOutput # one ReleaseBundle is optional

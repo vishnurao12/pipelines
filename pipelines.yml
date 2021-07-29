@@ -57,4 +57,13 @@ pipelines:
             trigger: false
       execution:
         onExecute:
-          - echo "${step_name} running"   
+          - echo "${step_name} running"
+
+    - name: step_3
+      type: Bash
+      configuration:
+        inputSteps:
+          - name: step_2
+      execution:
+        onExecute:
+          - echo "${step_name} running"

@@ -4,7 +4,7 @@ resources:
     configuration:
       gitProvider: s_gitHub
       path: jfbetapipeorg/Org_test_Automation           
-      
+#test      
 pipelines:
   - name: S_Bash_UtilityFunction_pipeline
     steps:

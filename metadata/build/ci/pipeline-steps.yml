@@ -1,0 +1,8 @@
+pipelines:
+  - name: pipeline_1
+    steps:
+      - name: trigger_all
+        type: bash
+        execution:
+          onExecute:
+            - echo "onExecute"

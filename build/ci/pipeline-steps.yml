@@ -8,7 +8,6 @@ pipelines:
             - echo "onExecute"
       - name: step_1
         type: bash
-        execution:
         configuration:
           inputSteps:
             - name: trigger_all
@@ -17,7 +16,6 @@ pipelines:
             - echo "onExecute"
       - name: step_2
         type: bash
-        execution:
         configuration:
           inputSteps:
             - name: step_1
@@ -26,7 +24,6 @@ pipelines:
             - echo "onExecute"
       - name: step_3
         type: bash
-        execution:
         configuration:
           inputSteps:
             - name: trigger_all
@@ -35,7 +32,6 @@ pipelines:
             - echo "onExecute"
       - name: step_4
         type: bash
-        execution:
         configuration:
           inputSteps:
             - name: step_3
@@ -44,7 +40,6 @@ pipelines:
             - echo "onExecute"
       - name: step_5
         type: bash
-        execution:
         configuration:
           inputSteps:
             - name: step_4

@@ -1,16 +1,8 @@
 pipelines:
-  - name: pipeline_PropertyBag_1
+  - name: pipeline_2
     steps:
-      - name: step_propertyBag_1
+      - name: trigger_all
         type: bash
-        configuration:
-          inputResources:
-            - name: propertyBag_1
-          outputResources:
-            - name: propertyBag_2
         execution:
           onExecute:
             - echo "onExecute"
-            - echo $property1
-          onSuccess:
-            - write_output $res_propertyBag_2 propertyB=test

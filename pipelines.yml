@@ -33,46 +33,46 @@ pipelines:
           onExecute:
             - jfrog --version
             - dotnet --version
-  - name: testP11
-    steps:
-      - name: testP1222
-        type: PowerShell
-        configuration:
-          integrations:
-            - name: art_v
-          nodePool: win_2019
-          inputResources: 
-          - name: testp123
-        execution:
-          onExecute:
-            - jfrog --version
-            - dotnet --version
+#   - name: testP11
+#     steps:
+#       - name: testP1222
+#         type: PowerShell
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           nodePool: win_2019
+#           inputResources: 
+#           - name: testp123
+#         execution:
+#           onExecute:
+#             - jfrog --version
+#             - dotnet --version
             
-      - name: testP1221
-        type: PowerShell
-        configuration:
-          integrations:
-            - name: art_v
-          nodePool: win_2019
-          inputResources: 
-          - name: testp123
-        execution:
-          onExecute:
-            - jfrog --version
-            - dotnet --version
-      - name: testP1223
-        type: PowerShell
-        configuration:
-          integrations:
-            - name: art_v
-          nodePool: win_2019
-          inputResources: 
-          - name: testp123
-        execution:
-          onExecute:
-            - jfrog --version
-            - dotnet --version
-#             - Start-Sleep -s 300
+#       - name: testP1221
+#         type: PowerShell
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           nodePool: win_2019
+#           inputResources: 
+#           - name: testp123
+#         execution:
+#           onExecute:
+#             - jfrog --version
+#             - dotnet --version
+#       - name: testP1223
+#         type: PowerShell
+#         configuration:
+#           integrations:
+#             - name: art_v
+#           nodePool: win_2019
+#           inputResources: 
+#           - name: testp123
+#         execution:
+#           onExecute:
+#             - jfrog --version
+#             - dotnet --version
+# #             - Start-Sleep -s 300
 
 # pipelines:
 #   - name: writeOutput

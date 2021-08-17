@@ -15,8 +15,6 @@ pipelines:
           onStart:
             - pushd $res_propertyBag_resourcePath
             
-  - name: Pipelines_matrixtest
-    steps:
       - name: Matrix_test
         type: Matrix
         stepMode: Bash

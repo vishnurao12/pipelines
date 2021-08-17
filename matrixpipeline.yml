@@ -49,5 +49,8 @@ pipelines:
             - ls
           onComplete:
             - rm -rf PreMatrix_step
+            - ls
+            - pwd 
+            - ls
 #             - |
 #               [ $fail == 'false' ] 

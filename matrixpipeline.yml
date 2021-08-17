@@ -45,9 +45,7 @@ pipelines:
             - add_pipeline_files PreMatrix_step check
             - cd PreMatrix_step
             - ls
-            - cd dependencyState
+            - cd dependencyState/resources/resource_pipelines128
             - ls
-            - cd ../output
-            - ls 
 #             - |
 #               [ $fail == 'false' ] 

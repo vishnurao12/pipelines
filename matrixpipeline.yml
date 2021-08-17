@@ -9,16 +9,8 @@ resources:
     configuration:
      gitProvider: git_v
      path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-     buildOn:
-       pullRequestCreate: true
-     cancelPendingRunsOn:
-       pullRequestUpdate: true
-     runtime:
-       type: host
+
+
 pipelines:
   - name: Pipelines_matrixtest
     steps:

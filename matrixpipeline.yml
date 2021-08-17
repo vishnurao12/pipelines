@@ -4,7 +4,7 @@ resources:
     configuration:
       test: test
       
- - name: resource_pipelines128
+  - name: resource_pipelines128
    type: GitRepo
    configuration:
      gitProvider: git_v

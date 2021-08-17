@@ -42,7 +42,12 @@ pipelines:
             - printenv
             - pwd
             - ls
+            - add_pipeline_files PreMatrix_step check
             - cd PreMatrix_step
             - ls
+            - cd dependencyState
+            - ls
+            - cd ../output
+            - ls 
 #             - |
 #               [ $fail == 'false' ] 

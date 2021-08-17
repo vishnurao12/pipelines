@@ -42,12 +42,13 @@ pipelines:
             - printenv
             - pwd
             - ls
-            - add_pipeline_files PreMatrix_step check
-            - cd PreMatrix_step
+            - pushd PreMatrix_step/dependencyState/resources/resource_pipelines128
             - ls
-            - cd dependencyState/resources/resource_pipelines128
-            - ls
+            - pwd
+            - popd 
+            - pwd
           onComplete:
+            - pwd
             - rm -rf PreMatrix_step
             - ls
             - pwd 

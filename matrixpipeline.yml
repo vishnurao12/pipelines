@@ -3,6 +3,22 @@ resources:
     type:       PropertyBag
     configuration:
       test: test
+      
+ - name: resource_pipelines128
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
+     files: 
+       include: ^README.md$
+     branches:
+       include: ^{{gitBranch}}$
+     buildOn:
+       pullRequestCreate: true
+     cancelPendingRunsOn:
+       pullRequestUpdate: true
+     runtime:
+       type: host
 pipelines:
   - name: Pipelines_matrixtest
     steps:
@@ -10,10 +26,13 @@ pipelines:
         type: PreMatrix
         configuration:
           inputResources:
-            - name: propertyBag      
+            - name: propertyBag
+            - name: resource_pipelines128
         execution:
           onStart:
-            - pushd $res_propertyBag_resourcePath
+            - pushd $res_resource_pipelines128_resourcePath
+            - ls
+            
             
       - name: Matrix_test
         type: Matrix
@@ -29,5 +48,9 @@ pipelines:
           onExecute:
             - echo "I am on matrix step"
             - printenv
+            - pwd
+            - ls
+            - cd /
+            - ls
 #             - |
 #               [ $fail == 'false' ] 

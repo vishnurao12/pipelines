@@ -47,5 +47,7 @@ pipelines:
             - ls
             - cd dependencyState/resources/resource_pipelines128
             - ls
+          onComplete:
+            - rm -rf PreMatrix_step
 #             - |
 #               [ $fail == 'false' ] 

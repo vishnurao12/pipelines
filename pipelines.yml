@@ -49,7 +49,7 @@
 #             - printenv
 
 resources:
- - name: resource_pipelines1245
+ - name: resource_pipelines2
    type: GitRepo
    configuration:
      gitProvider: git_v
@@ -64,164 +64,164 @@ resources:
 #        pullRequestUpdate: true
 
 pipelines:
-  - name: testing_123
+  - name: testing_2
     steps:
       - name: myStep112
         type: Bash
         configuration:
           inputResources: 
-            - name: resource_pipelines1245
+            - name: resource_pipelines2
           integrations:
             - name: git_v
         execution:
           onExecute:
             - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
+            - pushd $res_resource_pipelines2_resourcePath
             - ls
-            - sleep 15m
+#             - sleep 15m
             
 
-      - name: myStep1121
-        type: Bash
-        configuration:
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps:
-            - name:  myStep112
-          integrations:
-            - name: git_v
-        execution:
-          onExecute:
-            - sleep 15m
-            - ls
+#       - name: myStep1121
+#         type: Bash
+#         configuration:
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps:
+#             - name:  myStep112
+#           integrations:
+#             - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
             
-      - name: myStep1122
-        type: Bash
-        configuration:
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps:
-            - name:  myStep1121
-          integrations:
-            - name: git_v
-        execution:
-          onExecute:
-            - sleep 15m
-            - ls
+#       - name: myStep1122
+#         type: Bash
+#         configuration:
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps:
+#             - name:  myStep1121
+#           integrations:
+#             - name: git_v
+#         execution:
+#           onExecute:
+#             - sleep 15m
+#             - ls
             
-      - name: matrix
-        type: Matrix
-        stepletMultipliers:
-          environmentVariables:
-            - foo: bar
-            - boo: foo
-        configuration:
-          inputResources: 
-            - name: resource_pipelines1245     
-          multiNode: true
-          runtime:
-            type: host
-        execution:
-          onExecute:
-            - printenv
-            - echo lol
-            - echo loool
+#       - name: matrix
+#         type: Matrix
+#         stepletMultipliers:
+#           environmentVariables:
+#             - foo: bar
+#             - boo: foo
+#         configuration:
+#           inputResources: 
+#             - name: resource_pipelines1245     
+#           multiNode: true
+#           runtime:
+#             type: host
+#         execution:
+#           onExecute:
+#             - printenv
+#             - echo lol
+#             - echo loool
             
-      - name: myStep121
-        type: Bash
-        configuration:
-          affinityGroup: group1
-          inputResources: 
-           - name: resource_pipelines1245
-          integrations:
-            - name: git_v
-        execution:
-          onExecute:
-            - printenv
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
-            - sleep 5m
+#       - name: myStep121
+#         type: Bash
+#         configuration:
+#           affinityGroup: group1
+#           inputResources: 
+#            - name: resource_pipelines1245
+#           integrations:
+#             - name: git_v
+#         execution:
+#           onExecute:
+#             - printenv
+#             - pushd $res_resource_pipelines1245_resourcePath
+#             - ls
+#             - sleep 5m
             
-      - name: myStep122
-        type: Bash
-        configuration:
-          affinityGroup: group1
-          integrations:
-            - name: git_v
-          inputSteps:
-            - name: myStep121
-        execution:
-          onExecute:
-            - printenv
-            - ls
-            - sleep 5m
+#       - name: myStep122
+#         type: Bash
+#         configuration:
+#           affinityGroup: group1
+#           integrations:
+#             - name: git_v
+#           inputSteps:
+#             - name: myStep121
+#         execution:
+#           onExecute:
+#             - printenv
+#             - ls
+#             - sleep 5m
  
-      - name: myStep123
-        type: Bash
-        configuration:
-          affinityGroup: group1
-          integrations:
-            - name: git_v
-          inputSteps:
-            - name: myStep122
-        execution:
-          onExecute:
-            - printenv
-            - ls
-            - sleep 5m
+#       - name: myStep123
+#         type: Bash
+#         configuration:
+#           affinityGroup: group1
+#           integrations:
+#             - name: git_v
+#           inputSteps:
+#             - name: myStep122
+#         execution:
+#           onExecute:
+#             - printenv
+#             - ls
+#             - sleep 5m
             
-      - name: myStep124
-        type: Bash
-        configuration:
-          affinityGroup: group1
-          integrations:
-            - name: git_v
-          inputSteps:
-            - name: myStep123
-        execution:
-          onExecute:
-            - printenv
-            - ls
-            - sleep 5m
+#       - name: myStep124
+#         type: Bash
+#         configuration:
+#           affinityGroup: group1
+#           integrations:
+#             - name: git_v
+#           inputSteps:
+#             - name: myStep123
+#         execution:
+#           onExecute:
+#             - printenv
+#             - ls
+#             - sleep 5m
             
-      - name: myStep125
-        type: Bash
-        configuration:
-          affinityGroup: group1
-          integrations:
-            - name: git_v
-          inputSteps:
-            - name: myStep124
-        execution:
-          onExecute:
-            - printenv
-            - ls
-            - sleep 5m
+#       - name: myStep125
+#         type: Bash
+#         configuration:
+#           affinityGroup: group1
+#           integrations:
+#             - name: git_v
+#           inputSteps:
+#             - name: myStep124
+#         execution:
+#           onExecute:
+#             - printenv
+#             - ls
+#             - sleep 5m
             
-      - name: myStep126
-        type: Bash
-        configuration:
-          affinityGroup: group1
-          integrations:
-            - name: git_v
-          inputSteps:
-            - name: myStep125
-        execution:
-          onExecute:
-            - printenv
-            - ls
+#       - name: myStep126
+#         type: Bash
+#         configuration:
+#           affinityGroup: group1
+#           integrations:
+#             - name: git_v
+#           inputSteps:
+#             - name: myStep125
+#         execution:
+#           onExecute:
+#             - printenv
+#             - ls
             
-      - name: myStep127
-        type: Bash
-        configuration:
-          affinityGroup: group1
-          integrations:
-            - name: git_v
-          inputSteps:
-            - name: myStep126
-        execution:
-          onExecute:
-            - printenv
-            - ls
-            - sleep 5m
+#       - name: myStep127
+#         type: Bash
+#         configuration:
+#           affinityGroup: group1
+#           integrations:
+#             - name: git_v
+#           inputSteps:
+#             - name: myStep126
+#         execution:
+#           onExecute:
+#             - printenv
+#             - ls
+#             - sleep 5m
             

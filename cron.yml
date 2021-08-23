@@ -5,25 +5,814 @@ resources:
       interval: "*/10 * * * *"
 
 pipelines:
-  - name: testing_123
-#     configuration:
-#       retentionPolicy:
-#         maxAgeDays: 1
-#         minRuns: 1
+  - name: steps_100_parallel
     steps:
-      - name: myStep1
+      - name: trigger
         type: Bash
         configuration:
-#           retentionPolicy:
-#             maxAgeDays: 2
-#             minRuns: 1000
           inputResources: 
             - name: cron_10min
-          integrations:
-            - name: git_v
         execution:
           onExecute:
-            - touch sample.txt
-#             - echo test>sample.txt
-#             - add_cache_files sample.txt sample
-#             - add_run_variables sample:$run_id
+            - echo "hi"
+
+      - name: step1
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step2 
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step3
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step4
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step5
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step6
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step7
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step8
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step9
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step10
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step11
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step12
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step13
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step14
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step15
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step16
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step17
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step18
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step19
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step20
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step21
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step22
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step23
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step24
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step25
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step26
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step27
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step28
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step29
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step30
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step31
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step32
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step33
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step34
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step35
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step36
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step37
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step38
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step39
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step40
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step41
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step42
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step43
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step44
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step45
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step46
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step47
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step48
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step49
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step50
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step51
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step52
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step53
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step54
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step55
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step56
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step57
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step58
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step59
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step60
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step61
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step62
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step63
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step64
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step65
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step66
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step67
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step68
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step69
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step70
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step71
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step72
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step73
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step74
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step75
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step76
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step77
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step78
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step79
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step80
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step81
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step82
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step83
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step84
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step85
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step86
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step87
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step88
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step89
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step90
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step91
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step92
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step93
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step94
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step95
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step96
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step97
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step98
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step99
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"
+      - name: step100
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: trigger
+        execution:
+          onExecute:
+            - echo "hi"

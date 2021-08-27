@@ -32,6 +32,16 @@ resources:
        include: ^README.md$
      branches:
        include: ^{{gitBranch}}$
+       
+ - name: resource_pipelines6666
+  type: GitRepo
+  configuration:
+    gitProvider: git_v
+    path: vishnurao12/pipelines
+    files: 
+      include: ^README.md$
+    branches:
+      include: test
 
 pipelines:
   - name: testing_123

@@ -2,7 +2,6 @@ resources:
  - name: resource_pipelines1245
    type: GitRepo
    configuration:
-     
      gitProvider: git_v
      path: vishnurao12/pipelines
      files: 
@@ -13,6 +12,16 @@ resources:
 #        pullRequestCreate: true
 #      cancelPendingRunsOn:
 #        pullRequestUpdate: true
+
+ - name: resource_pipelines3421
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
+     files: 
+       include: ^README.md$
+     branches:
+       include: ^{{gitBranch}}$
 
 pipelines:
   - name: testing_123
@@ -29,6 +38,7 @@ pipelines:
 #             type: host
           inputResources: 
             - name: resource_pipelines1245
+            - name: resource_pipelines3421
           integrations:
             - name: git_v
 #            - name: art_v

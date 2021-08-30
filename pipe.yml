@@ -1,9 +1,0 @@
-
-pipelines:
-  - name: sample
-    steps:
-      - name: testBash1
-        type: Bash       
-        execution:
-          onExecute:
-            - echo "hello!"

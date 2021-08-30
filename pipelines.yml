@@ -1,108 +1,28 @@
+#resources 
 resources:
- - name: resource_pipelines1245
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-#      buildOn:
-#        pullRequestCreate: true
-#      cancelPendingRunsOn:
-#        pullRequestUpdate: true
-
- - name: resource_pipelines3421
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-       
- - name: resource_pipelines155
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/Org_test_Automation
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-       
- - name: resource_pipelines6666
-  type: GitRepo
-  configuration:
-    gitProvider: git_v
-    path: vishnurao12/pipelines
-    files: 
-      include: ^README.md$
-    branches:
-      include: test
-
+  - name: EY_PenTest_gitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: GitHub_Integration
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$
+#pipeline
 pipelines:
-  - name: testing_123
+  - name: EY_PenTest_Pipeline
+#steps
     steps:
-      - name: myStep112
+      - name: EY_PenTest_Step
         type: Bash
         configuration:
-#           nodePool: u16test
-#           timeoutSeconds: 7200
-#           timeoutSeconds: 60
-          environmentVariables:
-            testCases: setup.js
-#           runtime:           
-#             type: host
           inputResources: 
-            - name: resource_pipelines1245
-            - name: resource_pipelines3421
-            - name: resource_pipelines155
-          integrations:
-            - name: git_v
-#            - name: art_v
+            - name: EY_penTest_gitRepo
         execution:
           onExecute:
-#             - docker images
-            - echo 'hi'
             - echo 'hi'
             
-      - name: myStep113
-        type: Bash
-        configuration:
-#           timeoutSeconds: 60
-          environmentVariables:
-            testCases: setup.js
-          runtime:           
-            type: host
-          inputResources: 
-            - name: resource_pipelines1245
-          integrations:
-            - name: git_v
-#            - name: art_v
-        execution:
-          onExecute:
-#             - docker images
-#             - df -h
-#             - printenv | grep "testCases"
-#             - echo $testCases
-#             - testcaseDup="[\"core/testHarness/$testCases\"]"
-#             - echo $testcaseDup
-#             - pushd $res_resource_pipelines1245_resourcePath
-#             - ls
-            - echo "hi"
-#             - cat doesnotexist.txt
-#             - sleep 10m
-            #- docker pull postgres
-#             - docker images
-            - free -m
-          onSuccess:
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
-          onComplete: 
-            - echo "hi"
 
 
 

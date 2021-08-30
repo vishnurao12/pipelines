@@ -18,7 +18,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources: 
-            - name: EY_penTest_gitRepo
+            - name: EY_PenTest_gitRepo
         execution:
           onExecute:
             - echo 'hi'

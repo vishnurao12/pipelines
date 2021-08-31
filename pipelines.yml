@@ -1,19 +1,39 @@
 resources:
- - name: resource_pipelines1245
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-#      buildOn:
-#        pullRequestCreate: true
-#      cancelPendingRunsOn:
-#        pullRequestUpdate: true
+  - name: resource_pipelines1245
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$
+ #      buildOn:
+ #        pullRequestCreate: true
+ #      cancelPendingRunsOn:
+ #        pullRequestUpdate: true
 
- - name: resource_pipelines3421
+  - name: resource_pipelines3421
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$
+
+  - name: resource_pipelines155
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/Org_test_Automation
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$
+
+  - name: resource_pipelines6666
    type: GitRepo
    configuration:
      gitProvider: git_v
@@ -21,27 +41,7 @@ resources:
      files: 
        include: ^README.md$
      branches:
-       include: ^{{gitBranch}}$
-       
- - name: resource_pipelines155
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/Org_test_Automation
-     files: 
-       include: ^README.md$
-     branches:
-       include: ^{{gitBranch}}$
-       
- - name: resource_pipelines6666
-  type: GitRepo
-  configuration:
-    gitProvider: git_v
-    path: vishnurao12/pipelines
-    files: 
-      include: ^README.md$
-    branches:
-      include: test
+       include: test
 
 pipelines:
   - name: testing_123

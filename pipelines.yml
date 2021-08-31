@@ -34,8 +34,8 @@ resources:
         include: ^{{gitBranch}}$
 
   - name: resource_pipelines6666
-   type: GitRepo
-   configuration:
+    type: GitRepo
+    configuration:
      gitProvider: git_v
      path: vishnurao12/pipelines
      files: 

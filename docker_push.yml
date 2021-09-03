@@ -8,7 +8,7 @@ resources:
   - name: ns_dockerbuild_gitRepo
     type: GitRepo
     configuration:
-      path: vishnurao12/sample-script
+      path: vishnurao12/pipelines
       gitProvider: git_v
       branches: 
         include: master
@@ -81,6 +81,11 @@ pipelines:
           inputResources:
             - name: ns_dockerbuild_gitRepo 
             - name: connecting_resource
+        execution:
+          onStart:
+            - artifactory_registry_url=$(echo "$int_s_artifactory_url" | sed 's#.*//\([^/]*\)/.*#\1#')
+            - cd $res_ns_dockerbuild_gitRepo_resourcePath
+            - echo "FROM hello-world" > Dockerfile
 
 
       - name: To_Push_Docker_Image

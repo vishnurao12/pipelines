@@ -64,15 +64,20 @@ pipelines:
             - name: git_v
             - name: art_v
         execution:
+          onStart:
+            - jfrog rt repo-delete helmgeneric || true
+            - jfrog rt repo-delete docker-local || true
           onExecute:
 #             - docker images
             - echo 'hi'
             - echo 'hi'
-            - request='{"key":"helmgeneric", "rclass":"local", "packageType":"generic", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
+            - request='{"key":"helm-generic", "rclass":"local", "packageType":"generic", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
             - echo $request > request.json
-            - jfrog rt repo-delete helmgeneric || true
             - jfrog rt repo-create request.json
-            
+            - request1='{"key":"docker-local", "rclass":"local", "packageType":"docker", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
+            - echo $request1 > request.json
+            - jfrog rt repo-create request.json
+            - jfrog rt repo-create request.json
       - name: myStep113
         type: Bash
         configuration:

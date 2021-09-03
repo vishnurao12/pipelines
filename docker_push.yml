@@ -35,7 +35,9 @@ resources:
     type: Image
     configuration:
       registry: e2e_0001_002_artifactory
-      sourceRepository: e2e_0001_002_docker_local   # required if registry is Artifactory
+      sourceRepository: e2e_0001_002_docker_local 
+      imageName: ${artifactory_registry_url}/docker-local/node
+      imageTag:  ${run_number}# required if registry is Artifactory
       
   - name: e2e_0001_002_distributionRule
     type: DistributionRule
@@ -92,7 +94,7 @@ pipelines:
           integrations:
             - name: e2e_0001_002_artifactory
           inputSteps:
-            - name: e2e_0001_002_pipeline
+            - name: e2e_0001_002_dockerBuild
           outputResources:
             - name: e2e_0001_002_buildInfo
             - name: e2e_0001_002_outPut_image

@@ -100,8 +100,8 @@ pipelines:
             - name: e2e_0001_002_outPut_image
         execution:
           onStart:
-            - generic_repo_name="e2e_0001_002_generic_local"
-            - docker_repo_name="e2e_0001_002_docker_local"
+            - generic_repo_name="e2e-0001-002-generic-local"
+            - docker_repo_name="e2e-0001-002-docker-local"
 
       - name: e2e_0001_002_promoteBuild
         type: PromoteBuild
@@ -117,8 +117,8 @@ pipelines:
             - name: e2e_0001_002_promotedInfo
         execution:
           onStart:
-            - generic_repo_name="e2e_0001_002_generic_local"
-            - docker_repo_name="e2e_0001_002_docker_local"
+            - generic_repo_name="e2e-0001-002-generic-local"
+            - docker_repo_name="e2e-0001-002-docker-local"
 
       - name: e2e_0001_002_createReleaseBundle
         type: CreateReleaseBundle

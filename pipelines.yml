@@ -62,7 +62,7 @@ pipelines:
             - name: resource_pipelines155
           integrations:
             - name: git_v
-#            - name: art_v
+            - name: art_v
         execution:
           onExecute:
 #             - docker images

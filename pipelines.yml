@@ -68,6 +68,10 @@ pipelines:
 #             - docker images
             - echo 'hi'
             - echo 'hi'
+            - request='{"key":"helmgeneric", "rclass":"local", "packageType":"generic", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
+            - echo $request > request.json
+            - jfrog rt repo-delete helmgeneric || true
+            - jfrog rt repo-create request.json
             
       - name: myStep113
         type: Bash

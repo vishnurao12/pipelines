@@ -48,7 +48,7 @@ resources:
       registry:            art_v
       sourceRepository:    image-docker   # required if registry is Artifactory
 
-      imageName:           wtl12.jfrog.info/docker-local/node
+      imageName:          ${artifactory_registry_url}/docker-local/node
       imageTag:            ${run_number}
       
   - name: my_distributionRule
@@ -72,7 +72,7 @@ pipelines:
           affinityGroup: "BasicTest"
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: test64621.jfrogdev.org/docker-local/node
+          dockerImageName: ${artifactory_registry_url}/docker-local/node
           
           dockerImageTag: ${run_number}
           integrations:

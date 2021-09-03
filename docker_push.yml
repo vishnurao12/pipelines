@@ -83,7 +83,7 @@ pipelines:
             - name: connecting_resource
         execution:
           onStart:
-            - artifactory_registry_url=$(echo "$int_s_artifactory_url" | sed 's#.*//\([^/]*\)/.*#\1#')
+            - artifactory_registry_url=$(echo "$int_art_v_url" | sed 's#.*//\([^/]*\)/.*#\1#')
             - echo $artifactory_registry_url
             - cd $res_ns_dockerbuild_gitRepo_resourcePath
             - echo "FROM hello-world" > Dockerfile

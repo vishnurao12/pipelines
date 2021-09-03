@@ -47,7 +47,7 @@ resources:
       siteName: "*"
       cityName: "*"
       countryCodes:
-        - DE
+        - "*"
 
 
 pipelines:

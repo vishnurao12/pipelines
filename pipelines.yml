@@ -71,6 +71,7 @@ pipelines:
 #             - docker images
             - echo 'hi'
             - echo 'hi'
+            - printenv
             - request='{"key":"helm-generic", "rclass":"local", "packageType":"generic", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
             - echo $request > request.json
             - jfrog rt repo-create request.json

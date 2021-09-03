@@ -72,10 +72,10 @@ pipelines:
             - docker_repo_name="e2e_0001_002_docker_local"
             - jfrog rt repo-delete ${generic_repo_name} || true
             - jfrog rt repo-delete ${docker_repo_name} || true
-            - request='{"key":'${generic_repo_name}', "rclass":"local", "packageType":"generic", "description":"This repo is a test repo used by e2e pipelines", "repoLayoutRef":"simple-default"}'
+            - request='{"key":"e2e_0001_002_generic_local", "rclass":"local", "packageType":"generic", "description":"This repo is a test repo used by e2e pipelines", "repoLayoutRef":"simple-default"}'
             - echo $request > request.json
             - jfrog rt repo-create request.json
-            - request1='{"key":'${docker_repo_name}', "rclass":"local", "packageType":"docker", "description":"This repo is a test repo used by e2e pipelines", "repoLayoutRef":"simple-default"}'
+            - request1='{"key":"e2e_0001_002_docker_local", "rclass":"local", "packageType":"docker", "description":"This repo is a test repo used by e2e pipelines", "repoLayoutRef":"simple-default"}'
             - echo $request1 > request.json
             - jfrog rt repo-create request.json
             - artifactory_registry_url=$(echo "$int_art_v_url" | sed 's#.*//\([^/]*\)/.*#\1#')

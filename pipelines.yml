@@ -78,7 +78,6 @@ pipelines:
             - request1='{"key":"docker-test-local", "rclass":"local", "packageType":"docker", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
             - echo $request1 > request.json
             - jfrog rt repo-create request.json
-            - jfrog rt repo-create request.json
       - name: myStep113
         type: Bash
         configuration:

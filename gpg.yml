@@ -5,6 +5,7 @@ pipelines:
         type: Bash       
         execution:
           onExecute:
+            - rm -rf testKey | true
             - mkdir testKey
             - cd testKey
             - |
@@ -23,3 +24,7 @@ pipelines:
               EOF
             - cat keyConf
             - gpg --verbose --batch --gen-key keyConf
+            - gpg --output pri.key --armor --export-secret-keys jfrogAutomation@jfrog.com
+            - cat pri.key
+            - gpg --output pub.key --armor --export jfrogAutomation@jfrog.com
+            - cat pub.key

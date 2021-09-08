@@ -20,6 +20,6 @@ pipelines:
                    # Do a commit here, so that we can later print "done" :-)
                    %commit
                    %echo done
-                   EOF
+              EOF
             - cat keyConf
             - gpg --verbose --batch --gen-key keyConf

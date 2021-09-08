@@ -1,12 +1,12 @@
 pipelines:
   - name: sample1
-    configuration:
-      environmentVariables:
-        wow: test
-        server: severname
     steps:
       - name: testBash1
-        type: Bash       
+        type: Bash
+        configuration:
+          environmentVariables:
+            wow: test
+            server: severname
         execution:
           onExecute:
             - rm -rf testKey | true

@@ -38,4 +38,6 @@ pipelines:
             - cat gpg.json
             - echo $wow
             - echo $server
-            - curl -uadmin:$wow -H "Accept:application/json" -H "Content-Type:application/json" -X POST "https://$server.jfrogdev.org/distribution/api/v1/keys/gpg" -T gpg.json -Lvvv
+            - testURL="https://"$server".jfrogdev.org/distribution/api/v1/keys/gpg"
+            - echo $testURL
+            - curl -uadmin:$wow -H "Accept:application/json" -H "Content-Type:application/json" -X POST $testURL -T gpg.json -Lvvv

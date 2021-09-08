@@ -1,5 +1,9 @@
 pipelines:
   - name: sample1
+    configuration:
+      environmentVariables:
+        wow: test
+        server: severname
     steps:
       - name: testBash1
         type: Bash       
@@ -28,3 +32,6 @@ pipelines:
             - cat pri.key
             - gpg --output pub.key --armor --export jfrogAutomation@jfrog.com
             - cat pub.key
+            - echo $wow
+            - echo $severname
+            - curl -uadmin:$wow -H "Accept: application/json" -H "Content-Type: application/json" -X POST "https://`$severname`.jfrogdev.org/distribution/api/v1/keys/gpg" -T gpg.json -Lvvv

@@ -5,6 +5,8 @@ pipelines:
         type: Bash       
         execution:
           onExecute:
+            - mkdir testKey
+            - cd testKey
             - |
               cat >keyConf <<EOF
                    %echo Generating a basic OpenPGP key
@@ -20,3 +22,4 @@ pipelines:
                    %echo done
                    EOF
             - cat keyConf
+            - gpg --verbose --batch --gen-key keyConf

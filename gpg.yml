@@ -32,7 +32,7 @@ pipelines:
             - cat pri.key
             - gpg --output pub.key --armor --export jfrogAutomation@jfrog.com
             - cat pub.key
-            - distFileContent={\"key\":{\"public_key\":"`cat pub.key`",\"private_key\":\"`cat pri.key`\"},\"propagate_to_edge_nodes\":true,\"fail_on_propagation_failure\":false}
+            - distFileContent={\"key\":{\"public_key\":\"`cat pub.key`\",\"private_key\":\"`cat pri.key`\"},\"propagate_to_edge_nodes\":true,\"fail_on_propagation_failure\":false}
             - echo $distFileContent
             - echo $distFileContent > gpg.json
             - cat gpg.json

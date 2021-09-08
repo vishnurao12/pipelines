@@ -108,7 +108,7 @@ pipelines:
         configuration:
           targetRepository: ${generic_repo_name}
           integrations:
-            - name: art_v
+            - name: e2e_0001_002_artifactory
           inputResources:
             - name: e2e_0001_002_buildInfo
           inputSteps:

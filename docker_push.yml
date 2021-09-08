@@ -51,7 +51,7 @@ resources:
 
 
 pipelines:
-  - name: e2e_0001_hello
+  - name: e2e_0001
 
     steps:
       - name: e2e_0001_002_dockerBuild

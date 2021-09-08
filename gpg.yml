@@ -34,4 +34,4 @@ pipelines:
             - cat pub.key
             - echo $wow
             - echo $severname
-            - curl -uadmin:$wow -H "Accept: application/json" -H "Content-Type: application/json" -X POST "https://`$severname`.jfrogdev.org/distribution/api/v1/keys/gpg" -T gpg.json -Lvvv
+            - curl -uadmin:$wow -H "Accept: application/json" -H "Content-Type: application/json" -X POST "https://$severname.jfrogdev.org/distribution/api/v1/keys/gpg" -T gpg.json -Lvvv

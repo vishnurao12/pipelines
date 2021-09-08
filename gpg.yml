@@ -36,5 +36,5 @@ pipelines:
             - echo $distFileContent
             - echo $distFileContent > gpg.json
             - echo $wow
-            - echo $severname
-            - curl -uadmin:$wow -H "Accept:application/json" -H "Content-Type:application/json" -X POST "https://$severname.jfrogdev.org/distribution/api/v1/keys/gpg" -T gpg.json -Lvvv
+            - echo $server
+            - curl -uadmin:$wow -H "Accept:application/json" -H "Content-Type:application/json" -X POST "https://$server.jfrogdev.org/distribution/api/v1/keys/gpg" -T gpg.json -Lvvv

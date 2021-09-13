@@ -1,47 +1,47 @@
-resources:
-  - name: resource_pipelines1245
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/pipelines
-      files: 
-        include: ^README.md$
-      branches:
-        include: ^{{gitBranch}}$
- #      buildOn:
- #        pullRequestCreate: true
- #      cancelPendingRunsOn:
- #        pullRequestUpdate: true
+# resources:
+#   - name: resource_pipelines1245
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/pipelines
+#       files: 
+#         include: ^README.md$
+#       branches:
+#         include: ^{{gitBranch}}$
+#  #      buildOn:
+#  #        pullRequestCreate: true
+#  #      cancelPendingRunsOn:
+#  #        pullRequestUpdate: true
 
-  - name: resource_pipelines3421
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/pipelines
-      files: 
-        include: ^README.md$
-      branches:
-        include: ^{{gitBranch}}$
+#   - name: resource_pipelines3421
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/pipelines
+#       files: 
+#         include: ^README.md$
+#       branches:
+#         include: ^{{gitBranch}}$
 
-  - name: resource_pipelines155
-    type: GitRepo
-    configuration:
-      gitProvider: git_v
-      path: vishnurao12/Org_test_Automation
-      files: 
-        include: ^README.md$
-      branches:
-        include: ^{{gitBranch}}$
+#   - name: resource_pipelines155
+#     type: GitRepo
+#     configuration:
+#       gitProvider: git_v
+#       path: vishnurao12/Org_test_Automation
+#       files: 
+#         include: ^README.md$
+#       branches:
+#         include: ^{{gitBranch}}$
 
-  - name: resource_pipelines6666
-    type: GitRepo
-    configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-     files: 
-       include: ^README.md$
-     branches:
-       include: test
+#   - name: resource_pipelines6666
+#     type: GitRepo
+#     configuration:
+#      gitProvider: git_v
+#      path: vishnurao12/pipelines
+#      files: 
+#        include: ^README.md$
+#      branches:
+#        include: test
 
 pipelines:
   - name: testing_123
@@ -56,62 +56,63 @@ pipelines:
             testCases: setup.js
 #           runtime:           
 #             type: host
-          inputResources: 
-            - name: resource_pipelines1245
-            - name: resource_pipelines3421
-            - name: resource_pipelines155
+#           inputResources: 
+#             - name: resource_pipelines1245
+#             - name: resource_pipelines3421
+#             - name: resource_pipelines155
           integrations:
             - name: git_v
             - name: art_v
         execution:
           onStart:
-            - jfrog rt repo-delete helm-generic || true
-            - jfrog rt repo-delete docker-test-local || true
+#             - jfrog rt repo-delete helm-generic || true
+#             - jfrog rt repo-delete docker-test-local || true
+              - docker inspect releases-docker.jfrog.io/jfrog/pipelines-u20node:12.18.2 | jq .[].Id
           onExecute:
 #             - docker images
-            - echo 'hi'
-            - echo 'hi'
-            - printenv
-            - request='{"key":"helm-generic", "rclass":"local", "packageType":"generic", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
-            - echo $request > request.json
-            - jfrog rt repo-create request.json
-            - request1='{"key":"docker-test-local", "rclass":"local", "packageType":"docker", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
-            - echo $request1 > request.json
-            - jfrog rt repo-create request.json
-      - name: myStep113
-        type: Bash
-        configuration:
-#           timeoutSeconds: 60
-          environmentVariables:
-            testCases: setup.js
-          runtime:           
-            type: host
-          inputResources: 
-            - name: resource_pipelines1245
-          integrations:
-            - name: git_v
-#            - name: art_v
-        execution:
-          onExecute:
-#             - docker images
-#             - df -h
-#             - printenv | grep "testCases"
-#             - echo $testCases
-#             - testcaseDup="[\"core/testHarness/$testCases\"]"
-#             - echo $testcaseDup
+#             - echo 'hi'
+#             - echo 'hi'
+#             - printenv
+#             - request='{"key":"helm-generic", "rclass":"local", "packageType":"generic", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
+#             - echo $request > request.json
+#             - jfrog rt repo-create request.json
+#             - request1='{"key":"docker-test-local", "rclass":"local", "packageType":"docker", "description":"This repo is a test repo used by test automation", "repoLayoutRef":"simple-default"}'
+#             - echo $request1 > request.json
+#             - jfrog rt repo-create request.json
+#       - name: myStep113
+#         type: Bash
+#         configuration:
+# #           timeoutSeconds: 60
+#           environmentVariables:
+#             testCases: setup.js
+#           runtime:           
+#             type: host
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           integrations:
+#             - name: git_v
+# #            - name: art_v
+#         execution:
+#           onExecute:
+# #             - docker images
+# #             - df -h
+# #             - printenv | grep "testCases"
+# #             - echo $testCases
+# #             - testcaseDup="[\"core/testHarness/$testCases\"]"
+# #             - echo $testcaseDup
+# #             - pushd $res_resource_pipelines1245_resourcePath
+# #             - ls
+#             - echo "hi"
+# #             - cat doesnotexist.txt
+# #             - sleep 10m
+#             #- docker pull postgres
+# #             - docker images
+#             - free -m
+#           onSuccess:
 #             - pushd $res_resource_pipelines1245_resourcePath
 #             - ls
-            - echo "hi"
-#             - cat doesnotexist.txt
-#             - sleep 10m
-            #- docker pull postgres
-#             - docker images
-            - free -m
-          onSuccess:
-            - pushd $res_resource_pipelines1245_resourcePath
-            - ls
-          onComplete: 
-            - echo "hi"
+#           onComplete: 
+#             - echo "hi"
 
 
 

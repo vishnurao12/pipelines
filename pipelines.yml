@@ -53,7 +53,7 @@ pipelines:
 #           timeoutSeconds: 7200
 #           timeoutSeconds: 60
           environmentVariables:
-            testCases: setup.js
+            testCases: 'setup.js'
 #           runtime:           
 #             type: host
 #           inputResources: 
@@ -67,7 +67,9 @@ pipelines:
           onStart:
 #             - jfrog rt repo-delete helm-generic || true
 #             - jfrog rt repo-delete docker-test-local || true
-            - docker inspect releases-docker.jfrog.io/jfrog/pipelines-u20node:12.18.2 | jq .[].Id
+              - env
+              - env
+#             - docker inspect releases-docker.jfrog.io/jfrog/pipelines-u20node:12.18.2 | jq .[].Id
 #           onExecute:
 #             - docker images
 #             - echo 'hi'

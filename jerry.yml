@@ -1,17 +1,17 @@
-# resources:
-#   - name: cron_10min
-#     type: CronTrigger
-#     configuration:
-#       interval: "*/10 * * * *"
+resources:
+  - name: cron_10min
+    type: CronTrigger
+    configuration:
+      interval: "*/10 * * * *"
 
 pipelines:
   - name: steps_100_parallel
     steps:
       - name: trigger
         type: Bash
-#         configuration:
-#           inputResources: 
-#             - name: cron_10min
+        configuration:
+          inputResources: 
+            - name: cron_10min
         execution:
           onExecute:
             - echo "hi"

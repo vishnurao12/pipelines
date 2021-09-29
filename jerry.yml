@@ -4,11 +4,6 @@ resources:
     configuration:
       interval: "*/10 * * * *"
 
-  - name: cron_2min
-    type: CronTrigger
-    configuration:
-      interval: "*/10 * * * *"
-
 pipelines:
   - name: steps_100_parallel
     steps:
@@ -16,7 +11,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources: 
-            - name: cron_2min
+            - name: cron_10min
         execution:
           onExecute:
             - echo "hi"

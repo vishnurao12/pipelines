@@ -62,7 +62,7 @@ pipelines:
         type: Matrix
         stepMode: Bash
         configuration:
-          inputSteps:
+          inputResources:
             - name: cron_1min_1
             - name: cron_1min_2
             - name: cron_1min_3
@@ -73,7 +73,8 @@ pipelines:
             - name: cron_1min_8
             - name: cron_1min_9
             - name: cron_1min_10
-                    
+          inputSteps:
+            - name: myStep1 
         stepletMultipliers:
           environmentVariables:             # Sets of environment variables for steplets
             - test: "test"

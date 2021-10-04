@@ -1,9 +1,17 @@
 pipelines:
   - name: matrix_steps_100
     steps:
+      - name: myStep1
+        type: Bash
+        execution:
+          onStart:
+            - echo "hello"
       - name: martix_step
         type: Matrix
         stepMode: Bash
+        configuration:
+          inputSteps:
+            - name: myStep1        
         stepletMultipliers:
           environmentVariables:             # Sets of environment variables for steplets
             - test: "test"

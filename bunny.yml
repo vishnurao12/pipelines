@@ -44,8 +44,8 @@
 pipelines:
   - name: matrix_steps_100
     configuration:
-      inputResources: 
-        - name: cron_1min
+#       inputResources: 
+#         - name: cron_1min
       runtime:       
         type: image
         image:

@@ -1,6 +1,51 @@
+resources:
+  - name: cron_1min_1
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+  - name: cron_1min_2
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+  - name: cron_1min_3
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+  - name: cron_1min_4
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+  - name: cron_1min_5
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"  
+  - name: cron_1min_6
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+  - name: cron_1min_7
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+  - name: cron_1min_8
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+  - name: cron_1min_9
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+  - name: cron_1min_10
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+         
+
 pipelines:
   - name: matrix_steps_100
     configuration:
+      inputResources: 
+        - name: cron_1min
       runtime:       
         type: image
         image:
@@ -18,7 +63,17 @@ pipelines:
         stepMode: Bash
         configuration:
           inputSteps:
-            - name: myStep1        
+            - name: cron_1min_1
+            - name: cron_1min_2
+            - name: cron_1min_3
+            - name: cron_1min_4
+            - name: cron_1min_5
+            - name: cron_1min_6
+            - name: cron_1min_7
+            - name: cron_1min_8
+            - name: cron_1min_9
+            - name: cron_1min_10
+                    
         stepletMultipliers:
           environmentVariables:             # Sets of environment variables for steplets
             - test: "test"

@@ -1,5 +1,9 @@
 resources:
-  - name: cron_10min
+  - name: cron_1min
+    type: CronTrigger
+    configuration:
+      interval: "* * * * *"
+   - name: cron_10min
     type: CronTrigger
     configuration:
       interval: "*/10 * * * *"
@@ -17,7 +21,7 @@ pipelines:
                 name: bharath92/pipelines
                 tag: min
           inputResources: 
-            - name: cron_10min
+            - name: cron_1min
         execution:
           onExecute:
             - echo "hi"

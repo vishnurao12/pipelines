@@ -5,7 +5,7 @@ pipelines:
         type: Bash
         execution:
           onStart:
-            - echo "hello
+            - echo "hello"
             
       - name: myStep2_1
         type: Bash

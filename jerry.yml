@@ -1,12 +1,12 @@
-resources:
-  - name: cron_1min
-    type: CronTrigger
-    configuration:
-      interval: "* * * * *"
-  - name: cron_10min
-    type: CronTrigger
-    configuration:
-      interval: "*/10 * * * *"
+# resources:
+#   - name: cron_1min
+#     type: CronTrigger
+#     configuration:
+#       interval: "* * * * *"
+#   - name: cron_10min
+#     type: CronTrigger
+#     configuration:
+#       interval: "*/10 * * * *"
 
 pipelines:
   - name: steps_100_parallel

@@ -1,0 +1,35 @@
+pipelines:
+  - name: testing_123
+    steps:
+      - name: myStep1
+        type: Bash
+        execution:
+          onStart:
+            - echo "hello
+            
+      - name: myStep2_1
+        type: Bash
+        configuration:
+          inputsteps: 
+            - name: myStep1
+        execution:
+          onStart:
+            - sleep 2m
+
+      - name: myStep2_2
+        type: Bash
+        configuration:
+          inputsteps: 
+            - name: myStep1
+        execution:
+          onStart:
+            - echo "hello"
+
+      - name: myStep3
+        type: Bash
+        configuration:
+          inputsteps: 
+            - name: myStep2_2
+        execution:
+          onStart:
+            - echo "hello"            

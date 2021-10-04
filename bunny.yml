@@ -1,5 +1,12 @@
 pipelines:
   - name: matrix_steps_100
+    configuration:
+      runtime:       
+        type: image
+        image:
+          custom:
+            name: bharath92/pipelines
+            tag: min
     steps:
       - name: myStep1
         type: Bash

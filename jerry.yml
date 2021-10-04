@@ -3,7 +3,7 @@ resources:
     type: CronTrigger
     configuration:
       interval: "* * * * *"
-   - name: cron_10min
+  - name: cron_10min
     type: CronTrigger
     configuration:
       interval: "*/10 * * * *"

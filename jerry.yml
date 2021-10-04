@@ -20,8 +20,8 @@ pipelines:
               custom:
                 name: bharath92/pipelines
                 tag: min
-          inputResources: 
-            - name: cron_1min
+#           inputResources: 
+#             - name: cron_1min
         execution:
           onExecute:
             - echo "hi"

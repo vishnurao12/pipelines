@@ -10,7 +10,7 @@ pipelines:
       - name: myStep2_1
         type: Bash
         configuration:
-          inputsteps: 
+          inputSteps: 
             - name: myStep1
         execution:
           onStart:
@@ -19,7 +19,7 @@ pipelines:
       - name: myStep2_2
         type: Bash
         configuration:
-          inputsteps: 
+          inputSteps: 
             - name: myStep1
         execution:
           onStart:
@@ -28,7 +28,7 @@ pipelines:
       - name: myStep3
         type: Bash
         configuration:
-          inputsteps: 
+          inputSteps: 
             - name: myStep2_2
         execution:
           onStart:

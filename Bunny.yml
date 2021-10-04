@@ -1,4 +1,4 @@
-      - name: Matrix_API_tests
+      - name: martix_step
         type: Matrix
         stepMode: Bash
         stepletMultipliers:

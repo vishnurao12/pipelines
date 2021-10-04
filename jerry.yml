@@ -1,17 +1,23 @@
-# resources:
-#   - name: cron_10min
-#     type: CronTrigger
-#     configuration:
-#       interval: "*/10 * * * *"
+resources:
+  - name: cron_10min
+    type: CronTrigger
+    configuration:
+      interval: "*/10 * * * *"
 
 pipelines:
   - name: steps_100_parallel
     steps:
       - name: trigger
         type: Bash
-#         configuration:
-#           inputResources: 
-#             - name: cron_10min
+        configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
+          inputResources: 
+            - name: cron_10min
         execution:
           onExecute:
             - echo "hi"
@@ -19,6 +25,12 @@ pipelines:
       - name: step1
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -27,6 +39,12 @@ pipelines:
       - name: step2 
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -35,6 +53,12 @@ pipelines:
       - name: step3
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -43,6 +67,12 @@ pipelines:
       - name: step4
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -51,6 +81,12 @@ pipelines:
       - name: step5
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -59,6 +95,12 @@ pipelines:
       - name: step6
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -67,6 +109,12 @@ pipelines:
       - name: step7
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -75,6 +123,12 @@ pipelines:
       - name: step8
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -83,6 +137,12 @@ pipelines:
       - name: step9
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -91,6 +151,12 @@ pipelines:
       - name: step10
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -99,6 +165,12 @@ pipelines:
       - name: step11
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -107,6 +179,12 @@ pipelines:
       - name: step12
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -115,6 +193,12 @@ pipelines:
       - name: step13
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -123,6 +207,12 @@ pipelines:
       - name: step14
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -131,6 +221,12 @@ pipelines:
       - name: step15
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -139,6 +235,12 @@ pipelines:
       - name: step16
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -147,6 +249,12 @@ pipelines:
       - name: step17
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -155,6 +263,12 @@ pipelines:
       - name: step18
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -163,6 +277,12 @@ pipelines:
       - name: step19
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -171,6 +291,12 @@ pipelines:
       - name: step20
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -179,6 +305,12 @@ pipelines:
       - name: step21
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -187,6 +319,12 @@ pipelines:
       - name: step22
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -195,6 +333,12 @@ pipelines:
       - name: step23
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -203,6 +347,12 @@ pipelines:
       - name: step24
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -211,6 +361,12 @@ pipelines:
       - name: step25
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -219,6 +375,12 @@ pipelines:
       - name: step26
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -227,6 +389,12 @@ pipelines:
       - name: step27
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -235,6 +403,12 @@ pipelines:
       - name: step28
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -243,6 +417,12 @@ pipelines:
       - name: step29
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -251,6 +431,12 @@ pipelines:
       - name: step30
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -259,6 +445,12 @@ pipelines:
       - name: step31
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -267,6 +459,12 @@ pipelines:
       - name: step32
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -275,6 +473,12 @@ pipelines:
       - name: step33
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -283,6 +487,12 @@ pipelines:
       - name: step34
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -291,6 +501,12 @@ pipelines:
       - name: step35
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -299,6 +515,12 @@ pipelines:
       - name: step36
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -307,6 +529,12 @@ pipelines:
       - name: step37
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -315,6 +543,12 @@ pipelines:
       - name: step38
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -323,6 +557,12 @@ pipelines:
       - name: step39
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -331,6 +571,12 @@ pipelines:
       - name: step40
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -339,6 +585,12 @@ pipelines:
       - name: step41
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -347,6 +599,12 @@ pipelines:
       - name: step42
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -355,6 +613,12 @@ pipelines:
       - name: step43
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -363,6 +627,12 @@ pipelines:
       - name: step44
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -371,6 +641,12 @@ pipelines:
       - name: step45
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -379,6 +655,12 @@ pipelines:
       - name: step46
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -387,6 +669,12 @@ pipelines:
       - name: step47
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -395,6 +683,12 @@ pipelines:
       - name: step48
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -403,6 +697,12 @@ pipelines:
       - name: step49
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -411,6 +711,12 @@ pipelines:
       - name: step50
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -419,6 +725,12 @@ pipelines:
       - name: step51
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -427,6 +739,12 @@ pipelines:
       - name: step52
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -435,6 +753,12 @@ pipelines:
       - name: step53
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -443,6 +767,12 @@ pipelines:
       - name: step54
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -451,6 +781,12 @@ pipelines:
       - name: step55
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -459,6 +795,12 @@ pipelines:
       - name: step56
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -467,6 +809,12 @@ pipelines:
       - name: step57
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -475,6 +823,12 @@ pipelines:
       - name: step58
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -483,6 +837,12 @@ pipelines:
       - name: step59
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -491,6 +851,12 @@ pipelines:
       - name: step60
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -499,6 +865,12 @@ pipelines:
       - name: step61
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -507,6 +879,12 @@ pipelines:
       - name: step62
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -515,6 +893,12 @@ pipelines:
       - name: step63
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -523,6 +907,12 @@ pipelines:
       - name: step64
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -531,6 +921,12 @@ pipelines:
       - name: step65
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -539,6 +935,12 @@ pipelines:
       - name: step66
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -547,6 +949,12 @@ pipelines:
       - name: step67
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -555,6 +963,12 @@ pipelines:
       - name: step68
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -563,6 +977,12 @@ pipelines:
       - name: step69
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -571,6 +991,12 @@ pipelines:
       - name: step70
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -579,6 +1005,12 @@ pipelines:
       - name: step71
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -587,6 +1019,12 @@ pipelines:
       - name: step72
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -595,6 +1033,12 @@ pipelines:
       - name: step73
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -603,6 +1047,12 @@ pipelines:
       - name: step74
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -611,6 +1061,12 @@ pipelines:
       - name: step75
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -619,6 +1075,12 @@ pipelines:
       - name: step76
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -627,6 +1089,12 @@ pipelines:
       - name: step77
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -635,6 +1103,12 @@ pipelines:
       - name: step78
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -643,6 +1117,12 @@ pipelines:
       - name: step79
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -651,6 +1131,12 @@ pipelines:
       - name: step80
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -659,6 +1145,12 @@ pipelines:
       - name: step81
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -667,6 +1159,12 @@ pipelines:
       - name: step82
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -675,6 +1173,12 @@ pipelines:
       - name: step83
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -683,6 +1187,12 @@ pipelines:
       - name: step84
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -691,6 +1201,12 @@ pipelines:
       - name: step85
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -699,6 +1215,12 @@ pipelines:
       - name: step86
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -707,6 +1229,12 @@ pipelines:
       - name: step87
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -715,6 +1243,12 @@ pipelines:
       - name: step88
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -723,6 +1257,12 @@ pipelines:
       - name: step89
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -731,6 +1271,12 @@ pipelines:
       - name: step90
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -739,6 +1285,12 @@ pipelines:
       - name: step91
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -747,6 +1299,12 @@ pipelines:
       - name: step92
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -755,6 +1313,12 @@ pipelines:
       - name: step93
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -763,6 +1327,12 @@ pipelines:
       - name: step94
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -771,6 +1341,12 @@ pipelines:
       - name: step95
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -779,6 +1355,12 @@ pipelines:
       - name: step96
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -787,6 +1369,12 @@ pipelines:
       - name: step97
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -795,6 +1383,12 @@ pipelines:
       - name: step98
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -803,6 +1397,12 @@ pipelines:
       - name: step99
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:
@@ -811,6 +1411,12 @@ pipelines:
       - name: step100
         type: Bash
         configuration:
+          runtime:       
+            type: image
+            image:
+              custom:
+                name: bharath92/pipelines
+                tag: min
           inputSteps: 
             - name: trigger
         execution:

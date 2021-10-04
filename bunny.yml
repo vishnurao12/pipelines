@@ -1,44 +1,44 @@
-# resources:
-#   - name: cron_1min_1
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
-#   - name: cron_1min_2
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
-#   - name: cron_1min_3
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
-#   - name: cron_1min_4
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
-#   - name: cron_1min_5
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"  
-#   - name: cron_1min_6
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
-#   - name: cron_1min_7
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
-#   - name: cron_1min_8
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
-#   - name: cron_1min_9
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
-#   - name: cron_1min_10
-#     type: CronTrigger
-#     configuration:
-#       interval: "* * * * *"
+resources:
+  - name: cron_1min_1
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
+  - name: cron_1min_2
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
+  - name: cron_1min_3
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
+  - name: cron_1min_4
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
+  - name: cron_1min_5
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"  
+  - name: cron_1min_6
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
+  - name: cron_1min_7
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
+  - name: cron_1min_8
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
+  - name: cron_1min_9
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
+  - name: cron_1min_10
+    type: CronTrigger
+    configuration:
+      interval: "0 0 * * *"
          
 
 pipelines:
@@ -62,17 +62,17 @@ pipelines:
         type: Matrix
         stepMode: Bash
         configuration:
-#           inputResources:
-#             - name: cron_1min_1
-#             - name: cron_1min_2
-#             - name: cron_1min_3
-#             - name: cron_1min_4
-#             - name: cron_1min_5
-#             - name: cron_1min_6
-#             - name: cron_1min_7
-#             - name: cron_1min_8
-#             - name: cron_1min_9
-#             - name: cron_1min_10
+          inputResources:
+            - name: cron_1min_1
+            - name: cron_1min_2
+            - name: cron_1min_3
+            - name: cron_1min_4
+            - name: cron_1min_5
+            - name: cron_1min_6
+            - name: cron_1min_7
+            - name: cron_1min_8
+            - name: cron_1min_9
+            - name: cron_1min_10
           inputSteps:
             - name: myStep1 
         stepletMultipliers:

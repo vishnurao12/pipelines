@@ -18,7 +18,7 @@ pipelines:
             type: image
             image:
               custom:
-                name: bharath92/pipelines-1:min
+                name: bharath92/pipelines-1
                 tag: min
           inputResources: 
             - name: cron_1min

@@ -62,17 +62,17 @@ pipelines:
         type: Matrix
         stepMode: Bash
         configuration:
-          inputResources:
-            - name: cron_1min_1
-            - name: cron_1min_2
-            - name: cron_1min_3
-            - name: cron_1min_4
-            - name: cron_1min_5
-            - name: cron_1min_6
-            - name: cron_1min_7
-            - name: cron_1min_8
-            - name: cron_1min_9
-            - name: cron_1min_10
+#           inputResources:
+#             - name: cron_1min_1
+#             - name: cron_1min_2
+#             - name: cron_1min_3
+#             - name: cron_1min_4
+#             - name: cron_1min_5
+#             - name: cron_1min_6
+#             - name: cron_1min_7
+#             - name: cron_1min_8
+#             - name: cron_1min_9
+#             - name: cron_1min_10
           inputSteps:
             - name: myStep1 
         stepletMultipliers:

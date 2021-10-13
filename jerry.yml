@@ -6,7 +6,7 @@ resources:
   - name: cron_10min
     type: CronTrigger
     configuration:
-      interval: "*/10 * * * *"
+      interval: "*/30 * * * *"
 
 pipelines:
   - name: steps_100_parallel

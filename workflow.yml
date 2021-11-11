@@ -7,14 +7,14 @@ pipelines:
           onExecute:
             - sleep 1800
     - name: S_Bash_7229_0001_3
-      type: Bash
-      configuration:
-        inputSteps:
-          - name: S_Bash_7229_0001_2
-            status:
-              - cancelled
-              - error
-      execution:
-        onExecute:
-          - echo 'step 3'
-          - echo "run variable is ${run_key}"
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: S_Bash_7229_0001_2
+              status:
+                - cancelled
+                - error
+        execution:
+          onExecute:
+            - echo 'step 3'
+            - echo "run variable is ${run_key}"

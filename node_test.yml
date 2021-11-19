@@ -45,21 +45,6 @@ pipelines:
             - docker images
             - jfrog --version
 
-      - name: u16dynamic
-        type: Bash
-        configuration:
-          nodePool: u16dynamic
-          inputResources:
-            - name: connecting_resource_node_test
-          integrations:
-            - name: git_v
-            - name: art_v
-        execution:
-          onExecute:
-            - printenv
-            - docker images
-            - jfrog --version
-
       - name: c7dynamic
         type: Bash
         configuration:

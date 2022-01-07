@@ -1,0 +1,27 @@
+resources:
+  - name: S_DockerBuild_5933_017_GitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      branches:
+        include: master
+
+pipelines:
+  - name: pipeline_S_DockerBuild_5933_017
+    steps:
+      - name: S_DockerBuild_5933_017_1
+        type: DockerBuild
+        configuration:
+          affinityGroup: S_DockerBuild_5933_017
+          dockerImageName: ${artifactory_registry_url}/test-automation-docker-remote/s_dockerbuild_5933
+          dockerImageTag: "${run_id}"
+          inputResources:
+            - name: S_DockerBuild_5933_017_GitRepo
+          integrations:
+            - name: s_artifactory
+        execution:
+          onStart:
+            - artifactory_registry_url=$(echo "$int_s_artifactory_url" | sed 's#.*//\([^/]*\)/.*#\1#')
+            - cd $res_S_DockerBuild_5933_017_GitRepo_resourcePath
+            - echo "FROM hello-world" > Dockerfile

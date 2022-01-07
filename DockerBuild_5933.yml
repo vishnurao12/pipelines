@@ -24,4 +24,4 @@ pipelines:
           onStart:
             - artifactory_registry_url=$(echo "$int_s_artifactory_url" | sed 's#.*//\([^/]*\)/.*#\1#')
             - cd $res_S_DockerBuild_5933_017_GitRepo_resourcePath
-            - echo "FROM hello-world" > Dockerfile
+            - echo "FROM parallelpipe200.jfrogdev.org/test-automation-docker-remote/hello-world" > Dockerfile

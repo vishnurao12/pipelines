@@ -20,6 +20,7 @@ pipelines:
             - name: S_DockerBuild_5933_017_GitRepo
           integrations:
             - name: s_artifactory
+            - name: docker_5933
         execution:
           onStart:
             - artifactory_registry_url=$(echo "$int_s_artifactory_url" | sed 's#.*//\([^/]*\)/.*#\1#')

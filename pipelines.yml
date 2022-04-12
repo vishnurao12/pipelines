@@ -39,25 +39,32 @@
 #             - pushd $res_resource_pipelines1245_resourcePath
 #             - ls
 
-resources:
- - name: testp123
-   type: GitRepo
-   configuration:
-     gitProvider: git_v
-     path: vishnurao12/pipelines
-
 pipelines:
-  - name: testP121
+  - name: testing_123
     steps:
-      - name: testP1222
-        type: PowerShell
+      - name: myStep112
+        type: Bash
         configuration:
-          nodePool: win_2019
-          inputResources: 
-          - name: testp123
+#           nodePool: u16test
+#           timeoutSeconds: 7200
+#           timeoutSeconds: 60
+          environmentVariables:
+            testCases: 'setup.js'
+#           runtime:           
+#             type: host
+#           inputResources: 
+#             - name: resource_pipelines1245
+#             - name: resource_pipelines3421
+#             - name: resource_pipelines155
+          integrations:
+            - name: git_v
+            - name: art_v
         execution:
-          onExecute:
-            - dotnet --version
+          onStart:
+#             - jfrog rt repo-delete helm-generic || true
+#             - jfrog rt repo-delete docker-test-local || true
+              - env
+              - printenv
 
 
       

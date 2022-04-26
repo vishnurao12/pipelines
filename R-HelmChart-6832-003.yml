@@ -6,3 +6,5 @@ resources:
       repository: helm-remote
       chart: chart
       version: 1.0.0
+      pin:
+        versionId: 6

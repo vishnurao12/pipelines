@@ -69,31 +69,31 @@ pipelines:
 #             - jfrog rt repo-delete docker-test-local || true
               - env
               - printenv
-  - name: testing_123_1
-    steps:
-      - name: myStep1121
-        type: Bash
-        configuration:
-#           nodePool: u16test
-#           timeoutSeconds: 7200
-#           timeoutSeconds: 60
-          environmentVariables:
-            testCases: 'setup.js'
-#           runtime:           
-#             type: host
-#           inputResources: 
-#             - name: resource_pipelines1245
-#             - name: resource_pipelines3421
-#             - name: resource_pipelines155
-#           integrations:
-#             - name: git_v
-#             - name: art_v
-        execution:
-          onStart:
-#             - jfrog rt repo-delete helm-generic || true
-#             - jfrog rt repo-delete docker-test-local || true
-              - env
-              - printenv
+#   - name: testing_123_1
+#     steps:
+#       - name: myStep1121
+#         type: Bash
+#         configuration:
+# #           nodePool: u16test
+# #           timeoutSeconds: 7200
+# #           timeoutSeconds: 60
+#           environmentVariables:
+#             testCases: 'setup.js'
+# #           runtime:           
+# #             type: host
+# #           inputResources: 
+# #             - name: resource_pipelines1245
+# #             - name: resource_pipelines3421
+# #             - name: resource_pipelines155
+# #           integrations:
+# #             - name: git_v
+# #             - name: art_v
+#         execution:
+#           onStart:
+# #             - jfrog rt repo-delete helm-generic || true
+# #             - jfrog rt repo-delete docker-test-local || true
+#               - env
+#               - printenv
 #             - docker inspect releases-docker.jfrog.io/jfrog/pipelines-u20node:12.18.2 | jq .[].Id
 #           onExecute:
 #             - docker images

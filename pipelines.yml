@@ -44,6 +44,19 @@
 #        include: test
 
 pipelines:
+  - name: Pipelines_matrixtest
+    steps:
+      - name: Matrix_test
+        type: Matrix
+        stepMode: Bash
+        stepletMultipliers:
+          environmentVariables:
+            - delay: 1
+              fail: 'true'
+        execution:
+          onStart:
+              - env
+              
   - name: testing_123
     steps:
       - name: myStep112

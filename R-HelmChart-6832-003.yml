@@ -6,3 +6,5 @@ resources:
       sourceRepository: docker-local
       imageName: image
       imageTag: 1.0.0
+      pin:
+        versionId: 8

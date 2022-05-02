@@ -58,8 +58,11 @@ resources:
        include: ^README.md$
      branches:
        include: ^test2$
-#      buildOn:
-#        pullRequestCreate: true
+     buildOn:
+       commit: true
+       pullRequestCreate: true
+       pullRequestClose: true
+       tagCreate: true
 #      cancelPendingRunsOn:
 #        pullRequestUpdate: true
 

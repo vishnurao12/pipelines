@@ -44,6 +44,10 @@ resources:
 #        include: test
 
 pipelines:
+  configuration:
+    environmentVariables:
+      readOnly:
+        testCases: 'setup.js'
 #   - name: Pipelines_matrixtest
 #     steps:
 #       - name: Matrix_test

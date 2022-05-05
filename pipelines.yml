@@ -69,8 +69,8 @@ pipelines:
             testCases: 'setup.js'
 #           runtime:           
 #             type: host
-#           inputResources: 
-#             - name: resource_pipelines1245
+          inputResources: 
+            - name: resource_pipelines1245
 #             - name: resource_pipelines3421
 #             - name: resource_pipelines155
 #           integrations:

@@ -44,10 +44,11 @@ resources:
 #        include: test
 
 pipelines:
-  configuration:
-    environmentVariables:
-      readOnly:
-        testCases: 'setup.js'
+  - name: testing_123
+    configuration:
+      environmentVariables:
+        readOnly:
+          testCases: 'setup.js'
 #   - name: Pipelines_matrixtest
 #     steps:
 #       - name: Matrix_test
@@ -61,7 +62,7 @@ pipelines:
 #           onStart:
 #               - env
               
-  - name: testing_123
+
     steps:
       - name: myStep112
         type: Bash

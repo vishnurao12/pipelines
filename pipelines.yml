@@ -201,6 +201,45 @@ pipelines:
           onStart:
             - env
             - printenv
+      - name: myStep1133
+        type: Bash
+        configuration:
+          environmentVariables:
+            testCases: 'setup.js'
+          inputResources: 
+            - name: resource_pipelines1245
+          inputSteps: 
+            - name: myStep1132
+        execution:
+          onStart:
+            - env
+            - printenv
+      - name: myStep1134
+        type: Bash
+        configuration:
+          environmentVariables:
+            testCases: 'setup.js'
+          inputResources: 
+            - name: resource_pipelines1245
+          inputSteps: 
+            - name: myStep1133
+        execution:
+          onStart:
+            - env
+            - printenv
+      - name: myStep1135
+        type: Bash
+        configuration:
+          environmentVariables:
+            testCases: 'setup.js'
+          inputResources: 
+            - name: resource_pipelines1245
+          inputSteps: 
+            - name: myStep1134
+        execution:
+          onStart:
+            - env
+            - printenv
 #   - name: testing_123_1
 #     steps:
 #       - name: myStep1121

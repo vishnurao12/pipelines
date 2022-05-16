@@ -12,6 +12,12 @@ resources:
        pullRequestCreate: true
      cancelPendingRunsOn:
        pullRequestUpdate: true
+       
+ - name: resource_123
+   type: GitRepo
+   configuration:
+     gitProvider: git_v
+     path: vishnurao12/pipelines
 
 pipelines:
   - name: testing_123

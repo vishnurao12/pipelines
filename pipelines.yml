@@ -7,9 +7,12 @@ resources:
       files: 
         include: ^README.md$
       branches:
-        include: ^{{gitBranch}}$
- #      buildOn:
- #        pullRequestCreate: true
+        include: ^{{gitBranch}}$ 
+      buildOn:
+        pullRequestCreate: true
+        pullRequestClose:  true
+        releaseCreate:     true
+        tagCreate:         true
  #      cancelPendingRunsOn:
  #        pullRequestUpdate: true
 

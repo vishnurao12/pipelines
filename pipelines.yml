@@ -1,5 +1,5 @@
 resources:
-  - name: resource_pipelines1245
+  - name: resource_pipelines_commit
     type: GitRepo
     configuration:
       gitProvider: git_v
@@ -9,10 +9,60 @@ resources:
       branches:
         include: ^{{gitBranch}}$ 
       buildOn:
+        commit:            true
+        pullRequestCreate: false
+        pullRequestClose:  false
+        releaseCreate:     false
+        tagCreate:         false
+        
+  - name: resource_pipelines_pullRequestCreate
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$ 
+      buildOn:
+        commit:            false
         pullRequestCreate: true
+        pullRequestClose:  false
+        releaseCreate:     false
+        tagCreate:         false
+        
+  - name: resource_pipelines_pullRequestClose
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$ 
+      buildOn:
+        commit:            false
+        pullRequestCreate: false
         pullRequestClose:  true
-        releaseCreate:     true
+        releaseCreate:     false
+        tagCreate:         false
+        
+  - name: resource_pipelines_tagCreate
+    type: GitRepo
+    configuration:
+      gitProvider: git_v
+      path: vishnurao12/pipelines
+      files: 
+        include: ^README.md$
+      branches:
+        include: ^{{gitBranch}}$ 
+      buildOn:
+        commit:            false
+        pullRequestCreate: false
+        pullRequestClose:  false
+        releaseCreate:     false
         tagCreate:         true
+       
  #      cancelPendingRunsOn:
  #        pullRequestUpdate: true
 
@@ -78,9 +128,10 @@ pipelines:
 #           runtime:           
 #             type: host
           inputResources: 
-            - name: resource_pipelines1245
-#             - name: resource_pipelines3421
-#             - name: resource_pipelines155
+            - name: resource_pipelines_commit
+            - name: resource_pipelines_pullRequestCreate
+            - name: resource_pipelines_pullRequestClose
+            - name: resource_pipelines_tagCreate
 #           integrations:
 #             - name: git_v
 #             - name: art_v
@@ -90,164 +141,164 @@ pipelines:
 #             - jfrog rt repo-delete docker-test-local || true
               - env
               - printenv
-      - name: myStep1124
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep112
-        execution:
-          onStart:
-#             - jfrog rt repo-delete helm-generic || true
-#             - jfrog rt repo-delete docker-test-local || true
-              - env
-              - printenv
-      - name: myStep1125
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1124
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1126
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1125
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1127
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1126
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1128
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1127
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1129
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1128
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1130
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1129
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1131
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1130
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1132
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1131
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1133
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1132
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1134
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1133
-        execution:
-          onStart:
-            - env
-            - printenv
-      - name: myStep1135
-        type: Bash
-        configuration:
-          environmentVariables:
-            testCases: 'setup.js'
-          inputResources: 
-            - name: resource_pipelines1245
-          inputSteps: 
-            - name: myStep1134
-        execution:
-          onStart:
-            - env
-            - printenv
+#       - name: myStep1124
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep112
+#         execution:
+#           onStart:
+# #             - jfrog rt repo-delete helm-generic || true
+# #             - jfrog rt repo-delete docker-test-local || true
+#               - env
+#               - printenv
+#       - name: myStep1125
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1124
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1126
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1125
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1127
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1126
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1128
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1127
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1129
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1128
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1130
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1129
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1131
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1130
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1132
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1131
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1133
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1132
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1134
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1133
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
+#       - name: myStep1135
+#         type: Bash
+#         configuration:
+#           environmentVariables:
+#             testCases: 'setup.js'
+#           inputResources: 
+#             - name: resource_pipelines1245
+#           inputSteps: 
+#             - name: myStep1134
+#         execution:
+#           onStart:
+#             - env
+#             - printenv
 #   - name: testing_123_1
 #     steps:
 #       - name: myStep1121

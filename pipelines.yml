@@ -9,6 +9,13 @@ resources:
         commit: false
         pullRequestCreate: true
         pullRequestClose: true
+  - name: repo_git_commit
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      gitProvider: git_v
+      buildOn:
+        commit: true
 
 pipelines:
   - name: test
@@ -18,6 +25,15 @@ pipelines:
         configuration:
           inputResources:
             - name: repo_git
+              trigger: true
+        execution:
+          onExecute:
+            - printenv      
+      - name: test1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: repo_git_commit
               trigger: true
         execution:
           onExecute:

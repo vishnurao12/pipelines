@@ -28,7 +28,9 @@ pipelines:
               trigger: true
         execution:
           onExecute:
-            - printenv      
+            - printenv  
+  - name: test1
+    steps:
       - name: test1
         type: Bash
         configuration:

@@ -73,6 +73,28 @@ pipelines:
         execution:
           onExecute:
             - printenv
+  - name: test3
+    steps:
+      - name: test3
+        type: Bash
+        configuration:
+          inputResources:
+            - name: repo_git_gitlab_false
+              trigger: true
+        execution:
+          onExecute:
+            - printenv
+  - name: test4
+    steps:
+      - name: test4
+        type: Bash
+        configuration:
+          inputResources:
+            - name: repo_git_gitlab_true
+              trigger: true
+        execution:
+          onExecute:
+            - printenv
 
 
       

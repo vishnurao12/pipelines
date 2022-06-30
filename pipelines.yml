@@ -48,7 +48,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-   - name: test2
+  - name: test2
     steps:
       - name: test2
         type: Bash

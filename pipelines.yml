@@ -16,6 +16,14 @@ resources:
       gitProvider: git_v
       buildOn:
         commit: true
+        
+  - name: repo_git_false
+    type: GitRepo
+    configuration:
+      path: vishnurao12/pipelines
+      gitProvider: git_v
+      buildOn:
+        pullRequestCreate: false
 
 pipelines:
   - name: test
@@ -36,6 +44,17 @@ pipelines:
         configuration:
           inputResources:
             - name: repo_git_commit
+              trigger: true
+        execution:
+          onExecute:
+            - printenv
+   - name: test2
+    steps:
+      - name: test2
+        type: Bash
+        configuration:
+          inputResources:
+            - name: repo_git_false
               trigger: true
         execution:
           onExecute:

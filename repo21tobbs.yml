@@ -1,0 +1,8 @@
+pipelines:
+  - name: testbbsConnection
+    steps:
+      - name: testbbsConnection
+        type: Bash
+        execution:
+          onExecute:
+            - curl https://bitbucketaps.jfrogdev.org

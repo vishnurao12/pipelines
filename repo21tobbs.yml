@@ -18,5 +18,5 @@ pipelines:
 #             - name: test_bbs
         execution:
           onExecute:
-            - curl https://bitbucketaps.jfrogdev.org
+#             - curl https://bitbucketaps.jfrogdev.org
             - git clone ssh://git@bitbucketaps.jfrogdev.org:7999/pip/tests.git

@@ -1,9 +1,9 @@
-resources:
-  - name: test_bbs
-    type: GitRepo
-    configuration:
-      gitProvider: test_automation_bbs
-      path: pip/tests
+# resources:
+#   - name: test_bbs
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test_automation_bbs
+#       path: pip/tests
 
 pipelines:
   - name: testbbsConnection
@@ -12,8 +12,10 @@ pipelines:
         type: Bash
         configuration:
           nodePool: pipelines_u18_aps1
-          inputResources: 
-            - name: test_bbs
+          integrations:
+            - name: test_automation_bbs
+#           inputResources: 
+#             - name: test_bbs
         execution:
           onExecute:
-            - curl https://bitbucketaps.jfrogdev.org
+            - git clone https://bitbucketaps.jfrogdev.org/scm/pip/tests.git

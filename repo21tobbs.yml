@@ -1,8 +1,19 @@
+resources:
+  - name: test_bbs
+    type: GitRepo
+    configuration:
+      gitProvider: test_automation_bbs
+      path: pip/tests
+
 pipelines:
   - name: testbbsConnection
     steps:
       - name: testbbsConnection
         type: Bash
+        configuration:
+          nodePool: pipelines_u18_aps1
+          inputResources: 
+            - name: test_bbs
         execution:
           onExecute:
             - curl https://bitbucketaps.jfrogdev.org

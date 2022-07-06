@@ -1,9 +1,10 @@
 pipelines:
   - name: testSimple
     configuration:
-    environmentVariables:
-      readOnly:
-        GO_VERSION: 1.18
+      environmentVariables:
+        readOnly:
+          GO_VERSION: 1.18
+          GO_VERSION: "1.18"
     steps:
       - name: testSimple
         type: Bash

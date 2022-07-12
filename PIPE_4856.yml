@@ -1,0 +1,15 @@
+pipelines:
+  - name: PIPE_4856
+    steps:
+      - name: PIPE_4856
+        type: Bash
+        configuration:
+          requiresApproval:
+            timeoutSeconds: 86400
+            approvers:
+              - admin
+            notifications:
+              - integrationName: test_slack
+        execution:
+          onExecute:
+            - echo "Hello World"

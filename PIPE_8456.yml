@@ -1,7 +1,7 @@
 pipelines:
-  - name: PIPE_4856
+  - name: PIPE_8456
     steps:
-      - name: PIPE_4856
+      - name: PIPE_8456
         type: Bash
         configuration:
           requiresApproval:

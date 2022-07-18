@@ -4,7 +4,7 @@ pipelines:
       - name: testSimple
         type: Bash
         configuration:
-          nodePool:            statictest12
+          nodePool:            u18dynamic1
         execution:
           onExecute:
             - echo "executing step..."

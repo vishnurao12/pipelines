@@ -3,8 +3,8 @@ pipelines:
     steps:
       - name: testSimple
         type: Bash
-        configuration:
-          nodePool:            statictest12
+#         configuration:
+#           nodePool:            statictest12
         execution:
           onExecute:
             - echo "executing step..."

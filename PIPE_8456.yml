@@ -10,7 +10,7 @@ pipelines:
               - admin
             notifications:
               - integrationName: test_slack
-              - integrationName: BSAG_4034_SMTP
+              - integrationName: test_smtp
                 recipients:
                   - pipelines.release@gmail.com
                   - email@example.com

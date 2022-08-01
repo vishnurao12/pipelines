@@ -6,16 +6,16 @@ pipelines:
         configuration:
           integrations:
               - name: test_slack
-          requiresApproval:
-            timeoutSeconds: 86400
-            approvers:
-              - admin
-            notifications:
-              - integrationName: test_slack
-              - integrationName: test_smtp
-                recipients:
-                  - pipelines.release@gmail.com
-                  - email@example.com
+#           requiresApproval:
+#             timeoutSeconds: 86400
+#             approvers:
+#               - admin
+#             notifications:
+#               - integrationName: test_slack
+#               - integrationName: test_smtp
+#                 recipients:
+#                   - pipelines.release@gmail.com
+#                   - email@example.com
         execution:
           onExecute:
             - echo "Hello World"

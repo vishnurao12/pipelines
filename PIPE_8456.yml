@@ -4,6 +4,8 @@ pipelines:
       - name: PIPE_8456
         type: Bash
         configuration:
+          integrations:
+              - name: S_B_Jenkins
           requiresApproval:
             timeoutSeconds: 86400
             approvers:

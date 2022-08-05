@@ -25,18 +25,18 @@ resources:
       buildOn:
         pullRequestCreate: false
         
-  - name: repo_git_gitlab_true
+  - name: repo_git_github_true
     type: GitRepo
     configuration:
-      path: jfbeta/webhooks
-      gitProvider: s_gitlab_duplicate
+      path: vishnurao12/pipelines
+      gitProvider: git_v
       buildOn:
         pullRequestCreate: true
-  - name: repo_git_gitlab_false
+  - name: repo_git_github_false
     type: GitRepo
     configuration:
-      path: jfbeta/webhooks
-      gitProvider: s_gitlab_duplicate
+      path: vishnurao12/pipelines
+      gitProvider: git_v
       buildOn:
         pullRequestClose: true
 pipelines:
@@ -79,7 +79,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: repo_git_gitlab_false
+            - name: repo_git_github_false
               trigger: true
         execution:
           onExecute:
@@ -90,7 +90,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: repo_git_gitlab_true
+            - name: repo_git_github_true
               trigger: true
         execution:
           onExecute:

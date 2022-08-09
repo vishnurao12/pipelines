@@ -5,7 +5,9 @@ pipelines:
         type: Matrix
         stepMode: Bash
         configuration:
-          nodePool: u18dynamic
+          multiNode: true
+          runtime:
+            type: host
         stepletMultipliers:
           environmentVariables:
             - delay: 1
@@ -16,41 +18,22 @@ pipelines:
               fail: 'false'
             - delay: 20
               fail: 'false'
-          fastFail: true
-          allowFailures:
-            - environmentVariables:
-                delay: 1
-                fail: 'true'
-          runtimes:
-            - type: image
-              image:
-                custom:
-                  name: shippabledocker/jfreq
-                  tag: latest12
-                  registry: docker_v
-                
-            - type: image
-              image:
-                custom:
-                  name: shippabledocker/sample-node
-                  tag: latest
-                  registry: docker_v        
-                
-                
-#           exclude:
-#             - environmentVariables:
-#                 delay: 10
-#                 fail: 'true'
-#                 - delay: 15
-#                   fail: 'false'
-#                 - delay: 20
-#                   fail: 'false'
-#                 - delay: 1
-#                   fail: 'true'
+            - delay: 11
+              fail: 'true'
+            - delay: 101
+              fail: 'true'
+            - delay: 151
+              fail: 'false'
+            - delay: 201
+              fail: 'false'
+            - delay: 12
+              fail: 'true'
+            - delay: 102
+              fail: 'true'
+            - delay: 152
+              fail: 'false'
+            - delay: 202
+              fail: 'false'
         execution:
-#           onStart:
-#             - sleep "$delay"
           onExecute:
             - echo "I am on matrix step"
-#             - |
-#               [ $fail == 'false' ] 
